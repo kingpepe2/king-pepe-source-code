@@ -1,0 +1,93 @@
+#!/sbin/openrc-run
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/kingpepe/.kingpepe" ]; then
+	KINGPEPED_DEFAULT_DATADIR="/var/lib/kingpepe/.kingpepe"
+else
+	KINGPEPED_DEFAULT_DATADIR="/var/lib/kingpeped"
+fi
+
+KINGPEPED_CONFIGFILE=${KINGPEPED_CONFIGFILE:-/etc/kingpepe/kingpepe.conf}
+KINGPEPED_PIDDIR=${KINGPEPED_PIDDIR:-/var/run/kingpeped}
+KINGPEPED_PIDFILE=${KINGPEPED_PIDFILE:-${KINGPEPED_PIDDIR}/kingpeped.pid}
+KINGPEPED_DATADIR=${KINGPEPED_DATADIR:-${KINGPEPED_DEFAULT_DATADIR}}
+KINGPEPED_USER=${KINGPEPED_USER:-${KINGPEPE_USER:-kingpepe}}
+KINGPEPED_GROUP=${KINGPEPED_GROUP:-kingpepe}
+KINGPEPED_BIN=${KINGPEPED_BIN:-/usr/bin/kingpeped}
+KINGPEPED_NICE=${KINGPEPED_NICE:-${NICELEVEL:-0}}
+KINGPEPED_OPTS="${KINGPEPED_OPTS:-${KINGPEPE_OPTS}}"
+
+name="Kingpepe Core Daemon"
+description="Kingpepe cryptocurrency P2P network daemon"
+
+command="/usr/bin/kingpeped"
+command_args="-pid=\"${KINGPEPED_PIDFILE}\" \
+		-conf=\"${KINGPEPED_CONFIGFILE}\" \
+		-datadir=\"${KINGPEPED_DATADIR}\" \
+		-daemon \
+		${KINGPEPED_OPTS}"
+
+required_files="${KINGPEPED_CONFIGFILE}"
+start_stop_daemon_args="-u ${KINGPEPED_USER} \
+			-N ${KINGPEPED_NICE} -w 2000"
+pidfile="${KINGPEPED_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${KINGPEPED_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${KINGPEPED_USER}:${KINGPEPED_GROUP}" \
+	"${KINGPEPED_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${KINGPEPED_USER}:${KINGPEPED_GROUP}" \
+	"${KINGPEPED_PIDDIR}"
+
+	checkpath -f \
+	-o "${KINGPEPED_USER}:${KINGPEPED_GROUP}" \
+	-m 0660 \
+	"${KINGPEPED_CONFIGFILE}"
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if grep -qs '^rpcuser=' "${KINGPEPED_CONFIGFILE}" && \
+		! grep -qs '^rpcpassword=' "${KINGPEPED_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run kingpeped."
+		eerror "The setting must appear in ${KINGPEPED_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Kingpepe Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}
