@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Kingpepe Core Security Policy
+    url: https://github.com/kingpepe/kingpepe/blob/master/SECURITY.md
+    about: View security policy
+  - name: Kingpepe Core Developers
+    url: https://bitcoincore.org
+    about: Kingpepe Core homepage

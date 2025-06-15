@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[o:kingpepe:p:kingpepe:r:qt-translation-025x]
+file_filter = src/qt/locale/kingpepe_<lang>.xlf
+source_file = src/qt/locale/kingpepe_en.xlf
+source_lang = en
