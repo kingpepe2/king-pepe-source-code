@@ -41,7 +41,6 @@ No roadmap. No empty promises. Just blocks, memes, and pure mining.
 - 🏰 **Website:** [kingpepe.carrd.co](https://kingpepe.carrd.co/)  
 - 🧠 **GitHub:** [github.com/kingpepe2](https://github.com/kingpepe2)  
 - 🔍 **Explorer / Tools:** [pepe3.org](https://pepe3.org/)  
-- 💬 **Bitcointalk:** [View Thread](https://bitcointalk.org/index.php?topic=5535932.msg65194149#msg65194149)  
 - 🐦 **X (Twitter):** [@kingpepe111](https://x.com/kingpepe111?s=21)
 
 ---
