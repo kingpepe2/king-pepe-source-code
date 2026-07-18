@@ -19,7 +19,7 @@ function(setup_split_debug_script)
 endfunction()
 
 function(add_windows_deploy_target)
-  if(MINGW AND TARGET kingpepe AND TARGET kingpepe-qt AND TARGET kingpeped AND TARGET kingpepe-cli AND TARGET kingpepe-tx AND TARGET kingpepe-wallet AND TARGET kingpepe-util AND TARGET test_kingpepe)
+  if(MINGW AND TARGET kingpepe AND TARGET kingpepe-qt AND TARGET kingpeped AND TARGET kingpepe-cli AND TARGET kingpepe-tx AND TARGET kingpepe-wallet AND TARGET kingpepe-util AND TARGET test_bitcoin)
     find_program(MAKENSIS_EXECUTABLE makensis)
     if(NOT MAKENSIS_EXECUTABLE)
       add_custom_target(deploy
@@ -42,7 +42,7 @@ function(add_windows_deploy_target)
       COMMAND ${CMAKE_STRIP} $<TARGET_FILE:kingpepe-tx> -o ${PROJECT_BINARY_DIR}/release/$<TARGET_FILE_NAME:kingpepe-tx>
       COMMAND ${CMAKE_STRIP} $<TARGET_FILE:kingpepe-wallet> -o ${PROJECT_BINARY_DIR}/release/$<TARGET_FILE_NAME:kingpepe-wallet>
       COMMAND ${CMAKE_STRIP} $<TARGET_FILE:kingpepe-util> -o ${PROJECT_BINARY_DIR}/release/$<TARGET_FILE_NAME:kingpepe-util>
-      COMMAND ${CMAKE_STRIP} $<TARGET_FILE:test_kingpepe> -o ${PROJECT_BINARY_DIR}/release/$<TARGET_FILE_NAME:test_kingpepe>
+      COMMAND ${CMAKE_STRIP} $<TARGET_FILE:test_bitcoin> -o ${PROJECT_BINARY_DIR}/release/$<TARGET_FILE_NAME:test_bitcoin>
       COMMAND ${MAKENSIS_EXECUTABLE} -V2 ${PROJECT_BINARY_DIR}/kingpepe-win64-setup.nsi
       VERBATIM
     )
