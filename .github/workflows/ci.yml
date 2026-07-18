@@ -423,7 +423,7 @@ jobs:
         with:
           name: ${{ matrix.artifact-name }}-${{ github.run_id }}
 
-      - name: Run bitcoind.exe
+      - name: Run kingpeped.exe
         run: py -3 .github/ci-windows-cross.py print_version
 
       - *IMPORT_VS_ENV

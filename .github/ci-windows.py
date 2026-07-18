@@ -101,21 +101,21 @@ def check_manifests(ci_type):
         return
 
     release_dir = Path.cwd() / "build" / "bin" / "Release"
-    manifest_path = release_dir / "bitcoind.manifest"
-    cmd_bitcoind_manifest = [
+    manifest_path = release_dir / "kingpeped.manifest"
+    cmd_daemon_manifest = [
         "mt.exe",
         "-nologo",
-        f"-inputresource:{release_dir / 'bitcoind.exe'}",
+        f"-inputresource:{release_dir / 'kingpeped.exe'}",
         f"-out:{manifest_path}",
     ]
-    run(cmd_bitcoind_manifest)
+    run(cmd_daemon_manifest)
     print(manifest_path.read_text())
 
     skips = {  # Skip as they currently do not have manifests
         "fuzz.exe",
         "bench_bitcoin.exe",
         "test_bitcoin-qt.exe",
-        "bitcoin-chainstate.exe",
+        "kingpepe-chainstate.exe",
     }
     for entry in release_dir.iterdir():
         if entry.suffix.lower() != ".exe":
@@ -162,14 +162,14 @@ def run_tests(ci_type):
     if ci_type == "standard":
         os.environ["DIR_UNIT_TEST_DATA"] = str(workspace / "unit_test_data")
         test_envs = {
-            "BITCOIN_BIN": "bitcoin.exe",
-            "BITCOIND": "bitcoind.exe",
-            "BITCOINCLI": "bitcoin-cli.exe",
+            "BITCOIN_BIN": "kingpepe.exe",
+            "BITCOIND": "kingpeped.exe",
+            "BITCOINCLI": "kingpepe-cli.exe",
             "BITCOIN_BENCH": "bench_bitcoin.exe",
-            "BITCOINTX": "bitcoin-tx.exe",
-            "BITCOINUTIL": "bitcoin-util.exe",
-            "BITCOINWALLET": "bitcoin-wallet.exe",
-            "BITCOINCHAINSTATE": "bitcoin-chainstate.exe",
+            "BITCOINTX": "kingpepe-tx.exe",
+            "BITCOINUTIL": "kingpepe-util.exe",
+            "BITCOINWALLET": "kingpepe-wallet.exe",
+            "BITCOINCHAINSTATE": "kingpepe-chainstate.exe",
         }
         for var, exe in test_envs.items():
             os.environ[var] = str(release_bin / exe)

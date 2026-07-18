@@ -24,21 +24,21 @@ def run(cmd, **kwargs):
 
 
 def print_version():
-    bitcoind = Path.cwd() / "bin" / "bitcoind.exe"
-    run([str(bitcoind), "-version"])
+    daemon = Path.cwd() / "bin" / "kingpeped.exe"
+    run([str(daemon), "-version"])
 
 
 def check_manifests():
     release_dir = Path.cwd() / "bin"
-    manifest_path = release_dir / "bitcoind.manifest"
+    manifest_path = release_dir / "kingpeped.manifest"
 
-    cmd_bitcoind_manifest = [
+    cmd_daemon_manifest = [
         "mt.exe",
         "-nologo",
-        f"-inputresource:{release_dir / 'bitcoind.exe'}",
+        f"-inputresource:{release_dir / 'kingpeped.exe'}",
         f"-out:{manifest_path}",
     ]
-    run(cmd_bitcoind_manifest)
+    run(cmd_daemon_manifest)
     print(manifest_path.read_text())
 
     skipped = {  # Skip as they currently do not have manifests
