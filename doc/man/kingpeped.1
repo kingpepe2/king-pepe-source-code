@@ -1,0 +1,27 @@
+.TH KINGPEPED 1
+.SH NAME
+kingpeped \- KingPepe Core daemon
+.SH SYNOPSIS
+.B kingpeped
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+The
+.B kingpeped
+daemon connects to the KingPepe peer-to-peer network, validates blocks and
+transactions, maintains the local chainstate, and exposes JSON-RPC when server
+mode is enabled.
+.SH OPTIONS
+Run
+.B kingpeped -help
+for the complete option list supported by this build.
+.SH FILES
+The default data directory is
+.B ~/.kingpepe
+on Linux,
+.B ~/Library/Application Support/Kingpepe
+on macOS, and
+.B %APPDATA%\\Kingpepe
+on Windows.
+.SH SEE ALSO
+.BR kingpepe-cli (1),
+.BR kingpepe-qt (1)

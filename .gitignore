@@ -1,0 +1,132 @@
+# Patterns that are specific to a text editor, IDE, operating system, or user
+# environment are not added here. They should be added to your local gitignore
+# file instead:
+# https://docs.github.com/en/get-started/git-basics/ignoring-files#configuring-ignored-files-for-all-repositories-on-your-computer
+
+# Build subdirectories.
+/*build*
+!/build-aux
+!/build_msvc
+
+*.pyc
+
+# Only ignore unexpected patches
+*.patch
+!ci/test/*.patch
+!contrib/guix/patches/*.patch
+!depends/patches/**/*.patch
+
+/CMakeUserPresets.json
+
+# Previous releases
+/releases
+
+# cargo default target dir
+target/
+
+/guix-build-*
+
+/ci/scratch/
+# KingPepe local build, dependency, and release-staging artifacts.
+/build/
+/build-*/
+/build_*/
+/cmake-build-*/
+/out/
+/dist/
+/artifacts/
+/staging/
+/release-staging/
+/WINDOWS WALLET/
+/KINGPEPE DAEMON/
+
+# Local dependency installs and package caches.
+/vcpkg_installed/
+/vcpkg-core-installed/
+/.tx/
+/packages/
+/downloads/
+
+# Local test output, temporary datadirs, and wallet/node runtime state.
+/upgrade-test/
+/test-output/
+/test-results/
+/tmp/
+/temp/
+/scratch/
+/regtest/
+/testnet3/
+/signet/
+/blocks/
+/chainstate/
+/indexes/
+/wallets/
+/debug.log
+/*.pid
+/*.cookie
+/.cookie
+/.lock
+/mempool.dat
+/settings.json
+/banlist.json
+/fee_estimates.dat
+/peers.dat
+
+# Generated binaries and linker/compiler outputs.
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.obj
+*.o
+*.a
+*.lib
+*.exp
+*.so
+*.dylib
+*.dSYM/
+*.manifest
+*.res
+
+# Logs, temporary files, and local reports.
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+/*.out.log
+/*.err.log
+/SHA256SUMS.txt
+/*BACKUP_MANIFEST*.txt
+/*BACKUP_MANIFEST*.csv
+/CHANGED_FILES.md
+/CONSENSUS_COMPATIBILITY_MATRIX.md
+/CONSENSUS_COMPATIBILITY_REPORT.md
+/FILE_CHANGE_MAP.md
+/KINGPEPE_V25_INVENTORY.md
+/KINGPEPE_V31_1_FINAL_MIGRATION_REPORT.md
+/RELEASE_READINESS_REPORT.md
+/RISK_REGISTER.md
+/RISK_REGISTER_FINAL.md
+/TEST_RESULTS.md
+/UPGRADE_COMPATIBILITY_REPORT.md
+/V25_TO_V31_1_MIGRATION_PLAN.md
+
+# IDE and editor workspaces.
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.vcxproj.user
+
+# CMake-generated files from accidental in-tree configures.
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+install_manifest.txt
+Testing/
+CTestTestfile.cmake
+DartConfiguration.tcl
