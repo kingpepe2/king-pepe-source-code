@@ -5,23 +5,29 @@
 #include <kernel/bitcoinkernel.h>
 #include <kernel/bitcoinkernel_wrapper.h>
 #include <util/fs.h>
+#include <arith_uint256.h>
+#include <hash.h>
+#include <uint256.h>
 
 #define BOOST_TEST_MODULE Bitcoin Kernel Test Suite
 #include <boost/test/included/unit_test.hpp>
 
-#include <test/kernel/block_data.h>
-
+#include <algorithm>
+#include <array>
 #include <charconv>
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
+#include <limits>
 #include <memory>
 #include <optional>
 #include <random>
 #include <ranges>
 #include <span>
+#include <stdexcept>
 #include <string>
 #include <string_view>
+#include <utility>
 #include <vector>
 
 using namespace btck;
@@ -86,6 +92,276 @@ void check_equal(std::span<const std::byte> _actual, std::span<const std::byte> 
     BOOST_CHECK_EQUAL_COLLECTIONS(
         actual.begin(), actual.end(),
         expected.begin(), expected.end());
+}
+
+using ByteVector = std::vector<std::byte>;
+
+constexpr int64_t COIN{100'000'000};
+constexpr uint32_t MAINNET_GENESIS_TIME{1749678364};
+constexpr uint32_t MAINNET_BITS{0x1e0ffff0};
+constexpr uint32_t REGTEST_GENESIS_TIME{1749678369};
+constexpr uint32_t REGTEST_BITS{0x207fffff};
+constexpr int32_t TEST_BLOCK_VERSION{4};
+
+const uint256 MAINNET_GENESIS_HASH{
+    []() consteval { return uint256{"00000a00a75c7ed12c71b9a8b73c01576009d62a0a606c0a1ef37b043c520fb2"}; }()};
+const uint256 REGTEST_GENESIS_HASH{
+    []() consteval { return uint256{"352a1a62f7880d325da6d3fe2e62272cd0ce735a7ba003eae4fb59d2a175a8b9"}; }()};
+const ByteVector ANYONE_CAN_SPEND_SCRIPT{
+    std::byte{0x51}, std::byte{0x75}, std::byte{0x51}, std::byte{0x75}, std::byte{0x51}, std::byte{0x75}, std::byte{0x51}, std::byte{0x75},
+    std::byte{0x51}, std::byte{0x75}, std::byte{0x51}, std::byte{0x75}, std::byte{0x51}, std::byte{0x75}, std::byte{0x51}, std::byte{0x75},
+    std::byte{0x51}, std::byte{0x75}, std::byte{0x51}, std::byte{0x75}, std::byte{0x51}, std::byte{0x51},
+};
+
+uint256 HashBytes(std::span<const std::byte> bytes)
+{
+    uint256 result;
+    CHash256()
+        .Write({reinterpret_cast<const unsigned char*>(bytes.data()), bytes.size()})
+        .Finalize(result);
+    return result;
+}
+
+void AppendByte(ByteVector& out, uint8_t value)
+{
+    out.push_back(std::byte{value});
+}
+
+void AppendBytes(ByteVector& out, std::span<const std::byte> bytes)
+{
+    out.insert(out.end(), bytes.begin(), bytes.end());
+}
+
+void AppendHash(ByteVector& out, const uint256& hash)
+{
+    const auto* data{reinterpret_cast<const std::byte*>(hash.data())};
+    out.insert(out.end(), data, data + uint256::size());
+}
+
+void AppendLE32(ByteVector& out, uint32_t value)
+{
+    for (int i{0}; i < 4; ++i) {
+        AppendByte(out, static_cast<uint8_t>((value >> (8 * i)) & 0xff));
+    }
+}
+
+void AppendLE64(ByteVector& out, int64_t value)
+{
+    const auto unsigned_value{static_cast<uint64_t>(value)};
+    for (int i{0}; i < 8; ++i) {
+        AppendByte(out, static_cast<uint8_t>((unsigned_value >> (8 * i)) & 0xff));
+    }
+}
+
+void AppendCompactSize(ByteVector& out, uint64_t size)
+{
+    if (size < 253) {
+        AppendByte(out, static_cast<uint8_t>(size));
+    } else if (size <= std::numeric_limits<uint16_t>::max()) {
+        AppendByte(out, 253);
+        AppendByte(out, static_cast<uint8_t>(size & 0xff));
+        AppendByte(out, static_cast<uint8_t>((size >> 8) & 0xff));
+    } else if (size <= std::numeric_limits<uint32_t>::max()) {
+        AppendByte(out, 254);
+        AppendLE32(out, static_cast<uint32_t>(size));
+    } else {
+        AppendByte(out, 255);
+        AppendLE64(out, static_cast<int64_t>(size));
+    }
+}
+
+ByteVector HeightScript(int height)
+{
+    ByteVector script;
+    if (height >= 1 && height <= 16) {
+        AppendByte(script, static_cast<uint8_t>(0x50 + height));
+        AppendByte(script, 0); // Dummy extranonce.
+        return script;
+    }
+    if (height == 0) {
+        AppendByte(script, 0);
+        AppendByte(script, 0); // Dummy extranonce.
+        return script;
+    }
+
+    std::vector<uint8_t> encoded;
+    for (int value{height}; value > 0; value >>= 8) {
+        encoded.push_back(static_cast<uint8_t>(value & 0xff));
+    }
+    if (!encoded.empty() && (encoded.back() & 0x80)) encoded.push_back(0);
+    AppendByte(script, static_cast<uint8_t>(encoded.size()));
+    for (const auto value : encoded) {
+        AppendByte(script, value);
+    }
+    AppendByte(script, 0); // Dummy extranonce.
+    return script;
+}
+
+void AppendTxOut(ByteVector& out, int64_t amount, const ByteVector& script_pubkey)
+{
+    AppendLE64(out, amount);
+    AppendCompactSize(out, script_pubkey.size());
+    AppendBytes(out, script_pubkey);
+}
+
+int64_t BlockSubsidy(int height, int halving_interval)
+{
+    const int halvings{height / halving_interval};
+    if (halvings >= 64) return 0;
+    int64_t subsidy{(height == 1 ? 19'740'000 : 3) * COIN};
+    subsidy >>= halvings;
+    return subsidy;
+}
+
+ByteVector MakeCoinbaseTx(int height, int64_t amount)
+{
+    ByteVector tx;
+    const auto script_sig{HeightScript(height)};
+    AppendLE32(tx, 2); // version
+    AppendCompactSize(tx, 1); // vin
+    for (int i{0}; i < 32; ++i) AppendByte(tx, 0);
+    AppendLE32(tx, std::numeric_limits<uint32_t>::max());
+    AppendCompactSize(tx, script_sig.size());
+    AppendBytes(tx, script_sig);
+    AppendLE32(tx, std::numeric_limits<uint32_t>::max() - 1);
+    AppendCompactSize(tx, 1); // vout
+    AppendTxOut(tx, amount, ANYONE_CAN_SPEND_SCRIPT);
+    AppendLE32(tx, static_cast<uint32_t>(height - 1)); // locktime
+    return tx;
+}
+
+ByteVector MakeSpendTx(const uint256& prev_txid, uint32_t prevout_index, int64_t amount)
+{
+    ByteVector tx;
+    AppendLE32(tx, 2); // version
+    AppendCompactSize(tx, 1); // vin
+    AppendHash(tx, prev_txid);
+    AppendLE32(tx, prevout_index);
+    AppendCompactSize(tx, 0); // scriptSig
+    AppendLE32(tx, std::numeric_limits<uint32_t>::max());
+    AppendCompactSize(tx, 1); // vout
+    AppendTxOut(tx, amount, ANYONE_CAN_SPEND_SCRIPT);
+    AppendLE32(tx, 0); // locktime
+    return tx;
+}
+
+uint256 ComputeMerkleRoot(std::vector<uint256> hashes)
+{
+    if (hashes.empty()) return {};
+    while (hashes.size() > 1) {
+        if (hashes.size() % 2 == 1) hashes.push_back(hashes.back());
+        std::vector<uint256> next;
+        next.reserve(hashes.size() / 2);
+        for (size_t i{0}; i < hashes.size(); i += 2) {
+            ByteVector pair;
+            pair.reserve(uint256::size() * 2);
+            AppendHash(pair, hashes[i]);
+            AppendHash(pair, hashes[i + 1]);
+            next.push_back(HashBytes(pair));
+        }
+        hashes = std::move(next);
+    }
+    return hashes.front();
+}
+
+arith_uint256 TargetFromBits(uint32_t bits)
+{
+    bool negative{false};
+    bool overflow{false};
+    arith_uint256 target;
+    target.SetCompact(bits, &negative, &overflow);
+    if (negative || overflow || target == 0) throw std::runtime_error{"invalid proof-of-work target"};
+    return target;
+}
+
+struct MinedHeader {
+    ByteVector data;
+    uint256 hash;
+    uint32_t nonce;
+};
+
+MinedHeader MineHeader(int32_t version, const uint256& prev_hash, const uint256& merkle_root, uint32_t time, uint32_t bits)
+{
+    const arith_uint256 target{TargetFromBits(bits)};
+    for (uint32_t nonce{0};; ++nonce) {
+        ByteVector header;
+        header.reserve(80);
+        AppendLE32(header, static_cast<uint32_t>(version));
+        AppendHash(header, prev_hash);
+        AppendHash(header, merkle_root);
+        AppendLE32(header, time);
+        AppendLE32(header, bits);
+        AppendLE32(header, nonce);
+        const uint256 hash{HashBytes(header)};
+        if (UintToArith256(hash) <= target) {
+            return {std::move(header), hash, nonce};
+        }
+        if (nonce == std::numeric_limits<uint32_t>::max()) throw std::runtime_error{"failed to mine test header"};
+    }
+}
+
+struct GeneratedBlock {
+    ByteVector data;
+    ByteVector header;
+    uint256 hash;
+    uint256 coinbase_txid;
+    uint32_t nonce;
+};
+
+GeneratedBlock MakeBlock(const uint256& prev_hash, int height, uint32_t time, uint32_t bits, int halving_interval, std::vector<ByteVector> extra_txs = {})
+{
+    std::vector<ByteVector> txs;
+    txs.push_back(MakeCoinbaseTx(height, BlockSubsidy(height, halving_interval)));
+    txs.insert(txs.end(), extra_txs.begin(), extra_txs.end());
+
+    std::vector<uint256> txids;
+    txids.reserve(txs.size());
+    for (const auto& tx : txs) {
+        txids.push_back(HashBytes(tx));
+    }
+    auto header{MineHeader(TEST_BLOCK_VERSION, prev_hash, ComputeMerkleRoot(txids), time, bits)};
+
+    ByteVector block{header.data};
+    AppendCompactSize(block, txs.size());
+    for (const auto& tx : txs) {
+        AppendBytes(block, tx);
+    }
+    return {std::move(block), std::move(header.data), header.hash, txids.front(), header.nonce};
+}
+
+const GeneratedBlock& KingPepeMainnetBlock1()
+{
+    static const GeneratedBlock block{MakeBlock(MAINNET_GENESIS_HASH, 1, MAINNET_GENESIS_TIME + 1, MAINNET_BITS, 210'000)};
+    return block;
+}
+
+const std::vector<ByteVector>& KingPepeRegtestBlockData()
+{
+    static const std::vector<ByteVector> blocks{[] {
+        std::vector<ByteVector> ret;
+        ret.reserve(206);
+        std::vector<uint256> coinbase_txids;
+        coinbase_txids.reserve(206);
+        uint256 prev_hash{REGTEST_GENESIS_HASH};
+        uint256 spend_txid;
+
+        for (int height{1}; height <= 206; ++height) {
+            std::vector<ByteVector> extra_txs;
+            if (height == 205) {
+                extra_txs.push_back(MakeSpendTx(coinbase_txids.front(), 0, COIN));
+                spend_txid = HashBytes(extra_txs.front());
+            } else if (height == 206) {
+                extra_txs.push_back(MakeSpendTx(spend_txid, 0, COIN - 1));
+            }
+
+            auto block{MakeBlock(prev_hash, height, REGTEST_GENESIS_TIME + height, REGTEST_BITS, 150, std::move(extra_txs))};
+            prev_hash = block.hash;
+            coinbase_txids.push_back(block.coinbase_txid);
+            ret.push_back(std::move(block.data));
+        }
+        return ret;
+    }()};
+    return blocks;
 }
 
 class TestLog
@@ -671,33 +947,33 @@ BOOST_AUTO_TEST_CASE(btck_block_header_tests)
     BOOST_CHECK_THROW(BlockHeader{hex_string_to_byte_vec("00")}, std::runtime_error);
     BOOST_CHECK_THROW(BlockHeader{hex_string_to_byte_vec("")}, std::runtime_error);
 
-    // Test all header field accessors using mainnet block 1
-    auto mainnet_block_1_header = hex_string_to_byte_vec("010000006fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000982051fd1e4ba744bbbe680e1fee14677ba1a3c3540bf7b1cdb606e857233e0e61bc6649ffff001d01e36299");
-    BlockHeader header{mainnet_block_1_header};
-    BOOST_CHECK_EQUAL(header.Version(), 1);
-    BOOST_CHECK_EQUAL(header.Timestamp(), 1231469665);
-    BOOST_CHECK_EQUAL(header.Bits(), 0x1d00ffff);
-    BOOST_CHECK_EQUAL(header.Nonce(), 2573394689);
-    BOOST_CHECK_EQUAL(byte_span_to_hex_string_reversed(header.Hash().ToBytes()), "00000000839a8e6886ab5951d76f411475428afc90947ee320161bbf18eb6048");
+    // Test all header field accessors using KingPepe mainnet block 1.
+    const auto& mainnet_block_1{KingPepeMainnetBlock1()};
+    BlockHeader header{mainnet_block_1.header};
+    BOOST_CHECK_EQUAL(header.Version(), TEST_BLOCK_VERSION);
+    BOOST_CHECK_EQUAL(header.Timestamp(), MAINNET_GENESIS_TIME + 1);
+    BOOST_CHECK_EQUAL(header.Bits(), MAINNET_BITS);
+    BOOST_CHECK_EQUAL(header.Nonce(), mainnet_block_1.nonce);
+    BOOST_CHECK_EQUAL(byte_span_to_hex_string_reversed(header.Hash().ToBytes()), mainnet_block_1.hash.ToString());
     auto prev_hash = header.PrevHash();
-    BOOST_CHECK_EQUAL(byte_span_to_hex_string_reversed(prev_hash.ToBytes()), "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f");
+    BOOST_CHECK_EQUAL(byte_span_to_hex_string_reversed(prev_hash.ToBytes()), MAINNET_GENESIS_HASH.ToString());
 
-    auto raw_block = hex_string_to_byte_vec("010000006fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000982051fd1e4ba744bbbe680e1fee14677ba1a3c3540bf7b1cdb606e857233e0e61bc6649ffff001d01e362990101000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0704ffff001d0104ffffffff0100f2052a0100000043410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac00000000");
-    Block block{raw_block};
+    Block block{mainnet_block_1.data};
     BlockHeader block_header{block.GetHeader()};
-    BOOST_CHECK_EQUAL(block_header.Version(), 1);
-    BOOST_CHECK_EQUAL(block_header.Timestamp(), 1231469665);
-    BOOST_CHECK_EQUAL(block_header.Bits(), 0x1d00ffff);
-    BOOST_CHECK_EQUAL(block_header.Nonce(), 2573394689);
-    BOOST_CHECK_EQUAL(byte_span_to_hex_string_reversed(block_header.Hash().ToBytes()), "00000000839a8e6886ab5951d76f411475428afc90947ee320161bbf18eb6048");
+    BOOST_CHECK_EQUAL(block_header.Version(), TEST_BLOCK_VERSION);
+    BOOST_CHECK_EQUAL(block_header.Timestamp(), MAINNET_GENESIS_TIME + 1);
+    BOOST_CHECK_EQUAL(block_header.Bits(), MAINNET_BITS);
+    BOOST_CHECK_EQUAL(block_header.Nonce(), mainnet_block_1.nonce);
+    BOOST_CHECK_EQUAL(byte_span_to_hex_string_reversed(block_header.Hash().ToBytes()), mainnet_block_1.hash.ToString());
 }
 
 BOOST_AUTO_TEST_CASE(btck_block)
 {
-    Block block{hex_string_to_byte_vec(REGTEST_BLOCK_DATA[0])};
-    Block block_100{hex_string_to_byte_vec(REGTEST_BLOCK_DATA[100])};
+    const auto& regtest_blocks{KingPepeRegtestBlockData()};
+    Block block{regtest_blocks[0]};
+    Block block_100{regtest_blocks[100]};
     CheckHandle(block, block_100);
-    Block block_tx{hex_string_to_byte_vec(REGTEST_BLOCK_DATA[205])};
+    Block block_tx{regtest_blocks[205]};
     CheckRange(block_tx.Transactions(), block_tx.CountTransactions());
     auto invalid_data = hex_string_to_byte_vec("012300");
     BOOST_CHECK_THROW(Block{invalid_data}, std::runtime_error);
@@ -855,16 +1131,15 @@ void chainman_mainnet_validation_test(TestDirectory& test_directory)
         test_directory, /*reindex=*/false, /*wipe_chainstate=*/false,
         /*block_tree_db_in_memory=*/false, /*chainstate_db_in_memory=*/false, context)};
 
-    // mainnet block 1
-    auto raw_block = hex_string_to_byte_vec("010000006fe28c0ab6f1b372c1a6a246ae63f74f931e8365e15a089c68d6190000000000982051fd1e4ba744bbbe680e1fee14677ba1a3c3540bf7b1cdb606e857233e0e61bc6649ffff001d01e362990101000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0704ffff001d0104ffffffff0100f2052a0100000043410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac00000000");
+    const auto& raw_block{KingPepeMainnetBlock1().data};
     Block block{raw_block};
     BlockHeader header{block.GetHeader()};
     TransactionView tx{block.GetTransaction(block.CountTransactions() - 1)};
-    BOOST_CHECK_EQUAL(byte_span_to_hex_string_reversed(tx.Txid().ToBytes()), "0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098");
-    BOOST_CHECK_EQUAL(header.Version(), 1);
-    BOOST_CHECK_EQUAL(header.Timestamp(), 1231469665);
-    BOOST_CHECK_EQUAL(header.Bits(), 0x1d00ffff);
-    BOOST_CHECK_EQUAL(header.Nonce(), 2573394689);
+    BOOST_CHECK_EQUAL(byte_span_to_hex_string_reversed(tx.Txid().ToBytes()), KingPepeMainnetBlock1().coinbase_txid.ToString());
+    BOOST_CHECK_EQUAL(header.Version(), TEST_BLOCK_VERSION);
+    BOOST_CHECK_EQUAL(header.Timestamp(), MAINNET_GENESIS_TIME + 1);
+    BOOST_CHECK_EQUAL(header.Bits(), MAINNET_BITS);
+    BOOST_CHECK_EQUAL(header.Nonce(), KingPepeMainnetBlock1().nonce);
     BOOST_CHECK_EQUAL(tx.CountInputs(), 1);
     Transaction tx2 = tx;
     BOOST_CHECK_EQUAL(tx2.CountInputs(), 1);
@@ -880,25 +1155,22 @@ void chainman_mainnet_validation_test(TestDirectory& test_directory)
     auto ser_block{block.ToBytes()};
     check_equal(ser_block, raw_block);
     bool new_block = false;
-    BOOST_CHECK(chainman->ProcessBlock(block, &new_block));
-    BOOST_CHECK(new_block);
-
-    validation_interface->m_expected_valid_block = std::nullopt;
-    new_block = false;
-    Block invalid_block{hex_string_to_byte_vec(REGTEST_BLOCK_DATA[REGTEST_BLOCK_DATA.size() - 1])};
-    BOOST_CHECK(!chainman->ProcessBlock(invalid_block, &new_block));
-    BOOST_CHECK(!new_block);
+    BOOST_REQUIRE(chainman->ProcessBlock(block, &new_block));
+    BOOST_REQUIRE(new_block);
 
     auto chain{chainman->GetChain()};
-    BOOST_CHECK_EQUAL(chain.Height(), 1);
+    BOOST_REQUIRE_EQUAL(chain.Height(), 1);
     auto tip{chain.Entries().back()};
     auto read_block{chainman->ReadBlock(tip)};
     BOOST_REQUIRE(read_block);
     check_equal(read_block.value().ToBytes(), raw_block);
 
     // Check that we can read the previous block
-    BlockTreeEntry tip_2{*tip.GetPrevious()};
-    Block read_block_2{*chainman->ReadBlock(tip_2)};
+    auto previous{tip.GetPrevious()};
+    BOOST_REQUIRE(previous);
+    BlockTreeEntry tip_2{*previous};
+    auto read_block_2{chainman->ReadBlock(tip_2)};
+    BOOST_REQUIRE(read_block_2);
     BOOST_CHECK_EQUAL(chainman->ReadBlockSpentOutputs(tip_2).Count(), 0);
     BOOST_CHECK_EQUAL(chainman->ReadBlockSpentOutputs(tip).Count(), 0);
 
@@ -906,6 +1178,8 @@ void chainman_mainnet_validation_test(TestDirectory& test_directory)
     BOOST_CHECK(!tip_2.GetPrevious());
 
     // If we try to validate it again, it should be a duplicate
+    validation_interface->m_expected_valid_block = std::nullopt;
+    new_block = false;
     BOOST_CHECK(chainman->ProcessBlock(block, &new_block));
     BOOST_CHECK(!new_block);
 }
@@ -947,11 +1221,12 @@ BOOST_AUTO_TEST_CASE(btck_block_tree_entry_tests)
         context)};
 
     // Process a couple of blocks
+    const auto& regtest_blocks{KingPepeRegtestBlockData()};
     for (size_t i{0}; i < 3; i++) {
-        Block block{hex_string_to_byte_vec(REGTEST_BLOCK_DATA[i])};
+        Block block{regtest_blocks[i]};
         bool new_block{false};
-        chainman->ProcessBlock(block, &new_block);
-        BOOST_CHECK(new_block);
+        BOOST_REQUIRE(chainman->ProcessBlock(block, &new_block));
+        BOOST_REQUIRE(new_block);
     }
 
     auto chain{chainman->GetChain()};
@@ -985,11 +1260,12 @@ BOOST_AUTO_TEST_CASE(btck_chainman_in_memory_tests)
         in_memory_test_directory, /*reindex=*/false, /*wipe_chainstate=*/false,
         /*block_tree_db_in_memory=*/true, /*chainstate_db_in_memory=*/true, context)};
 
-    for (auto& raw_block : REGTEST_BLOCK_DATA) {
-        Block block{hex_string_to_byte_vec(raw_block)};
+    const auto& regtest_blocks{KingPepeRegtestBlockData()};
+    for (const auto& raw_block : regtest_blocks) {
+        Block block{raw_block};
         bool new_block{false};
-        chainman->ProcessBlock(block, &new_block);
-        BOOST_CHECK(new_block);
+        BOOST_REQUIRE(chainman->ProcessBlock(block, &new_block));
+        BOOST_REQUIRE(new_block);
     }
 
     BOOST_CHECK(fs::exists(in_memory_test_directory.m_directory / "blocks"));
@@ -1005,13 +1281,14 @@ BOOST_AUTO_TEST_CASE(btck_chainman_regtest_tests)
 
     auto notifications{std::make_shared<TestKernelNotifications>()};
     auto context{create_context(notifications, ChainType::REGTEST)};
+    const auto& regtest_blocks{KingPepeRegtestBlockData()};
 
     {
         auto chainman{create_chainman(
             test_directory, /*reindex=*/false, /*wipe_chainstate=*/false,
             /*block_tree_db_in_memory=*/false, /*chainstate_db_in_memory=*/false, context)};
-        for (const auto& data : REGTEST_BLOCK_DATA) {
-            Block block{hex_string_to_byte_vec(data)};
+        for (const auto& data : regtest_blocks) {
+            Block block{data};
             BlockHeader header = block.GetHeader();
             BlockValidationState state{};
             BOOST_CHECK(state.GetBlockValidationResult() == BlockValidationResult::UNSET);
@@ -1028,17 +1305,17 @@ BOOST_AUTO_TEST_CASE(btck_chainman_regtest_tests)
     // Validate 206 regtest blocks in total.
     // Stop halfway to check that it is possible to continue validating starting
     // from prior state.
-    const size_t mid{REGTEST_BLOCK_DATA.size() / 2};
+    const size_t mid{regtest_blocks.size() / 2};
 
     {
         auto chainman{create_chainman(
             test_directory, /*reindex=*/false, /*wipe_chainstate=*/false,
             /*block_tree_db_in_memory=*/false, /*chainstate_db_in_memory=*/false, context)};
         for (size_t i{0}; i < mid; i++) {
-            Block block{hex_string_to_byte_vec(REGTEST_BLOCK_DATA[i])};
+            Block block{regtest_blocks[i]};
             bool new_block{false};
-            BOOST_CHECK(chainman->ProcessBlock(block, &new_block));
-            BOOST_CHECK(new_block);
+            BOOST_REQUIRE(chainman->ProcessBlock(block, &new_block));
+            BOOST_REQUIRE(new_block);
         }
     }
 
@@ -1046,21 +1323,21 @@ BOOST_AUTO_TEST_CASE(btck_chainman_regtest_tests)
         test_directory, /*reindex=*/false, /*wipe_chainstate=*/false,
         /*block_tree_db_in_memory=*/false, /*chainstate_db_in_memory=*/false, context)};
 
-    for (size_t i{mid}; i < REGTEST_BLOCK_DATA.size(); i++) {
-        Block block{hex_string_to_byte_vec(REGTEST_BLOCK_DATA[i])};
+    for (size_t i{mid}; i < regtest_blocks.size(); i++) {
+        Block block{regtest_blocks[i]};
         bool new_block{false};
-        BOOST_CHECK(chainman->ProcessBlock(block, &new_block));
-        BOOST_CHECK(new_block);
+        BOOST_REQUIRE(chainman->ProcessBlock(block, &new_block));
+        BOOST_REQUIRE(new_block);
     }
 
     auto chain = chainman->GetChain();
     auto tip = chain.Entries().back();
     auto read_block = chainman->ReadBlock(tip).value();
-    check_equal(read_block.ToBytes(), hex_string_to_byte_vec(REGTEST_BLOCK_DATA[REGTEST_BLOCK_DATA.size() - 1]));
+    check_equal(read_block.ToBytes(), regtest_blocks.back());
 
     auto tip_2 = tip.GetPrevious().value();
     auto read_block_2 = chainman->ReadBlock(tip_2).value();
-    check_equal(read_block_2.ToBytes(), hex_string_to_byte_vec(REGTEST_BLOCK_DATA[REGTEST_BLOCK_DATA.size() - 2]));
+    check_equal(read_block_2.ToBytes(), regtest_blocks[regtest_blocks.size() - 2]);
 
     Txid txid = read_block.Transactions()[0].Txid();
     Txid txid_2 = read_block_2.Transactions()[0].Txid();

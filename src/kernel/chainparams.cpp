@@ -334,7 +334,18 @@ public:
 
         fDefaultConsistencyChecks = true;
         m_is_mockable_chain = true;
-        m_assumeutxo_data = {};
+        const auto regtest_assumeutxo_hash_serialized{
+            []() consteval { return uint256{"77c6809c60b8819b6c07cfa259310249a658dd84389c6d7ffff16848085b0c97"}; }()};
+        const auto regtest_assumeutxo_blockhash{
+            []() consteval { return uint256{"6701e62c8703875fbd790cece079d3dbe72f2edbcc53254b9aa827e99bff611c"}; }()};
+        m_assumeutxo_data = {
+            {
+                .height = 40,
+                .hash_serialized = AssumeutxoHash{regtest_assumeutxo_hash_serialized},
+                .m_chain_tx_count = 41,
+                .blockhash = regtest_assumeutxo_blockhash,
+            },
+        };
         chainTxData = ChainTxData{.nTime = 0, .tx_count = 0, .dTxRate = 0};
         m_headers_sync_params = HeadersSyncParams{.commitment_period = 275, .redownload_buffer_size = 7017};
     }
