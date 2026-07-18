@@ -6,7 +6,7 @@
 
 # 👑 KingPepe (KPEPE)
 
-**KingPepe** is a fully mineable, SHA-256 powered meme coin built on **Bitcoin Core 25.0**.  
+**KingPepe** is a fully mineable, SHA-256 powered meme coin built on **Bitcoin Core 31.1**.  
 Inspired by the legendary meme frog, and powered by real Proof-of-Work — not hype.  
 No roadmap. No empty promises. Just blocks, memes, and pure mining.
 
@@ -16,7 +16,7 @@ No roadmap. No empty promises. Just blocks, memes, and pure mining.
 
 | Property                  | Value                                   |
 |---------------------------|-----------------------------------------|
-| 🔗 Source branch           | Bitcoin Core 25.0                       |
+| 🔗 Source branch           | Bitcoin Core 31.1                       |
 | ⚙️ Algorithm               | SHA-256 (Proof of Work)                |
 | 🪙 Coin name              | KingPepe                                |
 | 🏷️ Abbreviation (Ticker)  | `KPEPE`                                 |
@@ -32,7 +32,7 @@ No roadmap. No empty promises. Just blocks, memes, and pure mining.
 | ⏱️ Target spacing         | `5 minutes`                             |
 | 🕰️ Target timespan        | `10 minutes`                            |
 | ✅ Confirmations required  | `6 blocks`                              |
-| 🖧 Addnodes (Peers)        | `addnode=http://pepe3.org:24027` |
+
 
 ---
 
@@ -40,7 +40,6 @@ No roadmap. No empty promises. Just blocks, memes, and pure mining.
 
 - 🏰 **Website:** [kingpepe.carrd.co](https://kingpepe.carrd.co/)  
 - 🧠 **GitHub:** [github.com/kingpepe2](https://github.com/kingpepe2)  
-- 🔍 **Explorer / Tools:** [pepe3.org](https://pepe3.org/)  
 - 🐦 **X (Twitter):** [@kingpepe111](https://x.com/kingpepe111?s=21)
 
 ---
@@ -48,7 +47,7 @@ No roadmap. No empty promises. Just blocks, memes, and pure mining.
 ## 🔥 What Makes KingPepe Special?
 
 - ✅ 100% Mineable — SHA-256.  
-- 💎 Built on Bitcoin Core 25.0 — solid, stable, and battle-tested  
+- 💎 Built on Bitcoin Core 31.1 — solid, stable, and battle-tested  
 - 🧱 Real chain, not a token  
 - 👑 Community-first, meme-powered  
 - 📜 A tribute to internet culture and open-source values
