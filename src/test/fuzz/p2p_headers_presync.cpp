@@ -187,6 +187,9 @@ FUZZ_TARGET(p2p_headers_presync, .init = initialize)
     const arith_uint256 starting_work{WITH_LOCK(cs_main, return chainman.m_best_header->nChainWork)};
     arith_uint256 claimed_work{0};
     const arith_uint256 min_work{chainman.MinimumChainWork()};
+    if (starting_work >= min_work) {
+        return;
+    }
 
     auto try_add_headers = [&](const auto& headers) {
         arith_uint256 added_work{0};
