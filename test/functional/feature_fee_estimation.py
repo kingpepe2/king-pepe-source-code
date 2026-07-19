@@ -205,10 +205,20 @@ class EstimateFeeTest(BitcoinTestFramework):
             self.update_utxo(mined)
 
     def initial_split(self, node):
-        """Split two coinbase UTxOs into many small coins"""
+        """Split the available coinbase UTxOs into many small coins.
+
+        The fee-estimation transactions below each send a fixed amount and expect
+        a single one of these coins to cover it, so every coin must be larger than
+        that amount plus fee. With KingPepe's small block subsidy, two coinbase
+        outputs alone would produce coins smaller than the per-transaction amount,
+        forcing each transaction to combine several of them; the pool would then be
+        drained roughly twice as fast and fall below the 250 coins the RBF sanity
+        check requires. Spending all available coinbase outputs makes each of the
+        2048 coins comfortably larger than the per-transaction amount, matching the
+        one-input-per-transaction behaviour the test is designed around."""
         self.confutxo = self.wallet.send_self_transfer_multi(
             from_node=node,
-            utxos_to_spend=[self.wallet.get_utxo() for _ in range(2)],
+            utxos_to_spend=self.wallet.get_utxos(),
             num_outputs=2048)['new_utxos']
         while len(node.getrawmempool()) > 0:
             self.generate(node, 1, sync_fun=self.no_op)

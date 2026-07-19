@@ -135,7 +135,10 @@ jobs:
     # in Github repository settings.
     if: ${{ vars.SKIP_BRANCH_PUSH != 'true' || github.event_name == 'pull_request' }}
 
-    timeout-minutes: 120
+    # The standard variant runs the full unit + functional suite and needs more
+    # than 120 min on GitHub-hosted macOS runners with a cold ccache; the fuzz
+    # variant finishes well within this budget.
+    timeout-minutes: 300
 
     strategy:
       fail-fast: false
@@ -206,7 +209,9 @@ jobs:
 
       - name: Save Ccache cache
         uses: actions/cache/save@v5
-        if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch && steps.ccache-cache.outputs.cache-hit != 'true'
+        # always() so a timed-out standard run still persists ccache, warming the
+        # build for the next run instead of recompiling from scratch each time.
+        if: ${{ always() && github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch && steps.ccache-cache.outputs.cache-hit != 'true' }}
         with:
           path: ${{ env.CCACHE_DIR }}
           # https://github.com/actions/cache/blob/main/tips-and-workarounds.md#update-a-cache
@@ -448,7 +453,12 @@ jobs:
     needs: runners
     runs-on: ${{ needs.runners.outputs.provider == 'warp' && matrix.warp-runner || matrix.fallback-runner }}
     if: ${{ vars.SKIP_BRANCH_PUSH != 'true' || github.event_name == 'pull_request' }}
-    timeout-minutes: ${{ matrix.timeout-minutes }}
+    # Warp runners keep their tuned per-job budgets. On the slower GitHub-hosted
+    # fallback runners a cold build (depends + ccache) plus the full test suite
+    # needs more headroom, so use a generous budget there (still under GitHub's
+    # 360-minute hard cap). Combined with saving caches on timeout below, this
+    # lets a cold run finish and warm the cache instead of being killed forever.
+    timeout-minutes: ${{ needs.runners.outputs.provider == 'warp' && matrix.timeout-minutes || 350 }}
 
     env:
       DANGER_CI_ON_HOST_FOLDERS: 1
@@ -581,6 +591,12 @@ jobs:
         run: ./ci/test_run_all.sh
 
       - name: Save caches
+        # Run even if the CI script was cancelled (e.g. by a job timeout). The
+        # depends build and ccache are expensive and identical across runs; the
+        # depends-built cache key is stable (DEPENDS_HASH), so persisting it on a
+        # timed-out run lets the next run skip rebuilding it. The Bitcoin Core
+        # depends system is incremental, so a partial cache is safe to resume.
+        if: ${{ always() }}
         uses: ./.github/actions/cache/save
         with:
           provider: ${{ matrix.provider || needs.runners.outputs.provider }}
