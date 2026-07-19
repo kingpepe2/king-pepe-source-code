@@ -36,7 +36,7 @@ if(ENABLE_WALLET)
   )
 endif()
 
-add_test(NAME test_bitcoin-qt
+add_test(NAME test_kingpepe-qt
   COMMAND test_bitcoin-qt
 )
 if(WIN32 AND VCPKG_TARGET_TRIPLET)
