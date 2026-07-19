@@ -494,7 +494,12 @@ class PruneTest(BitcoinTestFramework):
     def test_scanblocks_pruned(self):
         node = self.nodes[5]
         genesis_blockhash = node.getblockhash(0)
-        false_positive_spk = bytes.fromhex("001400000000000000000000000000000000000cadcb")
+        # This scriptPubKey is a BIP158 false positive against KingPepe's genesis
+        # block filter (whose only element is the genesis coinbase output script).
+        # It was found by matching the Golomb-coded set hash of that element for
+        # KingPepe's regtest genesis (hash 352a1a62...a175a8b9); the upstream
+        # value was crafted for Bitcoin's genesis and no longer collides.
+        false_positive_spk = bytes.fromhex("0014000000000000000000000000000000000001535a")
 
         assert genesis_blockhash in node.scanblocks(
             "start", [{"desc": f"raw({false_positive_spk.hex()})"}], 0, 0)['relevant_blocks']
