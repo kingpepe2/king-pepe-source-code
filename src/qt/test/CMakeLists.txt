@@ -41,7 +41,7 @@ add_test(NAME test_kingpepe-qt
 )
 if(WIN32 AND VCPKG_TARGET_TRIPLET)
   set(plugin_path "$<SHELL_PATH:$<PATH:GET_PARENT_PATH,$<PATH:GET_PARENT_PATH,$<TARGET_PROPERTY:Qt6::QWindowsIntegrationPlugin,LOCATION_$<CONFIG>>>>>")
-  set_property(TEST test_bitcoin-qt APPEND PROPERTY
+  set_property(TEST test_kingpepe-qt APPEND PROPERTY
     ENVIRONMENT_MODIFICATION
       # On Windows, vcpkg configures Qt with `-opengl dynamic`, which makes
       # the "minimal" platform plugin unusable due to internal Qt bugs.
