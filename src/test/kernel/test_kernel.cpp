@@ -9,7 +9,7 @@
 #include <hash.h>
 #include <uint256.h>
 
-#define BOOST_TEST_MODULE Bitcoin Kernel Test Suite
+#define BOOST_TEST_MODULE KingPepe Kernel Test Suite
 #include <boost/test/included/unit_test.hpp>
 
 #include <algorithm>
