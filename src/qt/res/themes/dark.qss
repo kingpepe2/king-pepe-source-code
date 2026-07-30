@@ -277,3 +277,12 @@ AddressBookPage QPushButton { min-height: 18px; }
 QScrollBar::handle:vertical:pressed, QScrollBar::handle:horizontal:pressed { background: #33c667; }
 QToolTip { font-size: 12px; }
 QLabel:disabled { color: #4a6154; }
+
+/* Custom Transactions screen (Screen 1) */
+#pageHeading { font-size: 20px; font-weight: 800; color: #e9f3ec; }
+#txRow { background-color: #152219; border: 1px solid #1c2f24; border-radius: 12px; }
+#txRow:hover { border-color: #33c667; }
+#txWho { font-weight: 600; color: #e9f3ec; }
+#txWhen { color: #8ca99a; font-size: 12px; }
+#txAmountIn { color: #33c667; font-weight: 700; }
+#txAmountOut { color: #e9f3ec; font-weight: 700; }

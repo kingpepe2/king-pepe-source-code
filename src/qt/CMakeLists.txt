@@ -213,6 +213,8 @@ if(ENABLE_WALLET)
       transactionoverviewwidget.h
       transactionrecord.cpp
       transactionrecord.h
+      transactionspage.cpp
+      transactionspage.h
       transactiontablemodel.cpp
       transactiontablemodel.h
       transactionview.cpp

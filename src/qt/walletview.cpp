@@ -16,6 +16,7 @@
 #include <qt/receivecoinsdialog.h>
 #include <qt/sendcoinsdialog.h>
 #include <qt/signverifymessagedialog.h>
+#include <qt/transactionspage.h>
 #include <qt/transactiontablemodel.h>
 #include <qt/transactionview.h>
 #include <qt/walletmodel.h>
@@ -43,6 +44,7 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     // Create tabs
     overviewPage = new OverviewPage(platformStyle);
     dashboardPage = new DashboardPage(this);
+    modernTransactionsPage = new TransactionsPage(this);
     overviewPage->setWalletModel(walletModel);
 
     transactionsPage = new QWidget(this);
@@ -76,6 +78,7 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
 
     addWidget(overviewPage);
     addWidget(dashboardPage);
+    addWidget(modernTransactionsPage);
     addWidget(transactionsPage);
     addWidget(receiveCoinsPage);
     addWidget(sendCoinsPage);
@@ -97,6 +100,9 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     };
     connect(walletModel, &WalletModel::balanceChanged, this, updateDashboardBalance);
     updateDashboardBalance(walletModel->getCachedBalance());
+
+    // KingPepe: feed the modern transactions screen from the existing table model.
+    modernTransactionsPage->setModel(walletModel);
 
     connect(overviewPage, &OverviewPage::transactionClicked, this, &WalletView::transactionClicked);
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
@@ -181,7 +187,8 @@ void WalletView::gotoOverviewPage()
 
 void WalletView::gotoHistoryPage()
 {
-    setCurrentWidget(transactionsPage);
+    // KingPepe: the History navigation now presents the modern transactions screen.
+    setCurrentWidget(modernTransactionsPage);
 }
 
 void WalletView::gotoReceiveCoinsPage()
