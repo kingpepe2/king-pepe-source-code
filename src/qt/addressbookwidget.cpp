@@ -82,9 +82,9 @@ void AddressBookWidget::rebuild()
 
     const int rows = m_model->rowCount(QModelIndex());
     for (int r = 0; r < rows; ++r) {
-        const QString label = m_model->index(r, AddressTableModel::Label).data().toString();
-        const QString address = m_model->index(r, AddressTableModel::Address).data().toString();
-        const QString type = m_model->index(r, 0).data(AddressTableModel::TypeRole).toString();
+        const QString label = m_model->index(r, AddressTableModel::Label, QModelIndex()).data().toString();
+        const QString address = m_model->index(r, AddressTableModel::Address, QModelIndex()).data().toString();
+        const QString type = m_model->index(r, 0, QModelIndex()).data(AddressTableModel::TypeRole).toString();
 
         QFrame* row = new QFrame();
         row->setObjectName(QStringLiteral("txRow"));
