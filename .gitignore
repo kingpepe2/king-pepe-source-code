@@ -130,3 +130,12 @@ install_manifest.txt
 Testing/
 CTestTestfile.cmake
 DartConfiguration.tcl
+
+# KingPepe: local deploy folders, test datadirs, wallet backups, verification output
+# (never commit — may contain wallet.dat, keys, mainnet data)
+WINDOWS WALLET*/
+RC_TEST_DATA/
+MAINNET_UI_TEST_DATA/
+MAINNET_WALLET_BACKUPS/
+*ROLLBACK*/
+verification/
