@@ -9,6 +9,7 @@
 #include <qt/clientmodel.h>
 #include <qt/guiutil.h>
 #include <qt/optionsmodel.h>
+#include <qt/bitcoinunits.h>
 #include <qt/dashboardpage.h>
 #include <qt/overviewpage.h>
 #include <qt/platformstyle.h>
@@ -18,6 +19,8 @@
 #include <qt/transactiontablemodel.h>
 #include <qt/transactionview.h>
 #include <qt/walletmodel.h>
+
+#include <interfaces/wallet.h>
 
 #include <interfaces/node.h>
 #include <node/interface_ui.h>
@@ -80,6 +83,20 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     // KingPepe: route the modern dashboard's actions to the existing pages.
     connect(dashboardPage, &DashboardPage::sendRequested, this, [this] { gotoSendCoinsPage(); });
     connect(dashboardPage, &DashboardPage::receiveRequested, this, &WalletView::gotoReceiveCoinsPage);
+
+    // KingPepe: feed live balances into the dashboard, formatted with the display unit.
+    auto updateDashboardBalance = [this](const interfaces::WalletBalances& bal) {
+        if (!walletModel || !walletModel->getOptionsModel()) return;
+        const BitcoinUnit unit = walletModel->getOptionsModel()->getDisplayUnit();
+        const CAmount total = bal.balance + bal.unconfirmed_balance + bal.immature_balance;
+        dashboardPage->setBalance(
+            BitcoinUnits::formatWithUnit(unit, total),
+            BitcoinUnits::formatWithUnit(unit, bal.balance),
+            BitcoinUnits::formatWithUnit(unit, bal.unconfirmed_balance),
+            BitcoinUnits::formatWithUnit(unit, bal.immature_balance));
+    };
+    connect(walletModel, &WalletModel::balanceChanged, this, updateDashboardBalance);
+    updateDashboardBalance(walletModel->getCachedBalance());
 
     connect(overviewPage, &OverviewPage::transactionClicked, this, &WalletView::transactionClicked);
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
