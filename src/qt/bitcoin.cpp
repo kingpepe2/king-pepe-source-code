@@ -549,6 +549,10 @@ int GuiMain(int argc, char* argv[])
     // Now that the QApplication is setup and we have parsed our parameters, we can set the platform style
     app.setupPlatformStyle();
 
+    // KingPepe: apply the UI theme (dark premium by default) application-wide.
+    // UI-only; does not affect wallet, consensus, or RPC behavior.
+    GUIUtil::applyTheme(QSettings().value("theme", "dark").toString());
+
     /// 3. Application identification
     // must be set before OptionsModel is initialized or translations are loaded,
     // as it is used to locate QSettings

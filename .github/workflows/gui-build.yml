@@ -1,0 +1,76 @@
+# KingPepe desktop wallet — GUI build & release artifact
+# Verifies the professional-wallet redesign compiles, and produces kingpepe-qt.exe.
+# UI-only branch; does not affect consensus/wallet/RPC behavior.
+name: KingPepe GUI build
+
+on:
+  push:
+    branches: [ professional-desktop-wallet ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # Fast compile verification of the redesign on Linux (system Qt6).
+  linux-gui:
+    name: Linux Qt6 GUI build (compile check)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential cmake ninja-build pkgconf python3 ccache \
+            libevent-dev libboost-dev libsqlite3-dev libqrencode-dev libgl1-mesa-dev \
+            qt6-base-dev qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qt6-l10n-tools
+      - name: Configure
+        run: >
+          cmake -B build -G Ninja
+          -DBUILD_GUI=ON -DENABLE_WALLET=ON
+          -DBUILD_DAEMON=OFF -DBUILD_CLI=OFF -DBUILD_TX=OFF -DBUILD_UTIL=OFF
+          -DBUILD_TESTS=OFF -DBUILD_BENCH=OFF -DBUILD_FUZZ_BINARY=OFF
+      - name: Build kingpepe-qt
+        run: cmake --build build --target kingpepe-qt -j"$(nproc)"
+      - name: Show binary
+        run: ls -la build/bin/ || ls -la build/src/qt/
+
+  # Produces the Windows kingpepe-qt.exe via the depends cross-compile system.
+  # Heavier (depends builds Qt + deps for mingw); cached across runs.
+  windows-exe:
+    name: Windows kingpepe-qt.exe (cross-compile)
+    runs-on: ubuntu-24.04
+    env:
+      HOST: x86_64-w64-mingw32
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential cmake ninja-build pkgconf python3 curl ca-certificates \
+            g++-mingw-w64-x86-64-posix nsis
+          sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
+          sudo update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
+      - name: Cache depends
+        uses: actions/cache@v4
+        with:
+          path: depends/${{ env.HOST }}
+          key: depends-${{ env.HOST }}-${{ hashFiles('depends/packages/*.mk','depends/hosts/*.mk') }}
+      - name: Build depends (Qt + libs for mingw)
+        run: make -C depends HOST=$HOST NO_QT=0 -j"$(nproc)"
+      - name: Configure with depends toolchain
+        run: cmake -B build --toolchain depends/$HOST/toolchain.cmake -DBUILD_GUI=ON
+      - name: Build kingpepe-qt.exe
+        run: cmake --build build --target kingpepe-qt -j"$(nproc)"
+      - name: Locate exe
+        run: find build -name 'kingpepe-qt.exe' -exec ls -la {} +
+      - name: Upload kingpepe-qt.exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: kingpepe-qt-windows
+          path: build/**/kingpepe-qt.exe
+          if-no-files-found: warn

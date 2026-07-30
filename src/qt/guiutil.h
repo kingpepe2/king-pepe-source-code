@@ -417,6 +417,12 @@ namespace GUIUtil
     QString WalletDisplayName(const std::string& name);
     QString WalletDisplayName(const QString& name);
 
+    /**
+     * Apply the KingPepe UI theme stylesheet (e.g. "dark" or "light") application-wide.
+     * UI-only; does not touch wallet, consensus, or RPC behavior. Unknown themes are ignored.
+     */
+    void applyTheme(const QString& theme);
+
 } // namespace GUIUtil
 
 #endif // BITCOIN_QT_GUIUTIL_H
