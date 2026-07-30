@@ -71,3 +71,26 @@ QCheckBox::indicator:checked, QRadioButton::indicator:checked { background: #1f8
 
 QGroupBox { border: 1px solid #e7efe8; border-radius: 12px; margin-top: 14px; padding-top: 8px; background-color: #ffffff; }
 QGroupBox::title { subcontrol-origin: margin; left: 12px; padding: 0 6px; color: #5c7365; font-weight: 600; }
+
+/* ============================================================
+ * Phase 2 — Send / Receive / Transactions / Address Book polish
+ * ============================================================ */
+
+QLabel#labelTotal { font-size: 19px; font-weight: 800; color: #1f8f49; }
+QLabel#labelBalance { font-weight: 700; color: #0f1a14; }
+QLabel#labelUnconfirmed, QLabel#labelImmature { color: #5c7365; }
+QLabel#labelBalanceText, QLabel#labelTotalText,
+QLabel#labelUnconfirmedText, QLabel#labelImmatureText { color: #8aa093; }
+
+QPushButton#sendButton, QPushButton#receiveButton, QPushButton#newAddress {
+    background-color: #1f8f49; color: #ffffff; border: none; font-weight: 700; padding: 9px 18px;
+}
+QPushButton#sendButton:hover, QPushButton#receiveButton:hover, QPushButton#newAddress:hover {
+    background-color: #23a052;
+}
+QPushButton#sendButton:disabled, QPushButton#receiveButton:disabled, QPushButton#newAddress:disabled {
+    background-color: #e4ece6; color: #a7b8ac;
+}
+
+QLabel#labelCoinControlInsuffFunds { color: #d0353a; font-weight: 700; }
+#payTo { font-family: "Roboto Mono", monospace; }

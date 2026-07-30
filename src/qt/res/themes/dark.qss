@@ -157,3 +157,32 @@ QGroupBox {
 }
 QGroupBox::title { subcontrol-origin: margin; left: 12px; padding: 0 6px; color: #8ca99a; font-weight: 600; }
 QFrame[frameShape="4"], QFrame[frameShape="5"] { color: #1c2f24; }
+
+/* ============================================================
+ * Phase 2 — Send / Receive / Transactions / Address Book polish
+ * (object-name selectors; UI-only, preserves all functionality)
+ * ============================================================ */
+
+/* Dashboard balance emphasis */
+QLabel#labelTotal { font-size: 19px; font-weight: 800; color: #33c667; }
+QLabel#labelBalance { font-weight: 700; color: #e9f3ec; }
+QLabel#labelUnconfirmed, QLabel#labelImmature { color: #8ca99a; }
+QLabel#labelBalanceText, QLabel#labelTotalText,
+QLabel#labelUnconfirmedText, QLabel#labelImmatureText { color: #5f7a6b; }
+
+/* Primary call-to-action buttons (Send / Receive / New address) */
+QPushButton#sendButton, QPushButton#receiveButton, QPushButton#newAddress {
+    background-color: #33c667; color: #04110a; border: none; font-weight: 700; padding: 9px 18px;
+}
+QPushButton#sendButton:hover, QPushButton#receiveButton:hover, QPushButton#newAddress:hover {
+    background-color: #3ad673;
+}
+QPushButton#sendButton:disabled, QPushButton#receiveButton:disabled, QPushButton#newAddress:disabled {
+    background-color: #17241c; color: #5f7a6b;
+}
+
+/* Coin-control insufficient-funds warning */
+QLabel#labelCoinControlInsuffFunds { color: #f2555a; font-weight: 700; }
+
+/* Recipient address field in monospace for legibility */
+#payTo { font-family: "Roboto Mono", monospace; }
