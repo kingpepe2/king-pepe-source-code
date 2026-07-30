@@ -125,3 +125,17 @@ ReceiveCoinsDialog #frame2 {
     border: 1px solid #e7efe8;
     border-radius: 14px;
 }
+
+/* ============================================================
+ * Feature 2 — Network / Debug panel redesign (RPCConsole)
+ * ============================================================ */
+RPCConsole QGroupBox {
+    background-color: #ffffff;
+    border: 1px solid #e7efe8;
+    border-radius: 14px;
+    margin-top: 16px;
+}
+RPCConsole QLabel#labelNetwork { color: #1f8f49; font-weight: 700; }
+RPCConsole #messagesWidget { font-family: "Roboto Mono", monospace; border-radius: 12px; }
+RPCConsole #lineEdit { font-family: "Roboto Mono", monospace; }
+RPCConsole QTabBar::tab:selected { border-bottom: 2px solid #1f8f49; }
