@@ -53,6 +53,7 @@ class QComboBox;
 class QDateTime;
 class QProgressBar;
 class QProgressDialog;
+class QTimer;
 QT_END_NAMESPACE
 
 namespace GUIUtil {
@@ -119,6 +120,9 @@ private:
     std::unique_ptr<interfaces::Handler> m_handler_question;
     ClientModel* clientModel = nullptr;
     WalletFrame* walletFrame = nullptr;
+
+    //! KingPepe: single-shot inactivity timer that auto-locks an unlocked encrypted wallet.
+    QTimer* m_auto_lock_timer = nullptr;
 
     UnitDisplayStatusBarControl* unitDisplayControl = nullptr;
     GUIUtil::ThemedLabel* labelWalletEncryptionIcon = nullptr;
