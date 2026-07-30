@@ -175,3 +175,8 @@ SendCoinsEntry { background-color: #f4f8f4; border: 1px solid #e7efe8; border-ra
 OptionsDialog QTabWidget::pane { background-color: #f4f8f4; }
 OptionsDialog QListWidget { background-color: #ffffff; border: 1px solid #e7efe8; border-radius: 12px; }
 AddressBookPage QPushButton { min-height: 18px; }
+
+/* Module 8 — final polish */
+QScrollBar::handle:vertical:pressed, QScrollBar::handle:horizontal:pressed { background: #1f8f49; }
+QToolTip { font-size: 12px; }
+QLabel:disabled { color: #a7b8ac; }
