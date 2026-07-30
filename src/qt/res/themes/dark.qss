@@ -241,3 +241,9 @@ RPCConsole QTabBar::tab:selected { border-bottom: 2px solid #33c667; }
     border-radius: 16px;
 }
 #walletCardTitle { color: #8ca99a; font-size: 13px; font-weight: 600; }
+
+/* StatCard component (Module 2) */
+#statCard { background-color: #152219; border: 1px solid #233a2c; border-radius: 16px; }
+#statCaption { color: #8ca99a; font-size: 12px; font-weight: 600; }
+#statValue { color: #e9f3ec; font-size: 22px; font-weight: 800; }
+#statSubtext { color: #5f7a6b; font-size: 12px; }
