@@ -193,3 +193,6 @@ QLabel:disabled { color: #a7b8ac; }
 #addressBookWidget { background-color: #f4f7f4; }
 
 #settingsPage { background-color: #f4f7f4; }
+
+#receivePage { background-color: #f4f7f4; }
+#receivePage QLineEdit { min-width: 240px; }

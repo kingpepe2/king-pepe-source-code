@@ -14,6 +14,7 @@
 #include <qt/dashboardpage.h>
 #include <qt/overviewpage.h>
 #include <qt/platformstyle.h>
+#include <qt/receivepage.h>
 #include <qt/receivecoinsdialog.h>
 #include <qt/sendcoinsdialog.h>
 #include <qt/signverifymessagedialog.h>
@@ -46,6 +47,7 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     overviewPage = new OverviewPage(platformStyle);
     dashboardPage = new DashboardPage(this);
     modernTransactionsPage = new TransactionsPage(this);
+    modernReceivePage = new ReceivePage(this);
     overviewPage->setWalletModel(walletModel);
 
     transactionsPage = new QWidget(this);
@@ -80,6 +82,7 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     addWidget(overviewPage);
     addWidget(dashboardPage);
     addWidget(modernTransactionsPage);
+    addWidget(modernReceivePage);
     addWidget(transactionsPage);
     addWidget(receiveCoinsPage);
     addWidget(sendCoinsPage);
@@ -108,6 +111,9 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     // KingPepe: modern address book window (reuses the address table model).
     modernAddressBook = new AddressBookWidget(this);
     modernAddressBook->setModel(walletModel);
+
+    // KingPepe: modern receive screen (reuses address derivation + QR + requests).
+    modernReceivePage->setModel(walletModel);
 
     connect(overviewPage, &OverviewPage::transactionClicked, this, &WalletView::transactionClicked);
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
@@ -198,7 +204,8 @@ void WalletView::gotoHistoryPage()
 
 void WalletView::gotoReceiveCoinsPage()
 {
-    setCurrentWidget(receiveCoinsPage);
+    // KingPepe: the Receive navigation now presents the modern receive screen.
+    setCurrentWidget(modernReceivePage);
 }
 
 void WalletView::gotoSendCoinsPage(QString addr)

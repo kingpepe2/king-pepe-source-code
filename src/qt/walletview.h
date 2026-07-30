@@ -16,6 +16,7 @@ class DashboardPage;
 class OverviewPage;
 class PlatformStyle;
 class ReceiveCoinsDialog;
+class ReceivePage;
 class SendCoinsDialog;
 class TransactionsPage;
 class SendCoinsRecipient;
@@ -65,6 +66,7 @@ private:
     DashboardPage *dashboardPage;
     TransactionsPage *modernTransactionsPage;
     AddressBookWidget *modernAddressBook;
+    ReceivePage *modernReceivePage;
     QWidget *transactionsPage;
     ReceiveCoinsDialog *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;

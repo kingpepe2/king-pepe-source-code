@@ -197,6 +197,8 @@ if(ENABLE_WALLET)
       qrimagewidget.h
       receivecoinsdialog.cpp
       receivecoinsdialog.h
+      receivepage.cpp
+      receivepage.h
       receiverequestdialog.cpp
       receiverequestdialog.h
       recentrequeststablemodel.cpp
