@@ -162,3 +162,8 @@ RPCConsole QTabBar::tab:selected { border-bottom: 2px solid #1f8f49; }
 }
 #navItem:hover { background-color: #eef3ee; color: #0f1a14; }
 #navItem:checked { background-color: #e8f4ec; color: #0f1a14; border-left: 3px solid #1f8f49; }
+
+/* DashboardPage (Module 4) */
+#dashTotal { font-size: 34px; font-weight: 800; color: #1f8f49; }
+#dashSend { background-color: #1f8f49; color: #ffffff; border: none; font-weight: 700; padding: 10px 20px; }
+#dashReceive { padding: 10px 20px; font-weight: 700; }

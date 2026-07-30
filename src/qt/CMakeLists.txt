@@ -83,6 +83,8 @@ add_library(bitcoinqt STATIC EXCLUDE_FROM_ALL
   clientmodel.h
   csvmodelwriter.cpp
   csvmodelwriter.h
+  dashboardpage.cpp
+  dashboardpage.h
   freespacechecker.cpp
   freespacechecker.h
   guiutil.cpp
