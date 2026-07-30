@@ -233,3 +233,11 @@ RPCConsole QLabel#labelNetwork { color: #33c667; font-weight: 700; }
 RPCConsole #messagesWidget { font-family: "Roboto Mono", monospace; border-radius: 12px; }
 RPCConsole #lineEdit { font-family: "Roboto Mono", monospace; }
 RPCConsole QTabBar::tab:selected { border-bottom: 2px solid #33c667; }
+
+/* Reusable WalletCard component (Module 1) */
+#walletCard {
+    background-color: #152219;
+    border: 1px solid #233a2c;
+    border-radius: 16px;
+}
+#walletCardTitle { color: #8ca99a; font-size: 13px; font-weight: 600; }
