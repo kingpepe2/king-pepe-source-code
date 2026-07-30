@@ -30,10 +30,13 @@
 #include <node/interface_ui.h>
 #include <util/strencodings.h>
 
+#include <QAbstractAnimation>
 #include <QAction>
+#include <QEasingCurve>
 #include <QFileDialog>
 #include <QHBoxLayout>
 #include <QProgressDialog>
+#include <QPropertyAnimation>
 #include <QPushButton>
 #include <QVBoxLayout>
 
@@ -176,6 +179,23 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
 
 WalletView::~WalletView() = default;
 
+void WalletView::setCurrentWidgetAnimated(QWidget* widget)
+{
+    if (!widget || widget == currentWidget()) return;
+
+    setCurrentWidget(widget);
+    const int offset = qBound(42, width() / 7, 72);
+    const QPoint end_pos = widget->pos();
+    widget->move(end_pos + QPoint(offset, 0));
+
+    auto* anim = new QPropertyAnimation(widget, "pos", widget);
+    anim->setDuration(220);
+    anim->setStartValue(widget->pos());
+    anim->setEndValue(end_pos);
+    anim->setEasingCurve(QEasingCurve::OutCubic);
+    anim->start(QAbstractAnimation::DeleteWhenStopped);
+}
+
 void WalletView::setClientModel(ClientModel *_clientModel)
 {
     this->clientModel = _clientModel;
@@ -229,25 +249,25 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
 void WalletView::gotoOverviewPage()
 {
     // KingPepe: the Overview navigation now presents the modern dashboard.
-    setCurrentWidget(dashboardPage);
+    setCurrentWidgetAnimated(dashboardPage);
 }
 
 void WalletView::gotoHistoryPage()
 {
     // KingPepe: the History navigation now presents the modern transactions screen.
-    setCurrentWidget(modernTransactionsPage);
+    setCurrentWidgetAnimated(modernTransactionsPage);
 }
 
 void WalletView::gotoReceiveCoinsPage()
 {
     // KingPepe: the Receive navigation now presents the modern receive screen.
-    setCurrentWidget(modernReceivePage);
+    setCurrentWidgetAnimated(modernReceivePage);
 }
 
 void WalletView::gotoSendCoinsPage(QString addr)
 {
     // KingPepe: present the modern Send shell (which hosts the proven send dialog).
-    setCurrentWidget(sendPage);
+    setCurrentWidgetAnimated(sendPage);
 
     if (!addr.isEmpty())
         sendCoinsPage->setAddress(addr);

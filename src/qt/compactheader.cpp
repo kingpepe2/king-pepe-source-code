@@ -152,7 +152,7 @@ CompactHeader::CompactHeader(QWidget* parent)
     logo->setObjectName(QStringLiteral("compactLogo"));
     QPixmap px(QStringLiteral(":/icons/bitcoin"));
     if (!px.isNull()) {
-        logo->setPixmap(px.scaled(26, 26, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        logo->setPixmap(px.scaled(16, 16, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
 
     m_name = new QLabel(tr("KingPepe"), this);

@@ -392,8 +392,8 @@ DashboardPage::DashboardPage(QWidget* parent)
 
     QWidget* container = new QWidget(scroll);
     QVBoxLayout* col = new QVBoxLayout(container);
-    col->setContentsMargins(16, 16, 16, 16);
-    col->setSpacing(14);
+    col->setContentsMargins(16, 16, 16, 18);
+    col->setSpacing(18);
 
     // --- Hero balance card ---
     AnimatedHeroCard* balanceCard = new AnimatedHeroCard(container);
@@ -402,11 +402,11 @@ DashboardPage::DashboardPage(QWidget* parent)
     hero->setSpacing(9);
 
     QHBoxLayout* heroTop = new QHBoxLayout();
-    heroTop->setSpacing(10);
+    heroTop->setSpacing(8);
     QLabel* heroLogo = new QLabel(balanceCard);
     QPixmap heroPixmap(QStringLiteral(":/icons/bitcoin"));
     if (!heroPixmap.isNull()) {
-        heroLogo->setPixmap(heroPixmap.scaled(38, 38, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        heroLogo->setPixmap(heroPixmap.scaled(23, 23, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
     QLabel* heroTitle = new QLabel(tr("Total balance"), balanceCard);
     heroTitle->setObjectName(QStringLiteral("heroTitle"));
@@ -471,7 +471,7 @@ DashboardPage::DashboardPage(QWidget* parent)
     assetIcon->setObjectName(QStringLiteral("assetIcon"));
     QPixmap assetPixmap(QStringLiteral(":/icons/bitcoin"));
     if (!assetPixmap.isNull()) {
-        assetIcon->setPixmap(assetPixmap.scaled(42, 42, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        assetIcon->setPixmap(assetPixmap.scaled(25, 25, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
     QVBoxLayout* assetText = new QVBoxLayout();
     assetText->setContentsMargins(0, 0, 0, 0);

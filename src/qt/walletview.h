@@ -55,6 +55,8 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
+    void setCurrentWidgetAnimated(QWidget* widget);
+
     ClientModel* clientModel{nullptr};
 
     //!

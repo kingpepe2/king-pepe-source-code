@@ -11,6 +11,8 @@ class OptionsModel;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
+class QShowEvent;
+class QWidget;
 QT_END_NAMESPACE
 
 /**
@@ -41,6 +43,10 @@ private:
     QLabel* m_minimize{nullptr};
     QLabel* m_close{nullptr};
     QLabel* m_coincontrol{nullptr};
+    QWidget* m_content{nullptr};
+
+protected:
+    void showEvent(QShowEvent* event) override;
 };
 
 #endif // BITCOIN_QT_SETTINGSPAGE_H

@@ -15,6 +15,9 @@ QT_BEGIN_NAMESPACE
 class QComboBox;
 class QLabel;
 class QLineEdit;
+class QPushButton;
+class QShowEvent;
+class QWidget;
 QT_END_NAMESPACE
 
 /**
@@ -46,6 +49,12 @@ private:
     QComboBox* m_type{nullptr};
     QLabel* m_address{nullptr};
     QRImageWidget* m_qr{nullptr};
+    QPushButton* m_copyButton{nullptr};
+    QWidget* m_content{nullptr};
+    QWidget* m_resultCard{nullptr};
+
+protected:
+    void showEvent(QShowEvent* event) override;
 };
 
 #endif // BITCOIN_QT_RECEIVEPAGE_H

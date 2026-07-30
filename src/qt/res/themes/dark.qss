@@ -471,3 +471,233 @@ QLabel:disabled { color: #4a6154; }
 #actEmpty { color: #94A3B8; font-size: 12px; padding: 6px 4px; }
 #kvKey { color: #94A3B8; font-size: 12px; font-weight: 650; }
 #kvVal { color: #F8FAFC; font-size: 12px; font-weight: 800; }
+
+/* Final premium pass - compact pages */
+#sendPage,
+#receivePage,
+#settingsPage {
+    background-color: #0E1117;
+}
+#pageScrollArea,
+#pageScrollArea > QWidget,
+#pageContainer {
+    background: transparent;
+    border: none;
+}
+#pageHeading {
+    color: #F8FAFC;
+    font-size: 23px;
+    font-weight: 900;
+    padding: 2px 0 4px 0;
+}
+#walletCard {
+    background-color: #161B22;
+    border: 1px solid rgba(148, 163, 184, 22);
+    border-radius: 18px;
+}
+#walletCard:hover {
+    border-color: rgba(52, 211, 153, 78);
+    background-color: #1B2330;
+}
+#walletCardTitle {
+    color: #F8FAFC;
+    font-size: 13px;
+    font-weight: 850;
+    background: transparent;
+}
+#receivePage QLabel,
+#settingsPage QLabel,
+#sendPage QLabel {
+    background: transparent;
+}
+
+#heroTitle { font-size: 12px; font-weight: 850; color: #94A3B8; }
+#dashTotal { padding-top: 7px; padding-bottom: 2px; }
+#dashSub {
+    margin-top: 1px;
+    color: #94A3B8;
+    background-color: rgba(148, 163, 184, 14);
+}
+#assetIcon {
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 15px;
+}
+#assetBalance { font-size: 13px; color: #22C55E; }
+#actRow { margin-top: 2px; }
+
+#qaBtn,
+#primaryActionButton,
+#secondaryActionButton,
+SendCoinsDialog QPushButton {
+    min-height: 46px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 850;
+}
+#primaryActionButton,
+QPushButton#sendButton {
+    background-color: #22C55E;
+    color: #0E1117;
+    border: 1px solid #22C55E;
+    padding: 12px 15px;
+}
+#primaryActionButton:hover,
+QPushButton#sendButton:hover {
+    background-color: #34D399;
+    border-color: #34D399;
+}
+#primaryActionButton:pressed,
+QPushButton#sendButton:pressed {
+    background-color: #22C55E;
+    padding-top: 14px;
+    padding-bottom: 10px;
+}
+#secondaryActionButton,
+QPushButton#addButton,
+QPushButton#clearButton,
+QPushButton#buttonChooseFee,
+QPushButton#buttonMinimizeFee,
+QPushButton#pushButtonCoinControl {
+    background-color: #161B22;
+    color: #F8FAFC;
+    border: 1px solid rgba(148, 163, 184, 34);
+    padding: 12px 15px;
+}
+#secondaryActionButton:hover,
+QPushButton#addButton:hover,
+QPushButton#clearButton:hover,
+QPushButton#buttonChooseFee:hover,
+QPushButton#buttonMinimizeFee:hover,
+QPushButton#pushButtonCoinControl:hover {
+    background-color: #1B2330;
+    border-color: #34D399;
+}
+#secondaryActionButton:pressed,
+QPushButton#addButton:pressed,
+QPushButton#clearButton:pressed,
+QPushButton#buttonChooseFee:pressed,
+QPushButton#buttonMinimizeFee:pressed,
+QPushButton#pushButtonCoinControl:pressed {
+    background-color: #10151D;
+    padding-top: 14px;
+    padding-bottom: 10px;
+}
+
+#sendHostCard,
+#embeddedSendDialog,
+#embeddedSendDialog QScrollArea,
+#embeddedSendDialog #scrollAreaWidgetContents {
+    background: transparent;
+    border: none;
+}
+#embeddedSendDialog {
+    min-width: 0;
+}
+#embeddedSendDialog QScrollArea {
+    border-radius: 18px;
+}
+SendCoinsEntry {
+    background-color: #161B22;
+    border: 1px solid rgba(148, 163, 184, 22);
+    border-radius: 18px;
+    padding: 10px;
+}
+SendCoinsEntry:hover {
+    background-color: #1B2330;
+    border-color: rgba(52, 211, 153, 78);
+}
+SendCoinsEntry QLabel {
+    color: #94A3B8;
+    font-weight: 700;
+}
+SendCoinsEntry QToolButton {
+    background-color: #0E1117;
+    color: #F8FAFC;
+    border: 1px solid rgba(148, 163, 184, 34);
+    border-radius: 12px;
+    padding: 6px;
+}
+SendCoinsEntry QToolButton:hover {
+    border-color: #34D399;
+    background-color: #1B2330;
+}
+QValidatedLineEdit#payTo,
+BitcoinAmountField QLineEdit,
+SendCoinsDialog QLineEdit,
+SendCoinsDialog QComboBox {
+    min-height: 42px;
+    background-color: #0E1117;
+    color: #F8FAFC;
+    border: 1px solid rgba(148, 163, 184, 34);
+    border-radius: 14px;
+    padding: 8px 11px;
+    font-weight: 650;
+}
+QValidatedLineEdit#payTo:focus,
+BitcoinAmountField QLineEdit:focus,
+SendCoinsDialog QLineEdit:focus,
+SendCoinsDialog QComboBox:focus {
+    border-color: #34D399;
+}
+QFrame#frameFee,
+QFrame#frameFeeSelection,
+SendCoinsDialog #frameCoinControl {
+    background-color: #161B22;
+    border: 1px solid rgba(148, 163, 184, 22);
+    border-radius: 18px;
+}
+QFrame#frameFeeSelection {
+    background-color: #0E1117;
+}
+QLabel#labelCoinControlInsuffFunds {
+    color: #EF4444;
+    background-color: rgba(239, 68, 68, 16);
+    border: 1px solid rgba(239, 68, 68, 58);
+    border-radius: 12px;
+    padding: 8px 10px;
+    font-weight: 850;
+}
+QLabel#labelBalance,
+QLabel#labelBalanceName {
+    color: #F8FAFC;
+    font-weight: 800;
+}
+
+QFormLayout QLabel,
+#premiumForm QLabel {
+    color: #94A3B8;
+    font-size: 12px;
+    font-weight: 750;
+}
+#receiveAddressValue {
+    color: #F8FAFC;
+    background-color: #0E1117;
+    border: 1px solid rgba(148, 163, 184, 34);
+    border-radius: 14px;
+    padding: 12px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 12px;
+}
+#receiveQr {
+    background-color: #F8FAFC;
+    border-radius: 18px;
+    padding: 10px;
+}
+#settingsOptionKey {
+    color: #94A3B8;
+    font-size: 12px;
+    font-weight: 750;
+}
+#settingsOptionValue {
+    color: #F8FAFC;
+    font-size: 13px;
+    font-weight: 850;
+}
+#settingsHelpText {
+    color: #94A3B8;
+    font-size: 12px;
+    line-height: 140%;
+}

@@ -368,3 +368,173 @@ QLabel:disabled { color: #a7b8ac; }
 #actEmpty { color: #8aa093; font-size: 12px; padding: 6px 4px; }
 #kvKey { color: #5c7365; font-size: 12px; font-weight: 650; }
 #kvVal { color: #0f1a14; font-size: 12px; font-weight: 800; }
+
+/* Final premium pass - compact pages */
+#sendPage,
+#receivePage,
+#settingsPage {
+    background-color: #f4f7f4;
+}
+#pageScrollArea,
+#pageScrollArea > QWidget,
+#pageContainer {
+    background: transparent;
+    border: none;
+}
+#pageHeading {
+    color: #0f1a14;
+    font-size: 23px;
+    font-weight: 900;
+    padding: 2px 0 4px 0;
+}
+#walletCard {
+    background-color: #ffffff;
+    border: 1px solid #e1ebe4;
+    border-radius: 18px;
+}
+#walletCard:hover {
+    background-color: #f7fbf8;
+    border-color: #1f8f49;
+}
+#walletCardTitle {
+    color: #0f1a14;
+    font-size: 13px;
+    font-weight: 850;
+    background: transparent;
+}
+#receivePage QLabel,
+#settingsPage QLabel,
+#sendPage QLabel {
+    background: transparent;
+}
+#assetIcon {
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 15px;
+}
+#qaBtn,
+#primaryActionButton,
+#secondaryActionButton,
+SendCoinsDialog QPushButton {
+    min-height: 46px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 850;
+}
+#primaryActionButton,
+QPushButton#sendButton {
+    background-color: #1f8f49;
+    color: #ffffff;
+    border: 1px solid #1f8f49;
+    padding: 12px 15px;
+}
+#primaryActionButton:hover,
+QPushButton#sendButton:hover {
+    background-color: #23a052;
+    border-color: #23a052;
+}
+#secondaryActionButton,
+QPushButton#addButton,
+QPushButton#clearButton,
+QPushButton#buttonChooseFee,
+QPushButton#buttonMinimizeFee,
+QPushButton#pushButtonCoinControl {
+    background-color: #ffffff;
+    color: #0f1a14;
+    border: 1px solid #d9e4dc;
+    padding: 12px 15px;
+}
+#secondaryActionButton:hover,
+QPushButton#addButton:hover,
+QPushButton#clearButton:hover,
+QPushButton#buttonChooseFee:hover,
+QPushButton#buttonMinimizeFee:hover,
+QPushButton#pushButtonCoinControl:hover {
+    background-color: #f5fbf6;
+    border-color: #1f8f49;
+}
+#sendHostCard,
+#embeddedSendDialog,
+#embeddedSendDialog QScrollArea,
+#embeddedSendDialog #scrollAreaWidgetContents {
+    background: transparent;
+    border: none;
+}
+SendCoinsEntry {
+    background-color: #ffffff;
+    border: 1px solid #e1ebe4;
+    border-radius: 18px;
+    padding: 10px;
+}
+SendCoinsEntry:hover {
+    background-color: #f5fbf6;
+    border-color: #1f8f49;
+}
+SendCoinsEntry QToolButton {
+    background-color: #ffffff;
+    color: #0f1a14;
+    border: 1px solid #d9e4dc;
+    border-radius: 12px;
+    padding: 6px;
+}
+SendCoinsEntry QToolButton:hover {
+    border-color: #1f8f49;
+    background-color: #f5fbf6;
+}
+QValidatedLineEdit#payTo,
+BitcoinAmountField QLineEdit,
+SendCoinsDialog QLineEdit,
+SendCoinsDialog QComboBox {
+    min-height: 42px;
+    background-color: #ffffff;
+    color: #0f1a14;
+    border: 1px solid #d9e4dc;
+    border-radius: 14px;
+    padding: 8px 11px;
+    font-weight: 650;
+}
+QFrame#frameFee,
+QFrame#frameFeeSelection,
+SendCoinsDialog #frameCoinControl {
+    background-color: #ffffff;
+    border: 1px solid #e1ebe4;
+    border-radius: 18px;
+}
+QLabel#labelCoinControlInsuffFunds {
+    color: #d0353a;
+    background-color: rgba(208, 53, 58, 18);
+    border: 1px solid rgba(208, 53, 58, 58);
+    border-radius: 12px;
+    padding: 8px 10px;
+    font-weight: 850;
+}
+#receiveAddressValue {
+    color: #0f1a14;
+    background-color: #ffffff;
+    border: 1px solid #d9e4dc;
+    border-radius: 14px;
+    padding: 12px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 12px;
+}
+#receiveQr {
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 10px;
+}
+#settingsOptionKey {
+    color: #5c7365;
+    font-size: 12px;
+    font-weight: 750;
+}
+#settingsOptionValue {
+    color: #0f1a14;
+    font-size: 13px;
+    font-weight: 850;
+}
+#settingsHelpText {
+    color: #5c7365;
+    font-size: 12px;
+}

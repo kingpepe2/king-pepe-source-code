@@ -15,8 +15,8 @@ WalletCard::WalletCard(const QString& title, QWidget* parent)
     setObjectName(QStringLiteral("walletCard"));
 
     m_body = new QVBoxLayout(this);
-    m_body->setContentsMargins(16, 16, 16, 16);
-    m_body->setSpacing(10);
+    m_body->setContentsMargins(18, 18, 18, 18);
+    m_body->setSpacing(12);
 
     m_title = new QLabel(title, this);
     m_title->setObjectName(QStringLiteral("walletCardTitle"));

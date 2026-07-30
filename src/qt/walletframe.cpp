@@ -49,7 +49,7 @@ WalletFrame::WalletFrame(const PlatformStyle* _platformStyle, QWidget* parent)
     QLabel* logo = new QLabel(no_wallet_page);
     QPixmap px(QStringLiteral(":/icons/bitcoin"));
     if (!px.isNull()) {
-        logo->setPixmap(px.scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        logo->setPixmap(px.scaled(38, 38, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
     logo->setAlignment(Qt::AlignCenter);
     no_wallet_layout->addWidget(logo, 0, Qt::AlignHCenter);

@@ -8,7 +8,9 @@
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
+class QFrame;
 class QVBoxLayout;
+class QShowEvent;
 QT_END_NAMESPACE
 
 /**
@@ -31,7 +33,15 @@ public:
     void setSendWidget(QWidget* sendWidget);
 
 private:
+    void tuneSendWidget();
+
     QVBoxLayout* m_root{nullptr};
+    QVBoxLayout* m_host_layout{nullptr};
+    QWidget* m_content{nullptr};
+    QWidget* m_sendWidget{nullptr};
+
+protected:
+    void showEvent(QShowEvent* event) override;
 };
 
 #endif // BITCOIN_QT_SENDPAGE_H
