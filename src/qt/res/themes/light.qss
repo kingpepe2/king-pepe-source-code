@@ -99,3 +99,21 @@ QLabel#labelCoinControlInsuffFunds { color: #d0353a; font-weight: 700; }
 QLabel#warningLabel, QLabel#labelAlerts { color: #b5860b; }
 QLabel#capsLabel { color: #d0353a; font-weight: 700; }
 QLabel#labelWalletStatus { color: #5c7365; }
+
+/* ============================================================
+ * Structural cards — dashboard & send-dialog container frames
+ * ============================================================ */
+OverviewPage #frame,
+OverviewPage #frame_2 {
+    background-color: #ffffff;
+    border: 1px solid #e7efe8;
+    border-radius: 16px;
+    padding: 6px;
+}
+SendCoinsDialog #frameCoinControl,
+SendCoinsDialog #frameFee,
+SendCoinsDialog #frameFeeSelection {
+    background-color: #f4f8f4;
+    border: 1px solid #e7efe8;
+    border-radius: 12px;
+}
