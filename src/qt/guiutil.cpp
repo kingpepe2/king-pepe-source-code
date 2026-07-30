@@ -36,6 +36,7 @@
 #include <QAbstractButton>
 #include <QAbstractItemView>
 #include <QApplication>
+#include <QFile>
 #include <QClipboard>
 #include <QDateTime>
 #include <QDesktopServices>
@@ -989,5 +990,19 @@ QString WalletDisplayName(const QString& name)
 QString WalletDisplayName(const std::string& name)
 {
     return WalletDisplayName(QString::fromStdString(name));
+}
+
+void applyTheme(const QString& theme)
+{
+    // Only "dark" and "light" are shipped; anything else clears theming (native style).
+    if (theme != QLatin1String("dark") && theme != QLatin1String("light")) {
+        if (qApp) qApp->setStyleSheet(QString());
+        return;
+    }
+    QFile f(QStringLiteral(":/themes/%1").arg(theme));
+    if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        const QString qss = QString::fromUtf8(f.readAll());
+        if (qApp) qApp->setStyleSheet(qss);
+    }
 }
 } // namespace GUIUtil

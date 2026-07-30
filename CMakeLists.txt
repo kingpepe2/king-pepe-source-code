@@ -53,7 +53,7 @@ set(CMAKE_TRY_COMPILE_PLATFORM_VARIABLES
 project(KingpepeCore
   VERSION ${CLIENT_VERSION_MAJOR}.${CLIENT_VERSION_MINOR}.${CLIENT_VERSION_BUILD}
   DESCRIPTION "Kingpepe client software"
-  HOMEPAGE_URL "https://kingpepe.carrd.co//"
+  HOMEPAGE_URL "https://kingpepe.net"
   LANGUAGES NONE
 )
 

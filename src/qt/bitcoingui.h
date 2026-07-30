@@ -30,8 +30,11 @@
 class NetworkStyle;
 class Notificator;
 class OptionsModel;
+class CompactHeader;
+class CompactNavBar;
 class PlatformStyle;
 class RPCConsole;
+class SettingsPage;
 class SendCoinsRecipient;
 class UnitDisplayStatusBarControl;
 class WalletController;
@@ -53,6 +56,7 @@ class QComboBox;
 class QDateTime;
 class QProgressBar;
 class QProgressDialog;
+class QTimer;
 QT_END_NAMESPACE
 
 namespace GUIUtil {
@@ -119,6 +123,16 @@ private:
     std::unique_ptr<interfaces::Handler> m_handler_question;
     ClientModel* clientModel = nullptr;
     WalletFrame* walletFrame = nullptr;
+
+    //! KingPepe: compact Phantom-style vertical layout chrome (header + bottom nav).
+    CompactHeader* m_compact_header = nullptr;
+    CompactNavBar* m_compact_nav = nullptr;
+
+    //! KingPepe: single-shot inactivity timer that auto-locks an unlocked encrypted wallet.
+    QTimer* m_auto_lock_timer = nullptr;
+
+    //! KingPepe: modern settings window (lazily created); Advanced opens the full OptionsDialog.
+    SettingsPage* m_settings_page = nullptr;
 
     UnitDisplayStatusBarControl* unitDisplayControl = nullptr;
     GUIUtil::ThemedLabel* labelWalletEncryptionIcon = nullptr;

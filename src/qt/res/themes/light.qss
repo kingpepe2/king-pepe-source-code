@@ -1,0 +1,540 @@
+/* KingPepe Wallet — Light theme (optional)
+ * UI-only stylesheet. Does not affect consensus, wallet, or RPC behavior.
+ */
+
+QWidget {
+    background-color: #f4f7f4;
+    color: #0f1a14;
+    selection-background-color: #33c667;
+    selection-color: #04110a;
+}
+QMainWindow, QDialog, QStackedWidget, QScrollArea, #centralwidget { background-color: #f4f7f4; }
+QToolTip { background-color: #ffffff; color: #0f1a14; border: 1px solid #dbe6dd; border-radius: 6px; padding: 5px 8px; }
+
+QMenuBar { background-color: #ffffff; border-bottom: 1px solid #e7efe8; }
+QMenuBar::item { padding: 6px 12px; background: transparent; }
+QMenuBar::item:selected { background: #eef3ee; border-radius: 6px; }
+QMenu { background-color: #ffffff; border: 1px solid #dbe6dd; border-radius: 8px; padding: 6px; }
+QMenu::item { padding: 7px 22px 7px 14px; border-radius: 6px; }
+QMenu::item:selected { background-color: #eef6ef; color: #1f8f49; }
+QMenu::separator { height: 1px; background: #e7efe8; margin: 5px 8px; }
+
+QToolBar { background-color: #ffffff; border: none; border-right: 1px solid #e7efe8; padding: 10px 8px; spacing: 4px; }
+QToolBar QToolButton { color: #5c7365; background: transparent; border: none; border-radius: 10px; padding: 10px 14px; font-weight: 600; text-align: left; }
+QToolBar QToolButton:hover { background-color: #eef3ee; color: #0f1a14; }
+QToolBar QToolButton:checked { background-color: #e8f4ec; color: #0f1a14; border-left: 3px solid #1f8f49; }
+
+QPushButton { background-color: #ffffff; color: #0f1a14; border: 1px solid #dbe6dd; border-radius: 10px; padding: 8px 16px; font-weight: 600; }
+QPushButton:hover { border-color: #1f8f49; background-color: #f0f7f2; }
+QPushButton:pressed { background-color: #e8f1ea; }
+QPushButton:disabled { color: #a7b8ac; background-color: #f0f3f0; border-color: #e7efe8; }
+QPushButton:default { background-color: #1f8f49; color: #ffffff; border: none; }
+QPushButton:default:hover { background-color: #23a052; }
+
+QLineEdit, QPlainTextEdit, QTextEdit, QSpinBox, QDoubleSpinBox, QComboBox, QDateTimeEdit {
+    background-color: #ffffff; color: #0f1a14; border: 1px solid #dbe6dd; border-radius: 9px; padding: 7px 10px;
+    selection-background-color: #33c667; selection-color: #04110a;
+}
+QLineEdit:focus, QPlainTextEdit:focus, QComboBox:focus, QSpinBox:focus, QDoubleSpinBox:focus { border: 1px solid #1f8f49; }
+QComboBox::drop-down { border: none; width: 22px; }
+QComboBox QAbstractItemView { background-color: #ffffff; border: 1px solid #dbe6dd; selection-background-color: #eef6ef; selection-color: #1f8f49; border-radius: 8px; }
+
+QTableView, QTreeView, QListView {
+    background-color: #ffffff; alternate-background-color: #f6faf7; border: 1px solid #e7efe8; border-radius: 12px;
+    gridline-color: #eef3ee; selection-background-color: #e8f4ec; selection-color: #0f1a14; outline: none;
+}
+QTableView::item, QTreeView::item { padding: 6px 4px; }
+QHeaderView::section { background-color: #f4f8f4; color: #5c7365; padding: 8px 10px; border: none; border-bottom: 1px solid #dbe6dd; font-weight: 600; }
+QTableCornerButton::section { background-color: #f4f8f4; border: none; }
+
+QTabWidget::pane { border: 1px solid #e7efe8; border-radius: 12px; top: -1px; }
+QTabBar::tab { background: transparent; color: #5c7365; padding: 9px 16px; margin-right: 4px; border-top-left-radius: 9px; border-top-right-radius: 9px; }
+QTabBar::tab:selected { color: #0f1a14; background: #e8f4ec; border-bottom: 2px solid #1f8f49; }
+
+QScrollBar:vertical { background: transparent; width: 12px; margin: 2px; }
+QScrollBar::handle:vertical { background: #cdddd2; border-radius: 6px; min-height: 28px; }
+QScrollBar::handle:vertical:hover { background: #b6ccbd; }
+QScrollBar:horizontal { background: transparent; height: 12px; margin: 2px; }
+QScrollBar::handle:horizontal { background: #cdddd2; border-radius: 6px; min-width: 28px; }
+QScrollBar::add-line, QScrollBar::sub-line { height: 0; width: 0; background: none; }
+QScrollBar::add-page, QScrollBar::sub-page { background: none; }
+
+QProgressBar { background-color: #e8f1ea; border: none; border-radius: 6px; text-align: center; color: #0f1a14; height: 10px; }
+QProgressBar::chunk { background-color: #1f8f49; border-radius: 6px; }
+QStatusBar { background-color: #ffffff; color: #5c7365; border-top: 1px solid #e7efe8; }
+
+QCheckBox, QRadioButton { spacing: 8px; }
+QCheckBox::indicator, QRadioButton::indicator { width: 17px; height: 17px; border: 1px solid #bcd0c2; background: #ffffff; }
+QCheckBox::indicator { border-radius: 5px; }
+QRadioButton::indicator { border-radius: 9px; }
+QCheckBox::indicator:checked, QRadioButton::indicator:checked { background: #1f8f49; border-color: #1f8f49; }
+
+QGroupBox { border: 1px solid #e7efe8; border-radius: 12px; margin-top: 14px; padding-top: 8px; background-color: #ffffff; }
+QGroupBox::title { subcontrol-origin: margin; left: 12px; padding: 0 6px; color: #5c7365; font-weight: 600; }
+
+/* ============================================================
+ * Phase 2 — Send / Receive / Transactions / Address Book polish
+ * ============================================================ */
+
+QLabel#labelTotal { font-size: 19px; font-weight: 800; color: #1f8f49; }
+QLabel#labelBalance { font-weight: 700; color: #0f1a14; }
+QLabel#labelUnconfirmed, QLabel#labelImmature { color: #5c7365; }
+QLabel#labelBalanceText, QLabel#labelTotalText,
+QLabel#labelUnconfirmedText, QLabel#labelImmatureText { color: #8aa093; }
+
+QPushButton#sendButton, QPushButton#receiveButton, QPushButton#newAddress {
+    background-color: #1f8f49; color: #ffffff; border: none; font-weight: 700; padding: 9px 18px;
+}
+QPushButton#sendButton:hover, QPushButton#receiveButton:hover, QPushButton#newAddress:hover {
+    background-color: #23a052;
+}
+QPushButton#sendButton:disabled, QPushButton#receiveButton:disabled, QPushButton#newAddress:disabled {
+    background-color: #e4ece6; color: #a7b8ac;
+}
+
+QLabel#labelCoinControlInsuffFunds { color: #d0353a; font-weight: 700; }
+#payTo { font-family: "Roboto Mono", monospace; }
+
+/* Phase 3 — security & status emphasis */
+QLabel#warningLabel, QLabel#labelAlerts { color: #b5860b; }
+QLabel#capsLabel { color: #d0353a; font-weight: 700; }
+QLabel#labelWalletStatus { color: #5c7365; }
+
+/* ============================================================
+ * Structural cards — dashboard & send-dialog container frames
+ * ============================================================ */
+OverviewPage #frame,
+OverviewPage #frame_2 {
+    background-color: #ffffff;
+    border: 1px solid #e7efe8;
+    border-radius: 16px;
+    padding: 6px;
+}
+SendCoinsDialog #frameCoinControl,
+SendCoinsDialog #frameFee,
+SendCoinsDialog #frameFeeSelection {
+    background-color: #f4f8f4;
+    border: 1px solid #e7efe8;
+    border-radius: 12px;
+}
+
+/* Remaining screens — Receive dialog cards */
+ReceiveCoinsDialog #frame,
+ReceiveCoinsDialog #frame2 {
+    background-color: #ffffff;
+    border: 1px solid #e7efe8;
+    border-radius: 14px;
+}
+
+/* ============================================================
+ * Feature 2 — Network / Debug panel redesign (RPCConsole)
+ * ============================================================ */
+RPCConsole QGroupBox {
+    background-color: #ffffff;
+    border: 1px solid #e7efe8;
+    border-radius: 14px;
+    margin-top: 16px;
+}
+RPCConsole QLabel#labelNetwork { color: #1f8f49; font-weight: 700; }
+RPCConsole #messagesWidget { font-family: "Roboto Mono", monospace; border-radius: 12px; }
+RPCConsole #lineEdit { font-family: "Roboto Mono", monospace; }
+RPCConsole QTabBar::tab:selected { border-bottom: 2px solid #1f8f49; }
+
+/* Reusable WalletCard component (Module 1) */
+#walletCard {
+    background-color: #ffffff;
+    border: 1px solid #e7efe8;
+    border-radius: 16px;
+}
+#walletCardTitle { color: #5c7365; font-size: 13px; font-weight: 600; }
+
+/* StatCard component (Module 2) */
+#statCard { background-color: #ffffff; border: 1px solid #e7efe8; border-radius: 16px; }
+#statCaption { color: #5c7365; font-size: 12px; font-weight: 600; }
+#statValue { color: #0f1a14; font-size: 22px; font-weight: 800; }
+#statSubtext { color: #8aa093; font-size: 12px; }
+
+/* NavigationRail component (Module 3) */
+#navigationRail { background-color: #ffffff; border-right: 1px solid #e7efe8; }
+#navItem {
+    color: #5c7365; background: transparent; border: none; border-radius: 10px;
+    padding: 11px 14px; font-size: 14px; font-weight: 600;
+}
+#navItem:hover { background-color: #eef3ee; color: #0f1a14; }
+#navItem:checked { background-color: #e8f4ec; color: #0f1a14; border-left: 3px solid #1f8f49; }
+
+/* DashboardPage (Module 4) */
+#dashTotal { font-size: 34px; font-weight: 800; color: #1f8f49; }
+#dashSend { background-color: #1f8f49; color: #ffffff; border: none; font-weight: 700; padding: 10px 20px; }
+#dashReceive { padding: 10px 20px; font-weight: 700; }
+
+/* ============================================================
+ * Module 7 — Send / Receive / Settings / Address-book redesign
+ * ============================================================ */
+SendCoinsEntry { background-color: #f4f8f4; border: 1px solid #e7efe8; border-radius: 12px; }
+OptionsDialog QTabWidget::pane { background-color: #f4f8f4; }
+OptionsDialog QListWidget { background-color: #ffffff; border: 1px solid #e7efe8; border-radius: 12px; }
+AddressBookPage QPushButton { min-height: 18px; }
+
+/* Module 8 — final polish */
+QScrollBar::handle:vertical:pressed, QScrollBar::handle:horizontal:pressed { background: #1f8f49; }
+QToolTip { font-size: 12px; }
+QLabel:disabled { color: #a7b8ac; }
+
+/* Custom Transactions screen (Screen 1) */
+#pageHeading { font-size: 20px; font-weight: 800; color: #0f1a14; }
+#txRow { background-color: #ffffff; border: 1px solid #e7efe8; border-radius: 12px; }
+#txRow:hover { border-color: #1f8f49; }
+#txWho { font-weight: 600; color: #0f1a14; }
+#txWhen { color: #5c7365; font-size: 12px; }
+#txAmountIn { color: #1f8f49; font-weight: 700; }
+#txAmountOut { color: #0f1a14; font-weight: 700; }
+
+#addressBookWidget { background-color: #f4f7f4; }
+
+#settingsPage { background-color: #f4f7f4; }
+
+#receivePage { background-color: #f4f7f4; }
+#receivePage QLineEdit { min-width: 240px; }
+
+#sendPage { background-color: #f4f7f4; }
+
+/* Compact (Phantom-style) vertical layout — KingPepe brand */
+#compactHeader { background-color: #ffffff; border-bottom: 1px solid #e7efe8; }
+#compactWalletName { font-size: 15px; font-weight: 800; color: #0f1a14; }
+#compactNetwork { font-size: 11px; font-weight: 700; color: #1f8f49; }
+#compactLock { font-size: 12px; color: #5c7365; }
+#compactSettingsButton { color: #5c7365; background: transparent; border: none; font-size: 16px; padding: 4px 8px; border-radius: 8px; }
+#compactSettingsButton:hover { background-color: #eef3ee; color: #0f1a14; }
+#compactNavBar { background-color: #ffffff; border-top: 1px solid #e7efe8; }
+#compactNavItem { color: #5c7365; background: transparent; border: none; border-radius: 10px; padding: 8px 4px; font-size: 12px; font-weight: 600; }
+#compactNavItem:checked { color: #1f8f49; background-color: #e8f4ec; }
+#compactNoWallet { background-color: #f6faf7; }
+#compactNoWalletTitle { color: #0f1a14; font-size: 22px; font-weight: 800; }
+#compactNoWalletButton { background-color: #1f8f49; color: #ffffff; border: none; font-weight: 800; padding: 12px 22px; border-radius: 12px; }
+
+/* Compact Home - premium visual polish */
+#dashboardPage { background-color: #f2f6f3; }
+#dashboardPage QScrollArea,
+#dashboardPage QScrollArea QWidget { background: transparent; }
+#compactHeader { background-color: #ffffff; border-bottom: none; }
+#compactNetwork {
+    color: #1f8f49;
+    background-color: rgba(31, 143, 73, 26);
+    border-radius: 8px;
+    padding: 3px 7px;
+}
+#compactLock { color: #5c7365; }
+#compactConnections { color: #5c7365; font-size: 11px; font-weight: 800; }
+#compactSyncDot,
+#compactConnDot { background: transparent; }
+#compactSettingsButton {
+    color: #5c7365;
+    background-color: transparent;
+    border: none;
+    border-radius: 11px;
+    padding: 7px;
+}
+#compactSettingsButton:hover {
+    color: #0f1a14;
+    background-color: rgba(31, 143, 73, 26);
+}
+#compactSettingsButton:pressed { background-color: rgba(31, 143, 73, 48); }
+#compactNavBar { background-color: #ffffff; border-top: 1px solid #e4ece6; }
+
+#walletCard {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 18px;
+}
+#walletCardTitle {
+    color: #5c7365;
+    font-size: 13px;
+    font-weight: 800;
+    padding-bottom: 2px;
+}
+#heroTitle { color: #5c7365; font-size: 12px; font-weight: 800; }
+#dashTotal { background: transparent; color: #0f1a14; padding-top: 2px; }
+#dashSub {
+    color: #5c7365;
+    font-size: 11px;
+    font-weight: 650;
+    background-color: rgba(31, 143, 73, 18);
+    border-radius: 9px;
+    padding: 4px 8px;
+}
+#dashSyncNote { color: #8aa093; font-size: 11px; font-weight: 600; padding-top: 2px; }
+
+#qaBtn[primary="true"] {
+    min-height: 54px;
+    background-color: #e8f4ec;
+    color: #0f1a14;
+    border: 1px solid #1f8f49;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 850;
+    padding: 13px 14px;
+}
+#qaBtn[primary="true"]:hover {
+    background-color: #ddf0e3;
+    border-color: #23a052;
+}
+#qaBtn[primary="true"]:pressed {
+    background-color: #cfe9d7;
+    padding-top: 15px;
+    padding-bottom: 11px;
+}
+#qaBtn {
+    min-height: 54px;
+    background-color: #ffffff;
+    color: #0f1a14;
+    border: 1px solid #d9e4dc;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 13px 14px;
+}
+#qaBtn:hover {
+    background-color: #f5fbf6;
+    border-color: #1f8f49;
+}
+#qaBtn:pressed {
+    background-color: #e9f3ec;
+    padding-top: 15px;
+    padding-bottom: 11px;
+}
+
+#assetRowCard {
+    background-color: #ffffff;
+    border: 1px solid #e4ece6;
+    border-radius: 16px;
+}
+#assetRowCard[hovered="true"] {
+    background-color: #f5fbf6;
+    border-color: #1f8f49;
+}
+#assetIcon {
+    background-color: #e9f3ec;
+    border-radius: 19px;
+    min-width: 38px;
+    min-height: 38px;
+}
+#assetName { color: #0f1a14; font-size: 14px; font-weight: 850; }
+#assetMeta { color: #8aa093; font-size: 11px; font-weight: 650; }
+#assetBalance {
+    color: #1f8f49;
+    font-size: 13px;
+    font-weight: 850;
+}
+
+#actRow {
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 14px;
+}
+#actRow:hover {
+    background-color: #f5fbf6;
+    border-color: #d9e4dc;
+}
+#actIcon {
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 900;
+}
+#actIcon[kind="receive"] { background-color: rgba(31, 143, 73, 32); color: #1f8f49; }
+#actIcon[kind="send"] { background-color: rgba(208, 53, 58, 32); color: #d0353a; }
+#actIcon[kind="mining"] { background-color: rgba(54, 111, 209, 32); color: #366fd1; }
+#actIcon[kind="pending"] { background-color: rgba(138, 160, 147, 34); color: #5c7365; }
+#actWho { color: #0f1a14; font-size: 13px; font-weight: 800; }
+#actMeta { color: #8aa093; font-size: 11px; font-weight: 600; }
+#actAmtIn { color: #1f8f49; font-size: 12px; font-weight: 850; }
+#actAmtOut { color: #0f1a14; font-size: 12px; font-weight: 850; }
+#actAmtIn[kind="pending"],
+#actAmtOut[kind="pending"] { color: #5c7365; }
+#actBadge {
+    border-radius: 8px;
+    padding: 2px 7px;
+    font-size: 10px;
+    font-weight: 850;
+}
+#actBadge[kind="receive"] { background-color: rgba(31, 143, 73, 26); color: #1f8f49; }
+#actBadge[kind="send"] { background-color: rgba(208, 53, 58, 28); color: #d0353a; }
+#actBadge[kind="mining"] { background-color: rgba(54, 111, 209, 28); color: #366fd1; }
+#actBadge[kind="pending"] { background-color: rgba(138, 160, 147, 28); color: #5c7365; }
+#actEmpty { color: #8aa093; font-size: 12px; padding: 6px 4px; }
+#kvKey { color: #5c7365; font-size: 12px; font-weight: 650; }
+#kvVal { color: #0f1a14; font-size: 12px; font-weight: 800; }
+
+/* Final premium pass - compact pages */
+#sendPage,
+#receivePage,
+#settingsPage {
+    background-color: #f4f7f4;
+}
+#pageScrollArea,
+#pageScrollArea > QWidget,
+#pageContainer {
+    background: transparent;
+    border: none;
+}
+#pageHeading {
+    color: #0f1a14;
+    font-size: 23px;
+    font-weight: 900;
+    padding: 2px 0 4px 0;
+}
+#walletCard {
+    background-color: #ffffff;
+    border: 1px solid #e1ebe4;
+    border-radius: 18px;
+}
+#walletCard:hover {
+    background-color: #f7fbf8;
+    border-color: #1f8f49;
+}
+#walletCardTitle {
+    color: #0f1a14;
+    font-size: 13px;
+    font-weight: 850;
+    background: transparent;
+}
+#receivePage QLabel,
+#settingsPage QLabel,
+#sendPage QLabel {
+    background: transparent;
+}
+#assetIcon {
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 15px;
+}
+#qaBtn,
+#primaryActionButton,
+#secondaryActionButton,
+SendCoinsDialog QPushButton {
+    min-height: 46px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 850;
+}
+#primaryActionButton,
+QPushButton#sendButton {
+    background-color: #1f8f49;
+    color: #ffffff;
+    border: 1px solid #1f8f49;
+    padding: 12px 15px;
+}
+#primaryActionButton:hover,
+QPushButton#sendButton:hover {
+    background-color: #23a052;
+    border-color: #23a052;
+}
+#secondaryActionButton,
+QPushButton#addButton,
+QPushButton#clearButton,
+QPushButton#buttonChooseFee,
+QPushButton#buttonMinimizeFee,
+QPushButton#pushButtonCoinControl {
+    background-color: #ffffff;
+    color: #0f1a14;
+    border: 1px solid #d9e4dc;
+    padding: 12px 15px;
+}
+#secondaryActionButton:hover,
+QPushButton#addButton:hover,
+QPushButton#clearButton:hover,
+QPushButton#buttonChooseFee:hover,
+QPushButton#buttonMinimizeFee:hover,
+QPushButton#pushButtonCoinControl:hover {
+    background-color: #f5fbf6;
+    border-color: #1f8f49;
+}
+#sendHostCard,
+#embeddedSendDialog,
+#embeddedSendDialog QScrollArea,
+#embeddedSendDialog #scrollAreaWidgetContents {
+    background: transparent;
+    border: none;
+}
+SendCoinsEntry {
+    background-color: #ffffff;
+    border: 1px solid #e1ebe4;
+    border-radius: 18px;
+    padding: 10px;
+}
+SendCoinsEntry:hover {
+    background-color: #f5fbf6;
+    border-color: #1f8f49;
+}
+SendCoinsEntry QToolButton {
+    background-color: #ffffff;
+    color: #0f1a14;
+    border: 1px solid #d9e4dc;
+    border-radius: 12px;
+    padding: 6px;
+}
+SendCoinsEntry QToolButton:hover {
+    border-color: #1f8f49;
+    background-color: #f5fbf6;
+}
+QValidatedLineEdit#payTo,
+BitcoinAmountField QLineEdit,
+SendCoinsDialog QLineEdit,
+SendCoinsDialog QComboBox {
+    min-height: 42px;
+    background-color: #ffffff;
+    color: #0f1a14;
+    border: 1px solid #d9e4dc;
+    border-radius: 14px;
+    padding: 8px 11px;
+    font-weight: 650;
+}
+QFrame#frameFee,
+QFrame#frameFeeSelection,
+SendCoinsDialog #frameCoinControl {
+    background-color: #ffffff;
+    border: 1px solid #e1ebe4;
+    border-radius: 18px;
+}
+QLabel#labelCoinControlInsuffFunds {
+    color: #d0353a;
+    background-color: rgba(208, 53, 58, 18);
+    border: 1px solid rgba(208, 53, 58, 58);
+    border-radius: 12px;
+    padding: 8px 10px;
+    font-weight: 850;
+}
+#receiveAddressValue {
+    color: #0f1a14;
+    background-color: #ffffff;
+    border: 1px solid #d9e4dc;
+    border-radius: 14px;
+    padding: 12px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 12px;
+}
+#receiveQr {
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 10px;
+}
+#settingsOptionKey {
+    color: #5c7365;
+    font-size: 12px;
+    font-weight: 750;
+}
+#settingsOptionValue {
+    color: #0f1a14;
+    font-size: 13px;
+    font-weight: 850;
+}
+#settingsHelpText {
+    color: #5c7365;
+    font-size: 12px;
+}

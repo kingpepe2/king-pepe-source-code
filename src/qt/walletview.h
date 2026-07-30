@@ -10,11 +10,16 @@
 
 #include <QStackedWidget>
 
+class AddressBookWidget;
 class ClientModel;
+class DashboardPage;
 class OverviewPage;
 class PlatformStyle;
 class ReceiveCoinsDialog;
+class ReceivePage;
 class SendCoinsDialog;
+class SendPage;
+class TransactionsPage;
 class SendCoinsRecipient;
 class TransactionView;
 class WalletModel;
@@ -50,6 +55,8 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
+    void setCurrentWidgetAnimated(QWidget* widget);
+
     ClientModel* clientModel{nullptr};
 
     //!
@@ -59,9 +66,14 @@ private:
     WalletModel* const walletModel;
 
     OverviewPage *overviewPage;
+    DashboardPage *dashboardPage;
+    TransactionsPage *modernTransactionsPage;
+    AddressBookWidget *modernAddressBook;
+    ReceivePage *modernReceivePage;
     QWidget *transactionsPage;
     ReceiveCoinsDialog *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
+    SendPage *sendPage;
     AddressBookPage *usedSendingAddressesPage;
     AddressBookPage *usedReceivingAddressesPage;
 

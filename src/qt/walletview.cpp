@@ -9,25 +9,51 @@
 #include <qt/clientmodel.h>
 #include <qt/guiutil.h>
 #include <qt/optionsmodel.h>
+#include <qt/addressbookwidget.h>
+#include <qt/bitcoinunits.h>
+#include <qt/dashboardpage.h>
 #include <qt/overviewpage.h>
 #include <qt/platformstyle.h>
+#include <qt/receivepage.h>
+#include <qt/sendpage.h>
 #include <qt/receivecoinsdialog.h>
 #include <qt/sendcoinsdialog.h>
 #include <qt/signverifymessagedialog.h>
+#include <qt/transactionspage.h>
 #include <qt/transactiontablemodel.h>
 #include <qt/transactionview.h>
 #include <qt/walletmodel.h>
+
+#include <interfaces/wallet.h>
 
 #include <interfaces/node.h>
 #include <node/interface_ui.h>
 #include <util/strencodings.h>
 
+#include <QAbstractAnimation>
 #include <QAction>
+#include <QEasingCurve>
 #include <QFileDialog>
 #include <QHBoxLayout>
 #include <QProgressDialog>
+#include <QPropertyAnimation>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+namespace {
+QString FormatDashboardSyncProgress(double verification_progress)
+{
+    double percent = verification_progress * 100.0;
+    if (percent < 0.0) percent = 0.0;
+    if (percent > 100.0) percent = 100.0;
+    return QStringLiteral("%1%").arg(QString::number(percent, 'f', percent >= 99.95 ? 0 : 1));
+}
+
+QString FormatDashboardSyncStatus(double verification_progress)
+{
+    return verification_progress >= 0.9995 ? QObject::tr("Synced") : QObject::tr("Syncing");
+}
+} // namespace
 
 WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platformStyle, QWidget* parent)
     : QStackedWidget(parent),
@@ -38,6 +64,10 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
 
     // Create tabs
     overviewPage = new OverviewPage(platformStyle);
+    dashboardPage = new DashboardPage(this);
+    modernTransactionsPage = new TransactionsPage(this);
+    modernReceivePage = new ReceivePage(this);
+    sendPage = new SendPage(this);
     overviewPage->setWalletModel(walletModel);
 
     transactionsPage = new QWidget(this);
@@ -70,9 +100,45 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     usedReceivingAddressesPage->setModel(walletModel->getAddressTableModel());
 
     addWidget(overviewPage);
+    addWidget(dashboardPage);
+    addWidget(modernTransactionsPage);
+    addWidget(modernReceivePage);
     addWidget(transactionsPage);
     addWidget(receiveCoinsPage);
-    addWidget(sendCoinsPage);
+    // KingPepe: host the proven send dialog inside the modern Send shell.
+    sendPage->setSendWidget(sendCoinsPage);
+    addWidget(sendPage);
+
+    // KingPepe: route the modern dashboard's actions to the existing pages.
+    connect(dashboardPage, &DashboardPage::sendRequested, this, [this] { gotoSendCoinsPage(); });
+    connect(dashboardPage, &DashboardPage::receiveRequested, this, &WalletView::gotoReceiveCoinsPage);
+    connect(dashboardPage, &DashboardPage::transactionsRequested, this, &WalletView::gotoHistoryPage);
+    connect(dashboardPage, &DashboardPage::addressBookRequested, this, &WalletView::usedSendingAddresses);
+    dashboardPage->setWalletModel(walletModel);
+
+    // KingPepe: feed live balances into the dashboard, formatted with the display unit.
+    auto updateDashboardBalance = [this](const interfaces::WalletBalances& bal) {
+        if (!walletModel || !walletModel->getOptionsModel()) return;
+        const BitcoinUnit unit = walletModel->getOptionsModel()->getDisplayUnit();
+        const CAmount total = bal.balance + bal.unconfirmed_balance + bal.immature_balance;
+        dashboardPage->setBalance(
+            BitcoinUnits::formatWithUnit(unit, total),
+            BitcoinUnits::formatWithUnit(unit, bal.balance),
+            BitcoinUnits::formatWithUnit(unit, bal.unconfirmed_balance),
+            BitcoinUnits::formatWithUnit(unit, bal.immature_balance));
+    };
+    connect(walletModel, &WalletModel::balanceChanged, this, updateDashboardBalance);
+    updateDashboardBalance(walletModel->getCachedBalance());
+
+    // KingPepe: feed the modern transactions screen from the existing table model.
+    modernTransactionsPage->setModel(walletModel);
+
+    // KingPepe: modern address book window (reuses the address table model).
+    modernAddressBook = new AddressBookWidget(this);
+    modernAddressBook->setModel(walletModel);
+
+    // KingPepe: modern receive screen (reuses address derivation + QR + requests).
+    modernReceivePage->setModel(walletModel);
 
     connect(overviewPage, &OverviewPage::transactionClicked, this, &WalletView::transactionClicked);
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
@@ -113,6 +179,23 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
 
 WalletView::~WalletView() = default;
 
+void WalletView::setCurrentWidgetAnimated(QWidget* widget)
+{
+    if (!widget || widget == currentWidget()) return;
+
+    setCurrentWidget(widget);
+    const int offset = qBound(42, width() / 7, 72);
+    const QPoint end_pos = widget->pos();
+    widget->move(end_pos + QPoint(offset, 0));
+
+    auto* anim = new QPropertyAnimation(widget, "pos", widget);
+    anim->setDuration(220);
+    anim->setStartValue(widget->pos());
+    anim->setEndValue(end_pos);
+    anim->setEasingCurve(QEasingCurve::OutCubic);
+    anim->start(QAbstractAnimation::DeleteWhenStopped);
+}
+
 void WalletView::setClientModel(ClientModel *_clientModel)
 {
     this->clientModel = _clientModel;
@@ -120,6 +203,26 @@ void WalletView::setClientModel(ClientModel *_clientModel)
     overviewPage->setClientModel(_clientModel);
     sendCoinsPage->setClientModel(_clientModel);
     walletModel->setClientModel(_clientModel);
+
+    // KingPepe: seed the modern dashboard's live stats from the client model.
+    if (_clientModel) {
+        dashboardPage->setBlockHeight(QString::number(_clientModel->getNumBlocks()));
+        dashboardPage->setConnections(QString::number(_clientModel->getNumConnections()));
+        dashboardPage->setNetworkStatus(_clientModel->node().getNetworkActive() ? tr("Online") : tr("Offline"));
+        dashboardPage->setSyncProgress(QStringLiteral("100%"), tr("Synced"));
+        connect(_clientModel, &ClientModel::numConnectionsChanged, this, [this](int count) {
+            dashboardPage->setConnections(QString::number(count));
+        });
+        connect(_clientModel, &ClientModel::networkActiveChanged, this, [this](bool active) {
+            dashboardPage->setNetworkStatus(active ? tr("Online") : tr("Offline"));
+        });
+        connect(_clientModel, &ClientModel::numBlocksChanged, this,
+                [this](int count, const QDateTime&, double verification_progress, SyncType, SynchronizationState) {
+                    dashboardPage->setBlockHeight(QString::number(count));
+                    dashboardPage->setSyncProgress(FormatDashboardSyncProgress(verification_progress),
+                                                   FormatDashboardSyncStatus(verification_progress));
+                });
+    }
 }
 
 void WalletView::processNewTransaction(const QModelIndex& parent, int start, int /*end*/)
@@ -145,22 +248,26 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
 
 void WalletView::gotoOverviewPage()
 {
-    setCurrentWidget(overviewPage);
+    // KingPepe: the Overview navigation now presents the modern dashboard.
+    setCurrentWidgetAnimated(dashboardPage);
 }
 
 void WalletView::gotoHistoryPage()
 {
-    setCurrentWidget(transactionsPage);
+    // KingPepe: the History navigation now presents the modern transactions screen.
+    setCurrentWidgetAnimated(modernTransactionsPage);
 }
 
 void WalletView::gotoReceiveCoinsPage()
 {
-    setCurrentWidget(receiveCoinsPage);
+    // KingPepe: the Receive navigation now presents the modern receive screen.
+    setCurrentWidgetAnimated(modernReceivePage);
 }
 
 void WalletView::gotoSendCoinsPage(QString addr)
 {
-    setCurrentWidget(sendCoinsPage);
+    // KingPepe: present the modern Send shell (which hosts the proven send dialog).
+    setCurrentWidgetAnimated(sendPage);
 
     if (!addr.isEmpty())
         sendCoinsPage->setAddress(addr);
@@ -249,12 +356,14 @@ void WalletView::unlockWallet()
 
 void WalletView::usedSendingAddresses()
 {
-    GUIUtil::bringToFront(usedSendingAddressesPage);
+    // KingPepe: present the modern custom address book.
+    GUIUtil::bringToFront(modernAddressBook);
 }
 
 void WalletView::usedReceivingAddresses()
 {
-    GUIUtil::bringToFront(usedReceivingAddressesPage);
+    // KingPepe: present the modern custom address book.
+    GUIUtil::bringToFront(modernAddressBook);
 }
 
 void WalletView::showProgress(const QString &title, int nProgress)

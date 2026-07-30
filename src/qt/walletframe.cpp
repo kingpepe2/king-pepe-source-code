@@ -20,11 +20,12 @@
 
 #include <QApplication>
 #include <QClipboard>
-#include <QGroupBox>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QPixmap>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QWidget>
 
 WalletFrame::WalletFrame(const PlatformStyle* _platformStyle, QWidget* parent)
     : QFrame(parent),
@@ -38,21 +39,33 @@ WalletFrame::WalletFrame(const PlatformStyle* _platformStyle, QWidget* parent)
     walletFrameLayout->setContentsMargins(0,0,0,0);
     walletFrameLayout->addWidget(walletStack);
 
-    // hbox for no wallet
-    QGroupBox* no_wallet_group = new QGroupBox(walletStack);
-    QVBoxLayout* no_wallet_layout = new QVBoxLayout(no_wallet_group);
+    QWidget* no_wallet_page = new QWidget(walletStack);
+    no_wallet_page->setObjectName(QStringLiteral("compactNoWallet"));
+    QVBoxLayout* no_wallet_layout = new QVBoxLayout(no_wallet_page);
+    no_wallet_layout->setContentsMargins(28, 28, 28, 28);
+    no_wallet_layout->setSpacing(14);
+    no_wallet_layout->addStretch(1);
 
-    QLabel *noWallet = new QLabel(tr("No wallet has been loaded.\nGo to File > Open Wallet to load a wallet.\n- OR -"));
-    noWallet->setAlignment(Qt::AlignCenter);
-    no_wallet_layout->addWidget(noWallet, 0, Qt::AlignHCenter | Qt::AlignBottom);
+    QLabel* logo = new QLabel(no_wallet_page);
+    QPixmap px(QStringLiteral(":/icons/bitcoin"));
+    if (!px.isNull()) {
+        logo->setPixmap(px.scaled(38, 38, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    }
+    logo->setAlignment(Qt::AlignCenter);
+    no_wallet_layout->addWidget(logo, 0, Qt::AlignHCenter);
 
-    // A button for create wallet dialog
-    QPushButton* create_wallet_button = new QPushButton(tr("Create a new wallet"), walletStack);
+    QLabel* title = new QLabel(tr("KingPepe Wallet"), no_wallet_page);
+    title->setObjectName(QStringLiteral("compactNoWalletTitle"));
+    title->setAlignment(Qt::AlignCenter);
+    no_wallet_layout->addWidget(title);
+
+    QPushButton* create_wallet_button = new QPushButton(tr("Create Wallet"), no_wallet_page);
+    create_wallet_button->setObjectName(QStringLiteral("compactNoWalletButton"));
     connect(create_wallet_button, &QPushButton::clicked, this, &WalletFrame::createWalletButtonClicked);
-    no_wallet_layout->addWidget(create_wallet_button, 0, Qt::AlignHCenter | Qt::AlignTop);
-    no_wallet_group->setLayout(no_wallet_layout);
+    no_wallet_layout->addWidget(create_wallet_button, 0, Qt::AlignHCenter);
+    no_wallet_layout->addStretch(2);
 
-    walletStack->addWidget(no_wallet_group);
+    walletStack->addWidget(no_wallet_page);
 }
 
 WalletFrame::~WalletFrame() = default;

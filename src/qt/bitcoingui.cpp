@@ -15,7 +15,10 @@
 #include <qt/networkstyle.h>
 #include <qt/notificator.h>
 #include <qt/openuridialog.h>
+#include <qt/compactheader.h>
+#include <qt/compactnavbar.h>
 #include <qt/optionsdialog.h>
+#include <qt/settingspage.h>
 #include <qt/optionsmodel.h>
 #include <qt/platformstyle.h>
 #include <qt/rpcconsole.h>
@@ -56,6 +59,7 @@
 #include <QMessageBox>
 #include <QMimeData>
 #include <QProgressDialog>
+#include <QGuiApplication>
 #include <QScreen>
 #include <QSettings>
 #include <QShortcut>
@@ -122,7 +126,30 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const PlatformStyle *_platformSty
             this->message(title, message, style);
         });
         connect(walletFrame, &WalletFrame::currentWalletSet, [this] { updateWalletStatus(); });
-        setCentralWidget(walletFrame);
+        // KingPepe: compact Phantom-style vertical layout — header on top, wallet
+        // content in the middle, bottom navigation below. walletFrame and all its
+        // model/page wiring are untouched; only the surrounding chrome is new.
+        QWidget* compactRoot = new QWidget(this);
+        compactRoot->setObjectName(QStringLiteral("compactRoot"));
+        QVBoxLayout* compactLayout = new QVBoxLayout(compactRoot);
+        compactLayout->setContentsMargins(0, 0, 0, 0);
+        compactLayout->setSpacing(0);
+        m_compact_header = new CompactHeader(compactRoot);
+        QString compactNetwork = m_network_style ? m_network_style->getTitleAddText() : QString();
+        compactNetwork.remove(QLatin1Char('['));
+        compactNetwork.remove(QLatin1Char(']'));
+        m_compact_header->setNetwork(compactNetwork.isEmpty() ? tr("MAIN") : compactNetwork.toUpper());
+        m_compact_header->setLockStatus(QString());
+        m_compact_nav = new CompactNavBar(compactRoot);
+        m_compact_nav->addItem(tr("Home"));
+        m_compact_nav->addItem(tr("Send"));
+        m_compact_nav->addItem(tr("Receive"));
+        m_compact_nav->addItem(tr("Activity"));
+        m_compact_nav->addItem(tr("Settings"));
+        compactLayout->addWidget(m_compact_header);
+        compactLayout->addWidget(walletFrame, 1);
+        compactLayout->addWidget(m_compact_nav);
+        setCentralWidget(compactRoot);
     } else
 #endif // ENABLE_WALLET
     {
@@ -142,11 +169,63 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const PlatformStyle *_platformSty
     // Needs walletFrame to be initialized
     createActions();
 
-    // Create application menu bar
-    createMenuBar();
+    // KingPepe compact mode replaces the legacy Qt menu bar with the header
+    // settings menu. Keep the QAction wiring, but do not create a QMenuBar.
+    if (!(enableWallet && m_compact_nav)) {
+        createMenuBar();
+    }
 
     // Create the toolbars
     createToolBars();
+
+#ifdef ENABLE_WALLET
+    if (enableWallet && m_compact_nav) {
+        // KingPepe: hide the wide horizontal toolbar and the desktop menu bar;
+        // navigation is the compact bottom bar, settings via the header gear.
+        const QList<QToolBar*> toolbars = findChildren<QToolBar*>();
+        for (QToolBar* tb : toolbars) tb->setVisible(false);
+
+        connect(m_compact_nav, &CompactNavBar::navigated, this, [this](int i) {
+            switch (i) {
+            case 0: if (overviewAction) overviewAction->trigger(); break;
+            case 1: if (sendCoinsAction) sendCoinsAction->trigger(); break;
+            case 2: if (receiveCoinsAction) receiveCoinsAction->trigger(); break;
+            case 3: if (historyAction) historyAction->trigger(); break;
+            case 4: if (optionsAction) optionsAction->trigger(); break;
+            }
+        });
+        if (m_compact_header) {
+            // KingPepe: in-app menu replacing the removed desktop menu bar.
+            connect(m_compact_header, &CompactHeader::settingsRequested, this, [this] {
+                QMenu menu(this);
+                if (m_create_wallet_action) menu.addAction(m_create_wallet_action);
+                if (m_open_wallet_action) menu.addAction(m_open_wallet_action);
+                if (m_close_wallet_action) menu.addAction(m_close_wallet_action);
+                menu.addSeparator();
+                if (optionsAction) menu.addAction(optionsAction);
+                menu.addSeparator();
+                if (encryptWalletAction) menu.addAction(encryptWalletAction);
+                if (changePassphraseAction) menu.addAction(changePassphraseAction);
+                if (backupWalletAction) menu.addAction(backupWalletAction);
+                menu.addSeparator();
+                if (openRPCConsoleAction) menu.addAction(openRPCConsoleAction);
+                if (showHelpMessageAction) menu.addAction(showHelpMessageAction);
+                if (aboutAction) menu.addAction(aboutAction);
+                menu.exec(QCursor::pos());
+            });
+        }
+    }
+    // KingPepe: compact vertical wallet window (Phantom-style proportions, own brand).
+    // Clear any restored maximized/fullscreen state so the compact size takes effect.
+    setWindowState(Qt::WindowNoState);
+    setMinimumWidth(390);
+    setMaximumWidth(600); // compact mode cap (Expanded Mode toggle relaxes this later)
+    resize(440, 800);
+    if (QScreen* scr = QGuiApplication::primaryScreen()) {
+        const QRect g = scr->availableGeometry();
+        move(g.center() - QPoint(220, 400));
+    }
+#endif // ENABLE_WALLET
 
     // Create system tray icon and notification
     if (QSystemTrayIcon::isSystemTrayAvailable()) {
@@ -212,6 +291,23 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const PlatformStyle *_platformSty
 
     // Install event filter to be able to catch status tip events (QEvent::StatusTip)
     this->installEventFilter(this);
+
+#ifdef ENABLE_WALLET
+    // KingPepe: inactivity auto-lock. After a period of no user activity, lock an
+    // unlocked encrypted wallet by reusing the existing WalletModel locking path.
+    // The timer is reset on user activity in eventFilter(); UI-only, no new crypto.
+    m_auto_lock_timer = new QTimer(this);
+    m_auto_lock_timer->setSingleShot(true);
+    m_auto_lock_timer->setInterval(10 * 60 * 1000); // 10 minutes
+    connect(m_auto_lock_timer, &QTimer::timeout, this, [this] {
+        if (!walletFrame) return;
+        WalletModel* const wallet_model = walletFrame->currentWalletModel();
+        if (wallet_model && wallet_model->getEncryptionStatus() == WalletModel::Unlocked) {
+            wallet_model->setWalletLocked(true);
+        }
+    });
+    m_auto_lock_timer->start();
+#endif // ENABLE_WALLET
 
     // Initially wallet actions should be disabled
     setWalletActionsEnabled(false);
@@ -728,8 +824,8 @@ void BitcoinGUI::setClientModel(ClientModel *_clientModel, interfaces::BlockAndH
         }
 #endif // ENABLE_WALLET
         unitDisplayControl->setOptionsModel(nullptr);
-        // Disable top bar menu actions
-        appMenuBar->clear();
+        // Disable top bar menu actions, if the legacy menu bar exists.
+        if (appMenuBar) appMenuBar->clear();
     }
 }
 
@@ -966,7 +1062,18 @@ void BitcoinGUI::createTrayIconMenu()
 
 void BitcoinGUI::optionsClicked()
 {
-    openOptionsDialogWithTab(OptionsDialog::TAB_MAIN);
+    if (!clientModel || !clientModel->getOptionsModel())
+        return;
+
+    // KingPepe: present the modern settings window; "Advanced settings…" opens the
+    // full, proven OptionsDialog so no option is unreachable.
+    if (!m_settings_page) {
+        m_settings_page = new SettingsPage(this);
+        m_settings_page->setModel(clientModel->getOptionsModel());
+        connect(m_settings_page, &SettingsPage::advancedRequested, this,
+                [this] { openOptionsDialogWithTab(OptionsDialog::TAB_MAIN); });
+    }
+    GUIUtil::bringToFront(m_settings_page);
 }
 
 void BitcoinGUI::aboutClicked()
@@ -1081,6 +1188,9 @@ void BitcoinGUI::updateNetworkState()
 void BitcoinGUI::setNumConnections(int count)
 {
     updateNetworkState();
+    if (m_compact_header) {
+        m_compact_header->setConnections(count);
+    }
 }
 
 void BitcoinGUI::setNetworkActive(bool network_active)
@@ -1152,6 +1262,10 @@ void BitcoinGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
     }
     if (!clientModel)
         return;
+
+    if (m_compact_header) {
+        m_compact_header->setSyncActive(nVerificationProgress < 0.9995);
+    }
 
     // Prevent orphan statusbar messages (e.g. hover Quit in main menu, wait until chain-sync starts -> garbled text)
     statusBar()->clearMessage();
@@ -1423,6 +1537,23 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
 
 bool BitcoinGUI::eventFilter(QObject *object, QEvent *event)
 {
+#ifdef ENABLE_WALLET
+    // KingPepe: any user activity resets the inactivity auto-lock timer.
+    if (m_auto_lock_timer) {
+        switch (event->type()) {
+        case QEvent::MouseMove:
+        case QEvent::MouseButtonPress:
+        case QEvent::KeyPress:
+        case QEvent::Wheel:
+        case QEvent::TouchBegin:
+            m_auto_lock_timer->start(); // restart the single-shot interval
+            break;
+        default:
+            break;
+        }
+    }
+#endif // ENABLE_WALLET
+
     // Catch status tip events
     if (event->type() == QEvent::StatusTip)
     {
@@ -1499,6 +1630,23 @@ void BitcoinGUI::updateWalletStatus()
     WalletModel * const walletModel = walletView->getWalletModel();
     setEncryptionStatus(walletModel->getEncryptionStatus());
     setHDStatus(walletModel->wallet().privateKeysDisabled(), walletModel->wallet().hdEnabled());
+    if (m_compact_header) {
+        m_compact_header->setWalletName(walletModel->getDisplayName());
+        switch (walletModel->getEncryptionStatus()) {
+        case WalletModel::NoKeys:
+            m_compact_header->setLockStatus(tr("Watch"));
+            break;
+        case WalletModel::Unencrypted:
+            m_compact_header->setLockStatus(tr("No lock"));
+            break;
+        case WalletModel::Unlocked:
+            m_compact_header->setLockStatus(tr("Unlocked"));
+            break;
+        case WalletModel::Locked:
+            m_compact_header->setLockStatus(tr("Locked"));
+            break;
+        }
+    }
 }
 #endif // ENABLE_WALLET
 

@@ -214,6 +214,12 @@ void TransactionView::setModel(WalletModel *_model)
         {
             // Add third party transaction URLs to context menu
             QStringList listUrls = _model->getOptionsModel()->getThirdPartyTxUrls().split("|", Qt::SkipEmptyParts);
+            // KingPepe: default to the official block explorer when the user has not
+            // configured a third-party URL, so "Show in kingpepe.net" works out of the box.
+            // Users can override this in Options; %s is replaced with the transaction id.
+            if (listUrls.isEmpty()) {
+                listUrls << QStringLiteral("https://kingpepe.net/tx/%s");
+            }
             bool actions_created = false;
             for (int i = 0; i < listUrls.size(); ++i)
             {

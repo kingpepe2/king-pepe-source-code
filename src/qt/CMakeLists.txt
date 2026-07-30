@@ -81,6 +81,10 @@ add_library(bitcoinqt STATIC EXCLUDE_FROM_ALL
   bitcoinunits.h
   clientmodel.cpp
   clientmodel.h
+  compactheader.cpp
+  compactheader.h
+  compactnavbar.cpp
+  compactnavbar.h
   csvmodelwriter.cpp
   csvmodelwriter.h
   freespacechecker.cpp
@@ -99,6 +103,8 @@ add_library(bitcoinqt STATIC EXCLUDE_FROM_ALL
   $<$<PLATFORM_ID:Darwin>:macos_appnap.mm>
   modaloverlay.cpp
   modaloverlay.h
+  navigationrail.cpp
+  navigationrail.h
   networkstyle.cpp
   networkstyle.h
   notificator.cpp
@@ -119,12 +125,20 @@ add_library(bitcoinqt STATIC EXCLUDE_FROM_ALL
   qvaluecombobox.h
   rpcconsole.cpp
   rpcconsole.h
+  sendpage.cpp
+  sendpage.h
+  settingspage.cpp
+  settingspage.h
   splashscreen.cpp
   splashscreen.h
+  statcard.cpp
+  statcard.h
   trafficgraphwidget.cpp
   trafficgraphwidget.h
   utilitydialog.cpp
   utilitydialog.h
+  walletcard.cpp
+  walletcard.h
   $<$<PLATFORM_ID:Windows>:winshutdownmonitor.cpp>
   $<$<PLATFORM_ID:Windows>:winshutdownmonitor.h>
   ${BITCOIN_QRC}
@@ -161,6 +175,8 @@ if(ENABLE_WALLET)
     PRIVATE
       addressbookpage.cpp
       addressbookpage.h
+      addressbookwidget.cpp
+      addressbookwidget.h
       addresstablemodel.cpp
       addresstablemodel.h
       askpassphrasedialog.cpp
@@ -171,6 +187,8 @@ if(ENABLE_WALLET)
       coincontroltreewidget.h
       createwalletdialog.cpp
       createwalletdialog.h
+      dashboardpage.cpp
+      dashboardpage.h
       editaddressdialog.cpp
       editaddressdialog.h
       openuridialog.cpp
@@ -185,6 +203,8 @@ if(ENABLE_WALLET)
       qrimagewidget.h
       receivecoinsdialog.cpp
       receivecoinsdialog.h
+      receivepage.cpp
+      receivepage.h
       receiverequestdialog.cpp
       receiverequestdialog.h
       recentrequeststablemodel.cpp
@@ -205,6 +225,8 @@ if(ENABLE_WALLET)
       transactionoverviewwidget.h
       transactionrecord.cpp
       transactionrecord.h
+      transactionspage.cpp
+      transactionspage.h
       transactiontablemodel.cpp
       transactiontablemodel.h
       transactionview.cpp
