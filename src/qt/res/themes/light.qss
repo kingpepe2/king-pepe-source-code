@@ -153,3 +153,12 @@ RPCConsole QTabBar::tab:selected { border-bottom: 2px solid #1f8f49; }
 #statCaption { color: #5c7365; font-size: 12px; font-weight: 600; }
 #statValue { color: #0f1a14; font-size: 22px; font-weight: 800; }
 #statSubtext { color: #8aa093; font-size: 12px; }
+
+/* NavigationRail component (Module 3) */
+#navigationRail { background-color: #ffffff; border-right: 1px solid #e7efe8; }
+#navItem {
+    color: #5c7365; background: transparent; border: none; border-radius: 10px;
+    padding: 11px 14px; font-size: 14px; font-weight: 600;
+}
+#navItem:hover { background-color: #eef3ee; color: #0f1a14; }
+#navItem:checked { background-color: #e8f4ec; color: #0f1a14; border-left: 3px solid #1f8f49; }
