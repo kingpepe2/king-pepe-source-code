@@ -9,6 +9,7 @@
 #include <qt/clientmodel.h>
 #include <qt/guiutil.h>
 #include <qt/optionsmodel.h>
+#include <qt/dashboardpage.h>
 #include <qt/overviewpage.h>
 #include <qt/platformstyle.h>
 #include <qt/receivecoinsdialog.h>
@@ -38,6 +39,7 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
 
     // Create tabs
     overviewPage = new OverviewPage(platformStyle);
+    dashboardPage = new DashboardPage(this);
     overviewPage->setWalletModel(walletModel);
 
     transactionsPage = new QWidget(this);
@@ -70,9 +72,14 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     usedReceivingAddressesPage->setModel(walletModel->getAddressTableModel());
 
     addWidget(overviewPage);
+    addWidget(dashboardPage);
     addWidget(transactionsPage);
     addWidget(receiveCoinsPage);
     addWidget(sendCoinsPage);
+
+    // KingPepe: route the modern dashboard's actions to the existing pages.
+    connect(dashboardPage, &DashboardPage::sendRequested, this, [this] { gotoSendCoinsPage(); });
+    connect(dashboardPage, &DashboardPage::receiveRequested, this, &WalletView::gotoReceiveCoinsPage);
 
     connect(overviewPage, &OverviewPage::transactionClicked, this, &WalletView::transactionClicked);
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
@@ -120,6 +127,12 @@ void WalletView::setClientModel(ClientModel *_clientModel)
     overviewPage->setClientModel(_clientModel);
     sendCoinsPage->setClientModel(_clientModel);
     walletModel->setClientModel(_clientModel);
+
+    // KingPepe: seed the modern dashboard's live stats from the client model.
+    if (_clientModel) {
+        dashboardPage->setBlockHeight(QString::number(_clientModel->getNumBlocks()));
+        dashboardPage->setConnections(QString::number(_clientModel->getNumConnections()));
+    }
 }
 
 void WalletView::processNewTransaction(const QModelIndex& parent, int start, int /*end*/)
@@ -145,7 +158,8 @@ void WalletView::processNewTransaction(const QModelIndex& parent, int start, int
 
 void WalletView::gotoOverviewPage()
 {
-    setCurrentWidget(overviewPage);
+    // KingPepe: the Overview navigation now presents the modern dashboard.
+    setCurrentWidget(dashboardPage);
 }
 
 void WalletView::gotoHistoryPage()

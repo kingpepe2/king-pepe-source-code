@@ -11,6 +11,7 @@
 #include <QStackedWidget>
 
 class ClientModel;
+class DashboardPage;
 class OverviewPage;
 class PlatformStyle;
 class ReceiveCoinsDialog;
@@ -59,6 +60,7 @@ private:
     WalletModel* const walletModel;
 
     OverviewPage *overviewPage;
+    DashboardPage *dashboardPage;
     QWidget *transactionsPage;
     ReceiveCoinsDialog *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
