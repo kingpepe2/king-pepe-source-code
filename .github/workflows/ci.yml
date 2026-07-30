@@ -30,7 +30,7 @@ defaults:
 jobs:
   runners:
     name: '[meta] determine runners'
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     outputs:
       provider: ${{ steps.runners.outputs.provider }}
     steps:
@@ -219,7 +219,7 @@ jobs:
 
   windows-native-dll:
     name: ${{ matrix.job-name }}
-    runs-on: windows-2025-vs2026
+    runs-on: windows-2025
 
     if: ${{ vars.SKIP_BRANCH_PUSH != 'true' || github.event_name == 'pull_request' }}
 
@@ -323,7 +323,7 @@ jobs:
     # Record frozen commit, so that the native tests on cross-builds can run on
     # the exact same commit id of the build.
     name: '[meta] record frozen commit'
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     outputs:
       commit: ${{ steps.record-commit.outputs.commit }}
     steps:
