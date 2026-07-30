@@ -169,6 +169,8 @@ if(ENABLE_WALLET)
     PRIVATE
       addressbookpage.cpp
       addressbookpage.h
+      addressbookwidget.cpp
+      addressbookwidget.h
       addresstablemodel.cpp
       addresstablemodel.h
       askpassphrasedialog.cpp

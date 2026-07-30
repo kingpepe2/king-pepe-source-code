@@ -286,3 +286,5 @@ QLabel:disabled { color: #4a6154; }
 #txWhen { color: #8ca99a; font-size: 12px; }
 #txAmountIn { color: #33c667; font-weight: 700; }
 #txAmountOut { color: #e9f3ec; font-weight: 700; }
+
+#addressBookWidget { background-color: #0b1210; }

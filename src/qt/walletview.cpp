@@ -9,6 +9,7 @@
 #include <qt/clientmodel.h>
 #include <qt/guiutil.h>
 #include <qt/optionsmodel.h>
+#include <qt/addressbookwidget.h>
 #include <qt/bitcoinunits.h>
 #include <qt/dashboardpage.h>
 #include <qt/overviewpage.h>
@@ -103,6 +104,10 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
 
     // KingPepe: feed the modern transactions screen from the existing table model.
     modernTransactionsPage->setModel(walletModel);
+
+    // KingPepe: modern address book window (reuses the address table model).
+    modernAddressBook = new AddressBookWidget(this);
+    modernAddressBook->setModel(walletModel);
 
     connect(overviewPage, &OverviewPage::transactionClicked, this, &WalletView::transactionClicked);
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
@@ -287,12 +292,14 @@ void WalletView::unlockWallet()
 
 void WalletView::usedSendingAddresses()
 {
-    GUIUtil::bringToFront(usedSendingAddressesPage);
+    // KingPepe: present the modern custom address book.
+    GUIUtil::bringToFront(modernAddressBook);
 }
 
 void WalletView::usedReceivingAddresses()
 {
-    GUIUtil::bringToFront(usedReceivingAddressesPage);
+    // KingPepe: present the modern custom address book.
+    GUIUtil::bringToFront(modernAddressBook);
 }
 
 void WalletView::showProgress(const QString &title, int nProgress)

@@ -10,6 +10,7 @@
 
 #include <QStackedWidget>
 
+class AddressBookWidget;
 class ClientModel;
 class DashboardPage;
 class OverviewPage;
@@ -63,6 +64,7 @@ private:
     OverviewPage *overviewPage;
     DashboardPage *dashboardPage;
     TransactionsPage *modernTransactionsPage;
+    AddressBookWidget *modernAddressBook;
     QWidget *transactionsPage;
     ReceiveCoinsDialog *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
