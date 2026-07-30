@@ -210,3 +210,11 @@ SendCoinsDialog #frameFeeSelection {
     border: 1px solid #1c2f24;
     border-radius: 12px;
 }
+
+/* Remaining screens — Receive dialog cards */
+ReceiveCoinsDialog #frame,
+ReceiveCoinsDialog #frame2 {
+    background-color: #152219;
+    border: 1px solid #233a2c;
+    border-radius: 14px;
+}
