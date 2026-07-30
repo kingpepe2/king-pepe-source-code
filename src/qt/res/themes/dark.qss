@@ -186,3 +186,8 @@ QLabel#labelCoinControlInsuffFunds { color: #f2555a; font-weight: 700; }
 
 /* Recipient address field in monospace for legibility */
 #payTo { font-family: "Roboto Mono", monospace; }
+
+/* Phase 3 — security & status emphasis */
+QLabel#warningLabel, QLabel#labelAlerts { color: #f2c14e; }
+QLabel#capsLabel { color: #f2555a; font-weight: 700; }
+QLabel#labelWalletStatus { color: #8ca99a; }

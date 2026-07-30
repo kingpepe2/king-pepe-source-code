@@ -568,6 +568,28 @@ void BitcoinGUI::createMenuBar()
     }
     settings->addAction(optionsAction);
 
+    // KingPepe: theme switcher (Dark / Light). UI-only; persisted in QSettings.
+    settings->addSeparator();
+    QMenu* theme_menu = settings->addMenu(tr("&Theme"));
+    QActionGroup* theme_group = new QActionGroup(this);
+    const QString current_theme = QSettings().value("theme", "dark").toString();
+    QAction* dark_theme_action = theme_menu->addAction(tr("&Dark (default)"));
+    QAction* light_theme_action = theme_menu->addAction(tr("&Light"));
+    for (QAction* a : {dark_theme_action, light_theme_action}) {
+        a->setCheckable(true);
+        theme_group->addAction(a);
+    }
+    dark_theme_action->setChecked(current_theme != QLatin1String("light"));
+    light_theme_action->setChecked(current_theme == QLatin1String("light"));
+    connect(dark_theme_action, &QAction::triggered, this, [] {
+        QSettings().setValue("theme", "dark");
+        GUIUtil::applyTheme("dark");
+    });
+    connect(light_theme_action, &QAction::triggered, this, [] {
+        QSettings().setValue("theme", "light");
+        GUIUtil::applyTheme("light");
+    });
+
     QMenu* window_menu = appMenuBar->addMenu(tr("&Window"));
 
     QAction* minimize_action = window_menu->addAction(tr("&Minimize"));

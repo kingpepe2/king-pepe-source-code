@@ -94,3 +94,8 @@ QPushButton#sendButton:disabled, QPushButton#receiveButton:disabled, QPushButton
 
 QLabel#labelCoinControlInsuffFunds { color: #d0353a; font-weight: 700; }
 #payTo { font-family: "Roboto Mono", monospace; }
+
+/* Phase 3 — security & status emphasis */
+QLabel#warningLabel, QLabel#labelAlerts { color: #b5860b; }
+QLabel#capsLabel { color: #d0353a; font-weight: 700; }
+QLabel#labelWalletStatus { color: #5c7365; }
