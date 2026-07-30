@@ -87,8 +87,6 @@ add_library(bitcoinqt STATIC EXCLUDE_FROM_ALL
   compactnavbar.h
   csvmodelwriter.cpp
   csvmodelwriter.h
-  dashboardpage.cpp
-  dashboardpage.h
   freespacechecker.cpp
   freespacechecker.h
   guiutil.cpp
@@ -189,6 +187,8 @@ if(ENABLE_WALLET)
       coincontroltreewidget.h
       createwalletdialog.cpp
       createwalletdialog.h
+      dashboardpage.cpp
+      dashboardpage.h
       editaddressdialog.cpp
       editaddressdialog.h
       openuridialog.cpp

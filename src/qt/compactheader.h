@@ -26,6 +26,8 @@ public:
     void setWalletName(const QString& name);
     void setNetwork(const QString& network);
     void setLockStatus(const QString& status);
+    void setConnections(int count);
+    void setSyncActive(bool active);
 
 Q_SIGNALS:
     void settingsRequested();
@@ -34,6 +36,9 @@ private:
     QLabel* m_name{nullptr};
     QLabel* m_network{nullptr};
     QLabel* m_lock{nullptr};
+    QWidget* m_sync_indicator{nullptr};
+    QWidget* m_connection_indicator{nullptr};
+    QLabel* m_connections{nullptr};
 };
 
 #endif // BITCOIN_QT_COMPACTHEADER_H

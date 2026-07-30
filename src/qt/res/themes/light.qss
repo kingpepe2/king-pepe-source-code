@@ -209,3 +209,162 @@ QLabel:disabled { color: #a7b8ac; }
 #compactNavBar { background-color: #ffffff; border-top: 1px solid #e7efe8; }
 #compactNavItem { color: #5c7365; background: transparent; border: none; border-radius: 10px; padding: 8px 4px; font-size: 12px; font-weight: 600; }
 #compactNavItem:checked { color: #1f8f49; background-color: #e8f4ec; }
+#compactNoWallet { background-color: #f6faf7; }
+#compactNoWalletTitle { color: #0f1a14; font-size: 22px; font-weight: 800; }
+#compactNoWalletButton { background-color: #1f8f49; color: #ffffff; border: none; font-weight: 800; padding: 12px 22px; border-radius: 12px; }
+
+/* Compact Home - premium visual polish */
+#dashboardPage { background-color: #f2f6f3; }
+#dashboardPage QScrollArea,
+#dashboardPage QScrollArea QWidget { background: transparent; }
+#compactHeader { background-color: #ffffff; border-bottom: none; }
+#compactNetwork {
+    color: #1f8f49;
+    background-color: rgba(31, 143, 73, 26);
+    border-radius: 8px;
+    padding: 3px 7px;
+}
+#compactLock { color: #5c7365; }
+#compactConnections { color: #5c7365; font-size: 11px; font-weight: 800; }
+#compactSyncDot,
+#compactConnDot { background: transparent; }
+#compactSettingsButton {
+    color: #5c7365;
+    background-color: transparent;
+    border: none;
+    border-radius: 11px;
+    padding: 7px;
+}
+#compactSettingsButton:hover {
+    color: #0f1a14;
+    background-color: rgba(31, 143, 73, 26);
+}
+#compactSettingsButton:pressed { background-color: rgba(31, 143, 73, 48); }
+#compactNavBar { background-color: #ffffff; border-top: 1px solid #e4ece6; }
+
+#walletCard {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 18px;
+}
+#walletCardTitle {
+    color: #5c7365;
+    font-size: 13px;
+    font-weight: 800;
+    padding-bottom: 2px;
+}
+#heroTitle { color: #5c7365; font-size: 12px; font-weight: 800; }
+#dashTotal { background: transparent; color: #0f1a14; padding-top: 2px; }
+#dashSub {
+    color: #5c7365;
+    font-size: 11px;
+    font-weight: 650;
+    background-color: rgba(31, 143, 73, 18);
+    border-radius: 9px;
+    padding: 4px 8px;
+}
+#dashSyncNote { color: #8aa093; font-size: 11px; font-weight: 600; padding-top: 2px; }
+
+#qaBtn[primary="true"] {
+    min-height: 54px;
+    background-color: #e8f4ec;
+    color: #0f1a14;
+    border: 1px solid #1f8f49;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 850;
+    padding: 13px 14px;
+}
+#qaBtn[primary="true"]:hover {
+    background-color: #ddf0e3;
+    border-color: #23a052;
+}
+#qaBtn[primary="true"]:pressed {
+    background-color: #cfe9d7;
+    padding-top: 15px;
+    padding-bottom: 11px;
+}
+#qaBtn {
+    min-height: 54px;
+    background-color: #ffffff;
+    color: #0f1a14;
+    border: 1px solid #d9e4dc;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 13px 14px;
+}
+#qaBtn:hover {
+    background-color: #f5fbf6;
+    border-color: #1f8f49;
+}
+#qaBtn:pressed {
+    background-color: #e9f3ec;
+    padding-top: 15px;
+    padding-bottom: 11px;
+}
+
+#assetRowCard {
+    background-color: #ffffff;
+    border: 1px solid #e4ece6;
+    border-radius: 16px;
+}
+#assetRowCard[hovered="true"] {
+    background-color: #f5fbf6;
+    border-color: #1f8f49;
+}
+#assetIcon {
+    background-color: #e9f3ec;
+    border-radius: 19px;
+    min-width: 38px;
+    min-height: 38px;
+}
+#assetName { color: #0f1a14; font-size: 14px; font-weight: 850; }
+#assetMeta { color: #8aa093; font-size: 11px; font-weight: 650; }
+#assetBalance {
+    color: #1f8f49;
+    font-size: 13px;
+    font-weight: 850;
+}
+
+#actRow {
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 14px;
+}
+#actRow:hover {
+    background-color: #f5fbf6;
+    border-color: #d9e4dc;
+}
+#actIcon {
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 900;
+}
+#actIcon[kind="receive"] { background-color: rgba(31, 143, 73, 32); color: #1f8f49; }
+#actIcon[kind="send"] { background-color: rgba(208, 53, 58, 32); color: #d0353a; }
+#actIcon[kind="mining"] { background-color: rgba(54, 111, 209, 32); color: #366fd1; }
+#actIcon[kind="pending"] { background-color: rgba(138, 160, 147, 34); color: #5c7365; }
+#actWho { color: #0f1a14; font-size: 13px; font-weight: 800; }
+#actMeta { color: #8aa093; font-size: 11px; font-weight: 600; }
+#actAmtIn { color: #1f8f49; font-size: 12px; font-weight: 850; }
+#actAmtOut { color: #0f1a14; font-size: 12px; font-weight: 850; }
+#actAmtIn[kind="pending"],
+#actAmtOut[kind="pending"] { color: #5c7365; }
+#actBadge {
+    border-radius: 8px;
+    padding: 2px 7px;
+    font-size: 10px;
+    font-weight: 850;
+}
+#actBadge[kind="receive"] { background-color: rgba(31, 143, 73, 26); color: #1f8f49; }
+#actBadge[kind="send"] { background-color: rgba(208, 53, 58, 28); color: #d0353a; }
+#actBadge[kind="mining"] { background-color: rgba(54, 111, 209, 28); color: #366fd1; }
+#actBadge[kind="pending"] { background-color: rgba(138, 160, 147, 28); color: #5c7365; }
+#actEmpty { color: #8aa093; font-size: 12px; padding: 6px 4px; }
+#kvKey { color: #5c7365; font-size: 12px; font-weight: 650; }
+#kvVal { color: #0f1a14; font-size: 12px; font-weight: 800; }

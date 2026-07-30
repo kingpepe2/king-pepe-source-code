@@ -37,6 +37,21 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+namespace {
+QString FormatDashboardSyncProgress(double verification_progress)
+{
+    double percent = verification_progress * 100.0;
+    if (percent < 0.0) percent = 0.0;
+    if (percent > 100.0) percent = 100.0;
+    return QStringLiteral("%1%").arg(QString::number(percent, 'f', percent >= 99.95 ? 0 : 1));
+}
+
+QString FormatDashboardSyncStatus(double verification_progress)
+{
+    return verification_progress >= 0.9995 ? QObject::tr("Synced") : QObject::tr("Syncing");
+}
+} // namespace
+
 WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platformStyle, QWidget* parent)
     : QStackedWidget(parent),
       walletModel(wallet_model),
@@ -94,6 +109,9 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     // KingPepe: route the modern dashboard's actions to the existing pages.
     connect(dashboardPage, &DashboardPage::sendRequested, this, [this] { gotoSendCoinsPage(); });
     connect(dashboardPage, &DashboardPage::receiveRequested, this, &WalletView::gotoReceiveCoinsPage);
+    connect(dashboardPage, &DashboardPage::transactionsRequested, this, &WalletView::gotoHistoryPage);
+    connect(dashboardPage, &DashboardPage::addressBookRequested, this, &WalletView::usedSendingAddresses);
+    dashboardPage->setWalletModel(walletModel);
 
     // KingPepe: feed live balances into the dashboard, formatted with the display unit.
     auto updateDashboardBalance = [this](const interfaces::WalletBalances& bal) {
@@ -170,6 +188,20 @@ void WalletView::setClientModel(ClientModel *_clientModel)
     if (_clientModel) {
         dashboardPage->setBlockHeight(QString::number(_clientModel->getNumBlocks()));
         dashboardPage->setConnections(QString::number(_clientModel->getNumConnections()));
+        dashboardPage->setNetworkStatus(_clientModel->node().getNetworkActive() ? tr("Online") : tr("Offline"));
+        dashboardPage->setSyncProgress(QStringLiteral("100%"), tr("Synced"));
+        connect(_clientModel, &ClientModel::numConnectionsChanged, this, [this](int count) {
+            dashboardPage->setConnections(QString::number(count));
+        });
+        connect(_clientModel, &ClientModel::networkActiveChanged, this, [this](bool active) {
+            dashboardPage->setNetworkStatus(active ? tr("Online") : tr("Offline"));
+        });
+        connect(_clientModel, &ClientModel::numBlocksChanged, this,
+                [this](int count, const QDateTime&, double verification_progress, SyncType, SynchronizationState) {
+                    dashboardPage->setBlockHeight(QString::number(count));
+                    dashboardPage->setSyncProgress(FormatDashboardSyncProgress(verification_progress),
+                                                   FormatDashboardSyncStatus(verification_progress));
+                });
     }
 }
 

@@ -7,21 +7,21 @@
 
 #include <QWidget>
 
-class StatCard;
-class WalletCard;
+class WalletModel;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
+class QVBoxLayout;
 QT_END_NAMESPACE
 
 /**
- * KingPepe modern dashboard page.
+ * KingPepe compact Home screen (Phantom/Backpack-style vertical layout).
  *
- * Composes the reusable card components into a responsive overview. It holds no
- * wallet state: the host feeds it formatted strings from the existing
- * WalletModel/ClientModel via the setters below, and it emits sendRequested()/
- * receiveRequested() for the host to route to the existing pages. This keeps the
- * backend untouched while the presentation is fully custom.
+ * A scrollable stack of rounded cards: balance, quick actions, assets, recent
+ * activity, network status, and sync status. It holds no wallet state: the host feeds it
+ * formatted strings from the existing WalletModel/ClientModel and passes the
+ * WalletModel only so the recent-activity list can read the existing
+ * TransactionTableModel. Emits action signals for the host to route.
  */
 class DashboardPage : public QWidget
 {
@@ -34,21 +34,35 @@ public:
                     const QString& pending, const QString& immature);
     void setBlockHeight(const QString& height);
     void setConnections(const QString& peers);
-    void setSyncProgress(const QString& progress);
+    void setNetworkStatus(const QString& status);
+    void setSyncProgress(const QString& progress, const QString& status);
+
+    //! Provide the wallet model so the recent-activity list can read transactions.
+    void setWalletModel(WalletModel* model);
 
 Q_SIGNALS:
     void sendRequested();
     void receiveRequested();
+    void transactionsRequested();
+    void addressBookRequested();
+
+private Q_SLOTS:
+    void rebuildActivity();
 
 private:
-    WalletCard* m_balanceCard{nullptr};
     QLabel* m_total{nullptr};
     QLabel* m_available{nullptr};
     QLabel* m_pending{nullptr};
     QLabel* m_immature{nullptr};
-    StatCard* m_heightCard{nullptr};
-    StatCard* m_connCard{nullptr};
-    StatCard* m_syncCard{nullptr};
+    QLabel* m_sync{nullptr};
+    QLabel* m_assetBalance{nullptr};
+    QLabel* m_network{nullptr};
+    QLabel* m_height{nullptr};
+    QLabel* m_conn{nullptr};
+    QLabel* m_syncPct{nullptr};
+    QLabel* m_syncStatus{nullptr};
+    QVBoxLayout* m_activityList{nullptr};
+    WalletModel* m_walletModel{nullptr};
 };
 
 #endif // BITCOIN_QT_DASHBOARDPAGE_H
