@@ -295,3 +295,17 @@ QLabel:disabled { color: #4a6154; }
 #receivePage QLineEdit { min-width: 240px; }
 
 #sendPage { background-color: #0b1210; }
+
+/* ============================================================
+ * Compact (Phantom-style) vertical layout — KingPepe brand
+ * ============================================================ */
+#compactHeader { background-color: #0e1712; border-bottom: 1px solid #1c2f24; }
+#compactWalletName { font-size: 15px; font-weight: 800; color: #e9f3ec; }
+#compactNetwork { font-size: 11px; font-weight: 700; color: #33c667; }
+#compactLock { font-size: 12px; color: #8ca99a; }
+#compactSettingsButton { color: #8ca99a; background: transparent; border: none; font-size: 16px; padding: 4px 8px; border-radius: 8px; }
+#compactSettingsButton:hover { background-color: #16241b; color: #e9f3ec; }
+#compactNavBar { background-color: #0e1712; border-top: 1px solid #1c2f24; }
+#compactNavItem { color: #8ca99a; background: transparent; border: none; border-radius: 10px; padding: 8px 4px; font-size: 12px; font-weight: 600; }
+#compactNavItem:hover { color: #e9f3ec; }
+#compactNavItem:checked { color: #33c667; background-color: #14261b; }

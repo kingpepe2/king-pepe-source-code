@@ -15,6 +15,8 @@
 #include <qt/networkstyle.h>
 #include <qt/notificator.h>
 #include <qt/openuridialog.h>
+#include <qt/compactheader.h>
+#include <qt/compactnavbar.h>
 #include <qt/optionsdialog.h>
 #include <qt/settingspage.h>
 #include <qt/optionsmodel.h>
@@ -57,6 +59,7 @@
 #include <QMessageBox>
 #include <QMimeData>
 #include <QProgressDialog>
+#include <QGuiApplication>
 #include <QScreen>
 #include <QSettings>
 #include <QShortcut>
@@ -123,7 +126,25 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const PlatformStyle *_platformSty
             this->message(title, message, style);
         });
         connect(walletFrame, &WalletFrame::currentWalletSet, [this] { updateWalletStatus(); });
-        setCentralWidget(walletFrame);
+        // KingPepe: compact Phantom-style vertical layout — header on top, wallet
+        // content in the middle, bottom navigation below. walletFrame and all its
+        // model/page wiring are untouched; only the surrounding chrome is new.
+        QWidget* compactRoot = new QWidget(this);
+        compactRoot->setObjectName(QStringLiteral("compactRoot"));
+        QVBoxLayout* compactLayout = new QVBoxLayout(compactRoot);
+        compactLayout->setContentsMargins(0, 0, 0, 0);
+        compactLayout->setSpacing(0);
+        m_compact_header = new CompactHeader(compactRoot);
+        m_compact_nav = new CompactNavBar(compactRoot);
+        m_compact_nav->addItem(tr("Home"));
+        m_compact_nav->addItem(tr("Send"));
+        m_compact_nav->addItem(tr("Receive"));
+        m_compact_nav->addItem(tr("Activity"));
+        m_compact_nav->addItem(tr("Settings"));
+        compactLayout->addWidget(m_compact_header);
+        compactLayout->addWidget(walletFrame, 1);
+        compactLayout->addWidget(m_compact_nav);
+        setCentralWidget(compactRoot);
     } else
 #endif // ENABLE_WALLET
     {
@@ -148,6 +169,40 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const PlatformStyle *_platformSty
 
     // Create the toolbars
     createToolBars();
+
+#ifdef ENABLE_WALLET
+    if (enableWallet && m_compact_nav) {
+        // KingPepe: hide the wide horizontal toolbar and the desktop menu bar;
+        // navigation is the compact bottom bar, settings via the header gear.
+        const QList<QToolBar*> toolbars = findChildren<QToolBar*>();
+        for (QToolBar* tb : toolbars) tb->setVisible(false);
+        if (menuBar()) menuBar()->hide();
+
+        connect(m_compact_nav, &CompactNavBar::navigated, this, [this](int i) {
+            switch (i) {
+            case 0: if (overviewAction) overviewAction->trigger(); break;
+            case 1: if (sendCoinsAction) sendCoinsAction->trigger(); break;
+            case 2: if (receiveCoinsAction) receiveCoinsAction->trigger(); break;
+            case 3: if (historyAction) historyAction->trigger(); break;
+            case 4: if (optionsAction) optionsAction->trigger(); break;
+            }
+        });
+        if (m_compact_header) {
+            connect(m_compact_header, &CompactHeader::settingsRequested, this,
+                    [this] { if (optionsAction) optionsAction->trigger(); });
+        }
+    }
+    // KingPepe: compact vertical wallet window (Phantom-style proportions, own brand).
+    // Clear any restored maximized/fullscreen state so the compact size takes effect.
+    setWindowState(Qt::WindowNoState);
+    setMinimumWidth(390);
+    setMaximumWidth(600); // compact mode cap (Expanded Mode toggle relaxes this later)
+    resize(440, 800);
+    if (QScreen* scr = QGuiApplication::primaryScreen()) {
+        const QRect g = scr->availableGeometry();
+        move(g.center() - QPoint(220, 400));
+    }
+#endif // ENABLE_WALLET
 
     // Create system tray icon and notification
     if (QSystemTrayIcon::isSystemTrayAvailable()) {

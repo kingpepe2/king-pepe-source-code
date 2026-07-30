@@ -81,6 +81,10 @@ add_library(bitcoinqt STATIC EXCLUDE_FROM_ALL
   bitcoinunits.h
   clientmodel.cpp
   clientmodel.h
+  compactheader.cpp
+  compactheader.h
+  compactnavbar.cpp
+  compactnavbar.h
   csvmodelwriter.cpp
   csvmodelwriter.h
   dashboardpage.cpp
