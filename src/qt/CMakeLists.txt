@@ -123,6 +123,8 @@ add_library(bitcoinqt STATIC EXCLUDE_FROM_ALL
   qvaluecombobox.h
   rpcconsole.cpp
   rpcconsole.h
+  sendpage.cpp
+  sendpage.h
   settingspage.cpp
   settingspage.h
   splashscreen.cpp

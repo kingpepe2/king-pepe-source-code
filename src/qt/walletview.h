@@ -18,6 +18,7 @@ class PlatformStyle;
 class ReceiveCoinsDialog;
 class ReceivePage;
 class SendCoinsDialog;
+class SendPage;
 class TransactionsPage;
 class SendCoinsRecipient;
 class TransactionView;
@@ -70,6 +71,7 @@ private:
     QWidget *transactionsPage;
     ReceiveCoinsDialog *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
+    SendPage *sendPage;
     AddressBookPage *usedSendingAddressesPage;
     AddressBookPage *usedReceivingAddressesPage;
 

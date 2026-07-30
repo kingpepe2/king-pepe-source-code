@@ -293,3 +293,5 @@ QLabel:disabled { color: #4a6154; }
 
 #receivePage { background-color: #0b1210; }
 #receivePage QLineEdit { min-width: 240px; }
+
+#sendPage { background-color: #0b1210; }

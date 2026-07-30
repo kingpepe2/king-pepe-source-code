@@ -15,6 +15,7 @@
 #include <qt/overviewpage.h>
 #include <qt/platformstyle.h>
 #include <qt/receivepage.h>
+#include <qt/sendpage.h>
 #include <qt/receivecoinsdialog.h>
 #include <qt/sendcoinsdialog.h>
 #include <qt/signverifymessagedialog.h>
@@ -48,6 +49,7 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     dashboardPage = new DashboardPage(this);
     modernTransactionsPage = new TransactionsPage(this);
     modernReceivePage = new ReceivePage(this);
+    sendPage = new SendPage(this);
     overviewPage->setWalletModel(walletModel);
 
     transactionsPage = new QWidget(this);
@@ -85,7 +87,9 @@ WalletView::WalletView(WalletModel* wallet_model, const PlatformStyle* _platform
     addWidget(modernReceivePage);
     addWidget(transactionsPage);
     addWidget(receiveCoinsPage);
-    addWidget(sendCoinsPage);
+    // KingPepe: host the proven send dialog inside the modern Send shell.
+    sendPage->setSendWidget(sendCoinsPage);
+    addWidget(sendPage);
 
     // KingPepe: route the modern dashboard's actions to the existing pages.
     connect(dashboardPage, &DashboardPage::sendRequested, this, [this] { gotoSendCoinsPage(); });
@@ -210,7 +214,8 @@ void WalletView::gotoReceiveCoinsPage()
 
 void WalletView::gotoSendCoinsPage(QString addr)
 {
-    setCurrentWidget(sendCoinsPage);
+    // KingPepe: present the modern Send shell (which hosts the proven send dialog).
+    setCurrentWidget(sendPage);
 
     if (!addr.isEmpty())
         sendCoinsPage->setAddress(addr);
