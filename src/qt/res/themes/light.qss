@@ -191,3 +191,5 @@ QLabel:disabled { color: #a7b8ac; }
 #txAmountOut { color: #0f1a14; font-weight: 700; }
 
 #addressBookWidget { background-color: #f4f7f4; }
+
+#settingsPage { background-color: #f4f7f4; }

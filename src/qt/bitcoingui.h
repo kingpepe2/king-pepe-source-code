@@ -32,6 +32,7 @@ class Notificator;
 class OptionsModel;
 class PlatformStyle;
 class RPCConsole;
+class SettingsPage;
 class SendCoinsRecipient;
 class UnitDisplayStatusBarControl;
 class WalletController;
@@ -123,6 +124,9 @@ private:
 
     //! KingPepe: single-shot inactivity timer that auto-locks an unlocked encrypted wallet.
     QTimer* m_auto_lock_timer = nullptr;
+
+    //! KingPepe: modern settings window (lazily created); Advanced opens the full OptionsDialog.
+    SettingsPage* m_settings_page = nullptr;
 
     UnitDisplayStatusBarControl* unitDisplayControl = nullptr;
     GUIUtil::ThemedLabel* labelWalletEncryptionIcon = nullptr;

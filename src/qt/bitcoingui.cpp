@@ -16,6 +16,7 @@
 #include <qt/notificator.h>
 #include <qt/openuridialog.h>
 #include <qt/optionsdialog.h>
+#include <qt/settingspage.h>
 #include <qt/optionsmodel.h>
 #include <qt/platformstyle.h>
 #include <qt/rpcconsole.h>
@@ -1005,7 +1006,18 @@ void BitcoinGUI::createTrayIconMenu()
 
 void BitcoinGUI::optionsClicked()
 {
-    openOptionsDialogWithTab(OptionsDialog::TAB_MAIN);
+    if (!clientModel || !clientModel->getOptionsModel())
+        return;
+
+    // KingPepe: present the modern settings window; "Advanced settings…" opens the
+    // full, proven OptionsDialog so no option is unreachable.
+    if (!m_settings_page) {
+        m_settings_page = new SettingsPage(this);
+        m_settings_page->setModel(clientModel->getOptionsModel());
+        connect(m_settings_page, &SettingsPage::advancedRequested, this,
+                [this] { openOptionsDialogWithTab(OptionsDialog::TAB_MAIN); });
+    }
+    GUIUtil::bringToFront(m_settings_page);
 }
 
 void BitcoinGUI::aboutClicked()
