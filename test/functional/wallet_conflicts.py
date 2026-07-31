@@ -9,6 +9,7 @@ Test that wallet correctly tracks transactions that have been conflicted by bloc
 
 from decimal import Decimal
 
+from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import (
         assert_equal,
@@ -23,6 +24,14 @@ class TxConflicts(BitcoinTestFramework):
 
     def get_utxo_of_value(self, from_tx_id, search_value):
         return next(tx_out["vout"] for tx_out in self.nodes[0].gettransaction(from_tx_id)["details"] if tx_out["amount"] == Decimal(f"{search_value}"))
+
+    def fund_wallet_with_25_kpepe_outputs(self, wallet, output_count):
+        """Fund conflict-test wallets with large mature outputs on KingPepe regtest."""
+        target_amount = Decimal(output_count * 25)
+        if self.nodes[2].getbalance() < target_amount:
+            self.generate(self.nodes[2], COINBASE_MATURITY + 30)
+        self.nodes[2].send(outputs=[{wallet.getnewaddress(): 25} for _ in range(output_count)])
+        self.generate(self.nodes[2], 1)
 
     def run_test(self):
         """
@@ -139,8 +148,7 @@ class TxConflicts(BitcoinTestFramework):
 
         bob = self.nodes[1]
 
-        self.nodes[2].send(outputs=[{alice.getnewaddress() : 25} for _ in range(3)])
-        self.generate(self.nodes[2], 1)
+        self.fund_wallet_with_25_kpepe_outputs(alice, output_count=3)
 
         self.log.info("Test a scenario where a transaction has a mempool conflict")
 
@@ -205,8 +213,7 @@ class TxConflicts(BitcoinTestFramework):
         alice = self.nodes[0].get_wallet_rpc("alice_2")
         bob = self.nodes[1]
 
-        self.nodes[2].send(outputs=[{alice.getnewaddress() : 25} for _ in range(3)])
-        self.generate(self.nodes[2], 1)
+        self.fund_wallet_with_25_kpepe_outputs(alice, output_count=3)
 
         self.log.info("Test a scenario where a transaction has both a block conflict and a mempool conflict")
         unspents = [{"txid" : element["txid"], "vout" : element["vout"]} for element in alice.listunspent()]
@@ -323,8 +330,7 @@ class TxConflicts(BitcoinTestFramework):
         self.nodes[0].createwallet("alice_3")
         alice = self.nodes[0].get_wallet_rpc("alice_3")
 
-        self.nodes[2].send(outputs=[{alice.getnewaddress() : 25} for _ in range(2)])
-        self.generate(self.nodes[2], 1)
+        self.fund_wallet_with_25_kpepe_outputs(alice, output_count=2)
 
         self.nodes[1].createwallet("bob_1")
         bob = self.nodes[1].get_wallet_rpc("bob_1")
