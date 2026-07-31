@@ -4,8 +4,15 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test basic signet functionality"""
 
+import os.path
+import shlex
+import subprocess
+import sys
+import time
+
 from decimal import Decimal
 
+from test_framework.blocktools import DIFF_1_N_BITS
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import assert_equal
 
@@ -61,6 +68,28 @@ class SignetBasicTest(BitcoinTestFramework):
         self.connect_nodes(2, 3)
         self.connect_nodes(4, 5)
 
+    def skip_test_if_missing_module(self):
+        self.skip_if_no_cli()
+        self.skip_if_no_wallet()
+        self.skip_if_no_bitcoin_util()
+
+    def mine_signet_block(self, node):
+        base_dir = self.config["environment"]["SRCDIR"]
+        signet_miner_path = os.path.join(base_dir, "contrib", "signet", "miner")
+        rpc_argv = node.binaries.rpc_argv() + [f"-datadir={node.cli.datadir}"]
+        util_argv = node.binaries.util_argv() + ["grind"]
+        subprocess.run([
+                sys.executable,
+                signet_miner_path,
+                f'--cli={shlex.join(rpc_argv)}',
+                'generate',
+                f'--address={node.getnewaddress()}',
+                f'--grind-cmd={shlex.join(util_argv)}',
+                f'--nbits={DIFF_1_N_BITS:08x}',
+                f'--set-block-time={int(time.time())}',
+                '--poolnum=99',
+            ], check=True, stderr=subprocess.STDOUT)
+
     def run_test(self):
         self.log.info("basic tests using OP_TRUE challenge")
 
@@ -87,19 +116,24 @@ class SignetBasicTest(BitcoinTestFramework):
         check_getmininginfo(node_idx=3, signet_idx=1)
         check_getmininginfo(node_idx=4, signet_idx=2)
 
-        self.generate(self.nodes[0], 1, sync_fun=self.no_op)
+        self.disconnect_nodes(0, 1)
 
-        self.log.info("pregenerated signet blocks check")
+        self.log.info("runtime-generated KingPepe signet blocks check")
+        op_true_blocks = []
+        for _ in range(10):
+            self.mine_signet_block(self.nodes[0])
+            block_hash = self.nodes[0].getbestblockhash()
+            op_true_blocks.append(self.nodes[0].getblock(block_hash, 0))
 
         height = 0
-        for block in signet_blocks:
-            assert_equal(self.nodes[2].submitblock(block), None)
+        for block in op_true_blocks:
+            assert_equal(self.nodes[1].submitblock(block), None)
             height += 1
-            assert_equal(self.nodes[2].getblockcount(), height)
+            assert_equal(self.nodes[1].getblockcount(), height)
 
-        self.log.info("pregenerated signet blocks check (incompatible solution)")
+        self.log.info("runtime-generated signet blocks check (incompatible solution)")
 
-        assert_equal(self.nodes[4].submitblock(signet_blocks[0]), 'bad-signet-blksig')
+        assert_equal(self.nodes[4].submitblock(op_true_blocks[0]), 'bad-signet-blksig')
 
         self.log.info("test that signet logs the network magic on node start")
         with self.nodes[0].assert_debug_log(["Signet derived magic (message start)"]):
