@@ -38,11 +38,11 @@ from decimal import (
 INPUTS = [
     # Valid pay-to-pubkey scripts
     {'txid': '9b907ef1e3c26fc71fe4a4b3580bc75264112f95050014157059c736f0202e71', 'vout': 0,
-     'scriptPubKey': '76a91460baa0f494b38ce3c940dea67f3804dc52d1fb9488ac'},
+     'scriptPubKey': '76a914862918540329bd33efce785a5deee773582d375988ac'},
     {'txid': '83a4f6a6b73660e13ee6cb3c6063fa3759c50c9b7521d0536022961898f4fb02', 'vout': 0,
-     'scriptPubKey': '76a914669b857c03a5ed269d5d85a1ffac9ed5d663072788ac'},
+     'scriptPubKey': '76a9141c0234279af58263cff0640f0b90f67bfaa1682c88ac'},
 ]
-OUTPUTS = {'mpLQjfK79b7CCV4VMJWEWAj5Mpx8Up5zxB': 0.1}
+OUTPUTS = {'SxrynzHnKrG8mLcWZfrFi2N6YQFGbb34s6': 0.1}
 
 class SignRawTransactionWithKeyTest(BitcoinTestFramework):
     def set_test_params(self):
@@ -66,7 +66,7 @@ class SignRawTransactionWithKeyTest(BitcoinTestFramework):
         1) The transaction has a complete set of signatures
         2) No script verification error occurred"""
         self.log.info("Test valid raw transaction with one input")
-        privKeys = ['cUeKHd5orzT3mz8P9pxyREHfsWtVfgsfDjiZZBcjUBAaGk1BTj7N', 'cVKpPfVKSJxKqVpE9awvXNWuLHCa5j5tiE7K6zbUSptFpTEtiFrA']
+        privKeys = ['VHCyk1t23s7A3r15QPXCjWt3W4mFBnNBaR7PriCjfWQ5evpKrPDm', 'VHipHHb3gn88jJsRNjCT6N3pUu7bCowazcS1mUQL2fGYStbzSRYr']
         rawTx = self.nodes[0].createrawtransaction(INPUTS, OUTPUTS)
         rawTxSigned = self.nodes[0].signrawtransactionwithkey(rawTx, privKeys, INPUTS)
 
@@ -78,7 +78,7 @@ class SignRawTransactionWithKeyTest(BitcoinTestFramework):
         embedded_privkey, embedded_pubkey = generate_keypair(wif=True)
         p2sh_p2wsh_address = self.nodes[0].createmultisig(1, [embedded_pubkey.hex()], "p2sh-segwit")
         # send transaction to P2SH-P2WSH 1-of-1 multisig address
-        self.send_to_address(p2sh_p2wsh_address["address"], 49.999)
+        self.send_to_address(p2sh_p2wsh_address["address"], 2.9)
         self.generate(self.nodes[0], 1)
         # Get the UTXO info from scantxoutset
         unspent_output = self.nodes[0].scantxoutset('start', [p2sh_p2wsh_address['descriptor']])['unspents'][0]
@@ -87,7 +87,7 @@ class SignRawTransactionWithKeyTest(BitcoinTestFramework):
         unspent_output['redeemScript'] = script_to_p2wsh_script(unspent_output['witnessScript']).hex()
         assert_equal(spk, unspent_output['scriptPubKey'])
         # Now create and sign a transaction spending that output on node[0], which doesn't know the scripts or keys
-        spending_tx = self.nodes[0].createrawtransaction([unspent_output], {getnewdestination()[2]: Decimal("49.998")})
+        spending_tx = self.nodes[0].createrawtransaction([unspent_output], {getnewdestination()[2]: Decimal("2.899")})
         spending_tx_signed = self.nodes[0].signrawtransactionwithkey(spending_tx, [embedded_privkey], [unspent_output])
         self.assert_signing_completed_successfully(spending_tx_signed)
 
@@ -97,10 +97,10 @@ class SignRawTransactionWithKeyTest(BitcoinTestFramework):
 
     def keyless_signing_test(self):
         self.log.info("Test that keyless 'signing' of pay-to-anchor input succeeds")
-        [txid, vout] = self.send_to_address(p2a(), 49.999)
+        [txid, vout] = self.send_to_address(p2a(), 2.9)
         spending_tx = self.nodes[0].createrawtransaction(
             [{"txid": txid, "vout": vout}],
-            [{getnewdestination()[2]: Decimal("49.998")}])
+            [{getnewdestination()[2]: Decimal("2.899")}])
         spending_tx_signed = self.nodes[0].signrawtransactionwithkey(spending_tx, [], [])
         self.assert_signing_completed_successfully(spending_tx_signed)
         assert self.nodes[0].testmempoolaccept([spending_tx_signed["hex"]])[0]["allowed"]
@@ -118,10 +118,10 @@ class SignRawTransactionWithKeyTest(BitcoinTestFramework):
         addr = script_to_p2sh(redeem_script)
         script_pub_key = address_to_scriptpubkey(addr).hex()
         # Fund that address
-        [txid, vout] = self.send_to_address(addr, 10)
+        [txid, vout] = self.send_to_address(addr, 2.0)
         # Now create and sign a transaction spending that output on node[0], which doesn't know the scripts or keys
-        spending_tx = self.nodes[0].createrawtransaction([{'txid': txid, 'vout': vout}], {getnewdestination()[2]: Decimal("9.999")})
-        spending_tx_signed = self.nodes[0].signrawtransactionwithkey(spending_tx, [embedded_privkey], [{'txid': txid, 'vout': vout, 'scriptPubKey': script_pub_key, 'redeemScript': redeem_script, 'witnessScript': witness_script, 'amount': 10}])
+        spending_tx = self.nodes[0].createrawtransaction([{'txid': txid, 'vout': vout}], {getnewdestination()[2]: Decimal("1.999")})
+        spending_tx_signed = self.nodes[0].signrawtransactionwithkey(spending_tx, [embedded_privkey], [{'txid': txid, 'vout': vout, 'scriptPubKey': script_pub_key, 'redeemScript': redeem_script, 'witnessScript': witness_script, 'amount': 2.0}])
         self.assert_signing_completed_successfully(spending_tx_signed)
         self.nodes[0].sendrawtransaction(spending_tx_signed['hex'])
 

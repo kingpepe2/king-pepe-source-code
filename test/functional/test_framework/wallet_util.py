@@ -64,7 +64,10 @@ def test_address(node, address, **kwargs):
 def bytes_to_wif(b, compressed=True):
     if compressed:
         b += b'\x01'
-    return byte_to_base58(b, 239)
+    # KingPepe regtest SECRET_KEY (WIF) version byte is 191 (0xBF), not Bitcoin's
+    # 239; matches base58Prefixes[SECRET_KEY] in CRegTestParams and address.py's
+    # regtest PUBKEY/SCRIPT prefixes (64/63).
+    return byte_to_base58(b, 191)
 
 def generate_keypair(compressed=True, wif=False):
     """Generate a new random keypair and return the corresponding ECKey /
