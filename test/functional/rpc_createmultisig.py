@@ -8,7 +8,7 @@ import itertools
 import json
 import os
 
-from test_framework.address import address_to_scriptpubkey
+from test_framework.address import address_to_scriptpubkey, base58_to_byte, byte_to_base58
 from test_framework.descriptors import descsum_create
 from test_framework.key import ECPubKey
 from test_framework.messages import COIN
@@ -103,7 +103,7 @@ class RpcCreateMultiSigTest(BitcoinTestFramework):
         mredeem = msig["redeemScript"]
         assert_equal(desc, msig['descriptor'])
         if output_type == 'bech32':
-            assert madd[0:4] == "bcrt"  # actually a bech32 address
+            assert madd.startswith("rkpepe1")  # actually a bech32 address
 
         spk = address_to_scriptpubkey(madd)
         value = decimal.Decimal("0.00004000")
@@ -190,10 +190,11 @@ class RpcCreateMultiSigTest(BitcoinTestFramework):
         for t in vectors:
             key_str = ','.join(t['keys'])
             desc = descsum_create('sh(sortedmulti(2,{}))'.format(key_str))
-            assert_equal(self.nodes[0].deriveaddresses(desc)[0], t['address'])
+            expected_address = byte_to_base58(base58_to_byte(t['address'])[0], 63)
+            assert_equal(self.nodes[0].deriveaddresses(desc)[0], expected_address)
             sorted_key_str = ','.join(t['sorted_keys'])
             sorted_key_desc = descsum_create('sh(multi(2,{}))'.format(sorted_key_str))
-            assert_equal(self.nodes[0].deriveaddresses(sorted_key_desc)[0], t['address'])
+            assert_equal(self.nodes[0].deriveaddresses(sorted_key_desc)[0], expected_address)
 
 
 if __name__ == '__main__':
