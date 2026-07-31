@@ -37,8 +37,13 @@ class SimulateTxTest(BitcoinTestFramework):
         w1 = node.get_wallet_rpc('w1')
         w2 = node.get_wallet_rpc('w2')
 
-        self.generatetoaddress(node, COINBASE_MATURITY + 1, w0.getnewaddress())
-        assert_equal(w0.getbalance(), 50.0)
+        # KingPepe: a matured coinbase pays 3 KPEPE (not Bitcoin's 50), so one mature
+        # block cannot fund the 5 + 10 KPEPE simulated payments below. Mine enough
+        # blocks that w0 accumulates 10 mature coinbases (30 KPEPE). Block 1 (the
+        # premine) is mined to a non-wallet address by self.generate above, so it is
+        # not counted here.
+        self.generatetoaddress(node, COINBASE_MATURITY + 10, w0.getnewaddress())
+        assert_equal(w0.getbalance(), 30.0)
         assert_equal(w1.getbalance(), 0.0)
 
         address1 = w1.getnewaddress()
