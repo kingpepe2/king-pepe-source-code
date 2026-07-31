@@ -66,14 +66,14 @@ class WalletMiniscriptDecayingMultisigDescriptorPSBTTest(BitcoinTestFramework):
         self.log.info(f"Testing a miniscript multisig which starts as 4-of-4 and 'decays' to 3-of-4 at block height {self.locktimes[0]}, 2-of-4 at {self.locktimes[1]}, and finally 1-of-4 at {self.locktimes[2]}...")
 
         self.log.info("Create the signer wallets and get their xpubs...")
-        signers = [self.node.get_wallet_rpc(self.node.createwallet(wallet_name=f"signer_{i}")["name"]) for i in range(self.N)]
+        signers = [self.node.get_wallet_rpc(self.node.createwallet(wallet_name=f"s{i}")["name"]) for i in range(self.N)]
         xpubs = [self._get_xpub(signer) for signer in signers]
 
         self.log.info("Create the watch-only decaying multisig using signers' xpubs...")
         multisig = self.create_multisig(xpubs)
 
         self.log.info("Get a mature utxo to send to the multisig...")
-        coordinator_wallet = self.node.get_wallet_rpc(self.node.createwallet(wallet_name="coordinator")["name"])
+        coordinator_wallet = self.node.get_wallet_rpc(self.node.createwallet(wallet_name="c")["name"])
         self.generatetoaddress(self.node, 101, coordinator_wallet.getnewaddress())
 
         self.log.info("Send funds to the multisig's receiving address...")

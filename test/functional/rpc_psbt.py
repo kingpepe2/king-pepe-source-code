@@ -530,7 +530,10 @@ class PSBTTest(BitcoinTestFramework):
         p2pkh = self.nodes[1].getnewaddress("", "legacy")
         p2sh_p2wpkh = self.nodes[1].getnewaddress("", "p2sh-segwit")
 
-        # fund those addresses
+        # fund those addresses. KingPepe's normal regtest subsidy is 3 KPEPE,
+        # so add fresh mature rewards before this 60 KPEPE fixture instead of
+        # depending on earlier wallet coin selection.
+        self.generate(self.nodes[0], 60)
         rawtx = self.nodes[0].createrawtransaction([], {p2sh:10, p2wsh:10, p2wpkh:10, p2sh_p2wsh:10, p2sh_p2wpkh:10, p2pkh:10})
         rawtx = self.nodes[0].fundrawtransaction(rawtx, {"changePosition":3})
         signed_tx = self.nodes[0].signrawtransactionwithwallet(rawtx['hex'])['hex']
