@@ -7,6 +7,10 @@
 from decimal import Decimal
 
 from test_framework.messages import (
+    COutPoint,
+    CTransaction,
+    CTxIn,
+    CTxOut,
     MAX_BIP125_RBF_SEQUENCE,
     COIN,
 )
@@ -80,7 +84,43 @@ class ReplaceByFeeTest(BitcoinTestFramework):
         confirmed - txout created will be confirmed in the blockchain;
                     unconfirmed otherwise.
         """
-        tx = self.wallet.send_to(from_node=node, scriptPubKey=scriptPubKey or self.wallet.get_output_script(), amount=amount)
+        scriptPubKey = scriptPubKey or self.wallet.get_output_script()
+        fee = 1000
+
+        funding_utxos = sorted(self.wallet.get_utxos(mark_as_spent=False, confirmed_only=True), key=lambda utxo: utxo["value"], reverse=True)
+        largest_value = int(COIN * funding_utxos[0]["value"])
+        if largest_value >= amount + fee:
+            tx = self.wallet.send_to(from_node=node, scriptPubKey=scriptPubKey, amount=amount, fee=fee)
+        else:
+            selected_utxos = []
+            total_value = 0
+            for utxo in funding_utxos:
+                selected_utxos.append(utxo)
+                total_value += int(COIN * utxo["value"])
+                if total_value >= amount + fee:
+                    break
+
+            assert_greater_than_or_equal(total_value, amount + fee)
+            for utxo in selected_utxos:
+                self.wallet.get_utxo(txid=utxo["txid"], vout=utxo["vout"])
+
+            tx = CTransaction()
+            tx.vin = [CTxIn(COutPoint(int(utxo["txid"], 16), utxo["vout"])) for utxo in selected_utxos]
+            change_value = total_value - amount - fee
+            tx.vout = []
+            if change_value:
+                tx.vout.append(CTxOut(change_value, self.wallet.get_output_script()))
+            sent_vout = len(tx.vout)
+            tx.vout.append(CTxOut(amount, scriptPubKey))
+            self.wallet.sign_tx(tx)
+            txid = self.wallet.sendrawtransaction(from_node=node, tx_hex=tx.serialize().hex())
+            tx = {
+                "sent_vout": sent_vout,
+                "txid": txid,
+                "wtxid": tx.wtxid_hex,
+                "hex": tx.serialize().hex(),
+                "tx": tx,
+            }
 
         if confirmed:
             mempool_size = len(node.getrawmempool())
