@@ -64,7 +64,7 @@ class SignRawTransactionWithWalletTest(BitcoinTestFramework):
         5) Script verification errors have certain properties ("txid", "vout", "scriptSig", "sequence", "error")
         6) The verification errors refer to the invalid (vin 1) and missing input (vin 2)"""
         self.log.info("Test script verification errors")
-        privKeys = ['cUeKHd5orzT3mz8P9pxyREHfsWtVfgsfDjiZZBcjUBAaGk1BTj7N']
+        privKeys = ['VNp3qsndTcUT19VWcC27CskHvfFBbbrmQXpJhNzBuCzQkrQkvW1i']
 
         inputs = [
             # Valid pay-to-pubkey script
@@ -84,7 +84,7 @@ class SignRawTransactionWithWalletTest(BitcoinTestFramework):
              'scriptPubKey': 'badbadbadbad'}
         ]
 
-        outputs = {'mpLQjfK79b7CCV4VMJWEWAj5Mpx8Up5zxB': 0.1}
+        outputs = {self.nodes[0].getnewaddress(): 0.1}
 
         rawTx = self.nodes[0].createrawtransaction(inputs, outputs)
 
@@ -219,8 +219,9 @@ class SignRawTransactionWithWalletTest(BitcoinTestFramework):
         # Make sure CLTV is active
         assert self.nodes[0].getdeploymentinfo()['deployments']['bip65']['active']
 
-        # Create a P2WSH script with CLTV
-        script = CScript([100, OP_CHECKLOCKTIMEVERIFY, OP_DROP])
+        # Create a P2WSH script with CLTV at the current regtest height.
+        cltv_height = self.nodes[0].getblockcount()
+        script = CScript([cltv_height, OP_CHECKLOCKTIMEVERIFY, OP_DROP])
         address = script_to_p2wsh(script)
 
         # Fund that address and make the spend
@@ -231,7 +232,7 @@ class SignRawTransactionWithWalletTest(BitcoinTestFramework):
         tx = self.nodes[0].createrawtransaction(
             [utxo1, {"txid": utxo2["txid"], "vout": utxo2["vout"]}],
             [{self.nodes[0].getnewaddress(): amt}],
-            self.nodes[0].getblockcount()
+            cltv_height
         )
 
         # Set the witness script
