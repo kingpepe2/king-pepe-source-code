@@ -20,6 +20,7 @@ from pathlib import Path
 def run_testshell_doc_example(functional_tests_dir):
     import sys
     sys.path.insert(0, functional_tests_dir)
+    from test_framework.blocktools import COINBASE_MATURITY
     from test_framework.test_shell import TestShell
     from test_framework.util import assert_equal
 
@@ -36,11 +37,14 @@ def run_testshell_doc_example(functional_tests_dir):
             res = test.nodes[0].createwallet('default')
             assert_equal(res, {'name': 'default'})
             address = test.nodes[0].getnewaddress()
-            res = test.generatetoaddress(test.nodes[0], 101, address)
-            assert_equal(len(res), 101)
+            blocks_to_generate = 101
+            res = test.generatetoaddress(test.nodes[0], blocks_to_generate, address)
+            assert_equal(len(res), blocks_to_generate)
             test.sync_blocks()
-            assert_equal(test.nodes[1].getblockchaininfo()["blocks"], 101)
-            assert_equal(test.nodes[0].getbalance(), Decimal('50.0'))
+            assert_equal(test.nodes[1].getblockchaininfo()["blocks"], blocks_to_generate)
+            mature_regular_blocks = blocks_to_generate - COINBASE_MATURITY - 1
+            expected_balance = Decimal("19740000") + mature_regular_blocks * Decimal("3")
+            assert_equal(test.nodes[0].getbalance(), expected_balance)
             test.nodes[0].log.info("Successfully mined regtest chain!")
     finally:
         test.shutdown()

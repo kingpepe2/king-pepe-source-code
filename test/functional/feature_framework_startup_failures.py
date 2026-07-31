@@ -90,22 +90,22 @@ class FeatureFrameworkStartupFailures(BitcoinTestFramework):
         self.nodes[0].stop_node()
         self.log.info(f"...measured {node_start_duration:.1f}s.")
 
-        self.log.info("Verifying inability to connect to bitcoind's RPC interface due to wrong port results in one exception containing at least one OSError.")
+        self.log.info("Verifying inability to connect to kingpeped's RPC interface due to wrong port results in one exception containing at least one OSError.")
         self._verify_startup_failure(
             TestWrongRpcPortStartupFailure, [f"--internal_node_start_duration={node_start_duration}"],
-            r"AssertionError: \[node 0\] Unable to connect to bitcoind after \d+s \(ignored errors: {[^}]*'OSError \w+'?: \d+[^}]*}, latest: '[\w ]+'/\w+\([^)]+\)\)"
+            r"AssertionError: \[node 0\] Unable to connect to kingpeped after \d+s \(ignored errors: {[^}]*'OSError \w+'?: \d+[^}]*}, latest: '[\w ]+'/\w+\([^)]+\)\)"
         )
 
         self.log.info("Verifying timeout while waiting for init errors that do not occur results in only one exception.")
         self._verify_startup_failure(
             TestMissingInitErrorTimeout, [f"--internal_node_start_duration={node_start_duration}"],
-            r"AssertionError: \[node 0\] bitcoind should have exited within \d+s with an error \(cmd:"
+            r"AssertionError: \[node 0\] kingpeped should have exited within \d+s with an error \(cmd:"
         )
 
         self.log.info("Verifying startup failure due to invalid arg results in only one exception.")
         self._verify_startup_failure(
             TestInitErrorStartupFailure, [],
-            r"FailedToStartError: \[node 0\] bitcoind exited with status 1 during initialization\. Error: Error parsing command line arguments: Invalid parameter -nonexistentarg"
+            r"FailedToStartError: \[node 0\] kingpeped exited with status 1 during initialization\. Error: Error parsing command line arguments: Invalid parameter -nonexistentarg"
         )
 
         self.log.info("Verifying start() then stop_node() on a node without wait_for_rpc_connection() in between raises an assert.")
