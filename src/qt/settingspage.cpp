@@ -4,6 +4,7 @@
 
 #include <qt/settingspage.h>
 
+#include <qt/guiconstants.h>
 #include <qt/guiutil.h>
 #include <qt/optionsmodel.h>
 #include <qt/walletcard.h>
@@ -92,12 +93,15 @@ SettingsPage::SettingsPage(QWidget* parent)
     QPushButton* lightButton = new QPushButton(tr("Light"), appearance);
     darkButton->setObjectName(QStringLiteral("primaryActionButton"));
     lightButton->setObjectName(QStringLiteral("secondaryActionButton"));
+    // KP-AUD-003: persist the theme to the same fixed QSettings scope used by the
+    // startup read in bitcoin.cpp, so the preference round-trips across restarts and
+    // networks (the default scope is network-specific at runtime and would mismatch).
     connect(darkButton, &QPushButton::clicked, this, [] {
-        QSettings().setValue("theme", "dark");
+        QSettings(QAPP_ORG_NAME, QAPP_APP_NAME_DEFAULT).setValue("theme", "dark");
         GUIUtil::applyTheme("dark");
     });
     connect(lightButton, &QPushButton::clicked, this, [] {
-        QSettings().setValue("theme", "light");
+        QSettings(QAPP_ORG_NAME, QAPP_APP_NAME_DEFAULT).setValue("theme", "light");
         GUIUtil::applyTheme("light");
     });
     themeRow->addWidget(darkButton);

@@ -209,7 +209,12 @@ void WalletView::setClientModel(ClientModel *_clientModel)
         dashboardPage->setBlockHeight(QString::number(_clientModel->getNumBlocks()));
         dashboardPage->setConnections(QString::number(_clientModel->getNumConnections()));
         dashboardPage->setNetworkStatus(_clientModel->node().getNetworkActive() ? tr("Online") : tr("Offline"));
-        dashboardPage->setSyncProgress(QStringLiteral("100%"), tr("Synced"));
+        // KP-AUD-002: seed sync status from the node's real verification progress
+        // rather than an unconditional "100% Synced" (which mislabels a node that is
+        // still syncing / in initial block download until the first numBlocksChanged).
+        const double init_verification_progress = _clientModel->node().getVerificationProgress();
+        dashboardPage->setSyncProgress(FormatDashboardSyncProgress(init_verification_progress),
+                                       FormatDashboardSyncStatus(init_verification_progress));
         connect(_clientModel, &ClientModel::numConnectionsChanged, this, [this](int count) {
             dashboardPage->setConnections(QString::number(count));
         });

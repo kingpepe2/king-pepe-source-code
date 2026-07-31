@@ -551,7 +551,12 @@ int GuiMain(int argc, char* argv[])
 
     // KingPepe: apply the UI theme (dark premium by default) application-wide.
     // UI-only; does not affect wallet, consensus, or RPC behavior.
-    GUIUtil::applyTheme(QSettings().value("theme", "dark").toString());
+    // KP-AUD-003: read the theme from an explicit, fixed QSettings scope
+    // (QAPP_ORG_NAME/QAPP_APP_NAME_DEFAULT) rather than the default scope, which
+    // here is still unset (org/app name are assigned below) and later becomes
+    // network-specific. Using a fixed scope for both read and write ensures the
+    // saved theme round-trips regardless of network or initialization order.
+    GUIUtil::applyTheme(QSettings(QAPP_ORG_NAME, QAPP_APP_NAME_DEFAULT).value("theme", "dark").toString());
 
     /// 3. Application identification
     // must be set before OptionsModel is initialized or translations are loaded,
