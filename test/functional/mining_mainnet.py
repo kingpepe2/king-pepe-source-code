@@ -2,27 +2,25 @@
 # Copyright (c) 2025-present The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Test mining on an alternate mainnet
+"""Test mining on an alternate KingPepe mainnet
 
 Test mining related RPCs that involve difficulty adjustment, which
 regtest doesn't have.
 
-It uses an alternate mainnet chain. See data/README.md for how it was generated.
+It uses an alternate KingPepe mainnet chain. See data/README.md for how it was
+generated.
 
-Mine one retarget period worth of blocks with a short interval in
+Mine one KingPepe retarget period worth of blocks with a short interval in
 order to maximally raise the difficulty. Verify this using the getmininginfo RPC.
 
 """
 
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import (
+    assert_approx,
     assert_equal,
 )
 from test_framework.blocktools import (
-    DIFF_1_N_BITS,
-    DIFF_1_TARGET,
-    DIFF_4_N_BITS,
-    DIFF_4_TARGET,
     create_coinbase,
     nbits_str,
     target_str
@@ -31,13 +29,33 @@ from test_framework.blocktools import (
 from test_framework.messages import (
     CBlock,
     SEQUENCE_FINAL,
+    uint256_from_compact,
 )
 
 import json
 import os
 
 # See data/README.md
-COINBASE_SCRIPT_PUBKEY="76a914eadbac7f36c37e39361168b7aaee3cb24a25312d88ac"
+COINBASE_SCRIPT_PUBKEY = "76a914eadbac7f36c37e39361168b7aaee3cb24a25312d88ac"
+KINGPEPE_MAINNET_RETARGET_INTERVAL = 120
+KINGPEPE_MAINNET_INITIAL_N_BITS = 0x1e0ffff0
+KINGPEPE_MAINNET_INITIAL_TARGET = uint256_from_compact(KINGPEPE_MAINNET_INITIAL_N_BITS)
+KINGPEPE_MAINNET_DIFF_4_N_BITS = 0x1e03fffc
+KINGPEPE_MAINNET_DIFF_4_TARGET = uint256_from_compact(KINGPEPE_MAINNET_DIFF_4_N_BITS)
+
+
+def difficulty_from_bits(nbits):
+    """Mirror the getdifficulty RPC calculation for deterministic assertions."""
+    shift = (nbits >> 24) & 0xff
+    difficulty = 0x0000ffff / (nbits & 0x00ffffff)
+    while shift < 29:
+        difficulty *= 256.0
+        shift += 1
+    while shift > 29:
+        difficulty /= 256.0
+        shift -= 1
+    return difficulty
+
 
 class MiningMainnetTest(BitcoinTestFramework):
 
@@ -59,7 +77,10 @@ class MiningMainnetTest(BitcoinTestFramework):
         block.nVersion = 0x20000000
         block.hashPrevBlock = int(prev_hash, 16)
         block.nTime = blocks['timestamps'][height - 1]
-        block.nBits = DIFF_1_N_BITS if height < 2016 else DIFF_4_N_BITS
+        if height < KINGPEPE_MAINNET_RETARGET_INTERVAL:
+            block.nBits = KINGPEPE_MAINNET_INITIAL_N_BITS
+        else:
+            block.nBits = KINGPEPE_MAINNET_DIFF_4_N_BITS
         block.nNonce = blocks['nonces'][height - 1]
         block.vtx = [create_coinbase(height=height, script_pubkey=bytes.fromhex(COINBASE_SCRIPT_PUBKEY), halving_period=210000)]
         # The alternate mainnet chain was mined with non-timelocked coinbase txs.
@@ -86,39 +107,55 @@ class MiningMainnetTest(BitcoinTestFramework):
         with open(path) as f:
             blocks = json.load(f)
             n_blocks = len(blocks['timestamps'])
-            assert_equal(n_blocks, 2016)
+            assert_equal(n_blocks, KINGPEPE_MAINNET_RETARGET_INTERVAL)
 
         # Mine up to the last block of the first retarget period
-        for i in range(2015):
+        for i in range(KINGPEPE_MAINNET_RETARGET_INTERVAL - 1):
             prev_hash = self.mine(i + 1, prev_hash, blocks, node)
 
-        assert_equal(node.getblockcount(), 2015)
+        assert_equal(node.getblockcount(), KINGPEPE_MAINNET_RETARGET_INTERVAL - 1)
 
         self.log.info("Check difficulty adjustment with getmininginfo")
         mining_info = node.getmininginfo()
-        assert_equal(mining_info['difficulty'], 1)
-        assert_equal(mining_info['bits'], nbits_str(DIFF_1_N_BITS))
-        assert_equal(mining_info['target'], target_str(DIFF_1_TARGET))
+        assert_approx(
+            mining_info['difficulty'],
+            difficulty_from_bits(KINGPEPE_MAINNET_INITIAL_N_BITS),
+            vspan=0.000000001,
+        )
+        assert_equal(mining_info['bits'], nbits_str(KINGPEPE_MAINNET_INITIAL_N_BITS))
+        assert_equal(mining_info['target'], target_str(KINGPEPE_MAINNET_INITIAL_TARGET))
 
-        assert_equal(mining_info['next']['height'], 2016)
-        assert_equal(mining_info['next']['difficulty'], 4)
-        assert_equal(mining_info['next']['bits'], nbits_str(DIFF_4_N_BITS))
-        assert_equal(mining_info['next']['target'], target_str(DIFF_4_TARGET))
+        assert_equal(mining_info['next']['height'], KINGPEPE_MAINNET_RETARGET_INTERVAL)
+        assert_approx(
+            mining_info['next']['difficulty'],
+            difficulty_from_bits(KINGPEPE_MAINNET_DIFF_4_N_BITS),
+            vspan=0.000000001,
+        )
+        assert_equal(mining_info['next']['bits'], nbits_str(KINGPEPE_MAINNET_DIFF_4_N_BITS))
+        assert_equal(mining_info['next']['target'], target_str(KINGPEPE_MAINNET_DIFF_4_TARGET))
 
         # Mine first block of the second retarget period
-        height = 2016
+        height = KINGPEPE_MAINNET_RETARGET_INTERVAL
         prev_hash = self.mine(height, prev_hash, blocks, node)
         assert_equal(node.getblockcount(), height)
 
         mining_info = node.getmininginfo()
-        assert_equal(mining_info['difficulty'], 4)
+        assert_approx(
+            mining_info['difficulty'],
+            difficulty_from_bits(KINGPEPE_MAINNET_DIFF_4_N_BITS),
+            vspan=0.000000001,
+        )
 
         self.log.info("getblock RPC should show historical target")
         block_info = node.getblock(node.getblockhash(1))
 
-        assert_equal(block_info['difficulty'], 1)
-        assert_equal(block_info['bits'], nbits_str(DIFF_1_N_BITS))
-        assert_equal(block_info['target'], target_str(DIFF_1_TARGET))
+        assert_approx(
+            block_info['difficulty'],
+            difficulty_from_bits(KINGPEPE_MAINNET_INITIAL_N_BITS),
+            vspan=0.000000001,
+        )
+        assert_equal(block_info['bits'], nbits_str(KINGPEPE_MAINNET_INITIAL_N_BITS))
+        assert_equal(block_info['target'], target_str(KINGPEPE_MAINNET_INITIAL_TARGET))
 
 
 if __name__ == '__main__':

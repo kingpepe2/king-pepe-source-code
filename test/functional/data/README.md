@@ -2,49 +2,29 @@
 
 ## mainnet_alt.json
 
-For easier testing the difficulty is maximally increased in the first (and only)
-retarget period, by producing blocks approximately 2 minutes apart.
+This file contains deterministic block timestamps and nonces for
+`mining_mainnet.py`. The fixture is an alternate KingPepe mainnet chain used
+only by the functional test runner to exercise difficulty adjustment logic that
+regtest does not cover.
 
-The alternate mainnet chain was generated as follows:
-- use faketime to set node clock to 2 minutes after genesis block
-- mine a block using a CPU miner such as https://github.com/pooler/cpuminer
-- restart node with a faketime 2 minutes later
+KingPepe mainnet uses:
 
-```sh
-for i in {1..2016}
-do
- t=$(( 1231006505 + $i * 120 ))
- faketime "`date -d @$t  +'%Y-%m-%d %H:%M:%S'`" \
- bitcoind -connect=0 -nocheckpoints -stopatheight=$i
-done
-```
+- genesis hash
+  `00000a00a75c7ed12c71b9a8b73c01576009d62a0a606c0a1ef37b043c520fb2`
+- initial bits `0x1e0ffff0`
+- retarget interval 120 blocks
+- target spacing 60 seconds
 
-The CPU miner is kept running as follows:
+The fixture mines blocks 1 through 120 from the KingPepe mainnet genesis. Blocks
+1 through 119 use `0x1e0ffff0`; block 120 uses the maximum permitted difficulty
+increase, `0x1e03fffc`. Timestamps are spaced 15 seconds apart, forcing the
+first retarget period to the minimum quarter-timespan allowed by the existing
+KingPepe proof-of-work rules.
 
-```sh
-./minerd -u ... -p ... -o http://127.0.0.1:8332 --no-stratum \
-        --coinbase-addr 1NQpH6Nf8QtR2HphLRcvuVqfhXBXsiWn8r \
-        --algo sha256d --no-longpoll --scantime 3 --retry-pause 1
-```
+The coinbase output script is a fixed P2PKH scriptPubKey used only to make the
+serialized coinbase transaction deterministic. It is not a payout destination
+used by production code.
 
-The payout address is derived from first BIP32 test vector master key:
-
-```
-pkh(xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi/44h/0h/0h/<0;1>/*)#fkjtr0yn
-```
-
-It uses `pkh()` because `tr()` outputs at low heights are not spendable (`unexpected-witness`).
-
-This makes each block deterministic except for its timestamp and nonce, which
-are stored in `mainnet_alt.json` and used to reconstruct the chain without
-having to redo the proof-of-work.
-
-The timestamp was not kept constant because at difficulty 1 it's not sufficient
-to only grind the nonce. Grinding the extra_nonce or version field instead
-would have required additional (stratum) software. It would also make it more
-complicated to reconstruct the blocks in this test.
-
-The `getblocktemplate` RPC code needs to be patched to ignore not being connected
-to any peers, and to ignore the IBD status check.
-
-On macOS use `faketime "@$t"` instead.
+Regenerate the file from a clean checkout with the current Python functional
+test framework helpers if KingPepe mainnet consensus parameters intentionally
+change. Do not copy Bitcoin mainnet vectors into this file.

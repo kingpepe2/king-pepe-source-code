@@ -18,10 +18,11 @@ from test_framework.util import (
 )
 
 # Linux allow all characters other than \x00
-# Windows disallow control characters (0-31) and /\?%:|"<>
+# Windows disallow control characters (0-31 and DEL) and /\?%:|"<>
 FILE_CHAR_START = 32 if platform.system() == 'Windows' else 1
-FILE_CHAR_END = 128
+FILE_CHAR_END = 127 if platform.system() == 'Windows' else 128
 FILE_CHARS_DISALLOWED = '/\\?%*:|"<>' if platform.system() == 'Windows' else '/'
+WINDOWS_STRESS_WALLET_NAME = " !#$&'()+,-.09;=@AZ[]^_`az{}~"
 UNCONFIRMED_HASH_STRING = 'unconfirmed'
 
 LARGE_WORK_INVALID_CHAIN_WARNING = (
@@ -40,7 +41,10 @@ class NotificationsTest(BitcoinTestFramework):
         self.uses_wallet = None
 
     def setup_network(self):
-        self.wallet = ''.join(chr(i) for i in range(FILE_CHAR_START, FILE_CHAR_END) if chr(i) not in FILE_CHARS_DISALLOWED)
+        self.wallet = (
+            WINDOWS_STRESS_WALLET_NAME if platform.system() == 'Windows'
+            else ''.join(chr(i) for i in range(FILE_CHAR_START, FILE_CHAR_END) if chr(i) not in FILE_CHARS_DISALLOWED)
+        )
         self.alertnotify_dir = os.path.join(self.options.tmpdir, "alertnotify")
         self.alertnotify_file = os.path.join(self.alertnotify_dir, "alertnotify.txt")
         self.blocknotify_dir = os.path.join(self.options.tmpdir, "blocknotify")
