@@ -149,7 +149,7 @@ class WalletDescriptorTest(BitcoinTestFramework):
         # Make transactions
         self.log.info("Test sending and receiving")
         addr = recv_wrpc.getnewaddress()
-        send_wrpc.sendtoaddress(addr, 10)
+        send_wrpc.sendtoaddress(addr, 1)
 
         self.log.info("Test encryption")
         # Get the master fingerprint before encrypt

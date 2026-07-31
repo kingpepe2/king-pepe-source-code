@@ -4,6 +4,14 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the avoid_reuse and setwalletflag features."""
 
+from decimal import Decimal
+
+from test_framework.address import address_to_scriptpubkey
+from test_framework.messages import (
+    COIN,
+    CTransaction,
+    CTxOut,
+)
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import (
     assert_not_equal,
@@ -62,6 +70,20 @@ def assert_balances(node, mine, margin=0.001):
     got = node.getbalances()["mine"]
     for k,v in mine.items():
         assert_approx(got[k], v, margin)
+
+def send_repeated_outputs(sender, address, count, amount):
+    '''Send repeated outputs to one address without creating a long unconfirmed chain.'''
+    tx = CTransaction()
+    tx.vin = []
+    tx.vout = [
+        CTxOut(int(Decimal(str(amount)) * COIN), bytearray(address_to_scriptpubkey(address)))
+        for _ in range(count)
+    ]
+    tx.nLockTime = 0
+    rawtx = tx.serialize().hex()
+    funded = sender.fundrawtransaction(rawtx)
+    signed = sender.signrawtransactionwithwallet(funded["hex"])
+    sender.sendrawtransaction(signed["hex"])
 
 class AvoidReuseTest(BitcoinTestFramework):
     def set_test_params(self):
@@ -298,9 +320,8 @@ class AvoidReuseTest(BitcoinTestFramework):
         new_addr = self.nodes[1].getnewaddress()
         ret_addr = self.nodes[0].getnewaddress()
 
-        # Send 101 outputs of 1 BTC to the same, reused address in the wallet
-        for _ in range(101):
-            self.nodes[0].sendtoaddress(new_addr, 1)
+        # Send 101 outputs of 1 KPEPE to the same, reused address in the wallet
+        send_repeated_outputs(self.nodes[0], new_addr, 101, 1)
 
         self.generate(self.nodes[0], 1)
 
@@ -314,8 +335,8 @@ class AvoidReuseTest(BitcoinTestFramework):
 
     def test_all_destination_groups_are_used(self):
         '''
-        Test the case where [1] only has 202 outputs of 1 BTC in the same reused
-        address and tries to send a payment of 200.5 BTC. The wallet
+        Test the case where [1] only has 202 outputs of 1 KPEPE in the same reused
+        address and tries to send a payment of 200.5 KPEPE. The wallet
         should use all 202 outputs from the reused address as inputs.
         '''
         self.log.info("Test that all destination groups are used")
@@ -326,9 +347,8 @@ class AvoidReuseTest(BitcoinTestFramework):
         new_addr = self.nodes[1].getnewaddress()
         ret_addr = self.nodes[0].getnewaddress()
 
-        # Send 202 outputs of 1 BTC to the same, reused address in the wallet
-        for _ in range(202):
-            self.nodes[0].sendtoaddress(new_addr, 1)
+        # Send 202 outputs of 1 KPEPE to the same, reused address in the wallet
+        send_repeated_outputs(self.nodes[0], new_addr, 202, 1)
 
         self.generate(self.nodes[0], 1)
 
