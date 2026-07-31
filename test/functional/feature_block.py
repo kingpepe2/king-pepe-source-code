@@ -8,6 +8,7 @@ import time
 
 from test_framework.blocktools import (
     add_witness_commitment,
+    COINBASE_MATURITY,
     create_block,
     create_coinbase,
     create_tx_with_script,
@@ -83,7 +84,7 @@ class CBrokenBlock(CBlock):
         return super().serialize()
 
 
-DUPLICATE_COINBASE_SCRIPT_SIG = b'\x01\x78'  # Valid for block at height 120
+NORMAL_BLOCK_SUBSIDY = 3 * COIN
 
 
 class FullBlockTest(BitcoinTestFramework):
@@ -110,9 +111,19 @@ class FullBlockTest(BitcoinTestFramework):
         self.block_heights[self.genesis_hash] = 0
         self.spendable_outputs = []
 
+        # These constants are chosen specifically to trigger immature coinbase
+        # spends at the checks below using KingPepe's coinbase maturity.
+        NUM_BUFFER_BLOCKS_TO_GENERATE = COINBASE_MATURITY + 24
+        IMMATURE_OUTPUT_MAIN = NUM_BUFFER_BLOCKS_TO_GENERATE + 9 - COINBASE_MATURITY
+        IMMATURE_OUTPUT_FORK = IMMATURE_OUTPUT_MAIN + 1
+        NUM_OUTPUTS_TO_COLLECT = max(33, IMMATURE_OUTPUT_FORK + 1)
+        DUPLICATE_COINBASE_SCRIPT_SIG = CScript([NUM_BUFFER_BLOCKS_TO_GENERATE + 21])
+        DUPLICATE_CONFIRMATIONS_BEFORE_SPEND = NUM_BUFFER_BLOCKS_TO_GENERATE + 20
+
         # Create a new block
         b_dup_cb = self.next_block('dup_cb')
         b_dup_cb.vtx[0].vin[0].scriptSig = DUPLICATE_COINBASE_SCRIPT_SIG
+        b_dup_cb.vtx[0].vout[0].nValue = NORMAL_BLOCK_SUBSIDY
         duplicate_tx = b_dup_cb.vtx[0]
         b_dup_cb = self.update_block('dup_cb', [])
         self.send_blocks([b_dup_cb])
@@ -130,11 +141,6 @@ class FullBlockTest(BitcoinTestFramework):
         # Will test spending once possibly-mature
         max_size_spendable_output = CTxIn(COutPoint(b0.vtx[0].txid_int, 1))
         min_size_unspendable_output = CTxIn(COutPoint(b0.vtx[0].txid_int, 2))
-
-        # These constants chosen specifically to trigger an immature coinbase spend
-        # at a certain time below.
-        NUM_BUFFER_BLOCKS_TO_GENERATE = 99
-        NUM_OUTPUTS_TO_COLLECT = 33
 
         # Allow the block to mature
         blocks = []
@@ -328,7 +334,7 @@ class FullBlockTest(BitcoinTestFramework):
         #                      \-> b3 (1) -> b4 (2)
         self.log.info("Reject a block spending an immature coinbase.")
         self.move_tip(15)
-        b20 = self.next_block(20, spend=out[7])
+        b20 = self.next_block(20, spend=out[IMMATURE_OUTPUT_MAIN])
         self.send_blocks([b20], success=False, reject_reason='bad-txns-premature-spend-of-coinbase', reconnect=True)
 
         # Attempt to spend a coinbase at depth too low (on a fork this time)
@@ -341,7 +347,7 @@ class FullBlockTest(BitcoinTestFramework):
         b21 = self.next_block(21, spend=out[6])
         self.send_blocks([b21], False)
 
-        b22 = self.next_block(22, spend=out[5])
+        b22 = self.next_block(22, spend=out[IMMATURE_OUTPUT_FORK])
         self.send_blocks([b22], success=False, reject_reason='bad-txns-premature-spend-of-coinbase', reconnect=True)
 
         # Create a block on either side of MAX_BLOCK_WEIGHT and make sure its accepted/rejected
@@ -878,7 +884,7 @@ class FullBlockTest(BitcoinTestFramework):
         b_dup_2.vtx[0].vin[0].scriptSig = DUPLICATE_COINBASE_SCRIPT_SIG
         b_dup_2 = self.update_block('dup_2', [])
         assert_equal(duplicate_tx.serialize(), b_dup_2.vtx[0].serialize())
-        assert_equal(self.nodes[0].gettxout(txid=duplicate_tx.txid_hex, n=0)['confirmations'], 119)
+        assert_equal(self.nodes[0].gettxout(txid=duplicate_tx.txid_hex, n=0)['confirmations'], DUPLICATE_CONFIRMATIONS_BEFORE_SPEND)
         self.send_blocks([b_spend_dup_cb, b_dup_2], success=True)
         # The duplicate has less confirmations
         assert_equal(self.nodes[0].gettxout(txid=duplicate_tx.txid_hex, n=0)['confirmations'], 1)
@@ -1168,20 +1174,23 @@ class FullBlockTest(BitcoinTestFramework):
         #    and spend standard outputs (P2PK using the coinbase pubkey to keep it simple).
         self.log.info("Test transaction resurrection during a re-org")
         standard_output_script = key_to_p2pk_script(self.coinbase_pubkey)
+        resurrection_tx77_value = NORMAL_BLOCK_SUBSIDY // 3
+        resurrection_tx78_value = resurrection_tx77_value - COIN // 10
+        resurrection_tx79_value = resurrection_tx78_value - COIN // 10
         self.move_tip(76)
         self.next_block(77)
-        tx77 = self.create_and_sign_transaction(out[24], 10 * COIN, standard_output_script)
+        tx77 = self.create_and_sign_transaction(out[24], resurrection_tx77_value, standard_output_script)
         b77 = self.update_block(77, [tx77])
         self.send_blocks([b77], True)
         self.save_spendable_output()
 
         self.next_block(78)
-        tx78 = self.create_and_sign_transaction(tx77, 9 * COIN, standard_output_script)
+        tx78 = self.create_and_sign_transaction(tx77, resurrection_tx78_value, standard_output_script)
         b78 = self.update_block(78, [tx78])
         self.send_blocks([b78], True)
 
         self.next_block(79)
-        tx79 = self.create_and_sign_transaction(tx78, 8 * COIN, standard_output_script)
+        tx79 = self.create_and_sign_transaction(tx78, resurrection_tx79_value, standard_output_script)
         b79 = self.update_block(79, [tx79])
         self.send_blocks([b79], True)
 
@@ -1278,7 +1287,7 @@ class FullBlockTest(BitcoinTestFramework):
 
         self.move_tip(87)
         b_cb34 = self.next_block('b_cb34')
-        b_cb34.vtx[0].vin[0].scriptSig = b_cb34.vtx[0].vin[0].scriptSig[:-1]
+        b_cb34.vtx[0].vin[0].scriptSig = CScript([self.block_heights[b_cb34.hashPrevBlock] + 2])
         b_cb34.hashMerkleRoot = b_cb34.calc_merkle_root()
         b_cb34.solve()
         self.send_blocks([b_cb34], success=False, reject_reason='bad-cb-height', reconnect=True)
