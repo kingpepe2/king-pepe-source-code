@@ -4,9 +4,19 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the scantxoutset rpc call."""
 from test_framework.address import address_to_scriptpubkey
-from test_framework.messages import COIN
+from test_framework.messages import (
+    COIN,
+    COutPoint,
+    CTransaction,
+    CTxIn,
+    CTxOut,
+)
 from test_framework.test_framework import BitcoinTestFramework
-from test_framework.util import assert_equal, assert_raises_rpc_error
+from test_framework.util import (
+    assert_equal,
+    assert_greater_than_or_equal,
+    assert_raises_rpc_error,
+)
 from test_framework.wallet import (
     MiniWallet,
     getnewdestination,
@@ -27,7 +37,35 @@ class ScantxoutsetTest(BitcoinTestFramework):
         # interpret strings as addresses, assume scriptPubKey otherwise
         if isinstance(destination, str):
             destination = address_to_scriptpubkey(destination)
-        self.wallet.send_to(from_node=self.nodes[0], scriptPubKey=destination, amount=int(COIN * amount))
+        amount_sat = int(COIN * amount)
+        fee = 1000
+        funding_utxos = sorted(self.wallet.get_utxos(mark_as_spent=False, confirmed_only=True), key=lambda utxo: utxo["value"], reverse=True)
+        largest_value = int(COIN * funding_utxos[0]["value"])
+        if largest_value >= amount_sat + fee:
+            self.wallet.send_to(from_node=self.nodes[0], scriptPubKey=destination, amount=amount_sat, fee=fee)
+            return
+
+        selected_utxos = []
+        total_value = 0
+        for utxo in funding_utxos:
+            selected_utxos.append(utxo)
+            total_value += int(COIN * utxo["value"])
+            if total_value >= amount_sat + fee:
+                break
+
+        assert_greater_than_or_equal(total_value, amount_sat + fee)
+        for utxo in selected_utxos:
+            self.wallet.get_utxo(txid=utxo["txid"], vout=utxo["vout"])
+
+        tx = CTransaction()
+        tx.vin = [CTxIn(COutPoint(int(utxo["txid"], 16), utxo["vout"])) for utxo in selected_utxos]
+        tx.vout = []
+        change_value = total_value - amount_sat - fee
+        if change_value:
+            tx.vout.append(CTxOut(change_value, self.wallet.get_output_script()))
+        tx.vout.append(CTxOut(amount_sat, destination))
+        self.wallet.sign_tx(tx)
+        self.wallet.sendrawtransaction(from_node=self.nodes[0], tx_hex=tx.serialize().hex())
 
     def run_test(self):
         self.wallet = MiniWallet(self.nodes[0])
@@ -44,18 +82,18 @@ class ScantxoutsetTest(BitcoinTestFramework):
         self.sendtodestination(spk_BECH32, 0.004)
 
         #send to child keys of tprv8ZgxMBicQKsPd7Uf69XL1XwhmjHopUGep8GuEiJDZmbQz6o58LninorQAfcKZWARbtRtfnLcJ5MQ2AtHcQJCCRUcMRvmDUjyEmNUWwx8UbK
-        self.sendtodestination("mkHV1C6JLheLoUSSZYk7x3FH5tnx9bu7yc", 0.008)  # (m/0'/0'/0')
-        self.sendtodestination("mipUSRmJAj2KrjSvsPQtnP8ynUon7FhpCR", 0.016)  # (m/0'/0'/1')
-        self.sendtodestination("n37dAGe6Mq1HGM9t4b6rFEEsDGq7Fcgfqg", 0.032)  # (m/0'/0'/1500')
-        self.sendtodestination("mqS9Rpg8nNLAzxFExsgFLCnzHBsoQ3PRM6", 0.064)  # (m/0'/0'/0)
-        self.sendtodestination("mnTg5gVWr3rbhHaKjJv7EEEc76ZqHgSj4S", 0.128)  # (m/0'/0'/1)
-        self.sendtodestination("mketCd6B9U9Uee1iCsppDJJBHfvi6U6ukC", 0.256)  # (m/0'/0'/1500)
-        self.sendtodestination("mj8zFzrbBcdaWXowCQ1oPZ4qioBVzLzAp7", 0.512)  # (m/1/1/0')
-        self.sendtodestination("mfnKpKQEftniaoE1iXuMMePQU3PUpcNisA", 1.024)  # (m/1/1/1')
-        self.sendtodestination("mou6cB1kaP1nNJM1sryW6YRwnd4shTbXYQ", 2.048)  # (m/1/1/1500')
-        self.sendtodestination("mtfUoUax9L4tzXARpw1oTGxWyoogp52KhJ", 4.096)  # (m/1/1/0)
-        self.sendtodestination("mxp7w7j8S1Aq6L8StS2PqVvtt4HGxXEvdy", 8.192)  # (m/1/1/1)
-        self.sendtodestination("mpQ8rokAhp1TAtJQR6F6TaUmjAWkAWYYBq", 16.384)  # (m/1/1/1500)
+        self.sendtodestination("SqQ8j65kyDsAN6tNQq69A9TJWBgcnHUa7b", 0.008)  # (m/0'/0'/0')
+        self.sendtodestination("Sow8AKkkoFF9RMtrifkuzVM1CmhSfNc7YF", 0.016)  # (m/0'/0'/1')
+        self.sendtodestination("T8EGtAdYzME6pybousSsTLStdZimr7ShzE", 0.032)  # (m/0'/0'/1500')
+        self.sendtodestination("SvYo9ifbQtYzZahApA2GYK11hUmTvtnoTH", 0.064)  # (m/0'/0'/0)
+        self.sendtodestination("SsaKoaUyUa5RFv2FabG8SLSdXPTVnqRAkp", 0.128)  # (m/0'/0'/1)
+        self.sendtodestination("SqmXvX5dmzNJDGTe4AAqRQWChxpNiWKjXg", 0.256)  # (m/0'/0'/1500)
+        self.sendtodestination("SpFdytr3p8rQ5AFs3gMpbfGs965AdiM6Ej", 0.512)  # (m/1/1/0')
+        self.sendtodestination("SktyYDPhJR1Y9RfwZpFNZkbRtLH9PY1scA", 1.024)  # (m/1/1/1')
+        self.sendtodestination("Su1kL51DCuEbvvnwj9KXJedyCuxYMCyiw1", 2.048)  # (m/1/1/1500')
+        self.sendtodestination("Syn8XNaQmrHiZ9cMgDMpfPAYQ6hMNoewpS", 4.096)  # (m/1/1/0)
+        self.sendtodestination("T3vmf1ib4XPeexaNjiNR3c8vJMAwZLMqXi", 8.192)  # (m/1/1/1)
+        self.sendtodestination("SuWnahjdLLEGjWkLGNb7fggo9TQQi3Vv6q", 16.384)  # (m/1/1/1500)
 
         self.generate(self.nodes[0], 1)
 
@@ -123,7 +161,7 @@ class ScantxoutsetTest(BitcoinTestFramework):
 
         # Check that the blockhash and confirmations fields are correct
         self.generate(self.nodes[0], 2)
-        unspent = self.nodes[0].scantxoutset("start", ["addr(mpQ8rokAhp1TAtJQR6F6TaUmjAWkAWYYBq)"])["unspents"][0]
+        unspent = self.nodes[0].scantxoutset("start", ["addr(SuWnahjdLLEGjWkLGNb7fggo9TQQi3Vv6q)"])["unspents"][0]
         blockhash = self.nodes[0].getblockhash(info["height"])
         assert_equal(unspent["height"], info["height"])
         assert_equal(unspent["blockhash"], blockhash)

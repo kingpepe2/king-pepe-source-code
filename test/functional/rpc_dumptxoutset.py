@@ -24,7 +24,7 @@ class DumptxoutsetTest(BitcoinTestFramework):
         bogus_file = node.blocks_path / "bogus.dat"
         rev_file.rename(bogus_file)
         assert_raises_rpc_error(
-            -1, 'Could not roll back to requested height.', node.dumptxoutset, 'utxos.dat', rollback=99)
+            -1, 'Could not roll back to requested height.', node.dumptxoutset, 'utxos.dat', rollback=COINBASE_MATURITY - 1)
         assert_equal(node.getnetworkinfo()['networkactive'], active)
 
         # Cleanup
@@ -43,22 +43,22 @@ class DumptxoutsetTest(BitcoinTestFramework):
 
         assert expected_path.is_file()
 
-        assert_equal(out['coins_written'], 100)
-        assert_equal(out['base_height'], 100)
+        assert_equal(out['coins_written'], COINBASE_MATURITY)
+        assert_equal(out['base_height'], COINBASE_MATURITY)
         assert_equal(out['path'], str(expected_path))
         # Blockhash should be deterministic based on mocked time.
         assert_equal(
             out['base_hash'],
-            '6885775faa46290bedfa071f22d0598c93f1d7e01f24607c4dedd69b9baa4a8f')
+            '6e30f9a7f3d0bb5b6f251bf7462808bbad651e62e14699cb267e5be85985c172')
 
         # UTXO snapshot hash should be deterministic based on mocked time.
         assert_equal(
             sha256sum_file(str(expected_path)).hex(),
-            'd9506d541437f5e2892d6b6ea173f55233de11601650c157a27d8f2b9d08cb6f')
+            '5ea5df7aac84e6d3e2a6f032fce3a0dbbab75489ce0b18fe3c4ccf7557607b87')
 
         assert_equal(
-            out['txoutset_hash'], 'd4453995f4f20db7bb3a604afd10d7128e8ee11159cde56d5b2fd7f55be7c74c')
-        assert_equal(out['nchaintx'], 101)
+            out['txoutset_hash'], 'd248eabeff0edc30fa6958bbd6298a016b377f7989694252a76d1b5f10e900cc')
+        assert_equal(out['nchaintx'], COINBASE_MATURITY + 1)
 
         # Specifying a path to an existing or invalid file will fail.
         assert_raises_rpc_error(

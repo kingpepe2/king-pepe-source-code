@@ -647,7 +647,10 @@ class CompactBlocksTest(BitcoinTestFramework):
     def test_low_work_compactblocks(self, test_node):
         # A compactblock with insufficient work won't get its header included
         node = self.nodes[0]
-        hashPrevBlock = int(node.getblockhash(node.getblockcount() - 150), 16)
+        low_work_depth = 150
+        if node.getblockcount() < low_work_depth:
+            self.generate(self.wallet, low_work_depth - node.getblockcount())
+        hashPrevBlock = int(node.getblockhash(node.getblockcount() - low_work_depth), 16)
         block = self.build_block_on_tip(node)
         block.hashPrevBlock = hashPrevBlock
         block.solve()
