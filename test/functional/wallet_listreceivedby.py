@@ -133,7 +133,7 @@ class ReceivedByTest(BitcoinTestFramework):
         assert_equal(balance, Decimal("0.3"))
 
         # Test invalid address format error
-        assert_raises_rpc_error(-5, "Invalid Bitcoin address", self.nodes[1].getreceivedbyaddress, "invalid_address")
+        assert_raises_rpc_error(-5, "Invalid Kingpepe address", self.nodes[1].getreceivedbyaddress, "invalid_address")
 
         self.log.info("listreceivedbylabel + getreceivedbylabel Test")
 
@@ -187,9 +187,9 @@ class ReceivedByTest(BitcoinTestFramework):
         label = "label"
         address = self.nodes[0].getnewaddress(label)
 
-        reward = Decimal("25")
         self.generatetoaddress(self.nodes[0], 1, address)
         hash = self.nodes[0].getbestblockhash()
+        reward = sum(output["value"] for output in self.nodes[0].getblock(hash, 2)["tx"][0]["vout"])
 
         self.log.info("getreceivedbyaddress returns nothing with defaults")
         balance = self.nodes[0].getreceivedbyaddress(address)
