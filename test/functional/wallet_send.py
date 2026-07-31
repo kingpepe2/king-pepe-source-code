@@ -545,25 +545,31 @@ class WalletSendTest(BitcoinTestFramework):
 
         # Generate future inputs; 272 WU per input (273 when high-s).
         # Picking 1471 inputs will exceed the max standard tx weight.
+        # KingPepe's normal regtest reward is 3 KPEPE, so mine enough additional
+        # matured rewards to fund the large fan-out setup transaction.
+        self.generate(self.nodes[0], 80)
+        fanout_value = Decimal("0.1")
+        spend_input_count = 1471
+        spend_amount = fanout_value * spend_input_count
         outputs = []
-        for _ in range(1472):
-            outputs.append({wallet.getnewaddress(address_type="legacy"): 0.1})
+        for _ in range(spend_input_count + 1):
+            outputs.append({wallet.getnewaddress(address_type="legacy"): fanout_value})
         self.nodes[0].send(outputs=outputs)
         self.generate(self.nodes[0], 1)
 
         # 1) Try to fund transaction only using the preset inputs
         inputs = wallet.listunspent()
         assert_raises_rpc_error(-4, "Transaction too large",
-                                wallet.send, outputs=[{wallet.getnewaddress(): 0.1 * 1471}], options={"inputs": inputs, "add_inputs": False})
+                                wallet.send, outputs=[{wallet.getnewaddress(): spend_amount}], options={"inputs": inputs, "add_inputs": False})
 
         # 2) Let the wallet fund the transaction
         assert_raises_rpc_error(-4, "The inputs size exceeds the maximum weight. Please try sending a smaller amount or manually consolidating your wallet's UTXOs",
-                                wallet.send, outputs=[{wallet.getnewaddress(): 0.1 * 1471}])
+                                wallet.send, outputs=[{wallet.getnewaddress(): spend_amount}])
 
         # 3) Pre-select some inputs and let the wallet fill-up the remaining amount
         inputs = inputs[0:1000]
         assert_raises_rpc_error(-4, "The combination of the pre-selected inputs and the wallet automatic inputs selection exceeds the transaction maximum weight. Please try sending a smaller amount or manually consolidating your wallet's UTXOs",
-                                wallet.send, outputs=[{wallet.getnewaddress(): 0.1 * 1471}], options={"inputs": inputs, "add_inputs": True})
+                                wallet.send, outputs=[{wallet.getnewaddress(): spend_amount}], options={"inputs": inputs, "add_inputs": True})
 
         self.nodes[1].unloadwallet("test_weight_limits")
 

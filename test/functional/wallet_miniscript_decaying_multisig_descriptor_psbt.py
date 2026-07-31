@@ -62,7 +62,7 @@ class WalletMiniscriptDecayingMultisigDescriptorPSBTTest(BitcoinTestFramework):
         self.locktimes = [104, 106, 108]
         assert_equal(len(self.locktimes), self.N - 1)
 
-        self.name = f"{self.M}_of_{self.N}_decaying_multisig"
+        self.name = "decay_ms"
         self.log.info(f"Testing a miniscript multisig which starts as 4-of-4 and 'decays' to 3-of-4 at block height {self.locktimes[0]}, 2-of-4 at {self.locktimes[1]}, and finally 1-of-4 at {self.locktimes[2]}...")
 
         self.log.info("Create the signer wallets and get their xpubs...")
