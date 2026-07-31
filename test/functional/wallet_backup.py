@@ -71,7 +71,12 @@ class WalletBackupTest(BitcoinTestFramework):
 
     def one_send(self, from_node, to_address):
         if (randint(1,2) == 1):
-            amount = Decimal(randint(1,10)) / Decimal(10)
+            # KingPepe: spender nodes 1 and 2 start with only 3 KPEPE each (a normal
+            # non-premine block pays 3, not Bitcoin's 50) and are not replenished during
+            # the rounds (only the miner node 3 mines). Scale the per-send amount down
+            # to the same fraction of the starting balance upstream used (~1.0/50), so
+            # the spenders cannot deplete across the 10 rounds. Tx flow is unchanged.
+            amount = Decimal(randint(1,5)) / Decimal(100)
             self.nodes[from_node].sendtoaddress(to_address, amount)
 
     def do_one_round(self):

@@ -4,6 +4,8 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test orphaned block rewards in the wallet."""
 
+from decimal import Decimal
+
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import assert_equal
 
@@ -29,10 +31,15 @@ class OrphanedBlockRewardTest(BitcoinTestFramework):
 
         # Let the block reward mature and send coins including both
         # the existing balance and the block reward.
+        # KingPepe: at regtest height ~152 the block subsidy has had one halving
+        # (nSubsidyHalvingInterval=150), so the reward coin is 3 >> 1 = 1.5 KPEPE
+        # (node-verified), not Bitcoin's 25. The spend amount is chosen to exceed the
+        # 10-coin so it still forces both the existing balance and the reward coin as
+        # inputs (10 < 11 <= 10 + 1.5), preserving this test's intent.
         self.generate(self.nodes[0], 150)
-        assert_equal(self.nodes[1].getbalance(), 10 + 25)
+        assert_equal(self.nodes[1].getbalance(), 10 + Decimal("1.5"))
         pre_reorg_conf_bals = self.nodes[1].getbalances()
-        txid = self.nodes[1].sendtoaddress(self.nodes[0].getnewaddress(), 30)
+        txid = self.nodes[1].sendtoaddress(self.nodes[0].getnewaddress(), 11)
         orig_chain_tip = self.nodes[0].getbestblockhash()
         self.sync_mempools()
 
