@@ -182,7 +182,7 @@ class WalletV3Test(BitcoinTestFramework):
         self.log.info("Test v3 transaction with conflicting sibling")
 
         # unconfirmed v3 tx to alice & bob
-        outputs = {self.alice.getnewaddress() : 2.0, self.bob.getnewaddress() : 2.0}
+        outputs = {self.alice.getnewaddress() : Decimal("1.0"), self.bob.getnewaddress() : Decimal("1.0")}
         self.send_tx(self.charlie, [], outputs, 3)
 
         # alice spends her output with a v3 transaction
@@ -191,7 +191,7 @@ class WalletV3Test(BitcoinTestFramework):
         self.send_tx(self.alice, [alice_unspent], outputs, 3)
 
         # bob tries to spend money
-        outputs = {self.bob.getnewaddress() : 1.999}
+        outputs = {self.bob.getnewaddress() : Decimal("0.999")}
         bob_tx = self.bob.createrawtransaction(inputs=[], outputs=outputs, version=3)
 
         assert_raises_rpc_error(
@@ -299,7 +299,7 @@ class WalletV3Test(BitcoinTestFramework):
     def v3_conflict_removed_from_mempool(self):
         self.log.info("Test a v3 conflict being removed")
         # send a v2 output to alice and confirm it
-        txid = self.charlie.sendall([self.alice.getnewaddress()])["txid"]
+        txid = self.send_tx(self.charlie, [], {self.alice.getnewaddress(): Decimal("1.0")}, 2)
         assert_equal(self.charlie.gettransaction(txid, verbose=True)["decoded"]["version"], 2)
         self.generate(self.nodes[0], 1)
         # create a v3 tx to alice and bob
@@ -326,25 +326,25 @@ class WalletV3Test(BitcoinTestFramework):
         outputs = {self.charlie.getnewaddress() : alice_v2_unspent['amount'] - Decimal(0.00015120)}
         self.send_tx(self.alice, [alice_v2_unspent], outputs, 2)
         # bob can now create a transaction
-        outputs = {self.bob.getnewaddress() : 1.999}
+        outputs = {self.bob.getnewaddress() : Decimal("0.999")}
         self.send_tx(self.bob, [], outputs, 3)
 
     @cleanup
     def mempool_conflicts_removed_when_v3_conflict_removed(self):
         self.log.info("Test that we remove v3 txs from mempool_conflicts correctly")
         # send a v2 output to alice and confirm it
-        txid = self.charlie.sendall([self.alice.getnewaddress()])["txid"]
+        txid = self.send_tx(self.charlie, [], {self.alice.getnewaddress(): Decimal("1.0")}, 2)
         assert_equal(self.charlie.gettransaction(txid, verbose=True)["decoded"]["version"], 2)
         self.generate(self.nodes[0], 1)
         # create a v3 tx to alice and bob
-        outputs = {self.alice.getnewaddress() : 2.0, self.bob.getnewaddress() : 2.0}
+        outputs = {self.alice.getnewaddress() : Decimal("1.0"), self.bob.getnewaddress() : Decimal("1.0")}
         self.send_tx(self.charlie, [], outputs, 3)
 
         alice_v2_unspent = self.alice.listunspent(minconf=1)[0]
         alice_unspent = self.alice.listunspent(minconf=0, maxconf=0)[0]
         # bob spends his utxo
         inputs=[]
-        outputs = {self.bob.getnewaddress() : 1.999}
+        outputs = {self.bob.getnewaddress() : Decimal("0.999")}
         bob_txid = self.send_tx(self.bob, inputs, outputs, 3)
         # alice spends both of her utxos, replacing bob's tx
         outputs = {self.charlie.getnewaddress() : alice_v2_unspent['amount'] + alice_unspent['amount'] - Decimal(0.00005120)}
