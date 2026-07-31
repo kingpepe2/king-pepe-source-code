@@ -17,6 +17,7 @@ import tempfile
 import urllib
 
 from test_framework.blocktools import COINBASE_MATURITY
+from test_framework.messages import MAGIC_BYTES
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import assert_equal
 
@@ -29,7 +30,8 @@ class LoadblockTest(BitcoinTestFramework):
 
     def run_test(self):
         self.nodes[1].setnetworkactive(state=False)
-        self.generate(self.nodes[0], COINBASE_MATURITY, sync_fun=self.no_op)
+        bootstrap_height = COINBASE_MATURITY
+        self.generate(self.nodes[0], bootstrap_height, sync_fun=self.no_op)
 
         # Parsing the url of our node to get settings for config file
         data_dir = self.nodes[0].datadir_path
@@ -51,8 +53,8 @@ class LoadblockTest(BitcoinTestFramework):
             cfg.write(f"port={node_url.port}\n")
             cfg.write(f"host={node_url.hostname}\n")
             cfg.write(f"output_file={bootstrap_file}\n")
-            cfg.write("max_height=100\n")
-            cfg.write("netmagic=fabfb5da\n")
+            cfg.write(f"max_height={bootstrap_height}\n")
+            cfg.write(f"netmagic={MAGIC_BYTES[self.chain].hex()}\n")
             cfg.write(f"input={blocks_dir}\n")
             cfg.write(f"genesis={genesis_block}\n")
             cfg.write(f"hashlist={hash_list.name}\n")
@@ -73,9 +75,9 @@ class LoadblockTest(BitcoinTestFramework):
 
         self.log.info("Restart second, unsynced node with bootstrap file")
         self.restart_node(1, extra_args=[f"-loadblock={bootstrap_file}"])
-        assert_equal(self.nodes[1].getblockcount(), 100)  # start_node is blocking on all block files being imported
+        assert_equal(self.nodes[1].getblockcount(), bootstrap_height)  # start_node is blocking on all block files being imported
 
-        assert_equal(self.nodes[1].getblockchaininfo()['blocks'], 100)
+        assert_equal(self.nodes[1].getblockchaininfo()['blocks'], bootstrap_height)
         assert_equal(self.nodes[0].getbestblockhash(), self.nodes[1].getbestblockhash())
 
 

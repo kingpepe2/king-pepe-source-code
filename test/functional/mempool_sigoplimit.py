@@ -48,6 +48,7 @@ from test_framework.wallet_util import generate_keypair
 
 DEFAULT_BYTES_PER_SIGOP = 20  # default setting
 MAX_PUBKEYS_PER_MULTISIG = 20
+PACKAGE_TEST_FEE = Decimal("1")
 
 class BytesPerSigOpTest(BitcoinTestFramework):
     def set_test_params(self):
@@ -150,7 +151,7 @@ class BytesPerSigOpTest(BitcoinTestFramework):
         def create_bare_multisig_tx(utxo_to_spend=None):
             _, pubkey = generate_keypair()
             amount_for_bare = 50000
-            tx_dict = self.wallet.create_self_transfer(fee=Decimal("3"), utxo_to_spend=utxo_to_spend)
+            tx_dict = self.wallet.create_self_transfer(fee=PACKAGE_TEST_FEE, utxo_to_spend=utxo_to_spend)
             tx_utxo = tx_dict["new_utxo"]
             tx = tx_dict["tx"]
             tx.vout.append(CTxOut(amount_for_bare, keys_to_multisig_script([pubkey], k=1)))

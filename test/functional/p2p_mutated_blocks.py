@@ -72,10 +72,12 @@ class MutatedBlocksTest(BitcoinTestFramework):
                    get_block_txn.block_txn_request.indexes == [1]
         honest_relayer.wait_until(self_transfer_requested, timeout=5)
 
-        # Block at height 101 should be the only one in flight from peer 0
+        expected_inflight_height = COINBASE_MATURITY + 1
+
+        # The block after the matured KingPepe chain should be the only one in flight from peer 0
         peer_info_prior_to_attack = self.nodes[0].getpeerinfo()
         assert_equal(peer_info_prior_to_attack[0]['id'], 0)
-        assert_equal([101], peer_info_prior_to_attack[0]["inflight"])
+        assert_equal([expected_inflight_height], peer_info_prior_to_attack[0]["inflight"])
 
         # Attempt to clear the honest relayer's download request by sending the
         # mutated block (as the attacker).
@@ -84,11 +86,11 @@ class MutatedBlocksTest(BitcoinTestFramework):
             # Attacker should get disconnected for sending a mutated block
             attacker.wait_for_disconnect(timeout=5)
 
-        # Block at height 101 should *still* be the only block in-flight from
+        # The same block should *still* be the only block in-flight from
         # peer 0
         peer_info_after_attack = self.nodes[0].getpeerinfo()
         assert_equal(peer_info_after_attack[0]['id'], 0)
-        assert_equal([101], peer_info_after_attack[0]["inflight"])
+        assert_equal([expected_inflight_height], peer_info_after_attack[0]["inflight"])
 
         # The honest relayer should be able to complete relaying the block by
         # sending the blocktxn that was requested.
