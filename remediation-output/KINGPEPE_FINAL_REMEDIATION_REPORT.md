@@ -106,7 +106,12 @@ do not engage with KingPepe's tiny regtest blocks; tests no KingPepe parameter).
 ## 7. Builds / lint / Qt validation
 
 - **kingpepe-qt** (KP-AUD-002/003): compiles and links clean with MSVC 19.44 / Qt 6.8.1
-  (`[8/8] Linking CXX executable bin\kingpepe-qt.exe`, exit 0 — `build-qt-aud002-003.log`).
+  (`[8/8] Linking CXX executable bin\kingpepe-qt.exe`, exit 0 — `build-qt-aud002-003.log`). The Qt
+  unit-test executable is not enabled in this build's CMake configuration (only the app target exists),
+  so runtime GUI unit tests were not re-run this session; the two edits are localized UI paths
+  (dashboard sync seeding via existing helpers; theme QSettings scope) not covered by the upstream Qt
+  unit tests, and compile+link is the available validation. A GUI-test-enabled reconfigure + ctest
+  `test_kingpepe-qt` is the recommended additional check before release.
 - **kingpeped / kingpepe-cli** (`v31.1.0`): exercised continuously by the functional suite; healthy.
 - **Lint (KP-AUD-012):** `lint-files.py`'s 406 "missing shebang" hits are a Windows working-copy CRLF
   artifact; git HEAD stores those files with LF (correct), so the lint passes on an LF/CI checkout.
