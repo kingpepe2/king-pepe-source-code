@@ -6,6 +6,7 @@
 """
 
 import time
+from decimal import Decimal
 
 from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import BitcoinTestFramework
@@ -71,48 +72,53 @@ class TransactionTimeRescanTest(BitcoinTestFramework):
         self.log.info('Start transactions')
 
         # check blockcount
-        assert_equal(minernode.getblockcount(), 200)
+        initial_height = minernode.getblockcount()
+        assert_equal(initial_height, 200)
 
-        # generate some btc to create transactions and check blockcount
+        # Generate enough KPEPE to create transactions and check blockcount.
         initial_mine = COINBASE_MATURITY + 1
         self.generatetoaddress(minernode, initial_mine, m1)
-        assert_equal(minernode.getblockcount(), initial_mine + 200)
+        assert_equal(minernode.getblockcount(), initial_height + initial_mine)
 
         # synchronize nodes and time
         self.sync_all()
         set_node_times(self.nodes, cur_time + ten_days)
-        # send 10 btc to user's first watch-only address
-        self.log.info('Send 10 btc to user')
-        miner_wallet.sendtoaddress(wo1, 10)
+        # Send KPEPE to user's first watch-only address.
+        wo1_amount = Decimal("0.8")
+        wo2_amount = Decimal("0.4")
+        wo3_amount = Decimal("0.1")
+        total_watchonly_amount = wo1_amount + wo2_amount + wo3_amount
+        self.log.info('Send KPEPE to user')
+        miner_wallet.sendtoaddress(wo1, wo1_amount)
 
         # generate blocks and check blockcount
         self.generatetoaddress(minernode, COINBASE_MATURITY, m1)
-        assert_equal(minernode.getblockcount(), initial_mine + 300)
+        assert_equal(minernode.getblockcount(), initial_height + initial_mine + COINBASE_MATURITY)
 
         # synchronize nodes and time
         self.sync_all()
         set_node_times(self.nodes, cur_time + ten_days + ten_days)
-        # send 5 btc to our second watch-only address
-        self.log.info('Send 5 btc to user')
-        miner_wallet.sendtoaddress(wo2, 5)
+        # Send KPEPE to our second watch-only address.
+        self.log.info('Send KPEPE to user')
+        miner_wallet.sendtoaddress(wo2, wo2_amount)
 
         # generate blocks and check blockcount
         self.generatetoaddress(minernode, COINBASE_MATURITY, m1)
-        assert_equal(minernode.getblockcount(), initial_mine + 400)
+        assert_equal(minernode.getblockcount(), initial_height + initial_mine + 2 * COINBASE_MATURITY)
 
         # synchronize nodes and time
         self.sync_all()
         set_node_times(self.nodes, cur_time + ten_days + ten_days + ten_days)
-        # send 1 btc to our third watch-only address
-        self.log.info('Send 1 btc to user')
-        miner_wallet.sendtoaddress(wo3, 1)
+        # Send KPEPE to our third watch-only address.
+        self.log.info('Send KPEPE to user')
+        miner_wallet.sendtoaddress(wo3, wo3_amount)
 
         # generate more blocks and check blockcount
         self.generatetoaddress(minernode, COINBASE_MATURITY, m1)
-        assert_equal(minernode.getblockcount(), initial_mine + 500)
+        assert_equal(minernode.getblockcount(), initial_height + initial_mine + 3 * COINBASE_MATURITY)
 
         self.log.info('Check user\'s final balance and transaction count')
-        assert_equal(wo_wallet.getbalance(), 16)
+        assert_equal(wo_wallet.getbalance(), total_watchonly_amount)
         assert_equal(len(wo_wallet.listtransactions()), 3)
 
         self.log.info('Check transaction times')
@@ -157,12 +163,12 @@ class TransactionTimeRescanTest(BitcoinTestFramework):
 
         # proceed to rescan, first with an incomplete one, then with a full rescan
         self.log.info('Rescan last history part')
-        restorewo_wallet.rescanblockchain(initial_mine + 350)
+        restorewo_wallet.rescanblockchain(initial_height + initial_mine + COINBASE_MATURITY + COINBASE_MATURITY // 2)
         self.log.info('Rescan all history')
         restorewo_wallet.rescanblockchain()
 
         self.log.info('Check user\'s final balance and transaction count after restoration')
-        assert_equal(restorewo_wallet.getbalance(), 16)
+        assert_equal(restorewo_wallet.getbalance(), total_watchonly_amount)
         assert_equal(len(restorewo_wallet.listtransactions()), 3)
 
         self.log.info('Check transaction times after restoration')
