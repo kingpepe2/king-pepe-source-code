@@ -16,6 +16,7 @@ disconnected.
 from decimal import Decimal
 import shutil
 
+from test_framework.blocktools import COINBASE_MATURITY
 from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import (
         assert_equal,
@@ -50,8 +51,8 @@ class ReorgsRestoreTest(BitcoinTestFramework):
         self.generatetoaddress(self.nodes[0], 1, wallet0.getnewaddress(), sync_fun=self.no_op)
         node0_coinbase_tx_hash = wallet0.getblock(wallet0.getbestblockhash(), verbose=1)['tx'][0]
 
-        # Mine 100 blocks on top to mature the coinbase and create a descendant
-        self.generate(self.nodes[0], 101, sync_fun=self.no_op)
+        # Mine enough blocks on top to mature the coinbase and create a descendant.
+        self.generate(self.nodes[0], COINBASE_MATURITY + 1, sync_fun=self.no_op)
         # Make descendant, send-to-self
         descendant_tx_id = wallet0.sendtoaddress(wallet0.getnewaddress(), 1)
 
@@ -146,6 +147,7 @@ class ReorgsRestoreTest(BitcoinTestFramework):
         # Send a tx from which to conflict outputs later
         txid_conflict_from = self.nodes[0].sendtoaddress(self.nodes[0].getnewaddress(), Decimal("10"))
         self.generate(self.nodes[0], 1)
+        nA = next(tx_out["vout"] for tx_out in self.nodes[0].gettransaction(txid_conflict_from)["details"] if tx_out["amount"] == Decimal("10"))
 
         # Disconnect node1 from others to reorg its chain later
         self.disconnect_nodes(0, 1)
@@ -153,7 +155,9 @@ class ReorgsRestoreTest(BitcoinTestFramework):
         self.connect_nodes(0, 2)
 
         # Send a tx to be unconfirmed later
+        self.nodes[0].lockunspent(False, [{"txid": txid_conflict_from, "vout": nA}])
         txid = self.nodes[0].sendtoaddress(self.nodes[0].getnewaddress(), Decimal("10"))
+        self.nodes[0].lockunspent(True, [{"txid": txid_conflict_from, "vout": nA}])
         tx = self.nodes[0].gettransaction(txid)
         self.generate(self.nodes[0], 4, sync_fun=self.no_op)
         self.sync_blocks([self.nodes[0], self.nodes[2]])
@@ -162,7 +166,6 @@ class ReorgsRestoreTest(BitcoinTestFramework):
 
         # Disconnect node0 from node2 to broadcast a conflict on their respective chains
         self.disconnect_nodes(0, 2)
-        nA = next(tx_out["vout"] for tx_out in self.nodes[0].gettransaction(txid_conflict_from)["details"] if tx_out["amount"] == Decimal("10"))
         inputs = []
         inputs.append({"txid": txid_conflict_from, "vout": nA})
         outputs_1 = {}
