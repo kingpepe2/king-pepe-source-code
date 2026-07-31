@@ -292,23 +292,6 @@ BitcoinGUI::BitcoinGUI(interfaces::Node& node, const PlatformStyle *_platformSty
     // Install event filter to be able to catch status tip events (QEvent::StatusTip)
     this->installEventFilter(this);
 
-#ifdef ENABLE_WALLET
-    // KingPepe: inactivity auto-lock. After a period of no user activity, lock an
-    // unlocked encrypted wallet by reusing the existing WalletModel locking path.
-    // The timer is reset on user activity in eventFilter(); UI-only, no new crypto.
-    m_auto_lock_timer = new QTimer(this);
-    m_auto_lock_timer->setSingleShot(true);
-    m_auto_lock_timer->setInterval(10 * 60 * 1000); // 10 minutes
-    connect(m_auto_lock_timer, &QTimer::timeout, this, [this] {
-        if (!walletFrame) return;
-        WalletModel* const wallet_model = walletFrame->currentWalletModel();
-        if (wallet_model && wallet_model->getEncryptionStatus() == WalletModel::Unlocked) {
-            wallet_model->setWalletLocked(true);
-        }
-    });
-    m_auto_lock_timer->start();
-#endif // ENABLE_WALLET
-
     // Initially wallet actions should be disabled
     setWalletActionsEnabled(false);
 
@@ -1537,23 +1520,6 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
 
 bool BitcoinGUI::eventFilter(QObject *object, QEvent *event)
 {
-#ifdef ENABLE_WALLET
-    // KingPepe: any user activity resets the inactivity auto-lock timer.
-    if (m_auto_lock_timer) {
-        switch (event->type()) {
-        case QEvent::MouseMove:
-        case QEvent::MouseButtonPress:
-        case QEvent::KeyPress:
-        case QEvent::Wheel:
-        case QEvent::TouchBegin:
-            m_auto_lock_timer->start(); // restart the single-shot interval
-            break;
-        default:
-            break;
-        }
-    }
-#endif // ENABLE_WALLET
-
     // Catch status tip events
     if (event->type() == QEvent::StatusTip)
     {

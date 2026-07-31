@@ -128,9 +128,6 @@ private:
     CompactHeader* m_compact_header = nullptr;
     CompactNavBar* m_compact_nav = nullptr;
 
-    //! KingPepe: single-shot inactivity timer that auto-locks an unlocked encrypted wallet.
-    QTimer* m_auto_lock_timer = nullptr;
-
     //! KingPepe: modern settings window (lazily created); Advanced opens the full OptionsDialog.
     SettingsPage* m_settings_page = nullptr;
 
