@@ -12,6 +12,7 @@ from test_framework.util import (
     assert_equal,
     wallet_importprivkey,
 )
+from test_framework.wallet_util import get_generate_key
 
 
 class WalletHDTest(BitcoinTestFramework):
@@ -36,9 +37,8 @@ class WalletHDTest(BitcoinTestFramework):
         assert_equal(change_addrV["hdkeypath"], "m/84h/1h/0h/1/0")
 
         # Import a non-HD private key in the HD wallet
-        non_hd_add = 'bcrt1qmevj8zfx0wdvp05cqwkmr6mxkfx60yezwjksmt'
-        non_hd_key = 'cS9umN9w6cDMuRVYdbkfE4c7YUFLJRoXMfhQ569uY4odiQbVN8Rt'
-        wallet_importprivkey(self.nodes[1], non_hd_key, "now")
+        non_hd_key = get_generate_key()
+        wallet_importprivkey(self.nodes[1], non_hd_key.privkey, "now")
 
         # This should be enough to keep the master key and the non-HD key
         self.nodes[1].backupwallet(self.nodes[1].datadir_path / "hd.bak")
@@ -55,7 +55,7 @@ class WalletHDTest(BitcoinTestFramework):
             assert_equal(hd_info["hdmasterfingerprint"], hd_fingerprint)
             self.nodes[0].sendtoaddress(hd_add, 1)
             self.generate(self.nodes[0], 1)
-        self.nodes[0].sendtoaddress(non_hd_add, 1)
+        self.nodes[0].sendtoaddress(non_hd_key.p2wpkh_addr, 1)
         self.generate(self.nodes[0], 1)
 
         # create an internal key (again)
