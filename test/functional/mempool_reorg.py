@@ -23,6 +23,7 @@ from test_framework.test_framework import BitcoinTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error
 from test_framework.wallet import MiniWallet
 from test_framework.blocktools import (
+    COINBASE_MATURITY,
     create_empty_fork,
 )
 
@@ -230,7 +231,7 @@ class MempoolCoinbaseTest(BitcoinTestFramework):
             parent_utxo = tx["new_utxo"]
 
         self.log.info("Use invalidateblock to re-org back and make all those coinbase spends immature/invalid")
-        b = self.nodes[0].getblockhash(first_block + 100)
+        b = self.nodes[0].getblockhash(first_block + COINBASE_MATURITY - 1)
 
         # Use invalidateblock to go backwards in MTP time.
         # invalidateblock actually moves MTP backwards, making timelock_tx_id valid again.
