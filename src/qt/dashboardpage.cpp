@@ -64,7 +64,11 @@ protected:
         QPainter p(this);
         p.setRenderHint(QPainter::Antialiasing);
 
-        const QRectF r = rect().adjusted(1.5, 1.5, -1.5, -1.5);
+        // rect() returns an integer QRect; wrap in QRectF so the qreal overload of
+        // adjusted() is used and the 1.5 px fractional inset is preserved. Calling
+        // the int overload here truncated 1.5 -> 1 / -1.5 -> -1, which AppleClang
+        // rejects under -Werror,-Wliteral-conversion (macOS native CI build).
+        const QRectF r = QRectF(rect()).adjusted(1.5, 1.5, -1.5, -1.5);
         const double seconds = m_clock.elapsed() / 1000.0;
         const double pulse = (std::sin(seconds * 2.1) + 1.0) * 0.5;
         const qreal radius = 22.0;
