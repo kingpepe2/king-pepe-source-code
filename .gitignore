@@ -139,3 +139,13 @@ MAINNET_UI_TEST_DATA/
 MAINNET_WALLET_BACKUPS/
 *ROLLBACK*/
 verification/
+
+# Generated functional-test config/cache (created by the build/test runner)
+/test/config.ini
+/test/cache/
+
+# Local branding working directory (source assets kept elsewhere; not published)
+remediation-brand/
+
+# Release-candidate staging: compiled wallet ZIP + checksums for manual inspection
+release-assets/
