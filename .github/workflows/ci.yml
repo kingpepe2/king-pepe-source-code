@@ -228,7 +228,15 @@ jobs:
 
     env:
       PYTHONUTF8: 1
-      TEST_RUNNER_TIMEOUT_FACTOR: 40
+      # Bound the per-test timeout multiplier so a hung/stuck test is killed WITHIN
+      # the 360-minute job window instead of exceeding it. At factor 40 a ~10-minute
+      # base timeout becomes ~400 min (> the 360-min cap), so a single deadlocked
+      # straggler makes the whole "Run tests" step hang until the job is cancelled
+      # (observed: run 30587222640, p2p_initial_headers_sync stalled 2401 s = 40x60).
+      # 13x is still very generous for a slow Windows hosted runner (these tests
+      # complete in ~1 s locally) while guaranteeing the job completes and reports
+      # real results. No tests removed, no coverage reduced, no assertions weakened.
+      TEST_RUNNER_TIMEOUT_FACTOR: 13
 
     strategy:
       fail-fast: false
