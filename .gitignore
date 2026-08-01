@@ -149,3 +149,14 @@ remediation-brand/
 
 # Release-candidate staging: compiled wallet ZIP + checksums for manual inspection
 release-assets/
+
+# Internal audit / remediation working artifacts — kept in a private archive, never
+# published. A concise public summary lives in SECURITY_AUDIT_SUMMARY.md.
+remediation-output/
+AUDIT_REMEDIATION_TRACEABILITY.md
+audit-output/
+audit-logs/
+*-AUDIT-*.log
+*-audit-*.log
+*TRACEABILITY*.csv
+TEST-MATRIX-*-DELTA.*
