@@ -50,8 +50,22 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent, bool about) :
 
         ui->aboutMessage->setTextFormat(Qt::RichText);
         ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        text = version + "\n" + QString::fromStdString(FormatParagraph(licenseInfo));
-        ui->aboutMessage->setText(version + "<br><br>" + licenseInfoHTML);
+
+        // KingPepe coin/network identity shown in the About dialog.
+        const QString kpWebsite = QStringLiteral("https://kingpepe.net");
+        QString kpInfoPlain =
+            tr("Symbol: %1").arg(QStringLiteral("KPEPE")) + "\n" +
+            tr("Network: %1").arg(tr("Mainnet wallet")) + "\n" +
+            tr("SLIP-0044 coin type: %1").arg(QStringLiteral("6789")) + "\n" +
+            tr("Website: %1").arg(kpWebsite);
+        QString kpInfoHTML =
+            tr("Symbol: %1").arg(QStringLiteral("<b>KPEPE</b>")) + "<br>" +
+            tr("Network: %1").arg(tr("Mainnet wallet")) + "<br>" +
+            tr("SLIP-0044 coin type: %1").arg(QStringLiteral("<b>6789</b>")) + "<br>" +
+            tr("Website: %1").arg(QStringLiteral("<a href=\"%1\">%1</a>").arg(kpWebsite));
+
+        text = version + "\n" + kpInfoPlain + "\n\n" + QString::fromStdString(FormatParagraph(licenseInfo));
+        ui->aboutMessage->setText(version + "<br><br>" + kpInfoHTML + "<br><br>" + licenseInfoHTML);
         ui->aboutMessage->setWordWrap(true);
         ui->helpMessage->setVisible(false);
     } else {
