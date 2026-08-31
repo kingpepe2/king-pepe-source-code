@@ -1,0 +1,3858 @@
+{
+  "format": "kingpepe-ton-validator-support-ledger/v1",
+  "generatedAt": "2026-08-31T07:13:27.980Z",
+  "proposalId": "E8131C85497C998C8FCFDEE823637C32EBB606DF73BE7CC9653F1BC11B7229E9",
+  "config34": {
+    "hash": "F1C18570823EF34633918E0D823EC0EF51D24F0ABCC48CA519C92DA8BAFC2FAA",
+    "utimeSince": 1788104456,
+    "utimeUntil": 1788169992,
+    "totalWeight": "1152921504606846801",
+    "thresholdFloor": "864691128455135100",
+    "requiredYesWeight": "864691128455135101",
+    "requiredWinningRounds": 2
+  },
+  "config36": {
+    "present": false,
+    "futureRoundEvidence": "UNAVAILABLE_NOT_COUNTED"
+  },
+  "entries": [
+    {
+      "index": 0,
+      "publicKeyHex": "17089FDF971877A1CAC8A06DA31DD3D97BEBABEEC1F1FEF38B03537D58D6AE23",
+      "adnlAddressHex": "7899F0FA62878928C8711FE24087F8E69E24F55214E4C14175B8B695E38B6AEF",
+      "weight": "5096215128017856",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 1,
+      "publicKeyHex": "187663A8C7F89FCE232751DD461E7E3ACD90AD82980A379B088FA2E343A63BA4",
+      "adnlAddressHex": "BF67511A344EC95DFF8D5F95F9F22449C3E68BE39F8DEECA3D3BE607818ED09F",
+      "weight": "5096215128017856",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 2,
+      "publicKeyHex": "AEFB19BC04FDD304E3E3A8390C9B8E52F9946A1C98C2FAA20032689083DC6E32",
+      "adnlAddressHex": "C7E4D75F10A4A210034BCC2E3D8A071CAC7421E270318ED2007C73EAF371B8EC",
+      "weight": "5096215128017854",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 3,
+      "publicKeyHex": "CA77DC8619AE6BB2B7657332A2C67EC94056855D631DB85AAEF053B0F008E5F7",
+      "adnlAddressHex": "808AC1DA8F365A5F87E6A757C6E30D37EB3D43E1111C367750A83957ED841D78",
+      "weight": "5096215128017854",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 4,
+      "publicKeyHex": "D74D6227445D9F42D71FF56ABCBA0D5CF0541335680F9398EA52F583365F8CC8",
+      "adnlAddressHex": "2494DDCB0D074CCBD996DFCBD67F49EF2D52247359CE905EC5B109F4F494921E",
+      "weight": "5096215128017854",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 5,
+      "publicKeyHex": "7A36AF08DFFF3D83AC52ADE83F8FD92A7CFF4A7F3043279E6F2AE55F7D0E5A1E",
+      "adnlAddressHex": "4A0714E5AD9DF1032CB2B0414EE72A83657841E35CE9E68390E43B03470E89B2",
+      "weight": "5096215128017854",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 6,
+      "publicKeyHex": "DCBE3F5956C3339A90C55C5BA5EEC5C29910832884B541EBC6EAE79C95E5683A",
+      "adnlAddressHex": "3B6DFB12108ADE054FAE7E2C9EE08E3BCD186D1740A4E99590BCEC8E49E4B1A2",
+      "weight": "5096215128016536",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 7,
+      "publicKeyHex": "5F52D954C0F56134E11F3E15E3750BA1C80350E081B1DB939994F42E06FF05ED",
+      "adnlAddressHex": "8890870C0F46AA7369B7ADE7027BA1B53E5016A828E525FED3569CDB3C70AA3D",
+      "weight": "5096215128016536",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 8,
+      "publicKeyHex": "96E3D4EBC8EC47172C25F6F990B65E6DA5EF97AE0D9524C05034634B026566A1",
+      "adnlAddressHex": "828EE4869D73B8678C8EFABDC26BE24A0C02FF4668CA9F67A27F81081A5BDD73",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 9,
+      "publicKeyHex": "482EDB08A0E05420BD87E8BF69C825CBF2CF5C7A2BEF8E18C4BA89401C2F8E9F",
+      "adnlAddressHex": "667A25C76933859611D88764342E570BECE6792B8B7B00D7BD7905CDFD87E000",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 10,
+      "publicKeyHex": "FB4CFA2934F6EC35D216EE45D36EB4778D675BAE8D95B7F377B427F519219513",
+      "adnlAddressHex": "E456E7A100B01C5E70268D5A7438E14993CF521405BD553CEE10F67B469794F2",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 11,
+      "publicKeyHex": "5F746A4378716269AAD65EDD31E0E15F2B41335A0D293C576A843B8C856F47A3",
+      "adnlAddressHex": "D6BF4BB0108305318AC08D318875F7BBBBC7C2A1DE63CF18A48F2FA5C3CCDE7F",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 12,
+      "publicKeyHex": "28E7FB9B294A93725332F3F64C8179EF18E9AB019B94664AD82AA06C07550CBB",
+      "adnlAddressHex": "C7773C39A691B93B8371E54AFA89ADBF51812DE95773D985A56981D2655237AF",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 13,
+      "publicKeyHex": "D6C8F1B164EAE635A90319BFEB5F55EE613D3E81FB7631752186D0A7237A82A9",
+      "adnlAddressHex": "947D9F4404A7ACD4D822B5912712E570B157928C2B511937300817FE51340DA8",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 14,
+      "publicKeyHex": "36F91C6C793C2D1DDADC28836676DF36F23D22BA6F0543115AD5703C134DADD2",
+      "adnlAddressHex": "5682D412F4BED127FC5954B8DE8AE5F840B022DE6E41A195828B69FD08718CFC",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 15,
+      "publicKeyHex": "C78B717B9BAE27AD0FB23639E1F1988016791A9ADE8DEAEBE3AC86BD9B300086",
+      "adnlAddressHex": "D3DFDAB76EE6BB41456E8DFA84BCAD7722521BB5B688ECBBFA91523F48ADEBCC",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 16,
+      "publicKeyHex": "6887B6942B44ADC0217568298A6FABC9B33297D9284D5AE0C172102B1552EA79",
+      "adnlAddressHex": "7F3E4DA045F0587A5AC26893B1F420A343FB4E515E4E33F71908A20B415521B9",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 17,
+      "publicKeyHex": "D2B5D252C82389DF02CEAC7292B90375AA89813C29AD1ABCD58247EF84323768",
+      "adnlAddressHex": "48EE4EE43FB7AE140AA98A450B5B84A077FFC2B3058031356387BF76832FF299",
+      "weight": "5096215128016535",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 18,
+      "publicKeyHex": "F9F743E22CBCE7F79893101ED161C54B292FE76974ED2461D0DF992DD49A6834",
+      "adnlAddressHex": "01871DFC77C6C7F00AE52446DD4BE9AC6FEF5D825CA729627F78B6E7C87F7BD2",
+      "weight": "5096215128015217",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 19,
+      "publicKeyHex": "28FE2CE54A4D627E30322ED27F48F77B545D8F353D9798CE2E71FFC6A4E7D180",
+      "adnlAddressHex": "AEE9AB48AD7B353F640730461F5E0F7F7F14A2682271276F50D34DB18054B493",
+      "weight": "5096215128015215",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 20,
+      "publicKeyHex": "554E69EDE0DC0B25CFBC22DAA0CAAE7D8B8EBF00F2AFC4C3972251E2188F2A01",
+      "adnlAddressHex": "465F94DA6C33EAB10FAA4DAB7D38123E19AA275685355D9C9FF26EBBA268EE20",
+      "weight": "5096213314020023",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 21,
+      "publicKeyHex": "D2C0709969C7F0F5E690CC21EBFEFD3FF4375E10A031F16A98A772D9744942AD",
+      "adnlAddressHex": "277208C880039DB174574460EFCAC28ABB0BCE8F2330E5FB2964E8EA0A32D4D1",
+      "weight": "5096213259223550",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 22,
+      "publicKeyHex": "06EFBAB7581230F64325AC16FA902FBA883190A0ABFAB72E989F04DFBFB26B04",
+      "adnlAddressHex": "0A61DF96AF1E419BAB84DF8006705909E26485A6821E6137FDBBE9AC082F447E",
+      "weight": "4639563734313253",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 23,
+      "publicKeyHex": "CCC499635EC18FE1B580B8B62995A42D69D40B675F4E7A3A055145182488C481",
+      "adnlAddressHex": "18837B7B037D8C2E04B5B1BC46C7FD9FCA0D5F2C29B40CDE39B8EDF8272ED5FD",
+      "weight": "4639563734313253",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 24,
+      "publicKeyHex": "E61AC6D4D24298FE0B08B1B0962DEFA3FC94FDD4CA1584395BFEA79DC8B009DB",
+      "adnlAddressHex": "6B064299567291439D8019200CCAAFFCA6721BAB18654881C49E7CF1EE902631",
+      "weight": "4639563734311621",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 25,
+      "publicKeyHex": "882F9F755A79CFF1F5563FBDA971D947CD92FC005A403F5161697D7230825BD6",
+      "adnlAddressHex": "57DEA38677E86606894D26C4A1819EFC179CE751E517F064EB44DF44791F50CC",
+      "weight": "4608213507108008",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 26,
+      "publicKeyHex": "2B975E6B7B426E7E87B8CB1FE8E3F92AD868CA149FB0F259D99FB17016036033",
+      "adnlAddressHex": "89608E34EA8AA662CD3956062C95D5CD7C69E0B33C6F33A84271DF9286CB9DF2",
+      "weight": "4606377875352671",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 27,
+      "publicKeyHex": "866E806CEB98186DE881C6F7BC6759B356AF903D673870F65B3E5BD9BFE13482",
+      "adnlAddressHex": "3B14CA7B26EA74B63326B242C6E1C66DBEF99EFF1E130CE14E42E18957AE7952",
+      "weight": "4606377875352671",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 28,
+      "publicKeyHex": "CA233312EA2283EA4E9DAA2546F5B2261AFB43E90C5B77A7E0E7B0CA60D82C9B",
+      "adnlAddressHex": "6587A88CAC6053D60F8BD5D04BDC7D78A45FB8DF7E47534BD19819AAF6F80D42",
+      "weight": "4606377875352671",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 29,
+      "publicKeyHex": "B0CC6755DCC351E0F8B50D61D56CCFBABEB415E4A79EAFAFBEF5C51BDFE544E9",
+      "adnlAddressHex": "D9DC675F67AE38AC9D60557BC53B2386AD06991A5BB7C9E375DEB9A9BD4F45A0",
+      "weight": "4606377875352671",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 30,
+      "publicKeyHex": "4E4F000CBE3F09CEDAF4F63AB926188B6478889269AC31B4D80DD40DAE11472F",
+      "adnlAddressHex": "80647E87DC5F9C32128AA30AA4CE126CB59003C4698CC190E9B0EA077573A2E6",
+      "weight": "4606377875352671",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 31,
+      "publicKeyHex": "FDB892B853F42B272846D8039DD7405F0A7CFC8963CCD05651AAA6A46D05FBBC",
+      "adnlAddressHex": "16CF7F5CE07259A70E644A6B2D542EA137A4D8A8E14F852D03FE3ABD631169C8",
+      "weight": "4606377875352671",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 32,
+      "publicKeyHex": "3EBD2EA9675B09B0B8138A2BC1EF07940BE569D02DB557E954EF3388052ACC11",
+      "adnlAddressHex": "206677129D1CEB2280A20FD9F602F28FA9E8F6897B2ADB159F46B399477E4F8E",
+      "weight": "4606377875352671",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 33,
+      "publicKeyHex": "1CCB83DD5EFC8326D5327229F2C2480F7A90B15F5318B7695CF3860F7118113D",
+      "adnlAddressHex": "D21793467939BECA344121269456610A46D5061BA351E7A2576367FF75873821",
+      "weight": "4606376075713695",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 34,
+      "publicKeyHex": "08F41F55793BB8EE3EC2E0D28EA3DEA799AF10DD5D9983C81A998C36D8332432",
+      "adnlAddressHex": "99464796EABFF8E07297312D638B244432D939773D787BAA89085536655C2BA4",
+      "weight": "4606345481851106",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 35,
+      "publicKeyHex": "39A8150AC845C4EBC0FE6FB60295411395EFBF88180516A3DEFE1C7449ACB45F",
+      "adnlAddressHex": "260C116014423FE33F5B6AC17BC26C6841D3D0A68269FE6A8B915351204A96C6",
+      "weight": "4605665218318246",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 36,
+      "publicKeyHex": "84227F67C70ED975D22BA1CA55972D5354FC77A3F4CC061183F4B68908EEFC42",
+      "adnlAddressHex": "A1377385E4B45CF33B1403726CCB024D99D5604EC360984A7E23F3495C7FF89C",
+      "weight": "4604574637098899",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 37,
+      "publicKeyHex": "D0252B608C1D2BD2F0CFB61CA50041CED99F3F80036D7E036682586614C580D4",
+      "adnlAddressHex": "C1881C18B4DCF3BFA26A6DD1134457AF32CEE2766AD05DB571CDE75115918047",
+      "weight": "4604574637098899",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 38,
+      "publicKeyHex": "92F8785FBE80B853A04F3CE0E9D9B1C8035250B5489911179989E84159365828",
+      "adnlAddressHex": "27702166513B3ACC798CF40074E69DCF7A7A561516A4B18FB05ACEF503C4C76E",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 39,
+      "publicKeyHex": "A7741A77A0006F757CB97E8361F81041B7123535615180365E2494F479D49BE2",
+      "adnlAddressHex": "6A9998EA7295A7A29C558FFA5B1EC6E118A6195DA790B120EBF06DED1622C51A",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 40,
+      "publicKeyHex": "3D93B053590139601C1E0B7AD795BA28D78EF3C9FEBEE26C502F6D69D99334D6",
+      "adnlAddressHex": "9E403B2AA0D62C139D28A63DED759E5D605F788A8EF30CC7A96BC51867E5C2CC",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 41,
+      "publicKeyHex": "043CE5F2351CC98820C20F638AF5DF50C2F6E41C65B80D967C8D1EA079BA19C6",
+      "adnlAddressHex": "58DD2C6E9EC02AA8B76F578D939227604E300931E4C2349C36578CE453B9BE05",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 42,
+      "publicKeyHex": "AE27396DE54479B068E5464B1B54E0C72F56ADC9E7B61FDF9DAD43F0D16752B7",
+      "adnlAddressHex": "5BC2ACA439105CF4F0B12D38D7D9A2A06501131E9014C351F51572C23CA6BD33",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 43,
+      "publicKeyHex": "96666822BC726085953627E873D895EAEC276026AE19989FD4BCF8E464824E81",
+      "adnlAddressHex": "055A1CD8AF24526D8C39DB066998A3A932FB8BB65DCA7D95EADDD199A4E001AD",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 44,
+      "publicKeyHex": "044A998D6575FC54D68BBD71EFAFC6A0F2243B0BE1BBA4E042187BFC6EB13DFC",
+      "adnlAddressHex": "B466A3250FC83ED8D42748851981A3225AA0A26801E799C50CB222DC71960EA8",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 45,
+      "publicKeyHex": "FB67A121964BEE762880DDE526F0EA39B973986B23B4A61F261A527A3C6E8E79",
+      "adnlAddressHex": "A84E2EEC5CED75852D77D5F21439ADBCE133246DDBB65649ADDC7E89F0347DC3",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 46,
+      "publicKeyHex": "A3E2333AB9EC1913A94C1C9A6A4680AC62646AA4997980F266D4E12C6EDCEADE",
+      "adnlAddressHex": "741F8D9BA8A38DC780592985D9C99A8D1D1DA358C0AD8D9B933CB7BF5C2FDAF2",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 47,
+      "publicKeyHex": "14BCF4FC97C9497691BC272033506A4940D9CF07860F907F441FACCD00328BC6",
+      "adnlAddressHex": "F189C63CC96731E99A8168339849C59F64796024914596DA5428DDFB02ED69AF",
+      "weight": "4600919570339007",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 48,
+      "publicKeyHex": "ECCAB9C53A18650686FDB5A3D9E091A119EEC95A1A75CD5A93FC0C1EC5E591C7",
+      "adnlAddressHex": "1AB49274FCC71907082EC5807984E832E5E132A2B88C0D93CFEF270BF3D1577C",
+      "weight": "4579703833623133",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 49,
+      "publicKeyHex": "ACF4E4CAE979DE89CF36FCF66925ACC6BC9FD36CE0726F4CA91C49D5E0BF9801",
+      "adnlAddressHex": "822D706894B23901CF574AFB84DAB646818BA07AE1A2C4852719303020AF20D8",
+      "weight": "4579703833377484",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 50,
+      "publicKeyHex": "710D0170A0DCAC55C5F8F27969F660DEB4E12A10533FD752B0791C55ADBFA1FD",
+      "adnlAddressHex": "EA92FBB51796282E3FB4557198F12B30208CB94BEA955484E9EC0715FF17D221",
+      "weight": "4579702369112470",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 51,
+      "publicKeyHex": "A8BC7B88EAA011D40595E33BB0328A4CF928E0B9C02C1FEEB01E752184C66B82",
+      "adnlAddressHex": "A0DEAD1C88A101CC8F07F4C2F2C9EA034D89A4F173E2DBB83E655D5612F41DEA",
+      "weight": "4577786803424886",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 52,
+      "publicKeyHex": "CB811DE6E06156A7259356BF52EEE6A8E9144AAF6C0F4FF304CAE4C952DA3CCB",
+      "adnlAddressHex": "05BCCA748DF734D0E6C0C7119296172597863A08794147FA66B0D25F64FF2C0B",
+      "weight": "4499097796726048",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 53,
+      "publicKeyHex": "978C331413A2A0E13AC7471B0B3B680EE4DE56BDFD67E507A1D1AE5C4677591C",
+      "adnlAddressHex": "95343C09F5D4F1830C8AE4C8577C66EE779FA723D0C8D10ACAFFAC9F346B1ECA",
+      "weight": "4359187661764866",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 54,
+      "publicKeyHex": "601D2B9F988C75AAF667F241A47E664B5B4F6ECF6E47CEFA47C9B257830915BB",
+      "adnlAddressHex": "3A74186CD5F615DD3A7A6370AF7D83A97488FFD2DF31CB4E893E3A428E8FB1CB",
+      "weight": "4359173578130186",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 55,
+      "publicKeyHex": "C2A84C5EE2CB3A01E8D059C0F298217A9CE685C17DAA23FC36DFBEB5F7AA3FB6",
+      "adnlAddressHex": "092672B9A5D4D93DA17ECD5A4293038DE05A87A524F28F826321313D7205E529",
+      "weight": "4359173297933324",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 56,
+      "publicKeyHex": "B55B536E09ACF58730422B7C21C68B424337CE1D87A2AB7CA435B978E82AE0DD",
+      "adnlAddressHex": "F82905F3161A1F7108B4A3807FC5C970B2B5B45E58219C033F1614582DDEAAC5",
+      "weight": "4359170796400078",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 57,
+      "publicKeyHex": "DBD9919AEB4DA7C66AFCEDF974B092A539253E4AF524BB24854BFA0236EC876D",
+      "adnlAddressHex": "5663B445244BD498CA81423D3CC637E8B735F970E5C549F6654A909E4B138305",
+      "weight": "4359168673444918",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 58,
+      "publicKeyHex": "559F93BD2488D11764B90CD3CA955C1C2A898E5B87670535798FED697897E2E5",
+      "adnlAddressHex": "CB2763C33F564347B0C306722D2363CBA18DA5D6F9FBBB0E1550A16626F5CE09",
+      "weight": "4359167542549122",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 59,
+      "publicKeyHex": "2F8039CA29106F4F9A3DF2ECF2B1CB566BA41444A1F783F93557D6DAA83A77C4",
+      "adnlAddressHex": "63CCD8826AAAACF7B0DFDC1E983BF5EABC2B54062301D78CCCF944C0FEB2C998",
+      "weight": "4296830947871530",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 60,
+      "publicKeyHex": "239278F91865D499E6907A63EE16CF67D9DCFC12C2C6129FAEADCFD50D8370FD",
+      "adnlAddressHex": "8439BEBDC67139E2F9CA49C6CF4836414BADA41F5083FD0C29FD96F6D6ACBBA5",
+      "weight": "4292406129008551",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 61,
+      "publicKeyHex": "C1FD63AE0F962C443B778E44889DB25C9A370BE5A46E049EBFB2C61E549B824A",
+      "adnlAddressHex": "B0938429F1D42A97F2788E6DAF6056A3901ABE117B9FB6F3434A148DB0AFCFF6",
+      "weight": "4258910786845836",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 62,
+      "publicKeyHex": "C945A2A777BCB4529308A8AE6C51B5BDFB9495D2D70C3A6D9BCDB133A0011099",
+      "adnlAddressHex": "9B7B9052EE8E867038884BB1B77DEC56D612AFE26A1DDF90E5A62C191AC6535C",
+      "weight": "4236756999395447",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 63,
+      "publicKeyHex": "1267C0E3B3AA476E6BB368E595409896B45A04A2C810189385B309EBD5721C66",
+      "adnlAddressHex": "3587C9EDC9F828CC8BC6DCFA72B953966E1F1B5AAB2A8F7082471643CF578AF1",
+      "weight": "4211800676585126",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 64,
+      "publicKeyHex": "351EBBB9693F0AD5D64741794C1E46404C2C3AD5618964CB31940A63BB7D1FAC",
+      "adnlAddressHex": "D66E36D4988EA39882DFBFE331C4B435861585F7B4D9BBFCABE2F187EE4B95D2",
+      "weight": "4098818020373284",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 65,
+      "publicKeyHex": "47C9CEBF414981B628350BF2D705290A8074AC91129199E93B16137277770F07",
+      "adnlAddressHex": "BFBF94C198AE900920EFA04B22AFD6B4CE6AF835DAB339D02D17BC37735FEE12",
+      "weight": "4098568350053176",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 66,
+      "publicKeyHex": "450DDA3D293B337FF87835660AE6C36CA23B37BD5F913C284A069EA55BE86E56",
+      "adnlAddressHex": "12A7103690B46AB5BC37684F2A87DBE08058924C25E623A459C44C46F88254C8",
+      "weight": "4098548982826280",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 67,
+      "publicKeyHex": "EF32088F556741806823117196C70584F1638AF7CDD6549906BAF2923F17E1F2",
+      "adnlAddressHex": "643C9AE2C88E0CEB58422913B445D6CF7BDE795BB659D64264B06114A74FF620",
+      "weight": "4098423227376638",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 68,
+      "publicKeyHex": "39C80386DD1ACB5E68E58A9C9A606EB2B2A293CAD5B4A87AAF209A4037EF5924",
+      "adnlAddressHex": "96C7DC17EB2F7E3152F8900AF374B45794B2BFA55AD6DEFAF453117D63A260E2",
+      "weight": "4052555457298963",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 69,
+      "publicKeyHex": "9BC1C228D38FBE34223127813FD2530210511A5AB2D22226F0F074C3C1545729",
+      "adnlAddressHex": "2400931FF3985770D953E22C2E1E496F4A52936377730C17EACAE36586C01971",
+      "weight": "4052555457298961",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 70,
+      "publicKeyHex": "9BF132CB22C576911709F83BEE835FEB220F4781B554CB9DB9015581B9D5BF22",
+      "adnlAddressHex": "4334CC58C524FBAF010AF057CBCDCD62BEAA0C863D03842A135825F2A6E1E9EA",
+      "weight": "4052555457298961",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 71,
+      "publicKeyHex": "76B4964DA20F6E05F88610F3A3C48B7BDAE04B8EF3FECE260638F8B090B2CA0F",
+      "adnlAddressHex": "08362246ECC18B32D6CF55B3D34E457A8E3F1CB4DA3984D05E98B20A4301514B",
+      "weight": "4052555457297514",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 72,
+      "publicKeyHex": "85CB95D793033CB3890FCDFEADC27982F49019A2D285207D48F32FD82B759473",
+      "adnlAddressHex": "83A96782B693959194F47EACA547778E175F6E9EC463B773226FB3AEC6C7E804",
+      "weight": "3945431667258913",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 73,
+      "publicKeyHex": "E6C507374C5285DD5B71932B67BEC60CE5E853D6A3DCA66D0D2E4E9464ECB05D",
+      "adnlAddressHex": "B2DBC273A82F07E863C97F66D309121079DC841CEFAB746DF88CA91E637DB8E1",
+      "weight": "3945422669064034",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 74,
+      "publicKeyHex": "2E7B8D246BF2A54148B14FBEE520B2A638C4957634B3D7B6A67B300603D36834",
+      "adnlAddressHex": "8B11769A052406CCD3F09E675FF1250344E008F1E9EDC4C6FC6AC0E2C479E892",
+      "weight": "3945417270147106",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 75,
+      "publicKeyHex": "292562DDFD08EA8230BC7D45E82350B4A092E037326570988AD176231019C4D8",
+      "adnlAddressHex": "B06E5C267055C64049D895AFA316412C2C744A58CDBEA9AED0BF3EECDD989801",
+      "weight": "3945417270147106",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 76,
+      "publicKeyHex": "B283D902F78F7B7CC0B69DF47BA3C776D116F19C76EAAA4804183BA3A91C27A5",
+      "adnlAddressHex": "41D69ECF8F1EE75CB27D598291449DCB009E5AC96A619849B53515BDD7ADCAAD",
+      "weight": "3945408271952227",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 77,
+      "publicKeyHex": "A1A790F16A69E3FA4514911C22F299B39FCCF66D3BC50BFEDA99D8A19A956DB1",
+      "adnlAddressHex": "6E81266D4E48D868DC230E0C82147FAB3187F35437FB98FD755F89FBD5D2CCC8",
+      "weight": "3938985360447523",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 78,
+      "publicKeyHex": "EF8305CC98806BE6C35EC3307302C09B38FBE2A8F9E5A9E1287066394DADEE82",
+      "adnlAddressHex": "9894ECB140B4EC140D3830F17A01E35C16BCD67B9626A9B01111136449278858",
+      "weight": "3938985360447523",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 79,
+      "publicKeyHex": "FC6D8795F94396800EC904CCA7673479E3A73576044E56165964993ABA221A4C",
+      "adnlAddressHex": "7110F2EE7D1FABC2FB296838A496C7EAF6E3519003557EACD56BEB4DB8386E04",
+      "weight": "3938985360447523",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 80,
+      "publicKeyHex": "E12147901FD5B42FCC22E727C0A97C511BE91913CA8C69D2002C521D91691089",
+      "adnlAddressHex": "6E0AB276B09C4FE854C308A40B858121BC7CA3F7FB6FFFC80E6AA7A9C38A333E",
+      "weight": "3938985360447523",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 81,
+      "publicKeyHex": "F9BCB283744ABCF617344F23F13DDBAB2E5A832B8246FD3E5441841A724208B1",
+      "adnlAddressHex": "7D717779E8E227B152F948B60A5705C00C7A03E814C78B35CC2FA6F1DB22006D",
+      "weight": "3938985360447523",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 82,
+      "publicKeyHex": "0C9E8412930EB1CA80EB983C81EA6DCA683A32F3B8A6DFD7843E118B3A4CAA8B",
+      "adnlAddressHex": "B9651BFB7E9963740F90D79ED1606DDA2D4EBC8961136BCA95C4E66E5F0043BF",
+      "weight": "3938594838789770",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 83,
+      "publicKeyHex": "B6118C87F12AF029E2304AAE328825039D7D57A323A1C4CDDEC60AE72B572EB1",
+      "adnlAddressHex": "1BF5E631EC577FE44687BA84C4D00930C316B95E13E7406D78C6B81247E878DC",
+      "weight": "3937507856848374",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 84,
+      "publicKeyHex": "8C0619F082C339AE51CED46D242613BAA5E12AB7E4237F14C5975A9D51E16F23",
+      "adnlAddressHex": "F3D500E14638D54BFC638966C021DB4CF293B7978BD963325A2391519308B94F",
+      "weight": "3937502457931447",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 85,
+      "publicKeyHex": "71107346B81E623287C04F1767E5E30DDA033E2413E20FC6F9F0BCF12AD1DF1B",
+      "adnlAddressHex": "408123E1D22FC8F4FF0D452B2CBB0E8FBEB5582338B40832C9B0009D135A044F",
+      "weight": "3937502457931447",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 86,
+      "publicKeyHex": "DB2F214ED8A251E5A37EF3297B6FDBD87F9D835F91C547388D945EA4411BCFB5",
+      "adnlAddressHex": "87F6FAE8ADE5772F830D78F733A06B1378A4653E4B3DF95C9115ADDDD86DF46B",
+      "weight": "3937502457931447",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 87,
+      "publicKeyHex": "DE92F06B62DF709FFBBC06E3F555A3A61F0D442EC6F72CC5232CBF4DA36C53EA",
+      "adnlAddressHex": "A928F2E4A76F6E50C670A9904760227DCF57B1C24C8EDCF472282B44303681C4",
+      "weight": "3937027353241830",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 88,
+      "publicKeyHex": "CC52B4DEFC3EBC512272316D0C611BDC29D8149F1550DC3A35FEE12CD128C3F2",
+      "adnlAddressHex": "21289B730078BCFB6EDB35EAD70D7BEE128AA42B4D4796EE61BFC8DC5E2053FC",
+      "weight": "3937012956130024",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 89,
+      "publicKeyHex": "859F0D1CC5AD835C46AA69A156788A046865ACE504F8F4C36F22A87D6DD5A552",
+      "adnlAddressHex": "27DB2B4C40B5B91545C9B6ADA10D388124C6D99F4E797EF0C708364D762C2D9D",
+      "weight": "3937012956130024",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 90,
+      "publicKeyHex": "6CE0FC9A47E49482EB05A790B3A34CBEC40C3B258806584F001EBA1140E76B59",
+      "adnlAddressHex": "A9BF5AA089DB57BA02B38A39D4438EDCA88951043A6A78A39D0EE71C852DAE28",
+      "weight": "3937012956130024",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 91,
+      "publicKeyHex": "3491F52CB1C69977061695864F9CB073B72ADF7A9C414556C8E6515F1E80858F",
+      "adnlAddressHex": "FF2B3142E449C4D526C19164F90F23B19B36A7AE9F92177996CE5F81361EDEAA",
+      "weight": "3937012956130024",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 92,
+      "publicKeyHex": "6E19A59CBFBF1939D20B955CBBE24B51E8D2B34CC7672A65B259C2DC72E5C6FD",
+      "adnlAddressHex": "A5CAF2A19485FA73536621916FF6F8E8A81EF2533A228E5116EAA9A0D602A9EE",
+      "weight": "3937012956130024",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 93,
+      "publicKeyHex": "5FECE7E6AB6E148AF5ED84725B02A4041D59CF0454CA5A230F9B006BF0B72DB7",
+      "adnlAddressHex": "BCF534613CC01B0805CA8187E4CCC35DF09FB2FD3C8879AC2DCD17BB689303DC",
+      "weight": "3937012956130024",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 94,
+      "publicKeyHex": "DDCD948F7B4B16FF9D894EA4DC97123C7E53A0BE5468790FEF819A70E46A197E",
+      "adnlAddressHex": "07401D45C66B08F77BB75E493B3141E07BD04749342D2FC0FEA651758C9526EC",
+      "weight": "3937012956130024",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 95,
+      "publicKeyHex": "31836E3120C935140DEFE4D7CF20D3F528A90EA46288AD77D839C6BDF246C84A",
+      "adnlAddressHex": "366D7BEB97873E177E132A7B7F2ECB7560496700FBA3D8BEDA4335300C44A4B4",
+      "weight": "3937012956130024",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 96,
+      "publicKeyHex": "C9DDC17A1B74479AF50FB5FFAB243A64EFA19E2599C85BA516113515EB1C98AC",
+      "adnlAddressHex": "710DF84CEAD31AC840922336AEFC2838C06A3EEE50CDA8EDD7EE2C4CA8345DB6",
+      "weight": "3934756208854345",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 97,
+      "publicKeyHex": "E68C24BD3E5F678772106B52BEB11E21246B2E5AB83DF018958998845363B7C9",
+      "adnlAddressHex": "7F9A82387571143D038185149DFA31D680F07F5BBE7292DB84CAC771529DE1B2",
+      "weight": "3934756208854345",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 98,
+      "publicKeyHex": "18D326961DC7501A67188BB5B70D6D6538703D6B0DBB88ABBC81558E34FFC597",
+      "adnlAddressHex": "A06F3197D7D759801992544B1A8C7774E01936CC337A1E2C62F1AEFF39DCE3D4",
+      "weight": "3934756208854345",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 99,
+      "publicKeyHex": "B6DC1B1F116D2A8A8F0E8D9E6D57DA0644391FF21713D8F088C57F85F5BAA5B5",
+      "adnlAddressHex": "7A9FCC9915902A64E7111E11894C8FC6785FC10D02F2EFDBB28349329B9E312C",
+      "weight": "3934664427266578",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 100,
+      "publicKeyHex": "8666E66E8EF8D146EE112E9202AA3C8C476AE8ABD1D8E60554868BC501054C75",
+      "adnlAddressHex": "ACDB2A5DFC9ECBC6FE66C19A459BE729018716A1C78867B2428866572440F63B",
+      "weight": "3934664427266578",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 101,
+      "publicKeyHex": "F28BCB8F96C86E9CD4B19A3933566C20280ADB1A69F58CA8CB89F303D22937E2",
+      "adnlAddressHex": "1F8A2AA560047E382EC15285A89EBCBD486646698F82307B0999C12BB2597103",
+      "weight": "3934664427266578",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 102,
+      "publicKeyHex": "A975AC34BFDDCC6881F048A8B9820DF7884EDA34036A7CF79555F528992D0894",
+      "adnlAddressHex": "E41B2FCA8FB292673FA41F4F520A8C8D5C63D937B73B961D186AD9294060F0D3",
+      "weight": "3934664427266578",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 103,
+      "publicKeyHex": "2839DA315A9FB69258465EBF8027C9F8F842F0BDF1EC36036C19A181FBEA55CB",
+      "adnlAddressHex": "D7EA67351CFFC6BB06100FA217A1DE910BFC9B4FFB403CAA994EA64238A403BF",
+      "weight": "3934662627627602",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 104,
+      "publicKeyHex": "F8178A8260CD170C00B2AD05CA762280DE74C5418F690BFA2711CC68E6A0B39C",
+      "adnlAddressHex": "07A09C27D58E667CF80569D28095751170A4777ECD1B18F7EB9A40DECAD6FBEF",
+      "weight": "3934572645678811",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 105,
+      "publicKeyHex": "1FA32FAFC5D928A94AA9DFAC823BC99ECC0603BA1430B90B3003FF4466BD7322",
+      "adnlAddressHex": "FC54567A49E152CCF11BE2857BCC8600F0A070347BB74245D2AE5527E887C75D",
+      "weight": "3934570846039835",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 106,
+      "publicKeyHex": "D17485659E0FA56D446449B539D1049EBE5B70656993482D8F8D72AC98A35882",
+      "adnlAddressHex": "EA6D41952316CE8258A7770B0028F31FB84B29090F5A719112796AC2FC1CA9C9",
+      "weight": "3934479064452068",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 107,
+      "publicKeyHex": "7BEDC89F7F42E0FB1DA829011E990A381A010C239453AEB2C02456EB9DAD9CAE",
+      "adnlAddressHex": "12FCCAC205FAD303341402EDC754269D6AF1ACDE2501C2712D7DD0A12E600FCE",
+      "weight": "3934479064452068",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 108,
+      "publicKeyHex": "B275BEC1931498B2749D4CCF498E6D2317E279163D0A8C6619A099AA6D37AB96",
+      "adnlAddressHex": "1BEC8951F77B1CC98EB1C10DF5A5D6EB53821026420E1125C270DB9B09767568",
+      "weight": "3933221116807970",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 109,
+      "publicKeyHex": "95044ABB7C14A28A499EA89D0BEA201BBE1F9B5A61CDF52E2AFF8BE908294274",
+      "adnlAddressHex": "E5BE7122C9DEB74EE6D98384C27981EF98F570E4EC691E15B6DF22F08A8EE3DD",
+      "weight": "3932801800926603",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 110,
+      "publicKeyHex": "C10DCBF2F1B187CEDEC8018E7375B1583505CF38A722D36A232EB739D8F06D4F",
+      "adnlAddressHex": "FD2AC71E5D30A7B1D59CE7A7168791D0E1B20CB19BB282CF740DBF540E140E42",
+      "weight": "3931480865918351",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 111,
+      "publicKeyHex": "55DC688B63058ACA9238B1894DF616F8D7145BDDF4A09ECC705FA34412E2DB08",
+      "adnlAddressHex": "F1A0A4153857E5385884E4EFCE50FABBC00662F54139A58CAD6DCE97529F35F5",
+      "weight": "3925482675600659",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 112,
+      "publicKeyHex": "BE0E98027D9187AB2021EDE6B7FD3CB8BE678E6CEA56517F13C0391561A7B528",
+      "adnlAddressHex": "BA015E487E72D5EDC980D0FBFCB36C8C497275D57E11B5148839AF8A6D004D4A",
+      "weight": "3922556462625975",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 113,
+      "publicKeyHex": "D3499C76BFA1D3706EB9564310248C5FD791ADEFB7B3EB8750705C817B997B32",
+      "adnlAddressHex": "428F90390201B3BEF908C0649438BCBCFF75C0BF9238250F5B7748FA580338AB",
+      "weight": "3890513890661487",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 114,
+      "publicKeyHex": "021964688540A9738455B97A2A1A55E20EEB4A92D13CF775E2A195914712FDE0",
+      "adnlAddressHex": "5BBB2FEFE0D41448B297C75EDEABD0B212978E8FB4DCE7109ED343CFF8CD3C41",
+      "weight": "3794132677236452",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 115,
+      "publicKeyHex": "C28CE6AAEC77118498178741E75C6AF3F66BFB5494DFF1DE40953F0941799989",
+      "adnlAddressHex": "F376E46148053C46C4CC790D5726F6495BDE87D898856C325C16FB0D5EB5FE9B",
+      "weight": "3781452706683114",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 116,
+      "publicKeyHex": "3E8EE1E2394B167C432C329688A18B0D71A6E74098FE48C88A46DCEAB8242663",
+      "adnlAddressHex": "3E5BCCE0E964A1F3D1CCFCF2AC874369A5F446ABCD2F430FD6DD4970000F0048",
+      "weight": "3774237416794737",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 117,
+      "publicKeyHex": "ED1848E8A0DB8A1424F9D922E899E7AE7A5796868774EE12E60A720AA29F9D39",
+      "adnlAddressHex": "95C487ED30ABABC65607F1235F5D20CA3664E56D4C143E5EC57AD95CDE2B1019",
+      "weight": "3774237416794737",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 118,
+      "publicKeyHex": "AFAA7FE4AE8EEDB0B58158274D192154417AF4F23290108266E7D1F8043C5386",
+      "adnlAddressHex": "9429A3CC1EE208B8F9552B75938D8029AB67D2D469E37AEF239943F66C962FF6",
+      "weight": "3774235617155761",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 119,
+      "publicKeyHex": "879F8AF2AFBF2883A1EF9375635B5B78EA89F47698B48B63ED4EEBD17DFD9D35",
+      "adnlAddressHex": "3D4B10210EDC8F280351D232D0DE657AEFD0CCC9F830EFD7ADB2C4497DB83A11",
+      "weight": "3735945491959067",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 120,
+      "publicKeyHex": "A558F8E8B0C82113C3F919A6B716E39D844783CDFEAC5EEE6E0F5061F58AA9BD",
+      "adnlAddressHex": "B17AB40D83C3D5987A6B562AFCA22298E564E84919DABAB5FF24E458C814D9EB",
+      "weight": "3681354874356634",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 121,
+      "publicKeyHex": "50B13062BBF09568E3A57FAFD43E7621403ED7AEC4FBC6EC02CF4845A2479D66",
+      "adnlAddressHex": "F92AF342C44DD76509C28C995B1C5B87E49A30285170D4C45141995CC5ED9CA2",
+      "weight": "3644100117147498",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 122,
+      "publicKeyHex": "8DCBC5253C80E4AEAF561F601D227EA1517BF503BF3309CFDB80B82A1A97AEAF",
+      "adnlAddressHex": "BF42E5BDB048045B723F55CC67709295965AE2C98FA4C9565115DFC61AD25688",
+      "weight": "3635407867283003",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 123,
+      "publicKeyHex": "E4A085AA191FB1E454884BD3ABC5752FF90E77DA7EAE6D3FD93182A5E80A897C",
+      "adnlAddressHex": "20791D63C50ED91D13E2B1F5D68589D5CC9A10B81AB775C3543BDFB9AC74F00C",
+      "weight": "3619569850654343",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 124,
+      "publicKeyHex": "3389070AD1C19650F0F0D604A876C0C87FDDC466AC461D8605DDE7EA1125A82B",
+      "adnlAddressHex": "0A23E5F061401A6CAF0B6F0319DE100CF7F7BB10398C0E57B2C8F3264818A974",
+      "weight": "3619569850654343",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 125,
+      "publicKeyHex": "8942C1A919D37A622D828F3E0E49B44BB83833CBCD76333B315AD5227904FC0C",
+      "adnlAddressHex": "A971897E6931054A8B3666D73107C3E6BAA48ECD55228809DF08D32941C5B42D",
+      "weight": "3617957201793310",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 126,
+      "publicKeyHex": "CFDF6629F9020B8F0C92CBDFFBC959254A49448FE68E79967EF0294FCACFCA8F",
+      "adnlAddressHex": "0530FCC2986983A5D67E46ABB88C2BC1AB767A35D060EC7DA028DD54BBEE0A59",
+      "weight": "3572121094856866",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 127,
+      "publicKeyHex": "D9E0A5FFB96E17B76E756CAC306F9904EC4DF634E376D1C9280750C4D0242F0C",
+      "adnlAddressHex": "C36341AA5427370B865C16E6D87AF97865B032E6BFF266C4D52E8938F1094DC1",
+      "weight": "3517866240827532",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 128,
+      "publicKeyHex": "AC70AD2CE9845FA6ABD8F6846315EEFA744D3A123338C0C090A520643A4B03C0",
+      "adnlAddressHex": "9189BC7EDDCE2BAB9D1E54CA3EEA3100F3AACC59C69072DC5D46349B23ECB4FC",
+      "weight": "3456739702871196",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 129,
+      "publicKeyHex": "51EEC5CCC9C1AC02249FE476DD4096BD34FFBA674E01E68C373777777F6A2948",
+      "adnlAddressHex": "3B6BF20014BDD0440D1624E2C32656E077B82F74117884D57ED9EDD8A793807D",
+      "weight": "3423041440646306",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 130,
+      "publicKeyHex": "12449536003B27C9BA715F4903CC77820805393B8A16B90E83E29B15A21D0B34",
+      "adnlAddressHex": "DD0D9AEDCA83CDADD14F06DCF92FEB1E044A40FE6F29A8B6996ED139097F512D",
+      "weight": "3420767985613720",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 131,
+      "publicKeyHex": "5961BBD30B287C4EE07699E71884FD0A37A72CE30EF7666B7F0934071F07FFD9",
+      "adnlAddressHex": "588C7AC71187553CF5C07F6ECABDA692C753E0DCB8D800D0DC2E065C4E0E18F0",
+      "weight": "3420767985611112",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 132,
+      "publicKeyHex": "A905D42188C64EC4ACCA6CA1B5318FA6C8219E9C02CFCED0DEA823FB436CAA26",
+      "adnlAddressHex": "E801AE858923157E548EDFB10C67B7FA35BDACF6043B36539C113F643B4C7D8F",
+      "weight": "3413317364356687",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 133,
+      "publicKeyHex": "EDD6C7DAA02F8329BC9B3BBFE136017951821CC8246FEE8264E63F3CCFB203FC",
+      "adnlAddressHex": "48EFB498225F6B967A4B27F710A1A175A240BA9C806C7A0BB6DC241F2AB5DA8B",
+      "weight": "3399664159645372",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 134,
+      "publicKeyHex": "A811A3FDFBB52B24808A470D3A31ED900718E9689FA4D8A58B48F114EA4326A8",
+      "adnlAddressHex": "4CE9CEDFEE72B2CFED2E48BD40B55FC302403524C04ECD63E1AAC1EF32C4B437",
+      "weight": "3399664159645372",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 135,
+      "publicKeyHex": "6CF93EFD69B6AE7A9D8090B44FE1C9267F8F3A86B7ECF2630051F56F22277462",
+      "adnlAddressHex": "4C6F9B109674C0C6A7D10836D4253A8557829BC45101067E793802801BE76E72",
+      "weight": "3342905339598246",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 136,
+      "publicKeyHex": "E92BA8F35E8DEF4BAEB030CF3745F6D26F245FD540EB7C2857A1F076AAD6F54D",
+      "adnlAddressHex": "7190264FAD94E4FD841AE1DB20B4C7FE22C6C53E8CC2C2C6523FA6674E90C3D9",
+      "weight": "3315611301682257",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 137,
+      "publicKeyHex": "1FAB98A4A24CCC455460803CF0B8911B08D5BE391A0B2F612621005E55E06EF6",
+      "adnlAddressHex": "2ED53D9ACC44150F62E13D5C591D20523216DC8188EEDED926269E4E4F9DA024",
+      "weight": "3287823789465302",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 138,
+      "publicKeyHex": "0805586DCC446F0B1E72D67B3573093202B3C30604EF91B030ADA99778520E31",
+      "adnlAddressHex": "D66F9336926A46999BE3856643388454437533D881C7E22B6CDE1FF64A435489",
+      "weight": "3275042436258068",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 139,
+      "publicKeyHex": "CCE656BC6E480697842BBE1D218D185AD34A9AA9276F0DFAD2E12C9D03D2FE65",
+      "adnlAddressHex": "91D3A0D1657E53CE66422BBBB2C19E7F9E7E43982524BB59A019660F4C9F8E98",
+      "weight": "3275042436258066",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 140,
+      "publicKeyHex": "AF14C1057AB8CBDEC9A3569DB5019328F896B3F4A884C6D21A295BF5F9136FFF",
+      "adnlAddressHex": "B6A5301C1F18019CAA31163FCB23B0A6D88C9AAA31430ADC55BD30CFA77A1A09",
+      "weight": "3275042436257906",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 141,
+      "publicKeyHex": "D926596F17501F3C9211E034B831AA252C81B4105ED1B17AF58880DB031F7200",
+      "adnlAddressHex": "C751A0984B3528024BFC4166918C9A9F7B95BCE05F551213B4B552EE3F9972CD",
+      "weight": "3275042436257906",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 142,
+      "publicKeyHex": "2A0A7685C2B04F258FF8A21B7790711315EC7B19D359025BC2B155C53B589271",
+      "adnlAddressHex": "19001FF685468DE21C41B80F0BBB4832E5D09D4E72C2B44F8CE0B47D1DB22BFA",
+      "weight": "3275042436257906",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 143,
+      "publicKeyHex": "15EB20815FA43A6F71977601524C388DA11C2123C606CB194A07E4A94586C272",
+      "adnlAddressHex": "26B9D297A4196D82DBDF7FD029AFF9FAC0816391FFF20688C2B60DF17DA73F07",
+      "weight": "3275042436257906",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 144,
+      "publicKeyHex": "36DBB1DF11D3DF7FB2E15010F3E881D50DF0CCE7C1BF1BAE9B9C388EC1759ED2",
+      "adnlAddressHex": "E28B44DB678A05EC8960459E0B322B399C89298BC64D505B49BDA5C071B0EC55",
+      "weight": "3275042436257906",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 145,
+      "publicKeyHex": "BD0A336BD85C392274E2C7EAB1D10B17ED928A7560802E52F59B0550C09CF23E",
+      "adnlAddressHex": "604001C106DB603C4A6AC52B825AF3E95878B09FD7E64B85575E178C3F7D91B0",
+      "weight": "3275042436257906",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 146,
+      "publicKeyHex": "0F494BB392222E814D1362701ED810E3AE357B7E1710F55C704EC79D78C84745",
+      "adnlAddressHex": "7D068A8A3C574F06A5631F84B76BD670C091FAD7E4C3EECE1FC33F73986FACDA",
+      "weight": "3275042436257906",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 147,
+      "publicKeyHex": "BBB2EFF61C98309EDBD5B66FD4FFDAFA13AE132D6A235F6A2721157190F23135",
+      "adnlAddressHex": "E0E1ED27762E8F834E1E7A1B3E3DEA4DFF9E6F73E14472347E1C56F6EAA22B65",
+      "weight": "3275042436257742",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 148,
+      "publicKeyHex": "7911FCB88BF21FD1BEFEA872081E2D068BCF3B1C29DF96A658D9E9B934AEAA16",
+      "adnlAddressHex": "2C2C63F64F2D67837921849C26D1CFCC3A964341980EBAFAE9812DCFA502C7B1",
+      "weight": "3275042436257579",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 149,
+      "publicKeyHex": "B9CDA5CE045E71EAAC0DF15E6CBA47C10E35A726D4D7E336418EB8D3D46B47D7",
+      "adnlAddressHex": "3E9F387C8DE52580F8C71DD6CD06B64B6BAC57BA0C97CCED059682F22BB14D58",
+      "weight": "3275042433479393",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 150,
+      "publicKeyHex": "F13F75B1EB3E0301BE0AD8B0269C14D76F83B1A6CAD1D067C8BE5586B4ED1F8F",
+      "adnlAddressHex": "2641CC01832BFCFE161104FDBDA02BF98E117758968D356BF8381852D541E971",
+      "weight": "3266589849189594",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 151,
+      "publicKeyHex": "01617886AC2A6EE49A3E085321AB6B7CCD16965D9CF4F020574751A72E0A3E64",
+      "adnlAddressHex": "8778680902D86C40950D041DE75B79D3CEEA9051421114643600BC90B9643F71",
+      "weight": "3266586249911642",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 152,
+      "publicKeyHex": "8BB3D52B2236B6CA2C98094692A492BAD053289A5E4AB5E9E4757EE6D81F58C7",
+      "adnlAddressHex": "DEB840F85156ED8B7AF5F24038C91A39E494E9B853495B3D4466B4E80E534E37",
+      "weight": "3252117152546044",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 153,
+      "publicKeyHex": "8A9BEF2B5C18147D1F758690AB305517A3B500E9C226546EEA4594463C357E64",
+      "adnlAddressHex": "7B4C058C0C3F74484B2C7CAD4983ED65063F373BC19F13FCD316E68A399A1282",
+      "weight": "3246549069554855",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 154,
+      "publicKeyHex": "A73033496FDBA1A409EF85CDDC942828BE4CD383DA1A97A4F0027D3E6B3F0C61",
+      "adnlAddressHex": "01123D929E70CB781B0D9C7E5E3968408F7116BA803CEF4DA82475AD91637E60",
+      "weight": "3239931439866415",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 155,
+      "publicKeyHex": "8D10FDD66B54736E968B436C3525E0971800E84370F5F2B62348BEB5D52CD46A",
+      "adnlAddressHex": "4412076FD2A03F39E90A87A3AE3A24A65948C7808F41DA6F6B2BB99F8E7EF7F7",
+      "weight": "3208630676334313",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 156,
+      "publicKeyHex": "5D8CCB7CDC265A41091ED0A0E30CD348A580E74BAE9861ABDB17710624776B4A",
+      "adnlAddressHex": "1D18F6755FA10A9988F2EED5506E6F1E4EE8CA729FAB89A32E53EB70386C93AC",
+      "weight": "3199009806369576",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 157,
+      "publicKeyHex": "71CDB294C4646B916B2E72EF58933183A109144731DF01835751BF46C0A288DE",
+      "adnlAddressHex": "AFD174BDD424B16B6D4EF6FEF0DB2A5F923489F87D5C41C566133C677AC28A78",
+      "weight": "3173748274065981",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 158,
+      "publicKeyHex": "1ED5E5A4243DE098A510D2F497B67E633F0CE58CEB0DD45B28EDDEA47C594773",
+      "adnlAddressHex": "2381B766147DBE73FB441FAC851375C87440427AF91B3237AC78F12D2BC40101",
+      "weight": "3169891290566450",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 159,
+      "publicKeyHex": "4933FF1D44053CF0A91AFB6D187F013976FA84AB7D714145B06588AD6490A383",
+      "adnlAddressHex": "41BA6357254D8A556D9887CC4030F9072B62F81AAF5F5F690FAC434C6C8CE8DE",
+      "weight": "3088234828851910",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 160,
+      "publicKeyHex": "85373358DF8E6CDBE0D76DD3763E68712B672E16B1F9274150D74D276702A799",
+      "adnlAddressHex": "0F5C56C2E44B468CBA0DA4B2C59D845D55BA4C2A50CD9DD385A82A9F695FA9AD",
+      "weight": "3088234828851910",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 161,
+      "publicKeyHex": "2A8AB555E7D0CAA81823AD6B8DC2BFAA6EC69C78E54E4372371AE0BAD33C7C8A",
+      "adnlAddressHex": "D922F0499C7E4971BA9C4770B75189CC3BF4919857099CEBF115E3D8BDDDC3C2",
+      "weight": "3088234828851910",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 162,
+      "publicKeyHex": "EE7CD1437B4E8BD3B5086C48174EE822C00AB8827C43F4D180E124C60740F97E",
+      "adnlAddressHex": "D427306A1B38E25687B37A0A4BD634D891E9FE24542320610701C67512A13430",
+      "weight": "3088234828851910",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 163,
+      "publicKeyHex": "3B2A65807D2E72EBC7DD6345B8CC1944D4A9AF6262BCF21210071C6F018E591F",
+      "adnlAddressHex": "31968662C9CDA463A0814ABFE699A31183D0E8FF5215881E8892E284E9BED313",
+      "weight": "3088234828851910",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 164,
+      "publicKeyHex": "E4241408F579AF6B3B4E289CAFEFE428EA9A25B746865E496B8EB155A18040CE",
+      "adnlAddressHex": "A4EC453C656545A93B87DAA92DB41FF9D3AB48F6AA06021F0E82A8A093CF168D",
+      "weight": "3088234828851910",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 165,
+      "publicKeyHex": "13CBEEC0E3170933CB05FFD906CBEC30A7A799049DC50ACE87E4F3E967D4761E",
+      "adnlAddressHex": "72DCEA88E516D237699F2B7183A55547F6DDB0B33AC46C101ED00F7DCEAC00E5",
+      "weight": "3088234828851910",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 166,
+      "publicKeyHex": "00D2AA69FABB6E379B6D6F3AC3DA80F950A8147CA0A62224D9E9BFDFA58DCE4B",
+      "adnlAddressHex": "704B441AC61037D5928EF038181D6955F5C9709F98D5FB71519E6160D3EF1FD5",
+      "weight": "3088234828851910",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 167,
+      "publicKeyHex": "50317A80B260999B2C503F8A03583DF71AFFBDB9C992D9BE95DCC227F7F4421F",
+      "adnlAddressHex": "DAE905BA5FB0EB9BB8116FC91517111D4762C60E51E6CA1FD93B906733E765A0",
+      "weight": "3083204837914491",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 168,
+      "publicKeyHex": "933425099B3C61F6C8EE77E827C8F6FBABE71C5E4DCAE12E50CBEA5D5AC677A8",
+      "adnlAddressHex": "5136CADB365213256CD8E097C8818FF962822C7472CCA0B50A53AF81707E64F4",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 169,
+      "publicKeyHex": "0F41753E87840454ADD8B8EDBAC2F7909BCE0DDD8CD48EA0C13EE854E184BB6E",
+      "adnlAddressHex": "723776BC7FE8FB53B87F998E7F97A69274E0B602C4CA77AA346C5C143FA52BD4",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 170,
+      "publicKeyHex": "0153747C048F2A97860BFAF99B3EBE92D1155E271C53AB8BB50421B060D3C50A",
+      "adnlAddressHex": "C67E4C0F96BA603E73912A2B207C754A2D798653DA760D7AB16534E61DDA6A0F",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 171,
+      "publicKeyHex": "ED16626E39E5C65710D1426EE2BC743C7DACBA9B06EF8403C9351642C4FB07FF",
+      "adnlAddressHex": "F823B521094605711221F94D77C8AE9FF04EDA4D828AC64778D1310E63B8D92E",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 172,
+      "publicKeyHex": "CCCECE099185EB6E2ABACDC47796D16BDF93372FDFB7A4491178A47B377F99E4",
+      "adnlAddressHex": "9703AC72A2059116FF9A5707677F46525A5321E85931846407D75A35B51368EC",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 173,
+      "publicKeyHex": "6E5D8C09947AA8B66FBD7972EE7A227A540894E74F09C5EE13A8D292A79030DB",
+      "adnlAddressHex": "6BF5276FA31ED3A8CCDDB2A7D6BFF15CA1E9116AF12A4EC9D398E3D451709E12",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 174,
+      "publicKeyHex": "43A95BBF260E388860083E285B19B611B49C95A7DBA9F9E14FBFE74245897C4B",
+      "adnlAddressHex": "E65DCFBD4B1F0F922F74B474B7D72C051933B66E05DCC665259D31D5C1B134D5",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 175,
+      "publicKeyHex": "43C6BA1CB5808D72BD97B830443B7AF439265B077F2D1923C7A9503EF6565207",
+      "adnlAddressHex": "AD40561B01C8676BB210D780A6F38878BBF5AA3A8AC276E095096B8CED0DD2F3",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 176,
+      "publicKeyHex": "3738B59D1142AD12AFD8404CF3D4C1A1D2880B2A17E31DEEBF74967CBB65C739",
+      "adnlAddressHex": "7C2FF6D662C0BFD13A536BE41C90FD0DB9F236317288748D600897D82D5587F1",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 177,
+      "publicKeyHex": "7915BF3E9DCC61CA55FE6E6CEC1138CD6C9E668C42667398B556119159B24F21",
+      "adnlAddressHex": "A895F05FD27C837A91D386E0D9DF3E283A63B13E54302F4494B98B1677EA162A",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 178,
+      "publicKeyHex": "FE9E22A0599D2F23B335397391E05D4E980C4FF65D00B33CE083EC6CE608E289",
+      "adnlAddressHex": "812379CB7B2344071675C51192A4EC3102E0A14FAB50F54AE938A330DC612F9E",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 179,
+      "publicKeyHex": "FEFFCCD83F142456282A65DAAD552044B29B8A78617476BB32673C1205B00E39",
+      "adnlAddressHex": "EFECB668676964CA8C9E641AED43EE64D3855BC13EBA965B832311F64F86C852",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 180,
+      "publicKeyHex": "F0983CC8B6E1B4AEC2A8C00FC19E37B01A9C120C0C1B3E093B73503FA86D372A",
+      "adnlAddressHex": "8763613BB18475D9B9B215EB2D877D4A3396ACA269D8B90E13307C9488EE2FE1",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 181,
+      "publicKeyHex": "98B79B0ECEDCDFE2E2DF928EECD7EA34AF15852AD7E3B022457C153B2874CFA3",
+      "adnlAddressHex": "C52789E8DE56EB3DB085C7BE4C2D9875A3DC19EB176643F89E46D5AE0C526565",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 182,
+      "publicKeyHex": "7F76F65BCBCFCB768A5916F863BC0AAEA98E582B12B51A816ACA89DCFC452F12",
+      "adnlAddressHex": "E0185E0EE9A16AFA93F5183181A8A85ECF3C8CE944B3730BC7F889C208543F34",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 183,
+      "publicKeyHex": "C664758ADD2F4FF2A27C9DE90C4E0E6D003BD4FE6645495A7EC09A47B9AF1CA9",
+      "adnlAddressHex": "17F88E1639D88017DAA9B3D6E3CD29F939AA154990D89E0EE20B880C0C6F377A",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 184,
+      "publicKeyHex": "472B124DF6278B5A2B92C2AF379672B7430E081D0AB1B2B8D4AE8C64CBC74EE2",
+      "adnlAddressHex": "7079055BE3996DD094072AF4D8756354A26E4CD07125A8D267BE84DAB6CAA105",
+      "weight": "3083203038275515",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 185,
+      "publicKeyHex": "7201E629CB966779EA0E34B321F128A09E0E1C1F9ADD6A7880F0049D7F1369C9",
+      "adnlAddressHex": "C11159BA15B822ACABA49D207704C2499EF5455CC7279152016A968C2AEAA881",
+      "weight": "3074548574440793",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 186,
+      "publicKeyHex": "9B6FF57DE8C52337524490C189648BBC2D07004E02A33103EBE76AC92286C177",
+      "adnlAddressHex": "EEEF07E351C67024B2385FDF7757C7AD99C60931851E4A8153225A7F2492719D",
+      "weight": "3054838928377605",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 187,
+      "publicKeyHex": "73BE33D44FA4BBA3AB884B0E07FF5D61DDD53976A87BA2BF7CFB635E5EAB3FC4",
+      "adnlAddressHex": "7FB8305A987E0D9C0272A9ACDC8775E6B63635C4CC4FC23A6EB2621DAF68A2FB",
+      "weight": "3027136889975494",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 188,
+      "publicKeyHex": "2DB3CE227F348CD359E28F8EC06FC406F4738767028D98197D48CC8420035077",
+      "adnlAddressHex": "357838FA1E82F47D4098655B304DDF11AFD0472D961C8B732FA27CD805819716",
+      "weight": "2951321901238142",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 189,
+      "publicKeyHex": "EFA60927B75B505542FD874950DF6250EDA1A5612350218F7E34DC8E7A20862F",
+      "adnlAddressHex": "FCC30BE965FE69BB0021BCD681A0A930664AE45B66DB954C82E8FE7345B81764",
+      "weight": "2838050818076212",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 190,
+      "publicKeyHex": "E78AC5D04E28AE46F90C7B7CA692222F7310636AC380F45A0B5FEDB948E224D8",
+      "adnlAddressHex": "846830C08CB338EA97B81FEF5A1F74504D5C84790E38B29F7367FDC79ADDF4BB",
+      "weight": "2838050818075397",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 191,
+      "publicKeyHex": "B6042FA6BD52BF26441AB55BFC59EA86FB267A55075AAD6F71D027F5723BCDA6",
+      "adnlAddressHex": "E1AB49327386DAFFE738516FA590008BDBBB8D05876A40F4ED0826B1D33C79C8",
+      "weight": "2838050818072951",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 192,
+      "publicKeyHex": "2407ADAADE415F9928716A48C406F6EF893344081B509C3E96FB0AEDEE968433",
+      "adnlAddressHex": "054E5685A5BFD137D9CE2817D1D6396F588100E3FF6826659A0D6BF093869ADF",
+      "weight": "2838050816951566",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 193,
+      "publicKeyHex": "B3FDD6094A52D777027A703B571BE7156EA05214A107252066AD33F5D1040F69",
+      "adnlAddressHex": "86AD94A7DA6E47DE5D09F65861EFED0CA4E88F6C6B08ABA60E44EBE56FFB6271",
+      "weight": "2811783112086664",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 194,
+      "publicKeyHex": "9B6EA31DB65F42003543D4258AF024F1972650D5D027FE1FD49835C7CA97CBC0",
+      "adnlAddressHex": "60211E9BFB97DBE09AB3AC30163ED96371192679E916343DA705943A81C7E642",
+      "weight": "2763536409104092",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 195,
+      "publicKeyHex": "C22742580914329E3151A7787E32CF36E2C6E4A32B2B825629980198B38F2C55",
+      "adnlAddressHex": "8C8DC7497F42CE5B687687AD76B4EC7DB3376BA4FB2AB179951A4D2E7792C1AC",
+      "weight": "2715824053333764",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 196,
+      "publicKeyHex": "17A51F175A7754009149759DA1FB392A3AC7327DA431611699FD5471EF9E076B",
+      "adnlAddressHex": "4DD93C8A74722308AC1BBC1D7886C723C31DC6DB238CEB776D4442E6A319599B",
+      "weight": "2701573409813661",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 197,
+      "publicKeyHex": "A8E5DE326598453867ABE187ABE4C6D62F9C3522CA802F95451D89A976715CD6",
+      "adnlAddressHex": "8F08D75049ACEB88F32407EDBD704B8471FC6EBD53C6E06E35E65090B2C0B0FD",
+      "weight": "2681752173022268",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 198,
+      "publicKeyHex": "31F22E2DE848C110B89F96DC64A1C0CB36C1533F52E5881772982CFE1F2C5744",
+      "adnlAddressHex": "431F31883EB9EA4BA4334CBF96FAFC42006AA12BF7246A63E4EC0A2502888CCD",
+      "weight": "2674509608330251",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 199,
+      "publicKeyHex": "A4B5DA0A85C5BF0030752B5126EFD2762B94CEEBB3927285A1447514CE416CEF",
+      "adnlAddressHex": "0E52DFAE44E53A45AB627597BAA20E79D37BFE77E9AFAF6141A612788351BC79",
+      "weight": "2625810395458882",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 200,
+      "publicKeyHex": "C7D321550372B54D651EAD1E12A7F66164E2CE1F8C9EE5CEAC35A8526C969511",
+      "adnlAddressHex": "3B0F61EC393C4B97A5D45346EE60BCD74BFEDCE275DFB15F976348F180089191",
+      "weight": "2625724651710052",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 201,
+      "publicKeyHex": "329025250202E09E818CF4BABD6A98A5E427CFBFCDB861C81B0A983D53C02636",
+      "adnlAddressHex": "6DF4037E266F628D9D4552A0CACCE289EAF84C3A1FDE3A7BCE61BC539449FA89",
+      "weight": "2620451070588888",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 202,
+      "publicKeyHex": "9E7A36056E710E455487089A4DE6C3E4891207183E061737C0168072EB039370",
+      "adnlAddressHex": "5FE788B92ABAB7684F85BC8023A17F1B665DC069FBF37B13E8261E148AD0FEA2",
+      "weight": "2591364884186472",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 203,
+      "publicKeyHex": "A33298D3B283637076EB7554582FF4D21713F0FD20067F532CC95F5562308539",
+      "adnlAddressHex": "F5C53DE6A2728C8E3171B92922C5C97ACA53C572EB9BF0AD5CF8F2B5A5BFC2D0",
+      "weight": "2563082552024739",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 204,
+      "publicKeyHex": "C2EA54D6051632F9454CDA65EAD09CD3A89B80D6C6AD524EFF4A3D770B82AE0E",
+      "adnlAddressHex": "CFB6E5AF514508527EDC8BD573B3EF9EEA09DD7227D9F3150D4E3B47DC87F19F",
+      "weight": "2562471042515541",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 205,
+      "publicKeyHex": "4064A38850D482A8EBB3AB6F820F8AC0D44E30DB26A8003B395B3E6C98E0FEB7",
+      "adnlAddressHex": "85ED5B3E8686CE0F55662E955B31A830648872BACEE60D04B555789EFB67807E",
+      "weight": "2560164976105161",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 206,
+      "publicKeyHex": "C97B2691F05373912F6EF5854FE31196AA511DC1B2830C38EACD920A46236919",
+      "adnlAddressHex": "E124B6C179EC8763815961A0AB1B515791A3E733AC0DD424D5EF63626AFA0503",
+      "weight": "2560164976104833",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 207,
+      "publicKeyHex": "7C88B7B3F190386C53DAC913830ECD79DFC1217CCBDF402662C6A26A40196E85",
+      "adnlAddressHex": "20CB40812FC811CD1814211B2CD60964BBA7F40805761E714964111B97343BE3",
+      "weight": "2560164976103694",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 208,
+      "publicKeyHex": "17D0A27C0DAC3E74CF1033CAB148A782734E5BACD43919AFCBC1D27D652B38DC",
+      "adnlAddressHex": "CA7611308A22F5AE27F3BACCB7B5E0649D5ED109B051D3E7D1A80F7B1A553740",
+      "weight": "2560164976102389",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 209,
+      "publicKeyHex": "A8C5F1CA4919EC3FAB153E42890572B5CB8128B2A6AC308F2D353C626BF142D5",
+      "adnlAddressHex": "302A7EFE9FA799854A6ABD32FFAE7D2ED64CB5062EE26F813CFC7D4FE8AD70C7",
+      "weight": "2560164974980025",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 210,
+      "publicKeyHex": "C7280085749223211DB1D4D10C60492BE75B057A3A16536AD32E6CE6055632B3",
+      "adnlAddressHex": "88E68B4AEF3F72DDEFA47EF8D31C8C338F2C9C3B104F5495F773FF0D7723019C",
+      "weight": "2556151769621791",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 211,
+      "publicKeyHex": "2060264A055B630FAEF14BA03C6E04332742BD95F5C5FAEF3CE1A39F67DCA1C8",
+      "adnlAddressHex": "989374A09791053810034372C7122409E57BF9A5EA869D02C1DED8DA396DBB76",
+      "weight": "2554663468188788",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 212,
+      "publicKeyHex": "930B314CF6209CC448A88FDA4D705CB7EAFBA500C9AE2D02228E137F5E9F5692",
+      "adnlAddressHex": "564D90B057602B2CF8AEF1237780B0D836C11BDFD7009D6A4685C660DE2A44C1",
+      "weight": "2521317746017728",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 213,
+      "publicKeyHex": "470D46109671978825496B69BD77CC14CD6011F006577DA991CE00EFD301DD89",
+      "adnlAddressHex": "9C244F5D5246B4972304B701EEE16534F5EC04BC5BD7D9BF38462CD5C48CB42F",
+      "weight": "2520252985684408",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 214,
+      "publicKeyHex": "C44AB5C81EC29952271A36DB4778D2DAEB11070DBCF61D07A772C13DBE2217F6",
+      "adnlAddressHex": "ACFFC56D5DC7A2AA0B9C4F8BFCE50E5A58A783D938376DA059746430955F396D",
+      "weight": "2519492766509976",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 215,
+      "publicKeyHex": "7EC4CFA7B5714D029E14DB1A72E08CF7FE402A93B52E5C1A5ED411FD070656CD",
+      "adnlAddressHex": "EC5A45ECF47A69A4BC780358DC47C61CE1A4204A09E58A74FB80A1FA6CAC6710",
+      "weight": "2518971228381336",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 216,
+      "publicKeyHex": "76513F1608A19A62B1EA1CB4E0EF7A4E7B6C17E58AA562A2E4AB6CB62EBEF0D9",
+      "adnlAddressHex": "A8494D8AB0E7C86FE560F2F83639FFAE8A0FE94DF7551D3674889AB368085669",
+      "weight": "2518962230186457",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 217,
+      "publicKeyHex": "92CAF9C8D80E95BDD96B50DFC11CAA18B4FDB4E9688500654118D1771027E343",
+      "adnlAddressHex": "05A5E81C89C4491DB05C74F0B15FE2D59C6797E3397412A11140C19F51EA009E",
+      "weight": "2492701898251282",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 218,
+      "publicKeyHex": "D24E1B86E36A698D60A27F6A658FCAC5F490BBCD7236D9972435775FD9730317",
+      "adnlAddressHex": "A2D0C204D5ED2217DF5A99E9D8AA204078C40980C73DBB1AF07FA4A5D80D7362",
+      "weight": "2468826056415652",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 219,
+      "publicKeyHex": "9385970F0FF93B49EAC6AD26AD9B9454AF4BAFD59476FC3B7089D3119CA3DF58",
+      "adnlAddressHex": "1E89F6EC66E8D4ED5C6647D96FFF96BB47D1D83B06D78BFEC8F7250C38E82F88",
+      "weight": "2448410626243011",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 220,
+      "publicKeyHex": "0EFEEAC4E443D3B2B76731FE190B4C663B982723D172D90CC6D2DEDF6D063A74",
+      "adnlAddressHex": "7ADCF5845D9878E3C21AA18C4258187DCEEAA32946042085DFF9DCFB7AB81B34",
+      "weight": "2412554619288760",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 221,
+      "publicKeyHex": "EAC8E1D1599090753FAF53591DA1D2C02CF7A5E2E4AB894E576C22745A64DC9C",
+      "adnlAddressHex": "599CFA70666F5F6AF7A4F93D5B56E4DC513E788D3719D8844B2E07ED5FBE9610",
+      "weight": "2408777534252860",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 222,
+      "publicKeyHex": "A749CD141CCC4E29C937F657DFF3BDC0EFB1D1665C6D07CE00768C4A9DEE0C01",
+      "adnlAddressHex": "F9946A78741374FB08B7A3B15F13D4DA30DEAB64661F060810B111B6C4A0A26A",
+      "weight": "2394927512694944",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 223,
+      "publicKeyHex": "7EFD00B55536E0B544B5000DEAB8DEE70F38C54C61F6160F23DC5894C6D7C40E",
+      "adnlAddressHex": "FC0C4096E7E2C0D0469799F53EF7D0CA2838595AC6EEDE83E419921FF1B09910",
+      "weight": "2389249238034774",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 224,
+      "publicKeyHex": "619E20F57971B9B402F370F1F2DD759B686D05B1B5B4D807093E812CE5136DAF",
+      "adnlAddressHex": "3C8F33A484F4742AE0F19E086A8037A1212CFA84E11B4BC954733F591196E012",
+      "weight": "2387640774481846",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 225,
+      "publicKeyHex": "9578106D4EF2437BDB08CA162D453FBFB8734C0285C139B5D64E0E944D1C75EE",
+      "adnlAddressHex": "B3203B0778FD59E1844D63E2E0646D7AD49ED42FA451044C5AAE0F2BB7DA641C",
+      "weight": "2387640774481846",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 226,
+      "publicKeyHex": "F637950AC17A98575133BCA0F2073A9B48B121561A00B3C1306B9A124DFC0F83",
+      "adnlAddressHex": "379F1377621373DDA9E881CBBC36B35488A5EB595D0732376BD41B63D1C731B7",
+      "weight": "2387640774481846",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 227,
+      "publicKeyHex": "BA5904B62841C0C5033037443E6C1A7B49603AE01BF579AAE9F3E00FEDB74168",
+      "adnlAddressHex": "FAD16CD3AB25D651707CB3B860BD2EC653EC50E6502B3D50F20E8B5E968FC93E",
+      "weight": "2387640774481846",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 228,
+      "publicKeyHex": "A2D7FC35B9918B14B4976D7E1B118235DE60C2F4D33FC0F8F3EB65BDE38D8241",
+      "adnlAddressHex": "4682CCD91888CC8C261CE8735DD4C43C1E67DE39586E77DC8340EF7B78055C0A",
+      "weight": "2387640774481846",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 229,
+      "publicKeyHex": "5767C55877AD7CD6019E8D4EE118A5A3F303BD265748053BF4F2F860D44DBC7A",
+      "adnlAddressHex": "DFCDEF67FA5490697C78AA4C05816986985C71081106F437FB45B67DD0A72201",
+      "weight": "2387307841271319",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 230,
+      "publicKeyHex": "F798FD44827FB2A3EBF8C8BA6CA5D54C88E0DBAE1DB9205C5553747ACD15DBE7",
+      "adnlAddressHex": "91071A4AE03985A6B48B7B486DF6C2D77803DB5DD658441C4EE631A2DC56F6FE",
+      "weight": "2387307841271319",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 231,
+      "publicKeyHex": "2EACA0ED208A143688337F7075E7FC107E3DBBACB268917DDD005C1DE8B85C27",
+      "adnlAddressHex": "4AA383A9229887EB8E629A848E0D567C857155CA873FC0988AFC3BE686450EC3",
+      "weight": "2387307841271319",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 232,
+      "publicKeyHex": "20FA376B3A60F01FBC7E26FCC3C65C5E9F2449AB0B75FFE98FFB7A1DAE91ADF9",
+      "adnlAddressHex": "B1480C815A7C0FE8242925E8CAA53771182957B57A80859F3FF57D320C9939AA",
+      "weight": "2387307841271319",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 233,
+      "publicKeyHex": "6EBC55C30551C4FB6812D3D921896F6705DEDD758DEFCEAA65A6D6DAF95EA4B5",
+      "adnlAddressHex": "1093D78A0EB70FA3694B2428B72F41F8C47209B6F12D8F7606643EDB2DCC26F1",
+      "weight": "2383758269227546",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 234,
+      "publicKeyHex": "F831035957D58E678ABF96A4D16A9DE9E51F410A966A1142816204F6C3A83D8D",
+      "adnlAddressHex": "460ECD0DA9F24F7312E9936034DC8BB09258E9D8A3CD1897FAEEA359F6DFFB11",
+      "weight": "2357527415499439",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 235,
+      "publicKeyHex": "574FB40B12179F8DFCA646F1F0A5E20A7A0750A9F026E2C253E21967E19C5A72",
+      "adnlAddressHex": "A482EA1003900FB5EE926C942990F666DCFD222137AA19A63AE12EED3574C417",
+      "weight": "2312934161317578",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 236,
+      "publicKeyHex": "5D36F582BEAE71C02983D207E624D36269C6B5354B9F0B5260C175B85F50A36F",
+      "adnlAddressHex": "16D0E5DC0BCD747A683C608B898E639D7F55D27C09268E65E3F3D9F565A20BE1",
+      "weight": "2288014560419389",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 237,
+      "publicKeyHex": "FD00A3B7BD0F4A85C0582578AB41E24F21F3A4F6413BD41A02652C6E70CE632E",
+      "adnlAddressHex": "DC8E088EA8069ACD16070DEBD987EDDD780619AA7E5E949D0C7DBF7F5C825DC4",
+      "weight": "2285478869102458",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 238,
+      "publicKeyHex": "2B7066D5EE90A2B055E903F2E75A215D423A1FFF0BAC65615CBEACE0E75583AA",
+      "adnlAddressHex": "03FF9178B30BAD7A475EB10A8DB180C02351A5D34768954FAC02CC7A2385D492",
+      "weight": "2282181930498754",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 239,
+      "publicKeyHex": "C02C0B5BE8F46EC1267CAAC6F6BEA74DA7B24DAC6EAA207A521EB625FB2728F4",
+      "adnlAddressHex": "D252C6255A52523CB6A1C8BB8C8911CA11E1554E31F70BEFB016C3AB2FADE485",
+      "weight": "2282153136275141",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 240,
+      "publicKeyHex": "038FC3407480346677461475C4C1BABF629CD0489E190FB806410060E167945B",
+      "adnlAddressHex": "F6E240ED509A71CAC56402DA73CDCECE6AB715396B88EBCEE8520AE58F1065E8",
+      "weight": "2282153136275141",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 241,
+      "publicKeyHex": "8DD8EC77104F18ED2095D5BC6A99260A828EC7A9B7C6AACE18A08DF7FCA1425B",
+      "adnlAddressHex": "B5B82C533F3977D9793FBA00CEFAB314AB0F473A6A06CE66D3425BEA5C14B7F3",
+      "weight": "2280104789946310",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 242,
+      "publicKeyHex": "A0E137DB3C9D9850E657E8B6B4B5B5BF472E6FF2C5FF5A5BD8B2E30ABED1B51B",
+      "adnlAddressHex": "9258CC85BE207F3316B846C06230A4810F0509D8DB187DB7647E7449BA322EF1",
+      "weight": "2274157340305570",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 243,
+      "publicKeyHex": "A18A2FAEC357D4AE6CA61E91C29AB161BF7B439F0A8055256B28FFF1C4B95BFE",
+      "adnlAddressHex": "914C0A1E39BE251FEF4793D5611CF071E6D72A4392C7659E86723746696C04CD",
+      "weight": "2255781233112183",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 244,
+      "publicKeyHex": "D1947A44724EB505E3ED906582AEF58EEA1644A1C7E3D82DF0BC702F79CA17F0",
+      "adnlAddressHex": "AE0855126163C5766D45FFD1843A3221DA7F05DCCDB62E882E09CC83F972B529",
+      "weight": "2255781233112183",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 245,
+      "publicKeyHex": "931EE6E55A8DFE74F34373E61E8363C27D2D6814CAC5DB7C81AD282EC8262907",
+      "adnlAddressHex": "689FBF027BA550AE4173242725DEEDB1900DD60A76C15016DFEF1E428B150FDB",
+      "weight": "2249549083428898",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 246,
+      "publicKeyHex": "23348EE63E4A855BBF47CE1777452B9DCC20D7D0C7F4E54EFEC29FE7980E0E00",
+      "adnlAddressHex": "05DA66DD0C5ECAB380C5AC5A4908BFC006C30BFB9D70A2B6573DE9CB5671668C",
+      "weight": "2249549083428898",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 247,
+      "publicKeyHex": "380F0EAC6E1C7D14A997627C98EB22F81209C9D1CE542C22BA0F00E52E801EF1",
+      "adnlAddressHex": "944FD4BF2E87262588786431DBB71912E0C8DDE5566E0100CFD4010A509C3D43",
+      "weight": "2214084974466811",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 248,
+      "publicKeyHex": "EFA0D17BF298C974552542922E4720467E2B55B9D0A6DD3ECC35483129B1B92D",
+      "adnlAddressHex": "B3E28C2BBF3620C5F91B8C152358123E841586A8267D0D174D9B093ADBA048A5",
+      "weight": "2212474357234968",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 249,
+      "publicKeyHex": "D04D088E4488CEF9E6183202109591B5A754BD63DAA7207BA09CD1DC229D264F",
+      "adnlAddressHex": "E5999EDF3C22880F66CFBF68FD3025BFEF9476944B4EE00EA2D1FDA303FA2BA4",
+      "weight": "2202387397546649",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 250,
+      "publicKeyHex": "3F9893E4DB89FBCBF69FBC486652724BA68C8A05E7296C5D1F2A0FDC0802217A",
+      "adnlAddressHex": "5C0481D2F80033F839FD154C4E50B338C6DE0A5B7E19E02C16A207B36690C378",
+      "weight": "2161622315869551",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 251,
+      "publicKeyHex": "0761C0A58EEF0CA0E5B455C09F0DEFD1ADA333F916FEAAFA8BD04473E62D227B",
+      "adnlAddressHex": "420B63017043C412AC9642B6D45807DDB9E1D6BBD1587E81759FB578A5759963",
+      "weight": "2152175935145501",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 252,
+      "publicKeyHex": "0E808926156EE8FED63FA474504DC5FB6D752664A713596DF878B560387F4606",
+      "adnlAddressHex": "76E924EDE0AFE487C2E2BADACABD50B18CDDBDDE6FACFBB4E4A011A1C70CCCE7",
+      "weight": "2139337537439467",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 253,
+      "publicKeyHex": "5B9842DC2410EE57FB2D71761DE8C7A3B49504D997DE931F40F7C66C351EC4EC",
+      "adnlAddressHex": "9811DEC3E626B886BC65E6A06DD3F309EC604EE56468DE98F1768E7BDCFFAAE5",
+      "weight": "2139337536317428",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 254,
+      "publicKeyHex": "A23438A60F9F9535B4E8CEFB555B7F2F155A23F268EDA1204526828122FB2F81",
+      "adnlAddressHex": "B1ECEDC912CEF7356279048D5533B009306CB57A13C382A7FB7B344D65B88CC3",
+      "weight": "2122816700633930",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 255,
+      "publicKeyHex": "30E905F739F2A2E76ED1542BC1E456C46FB540788FB1392DCE0D42FCB6C4E521",
+      "adnlAddressHex": "B9871290D69B4F2D642F9D091C2C67B343C8231CCB6FB0DBF1EB898FFB1237E6",
+      "weight": "2114509567121541",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 256,
+      "publicKeyHex": "8A8C2CC4499839BF4AF2B5683C855DB523E15EA17D374C3E933ACDF998BB1434",
+      "adnlAddressHex": "8FAA79E194C27EAE93CCFAD914F5F525DDDF51C59EF1A09037AA0F942F25D853",
+      "weight": "2102302622337268",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 257,
+      "publicKeyHex": "5EF25E0594A89A135A7B996B586627E50969E8D1B9104F1763DF40E84B8A4444",
+      "adnlAddressHex": "39BB2FA824E8547C164B0148BD03529908C561882725897902C8928D78429A1A",
+      "weight": "2092143660318760",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 258,
+      "publicKeyHex": "AFFD3716ECE58C8DD4D84EAF68688001A928143C423E18C676A1EC407323B185",
+      "adnlAddressHex": "114BAEBF615526E4285CB5E13843C881E5EA0CAD1F9D26D22201EA14058943CD",
+      "weight": "2092143660318760",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 259,
+      "publicKeyHex": "3270D6ECB1B0F6DB99F985BE7D7664C5AEF46344C54FD9D8349CC19AC1C7BBB2",
+      "adnlAddressHex": "A475CAA7909BE8E4ADD6C7F90F97106CE04F09A7863291BA03B1E282E9101236",
+      "weight": "2092143660318760",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 260,
+      "publicKeyHex": "2C44FBB076D955B978B3A2D67BF7E33CD32E19006E7DBAA20A8D48EE7A8137A9",
+      "adnlAddressHex": "AC194291DCF132E5B835D9D10DEC0213E36F377A29681B693D54E0409FBA101D",
+      "weight": "2090399339993200",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 261,
+      "publicKeyHex": "9E20B9CB7C933603F1B9D7DC0D800874E812001234A6469FD93628884CF0A734",
+      "adnlAddressHex": "78ED8842629B172F09F9314F4DCC95C3C03477E96F4E1B556AB873A6484A494E",
+      "weight": "2088162852515527",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 262,
+      "publicKeyHex": "78290B5B488DD3C8BBC4FEE79799643BDD3D8A80BF4D895422590F3F09A95BA3",
+      "adnlAddressHex": "BFA67ADF47FE323BBCE86AB9AC6F391E4515B39ADE52D7D3D339287C38D4C4F2",
+      "weight": "2088162852515527",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 263,
+      "publicKeyHex": "E99B7181C43E5F3023DA8C40BE5711A53854F8CAA81A3E9D78B9DE7D1C296DC4",
+      "adnlAddressHex": "6A396D25B0FFF80B5E7CD566B90747F581E5CAACCE35336BA49D057AA2F70AB3",
+      "weight": "2084663862386898",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 264,
+      "publicKeyHex": "BE786883E2CDB1E9A0156500E5099B13A095E37C246F5B60F527D1AE4D7553BF",
+      "adnlAddressHex": "1D0083520FC3EA73C297CF801C65BE24A665F0424792A11D5AE371C7815B0A0D",
+      "weight": "2084556650565254",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 265,
+      "publicKeyHex": "BF4DCCB6FE27F283FB4489728165C84BC9F5DCC7F19091A08344A6AC8E2CD711",
+      "adnlAddressHex": "ABC2795473B9B78AF0BDD293B44283664294629E15D1E17BB5FB48EB4E40ECB6",
+      "weight": "2084398347742193",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 266,
+      "publicKeyHex": "914A24D287172CB527B33FF6FA024E5225EDDCC66C3EC4B5B0B5C5A72535EB36",
+      "adnlAddressHex": "137E86BFD18B500CDA91DC88C4C191036767101C082D158F764D0D1525ABFC08",
+      "weight": "2084389243515324",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 267,
+      "publicKeyHex": "801CFC8D3BDAB2198C7F373D8A02360E1CFD87B1B7DB127AE5B6A32C1F33570A",
+      "adnlAddressHex": "F80BA7677C7E616A5DA3EE9360181C1EF1EF062C96692020E8D62E626DAEAFC7",
+      "weight": "2084389243291707",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 268,
+      "publicKeyHex": "0BC899566BD03C721FC31CEDD1D882E7E5A611BCF058A0302723A7624F105E8D",
+      "adnlAddressHex": "8ED2B5C0E7402835AB3526DB5E6895479F773AD21A6F1B1303EA7D2881D3059B",
+      "weight": "2084312817244766",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 269,
+      "publicKeyHex": "666C9519FD77662CE094EA315FFA26F7AC2AF8BEE9C2233978DB91CEC4A4A074",
+      "adnlAddressHex": "236891368742D3BDC97D9D8BCEA6BA640FAD9FCE6C69A61C646842B6CE0AE032",
+      "weight": "2082655441679366",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 270,
+      "publicKeyHex": "9D2436E8CD6C4A836B0C5C88E3E318A8A7B84BCF078F83AC9B31C6DC3358E1F2",
+      "adnlAddressHex": "8E926BDFD627F970DA141ED9E8BEEF7CA121ABE4DCB10A993E44C05F35A66FE8",
+      "weight": "2081292879306129",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 271,
+      "publicKeyHex": "20BAC6560410BD9F55E85C0953F92E0C268DB88B638848E7E2042C2D7C0649F8",
+      "adnlAddressHex": "AAC2D4E950CE00189B6CD2E9F9E25876E082D23AF83A177D827FCAD8918F3163",
+      "weight": "2075780402438980",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 272,
+      "publicKeyHex": "AD71FF16CAF7133FECEDC2CBE4DF4DA4DFB257BBB1794506FCED96ABE1E62389",
+      "adnlAddressHex": "910E17089C648F702F5367F9E70F7521AB76C3AAB61266E651C71F48C8AD8C85",
+      "weight": "2074900825997809",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 273,
+      "publicKeyHex": "02F5C0E91C6E5AE89E1DEB3CB0ECECE11128F20F4C888C2E667DE3C0FCADF9D5",
+      "adnlAddressHex": "FC16CB06B5EC15C271F2A14C1274CF0DAB97A22A0E852AE0300D6B9AF52F9A68",
+      "weight": "2072202648873694",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 274,
+      "publicKeyHex": "BFD3E9BF8C92D5DEB7458938219B0E49731146266384BE9D203E04246C62A3CC",
+      "adnlAddressHex": "E33800A921CA33E184ABF158427BEA41A3274E6E20B3FAE43F4A0B489E3AB7B1",
+      "weight": "2071787855462387",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 275,
+      "publicKeyHex": "0E63C5CF99F5731A2A097D059AC8EC987C33F13FCB1F081D5C29F52424CA1325",
+      "adnlAddressHex": "4FFD6BFFB704E85292CF1692DF00155A9E73EF2AB002D9D6251138DF3F1B0EF6",
+      "weight": "2071025957752046",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 276,
+      "publicKeyHex": "3BABB82FDECB3988D146F3F495F9A1D1CCCD8866637606EC127F3EFDEFF05B59",
+      "adnlAddressHex": "AEC5F7EC8507F0EE80DFC93E7040AD419B3F03CCAD8034B04089FC73DCA454BB",
+      "weight": "2071021842927397",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 277,
+      "publicKeyHex": "5960651CCB758DA2BFA42F4D852CD1EA7626EBF36E029C19AF5362ABE837FBD6",
+      "adnlAddressHex": "D2DCD958FE8EEFEBD79AB14BF8CDADBA438F32186CBDDE51EF82B261479090C1",
+      "weight": "2071021325466655",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 278,
+      "publicKeyHex": "8EF8EAE6AB09D405780457A116E8E4AD120F5740A89AC1384982531B666A92AD",
+      "adnlAddressHex": "87AD2B29E4CE3F31BA56AC9727375485F601AD4661C9FC29D155058D43A0B211",
+      "weight": "2071021011852943",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 279,
+      "publicKeyHex": "FFAECCDBBE9A61645EFB142B7086C4036898854EF315152F49A21584D832977C",
+      "adnlAddressHex": "92D7EF82D233F9B72F9FE3FC3972CA538D56E356713C20B3BA57718FAD106EE2",
+      "weight": "2071020819484184",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 280,
+      "publicKeyHex": "EE1AC6E730B413A2B2E8E62ABFC4B79482D5FC8328C4B0116A72AF2B8DE46A09",
+      "adnlAddressHex": "3BEC3421C20ED5785821BBB73B3D04D250D26CC0EAD13A5BF2E936E2BB14C05C",
+      "weight": "2071019160533738",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 281,
+      "publicKeyHex": "82BCB69EC33C34F1BB30F61BE743A318102A7348876FC90D54B26A446DEFEF7E",
+      "adnlAddressHex": "0E50D497E0587E2BB0BED4D4CD7F0AEEC6AC2D1DA0640F2D11F329A6093C6E73",
+      "weight": "2068516338724828",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 282,
+      "publicKeyHex": "00B2D4B9C28374AB8E16274277903151EEECC8C66E75B8E75B5EFF58518B813F",
+      "adnlAddressHex": "0937A6CA8C953ECA9F045A304373928EBC2E781F94074B37E15FAD2524EFC6A0",
+      "weight": "2061861128883907",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 283,
+      "publicKeyHex": "B0463AC738203D7E461D0497D78109C56FAE6F407696C7D18A78D67951F38BB5",
+      "adnlAddressHex": "89305D81254450290928639838FC568A7BBDB27298BBFD4A97049A3F507409A3",
+      "weight": "2060117278716337",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 284,
+      "publicKeyHex": "9EC1D25938C1E120CF91FE37197A9CE265D47ABB3802AE31E406DFE81872B1A6",
+      "adnlAddressHex": "E96C41D3E6203C36C0EAAB38FBE24E9EE3058163EA4166ECD55C727831E1EA9A",
+      "weight": "2057626578373801",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 285,
+      "publicKeyHex": "6DFD506883CB56531C526EA5EBDA32FF05170398D76BCAB8E33A3F60D53910C3",
+      "adnlAddressHex": "C5A7851351C962192DE36C4D14F7C48BAB05B2F47E261F4690D8ECCA766006F5",
+      "weight": "2057626578373801",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 286,
+      "publicKeyHex": "5DDEB96E378978A765005F615E8D74301C6A72975557B0D3C38B0B2BA0E4DEC0",
+      "adnlAddressHex": "425B3B7838134B2FA63CDE3C876DFE6D7D07F760A4CC105D58DA3F190DCC115E",
+      "weight": "2046569467375221",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 287,
+      "publicKeyHex": "849DFA484E0404C4A14D643319DD44BC47B82BCF04E3731B0875CBD494FAE2A2",
+      "adnlAddressHex": "A8D328E4276C70E6DD1A15960C2D80E6C554EF108575723782B1F5508DF28DFE",
+      "weight": "2043718974757377",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 288,
+      "publicKeyHex": "FA5C3F4A2C1A8F74C5CE05D29994D4E5F141F82A9F82D27CBB28C54DA7CAFC1B",
+      "adnlAddressHex": "61AD7BBDE909747E44E86200F9A5156EE018281366C8E810CA5C44A6094E25F3",
+      "weight": "2041602599321812",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 289,
+      "publicKeyHex": "A603CD76906D79BCAB1609EF73C917644CCD6D82AF633C901E163F5371A7CE4F",
+      "adnlAddressHex": "45D19C0C2F3A298111FFAF7C90081AA13C5FB50CF6BCE0D02004B4AE795092B9",
+      "weight": "2041437026147318",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 290,
+      "publicKeyHex": "84E1650F259F11CD7F1859408609DBEB2141D74A76F63E14648EFCD797810DBC",
+      "adnlAddressHex": "D49DD8829D897BFE1AF5981CE009317F5FEA02AFC517B7B94585F2D6038A5763",
+      "weight": "2040410806127488",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 291,
+      "publicKeyHex": "7A8C56B1CB70BCEA809E2B2A6C278CC80E508BCED138E50151687681877775AD",
+      "adnlAddressHex": "CCEB9E839053DE0F4FDB4B2F649A28AD9F1365164E7B67DFE2FCE24387B6AB9A",
+      "weight": "2039044935540581",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 292,
+      "publicKeyHex": "35AA8586645200DD56246A332321E49442C65AB3F59D01917E09DC2763559DBB",
+      "adnlAddressHex": "72DBF41FE0D8917AD985E1BCBD2D6FF564AFBD32FBEAE2C3702BF5EB7D9D502B",
+      "weight": "2032655818737026",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 293,
+      "publicKeyHex": "1CCE0135C2344B38B88F3FE77AD6D78D5F55774FA8CF420953FA23FED49E0211",
+      "adnlAddressHex": "D19D63EF2D8FF0593B03D0A981E34A1EFA423AA4EA83A9A2FD8F8E6D7EFD41E3",
+      "weight": "2012399494098104",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 294,
+      "publicKeyHex": "D5C88C43B4D11F231B8BA77919610AD5F5C12D5831B38F3F0F7A588C8053C505",
+      "adnlAddressHex": "1CF38919D5EBB5CAE3305ECB03B99FD810F55B8510F080880FAF4941665135C0",
+      "weight": "2011994575328545",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 295,
+      "publicKeyHex": "34A2F22955A4835AC5E1DABF8AF7BD72C5B626C81B7F7AAC4D5673CD3AB7FEA0",
+      "adnlAddressHex": "AC1174D43CBF0D97AE90C8A3A70BD89F736045A76AAD7D91C01B6511A8C7649D",
+      "weight": "2010872460441230",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 296,
+      "publicKeyHex": "7429ED7496423F3A15D2B12CB70DB61D207360DC6F374E5355CB4937F039D30A",
+      "adnlAddressHex": "CEA30AB94DC76A773A35D1817EE41B6802684B36061B14545E645AC456879F8D",
+      "weight": "2006865961421803",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 297,
+      "publicKeyHex": "9C2449A86792CDE4186F6FB022F7E54A1778601E0AC79E57E313C1B5BCAE7AD0",
+      "adnlAddressHex": "822FCE8CA91CA3AEACD77B806E785EDCE61B0A6CD688ECE50F3E0D9F3F26D8AE",
+      "weight": "1991935799304047",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 298,
+      "publicKeyHex": "AD4CB18642CE10C167F408BECB4E712194922FA8728431519AD742567B190E96",
+      "adnlAddressHex": "3E4EDBAC953F633E1627F1710E988B756C1BADE4AAFE55034E5BE87E8053E32A",
+      "weight": "1990972992451983",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 299,
+      "publicKeyHex": "2FE1F2E956D053B50429652C6CDF5605A859E3E5C51FEBEA9D377A5DCC5F249E",
+      "adnlAddressHex": "58D94CA575E82ACFFF9C2A38E6D0C411B24F969465DBB0C3C5F2045468A2D890",
+      "weight": "1983486494312569",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 300,
+      "publicKeyHex": "C41615EDC8B1BDD9D9B5882C8B9C081EEEDF1BDD9A0F342998E2355EA201218C",
+      "adnlAddressHex": "F704BEF2BA1DF3B6B1057EC8DA3CD72B10278D2D192CBB8D1EB6152026A65AB9",
+      "weight": "1982851221754104",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 301,
+      "publicKeyHex": "760DE315827B84210F8DFC365345F6DE3FC6943F6B916C18BEEB08FD0B633E2B",
+      "adnlAddressHex": "4E1A6A2F89DB541A70A3CBB4E63EE90AB3A45F738C612B2FF01A446DE111AFBF",
+      "weight": "1982426806569273",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 302,
+      "publicKeyHex": "41BD22EB4E9C3D335921937DC0FB2EBCA8D10870C90D46BF884A43E94DF880B1",
+      "adnlAddressHex": "A3DAC46DDD4C32A71801AED5871FAE887D28A051877654F5B548647A8D0E912A",
+      "weight": "1982424726217257",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 303,
+      "publicKeyHex": "390A45690DA7C115EEB86CDF8D8F637D28E37F88F106D5EF64AD9E6989E87966",
+      "adnlAddressHex": "AB929864BBDEB847C089EECCF2AB55C75928F9C9CB2C4E92B74EFCA2911D7FBD",
+      "weight": "1982424716923923",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 304,
+      "publicKeyHex": "53914F8A2D9AD4500333EEC3593097B78D315DF77CD5F18CAB69C794A1AFFD63",
+      "adnlAddressHex": "211E535A41AA45C25F53D8EADB858687DBDDAFF4E88E46E5BE929462BE8B2BBE",
+      "weight": "1982424162331349",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 305,
+      "publicKeyHex": "7018630A1BFA2CB604B6896428C039584ACCDF38E60FD02B281190223FE6DFDA",
+      "adnlAddressHex": "C32B05CECCE955374C3034BD3A9569AEA231AD6412D2A46C01C28ADAF89DD429",
+      "weight": "1982423902329947",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 306,
+      "publicKeyHex": "B1ACA3896C772163604EE612E9529A95CFCD8C9EAF3E1F76F9F17A19193A41D1",
+      "adnlAddressHex": "3FE8F81684067E74DDC72375CBF1CCFC394FD38CA82291F24537A5FE1DAA7904",
+      "weight": "1982099708225250",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 307,
+      "publicKeyHex": "B583C508B4483AB550E7CF834F183D600F56D8CC3FB10BD390983996E0C0CB05",
+      "adnlAddressHex": "E9201D7B35D07543FB8550C6370F05AF68DA011AEAF3D342BA418678428EC9EF",
+      "weight": "1979603230577096",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 308,
+      "publicKeyHex": "1E703296E851837A3AAD43944D0C91A992A4F238385DE6ECF678A4FABF98B59C",
+      "adnlAddressHex": "684FC47FCC6029ECF745BA0CF0E904727345F22167030A20263203EA02D1ED9E",
+      "weight": "1975616207450555",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 309,
+      "publicKeyHex": "739ADF43A16F9510270C060EBE18319387AF50C9EBF370A4A3F3A8AB7D07F2FC",
+      "adnlAddressHex": "2F29C7A15B1FF325DD8474E4BBC100974F3329296EE102BB047955AABB183C7F",
+      "weight": "1968805403110890",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 310,
+      "publicKeyHex": "C247DE0BBD317D5EA59B98E46844DF90BDD0BA146948DB7A6AF1E79F5C6C0834",
+      "adnlAddressHex": "72945906D18D8D4AB5FCD64355F1ECAF52731DC1023144E294C3315CF520FA97",
+      "weight": "1966802041367736",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 311,
+      "publicKeyHex": "511AFD2AA5F993A1EB053D22F3EF3713119F91ED18F5499E7F1779F4604D969E",
+      "adnlAddressHex": "7D3E2455226933CC78F1E36115CB47B4334DA6A85912A6A8B99A7EEC2FE3A20B",
+      "weight": "1965445470754314",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 312,
+      "publicKeyHex": "086FC0DBAEA2637E71770F8BBA4D32E3547440D1746F0DB54EB861D8290A17B9",
+      "adnlAddressHex": "5C0E94C15EE1D128559785F2BC1F9C51B22BC792F93431D00F73D01AD41501A5",
+      "weight": "1963984163905948",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 313,
+      "publicKeyHex": "CA52B45CB239F25C7F0B77DBB5105A9F589C522FEA2C228E629CDEF903115A45",
+      "adnlAddressHex": "5C5BA3AD56A2D1AF7D4FC292595C41BCCABF11065C03D7EB3A0BB7ACB7F3450F",
+      "weight": "1963984163905948",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 314,
+      "publicKeyHex": "36806BBCD82DBA9EDA5365645FB9791FDD82B27D48C5BF41FD1576205433C040",
+      "adnlAddressHex": "D80EF400C4FFFCFBD0D726ACFDDB34CF27A64740DA87AC76E35CD62CBCD08FB9",
+      "weight": "1963984163905948",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 315,
+      "publicKeyHex": "CE078F6E8ACB348A515EDDEAAD0B75BF61F2B8CDADD3C86645C8B608A11B790F",
+      "adnlAddressHex": "CD1D192C02929755A185C48AA8F0BD158BA4F9A878E9CE669360A124D4B4BF17",
+      "weight": "1963984163905948",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 316,
+      "publicKeyHex": "CE512D346EAB40B2B0F9CE0636A19EE77FE43EB5FB49FBD3C0E7B561B98307B5",
+      "adnlAddressHex": "7F40CBB27620842B8450C2055F718042A069F9DE606C3586B2D7C153C45B5126",
+      "weight": "1963982364266972",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 317,
+      "publicKeyHex": "F784AD898AA39C6C95B1C5F73E435A22A93EF0B36810F0317F684C9E800FC218",
+      "adnlAddressHex": "39A31A43DFCFA793657F94983242273AFD7D0FB9A799B45CA196A738E8FC5067",
+      "weight": "1963982364266972",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 318,
+      "publicKeyHex": "065AA1F45FBD96B5F41AABD3AF816235E41F82AE4536DA1A7AFEED762F85344B",
+      "adnlAddressHex": "5FFD77A1A38B536CA183C36B4CCA573D2E0E2E35BC7598616401C1ECC296B5BE",
+      "weight": "1963982364266972",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 319,
+      "publicKeyHex": "C915E1B22EC66BB904063FDDDB4128623617C7A842CD38C2107C079B1BE9195A",
+      "adnlAddressHex": "6E6C3C414759DBC1DCE719A9839D8398DDD38C7621357222A00D4EC7CF88CD59",
+      "weight": "1963982364266972",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 320,
+      "publicKeyHex": "0F300E0A1E107A85F2AC39350D2F986E7F14CDBA151FF5C8093789812B9AE449",
+      "adnlAddressHex": "FA0D23D22F66E33BED9BF9CDF91013ADE6084EBB653B69CDFFB870C92818CB11",
+      "weight": "1962009602775125",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 321,
+      "publicKeyHex": "A3D4EE5B4E3C3D8881A0F57483DAD0E38DF19F3488832C91F82797B3FB7F1CB7",
+      "adnlAddressHex": "E9F5BD6DF163A7D37F0CB856AE5AB304D4605F25269F4C26B32CCECD802D3E3D",
+      "weight": "1956463472625993",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 322,
+      "publicKeyHex": "96A9CD0A850A073D7BDED3AFEE06F8208A296EC971043D98EEEE47E98E150F79",
+      "adnlAddressHex": "D0955CE9EC40B29DC7F6CDA65410F4766B8A03DF9ABD8FC2A992A010A74C3725",
+      "weight": "1956461672987018",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 323,
+      "publicKeyHex": "B87E37853C88EC47CC001FE4DF52CA5C3CE4626551E527F352600DB4BEC1FEF1",
+      "adnlAddressHex": "3DB9781853B578900575007C14AE5589165A16D2035CC1746A166F66220EFCDB",
+      "weight": "1956461672987018",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 324,
+      "publicKeyHex": "D1A9C7640A531980F0C24B942E3B82EB2833CB40F2435A0BC0CC33C6698DC38E",
+      "adnlAddressHex": "2EC00423FE06106018F38265652DFECEA00A1EB7A341C1EB8F5D96D3D35708E9",
+      "weight": "1956461672987018",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 325,
+      "publicKeyHex": "589C848C9A642E38BC4C5E4A1470E0072FC50819AC1B7F40F12818756E498851",
+      "adnlAddressHex": "336BC7516C12384B7B958E612558C1266E6D67BAE321D3DFC0A04B9BC3DC3090",
+      "weight": "1956461672987018",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 326,
+      "publicKeyHex": "37A08A9FB74D1BAA08EF30823F9010B5148C830DEC53E4CB2745B780F60A008E",
+      "adnlAddressHex": "8D4E140E6DE8A2D20C49F93B67417C3F4704D5209DD0363B5C6E581CA2B2555E",
+      "weight": "1956461672987018",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 327,
+      "publicKeyHex": "AE0448630DE5FF4C8522A3D976FA3174A7A99358FA90117916E2441855289D6C",
+      "adnlAddressHex": "4C598BE81765EDDC0B0AD398955573E06E3379369F47031404104F187F75416C",
+      "weight": "1956461672987018",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 328,
+      "publicKeyHex": "2BAC3F9EE019E711EEAED61A78A7D41DF6387963B14BE7172FC1A2EF4F687FA1",
+      "adnlAddressHex": "BD0F60CAD3DAD622C75C3190808565DBD9B283E639D82CEA16250815D85E905F",
+      "weight": "1931398100970763",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 329,
+      "publicKeyHex": "0FAABCD5306AD0185170D2DE183ED159BA9B39DB85C2DF6B3E15DF698F19A803",
+      "adnlAddressHex": "C40B04D6B39E00D8CD096FDD799D124800A5D5F9AB300B0EBB276B47DE4B38AC",
+      "weight": "1929213345642835",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 330,
+      "publicKeyHex": "40722614360D9A627BB4E4C5BE7A0FC6B061762E672A038B769AF1019415BC71",
+      "adnlAddressHex": "EAAA0FC02F4147EED54D945EED6A4594DEF300F89EA1E9FB02BC650FE88E7CD0",
+      "weight": "1924978254739434",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 331,
+      "publicKeyHex": "FCC52BF2988B64414572BAD164EEB91DFB99A35E50958E2424C3AEABE996B728",
+      "adnlAddressHex": "F134A27E55CEB562183B36509B4B29909A48D71667F5CC1B4D289044075302FC",
+      "weight": "1924851014376727",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 332,
+      "publicKeyHex": "B0A69CB45BA04E3AAC9A708EF62CF445CDDD0610C6899E316D40091C420D2860",
+      "adnlAddressHex": "BA6D69B54BC990A2AAE43B7C2D0FDAFC99BAEA936E6433D32110D5AE1FB2C2A0",
+      "weight": "1916831594007742",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 333,
+      "publicKeyHex": "6B00B2E04D9B2DFA7785DBF5522CECDAFB3857208D8D8F5CBEDDB8A05CAA7A15",
+      "adnlAddressHex": "8868A6B13CD5F306D372BFA362BD13A43E071EB01EAD5D4DC539933427D13448",
+      "weight": "1910282936867459",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 334,
+      "publicKeyHex": "362B51204429302FEBAE6FC3A5C9ABD43E9721CAE8CF04E9C35FB72D2CB46B70",
+      "adnlAddressHex": "1B2C90312AD798F7969F8E0B1BF50340EE28EB68B388B9E5994281078656C0E0",
+      "weight": "1905922411629045",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 335,
+      "publicKeyHex": "8944B8C9155A285316F78C3614CA6F0A8AD59B873AC984E58C3235369BA6EA8C",
+      "adnlAddressHex": "9C1A22961A8DE6E67B3CEA3188CFF786A009A5BFE4FEF9401219AA1F07ACE421",
+      "weight": "1903914014532029",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 336,
+      "publicKeyHex": "F91633F803B3536C04F8FBFDF4C55FAC29C6C9A5566256A719809D382A9BAF97",
+      "adnlAddressHex": "88AA790178CC8273F8B6EB65B4A7F1BF5D995BE929BCD917E5FC178C98B7C0B4",
+      "weight": "1898756816400744",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 337,
+      "publicKeyHex": "C71824F5A8C4B89785E2ADA8F9BDEBB55BF54024FABBE914912B29EEFE2B2D89",
+      "adnlAddressHex": "12B2DFEB3132142B3E32D4493EF5576D8D6A80CE5E75FF9CD481E9EA5F09F281",
+      "weight": "1898619476665165",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 338,
+      "publicKeyHex": "0B83C9784FB63E35EBE7CD8BB93F611667929A805BB533FE51D314289D115000",
+      "adnlAddressHex": "2CACBD88362B754E85D6853594739C225EE417E944F1B1D1FF5881DF02B04CAB",
+      "weight": "1897779274369531",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 339,
+      "publicKeyHex": "F4C1AA2BB36FD2C1D2E1B6BD2C91A07DC772DF4BBC0227B45C4EB5D41C883DDD",
+      "adnlAddressHex": "0B5E1C48D151754BE6ED014C5959DEC58771F2969282A4513401E2CF854706D3",
+      "weight": "1881522906394869",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 340,
+      "publicKeyHex": "ECD1EC7E1E494AC79DFBB053F834D24C86A6461DEC49EB6D72FF614EAA1D22C6",
+      "adnlAddressHex": "BD2CD9676A4CCEAD6864ABFA47627FA68CD2817FE11287623922ED01745B604B",
+      "weight": "1868882810022302",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 341,
+      "publicKeyHex": "BE24912E63C6D41950B6F9C77E0E020D68B7D7A38C82B1EB11F7A1F626DDAB95",
+      "adnlAddressHex": "2C098210B3B9D9A483C82E40FCF0BB07B32E361AFDE69D9C46673BF7C6931AD9",
+      "weight": "1865186112501415",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 342,
+      "publicKeyHex": "2D18A307667B3643498D3019EDA52F45AB23EDB9060CCADA0E10831A3F3D8C90",
+      "adnlAddressHex": "37397A1ADBA991F9CD9E1F63E7DC2A98AF1DC00DA42D4F61A8F5B5AE0553B388",
+      "weight": "1864174393056676",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 343,
+      "publicKeyHex": "6EEA176E7A4627611F617C3518835F4B64945943F4FED3E229CE94C4FC035D87",
+      "adnlAddressHex": "6CE47FB8660404573DDE8E704A173FB0D85AABC8340E93EB2ADEB747799A17E2",
+      "weight": "1862626697148751",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 344,
+      "publicKeyHex": "4FE5D247ECF6CE12064BF223757305457C9818AEFD6AE03F339EA8FFF97C9B51",
+      "adnlAddressHex": "812E0884EF4531BB4FA07C1FCF35BAC1AF662F9CD6D5EF76B43461AB0AFD5456",
+      "weight": "1860326758537653",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 345,
+      "publicKeyHex": "D4667C731769467BDE09DC39E3600916C29A8643D09647A866977823F88DEF0A",
+      "adnlAddressHex": "535F601C2EB95A5217D4CC95BE07767BDEEFF6357438C03B9D3B85B223FB75F1",
+      "weight": "1847599718089367",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 346,
+      "publicKeyHex": "46C1D4072134915131F7F3FA539A16A588CFC7083E954D4D4A078AFAC3C48F76",
+      "adnlAddressHex": "988FF614C1B80E83E2DD15150EAFD6A63C63EBD24ADAAC476841F742E4218785",
+      "weight": "1843992020914020",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 347,
+      "publicKeyHex": "D513C945E4A5B0228DAC622C65B7F46ACC5EDCC21B9E58AB6A81AE624FF8F459",
+      "adnlAddressHex": "7896B5FB3BFD1A288EF56689B6F04509AD7440722ABF93419D58188597BCC44D",
+      "weight": "1839778480711732",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 348,
+      "publicKeyHex": "093F5177FA8A53A699751430E889CD7FF4523AD44EE105AC6940E96CD1628C57",
+      "adnlAddressHex": "3261A8B79F9A86C7EC29F92EE52D1EB92873B0A8FDBD1CCC5C1E5D4965ADF7A9",
+      "weight": "1817618896281323",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 349,
+      "publicKeyHex": "72EBDD31F7C1FEA3AE3AD04A7C17FE3B027398B8F0AD1A4E0421D297882591B6",
+      "adnlAddressHex": "DE68FB423A8A4CC6AFFAB534F41699068275A87D0FCD3B0DCB7DB64355D12561",
+      "weight": "1816111036343289",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 350,
+      "publicKeyHex": "051545E432D1E21A5B55C66FEE48B25698212552341DF9C5EAE23C3999FD0C82",
+      "adnlAddressHex": "02F878AF6D1CC60117FF86EDB9E7DAF6F42ED504FE8DFF088AFEF37FB8BA15E8",
+      "weight": "1812047486558964",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 351,
+      "publicKeyHex": "DB4C03A1136E8090F716217213060BD3ADE7FFB74D66A89B5FB2EA6CD8FD22E2",
+      "adnlAddressHex": "41A924B2D66FBD326AD4B7BC97850110AEFA7C9B98F9C6B9E1EA69FEFE86AA21",
+      "weight": "1799812565343116",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 352,
+      "publicKeyHex": "47AC0929A65FB4375FE05989ECC73639E67C23370ACB807CE8071CFBCF62F184",
+      "adnlAddressHex": "0D4DB6B86BC7F02544C5DABFDF1E758E3BA66BA5D7F6592FE50B6DF43EE46DDE",
+      "weight": "1795667172601044",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 353,
+      "publicKeyHex": "D54646BAD32424463015950BE291293BF485BA14A2C72981693524901BB51D4D",
+      "adnlAddressHex": "122485157696C94EFC280DCFA5036AC7D8B0CF6C6DB0E38B09427A42C635B62D",
+      "weight": "1793277252041154",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 354,
+      "publicKeyHex": "F186D27082C70BC46BDAEA142C0339D0F0EFF6CCD2D9FE265A72E469D516D867",
+      "adnlAddressHex": "329C2FF176ACA5248210C8367391C2723D860C3B59F2582901830741A5B6D138",
+      "weight": "1792825899832571",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 355,
+      "publicKeyHex": "51968A265024ECC139CB0B9F4ABE3D0DBFCDB1C67CB5B28059986B88E208D08B",
+      "adnlAddressHex": "4E70A8B0FBDDC1DA457B55909D3C5F251BD7FA415C4C419E8E3CD9FE844F473B",
+      "weight": "1792825899832571",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 356,
+      "publicKeyHex": "0B99E0F1E5E1E46F8C4BC25B2A1A4EABAC37A27A3F033E182895F7447D7F53C3",
+      "adnlAddressHex": "490A4EDE3D654488654705BD8951A98B969451C2A700A2A5DBDAE5F5AA66B90A",
+      "weight": "1792825899832571",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 357,
+      "publicKeyHex": "10443DA10855F0D193AD2F23035693851EE011CEDA5C565971B3EA9B07A08BFF",
+      "adnlAddressHex": "DA0866AF50B68A973FF92A3CAABBF8BBB9489DB0AD61E2530FB77DBDC8D8F9C3",
+      "weight": "1792235618248501",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 358,
+      "publicKeyHex": "839AF6C40AB546C17B706421E9B201607C6A52F4CAA903C45F87B2E34812A804",
+      "adnlAddressHex": "6AB88C3003C40AB5B2DA66B82685194480742BF0E167B30CE243AAE7BE070AF7",
+      "weight": "1783118865719247",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 359,
+      "publicKeyHex": "FCB4F85A5D159720F888947EC79FEEAA6CBF7D4B21CD74A60C2C8EC31FED94B1",
+      "adnlAddressHex": "0A1E0D20627467280EE37A2315A0BE4E07326B1A2B2DEBF652F3B24781ACF8D0",
+      "weight": "1775947092267067",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 360,
+      "publicKeyHex": "D35709C3F652222DC1B5CA5BFD304542A99D9D410F7104C0C7024BA0653C9547",
+      "adnlAddressHex": "60B1ED9910414B8A21EEB2C2B63D8AA22AAE0BF63F43E72565208D364DBB120C",
+      "weight": "1774730391868485",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 361,
+      "publicKeyHex": "3F159C9B3F1BB007F3E7F74A738CCB27223C17FDD136B85B369765BD37A0BD22",
+      "adnlAddressHex": "74B134353AB0A79C94BC4633F3045C50638B0C909B02BE032F79B585A1D7B90F",
+      "weight": "1772231881738407",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 362,
+      "publicKeyHex": "4564D71828B7AAAAB83EBFE5027AFCEE1195A477FAE0B4DC152D0344782382E1",
+      "adnlAddressHex": "B98AB2F42D76B73A868DF51FD5001E05AF603BDF83C0FF95063C5594B0CAA5A5",
+      "weight": "1756545781926536",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 363,
+      "publicKeyHex": "4208EC500DBABBC1CB11CFEE70073F6AE82DFB5B627980D74DA986BEA30FCE2E",
+      "adnlAddressHex": "F8BF7F87F4ECA4BB70D27B62A63DA5BF92DC4FBEEF899439CB3D9A7C4BCAC258",
+      "weight": "1756545781926372",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 364,
+      "publicKeyHex": "31014482151A4E458C6C57EE461EF240E3E6F4AE2A9F4496902BDA1FC6B56AEB",
+      "adnlAddressHex": "15AAA39DF9BFF77C51F82E7E6A7710C0046A24926A66FC5378A4B4A3677E2DF9",
+      "weight": "1756545781926372",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 365,
+      "publicKeyHex": "532BCE5E71987268019FA978871A273318869AB991116CBE6B786824D7C4A073",
+      "adnlAddressHex": "6F49429637CF68B1D089540452C219762AB4227FB69DB5CA135BA41782DDB9C9",
+      "weight": "1756545781926207",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 366,
+      "publicKeyHex": "B7C4B453675DA447B5851793DCF32900D80DF0AAB26F0783C12575B9741FD475",
+      "adnlAddressHex": "7E6E7C2CE9F295569A89B6D01740EA8609C12A330EA0E36E27C2CF96D47FA091",
+      "weight": "1756545781924416",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 367,
+      "publicKeyHex": "36B69519486745F8DCF9D9041FD85EE16AAE5CB5FED6D3A95CF6E7649C578D9C",
+      "adnlAddressHex": "D1DAC99D5FE0880E223F77BDA1F4EA4A0BEAA315D3AA686E5DE234FC0BC1FEC2",
+      "weight": "1756545780800583",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 368,
+      "publicKeyHex": "3E6F497161C2ECB57F646E17F9F7E233AA8AEA09751D5D11FD96E2B0016715CF",
+      "adnlAddressHex": "92A76C86BBF27BF26C030F403B326EB230C8E370CDF0211D17DDBB439DCFFC00",
+      "weight": "1744595419881355",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 369,
+      "publicKeyHex": "DF5BEF78B5262E805CFEDC42BBF19D927193AB80D0B91AE676DD3C1F218432EE",
+      "adnlAddressHex": "21CB2E7F20F93E3DA0FC87558350ECE9838D19763B132BE312387F80C917D3F1",
+      "weight": "1744116871313008",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 370,
+      "publicKeyHex": "EE2F4F30EC879FADEAE1FC658CCC0789E64C2B8293347945CB2B5BCB2C021E1E",
+      "adnlAddressHex": "E0FD301E79F4D3D5B9FA25BDC9C0ACF1EED4713C497EA7837AB49161829C26D7",
+      "weight": "1701839752493029",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 371,
+      "publicKeyHex": "0B42F56A5074D450B4BEC44284DF84C9DB8D623ADA9358917C02B50479AB8E75",
+      "adnlAddressHex": "BFCEFD3CCE30AAA2E44109D8162CDE7956437D87817F0B080F5D1D55D7196DDF",
+      "weight": "1682686194873369",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 372,
+      "publicKeyHex": "19F6915CF2C99A4B3417EB4BCFE3ED601CE3819E175CA144D6DFE837CFDB1312",
+      "adnlAddressHex": "0CD9F4F6158BA5FDCC75AD3BE633690A4DE01CF512E75F52EBA56B5773691CAF",
+      "weight": "1671699398925984",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 373,
+      "publicKeyHex": "2B7CA031CD0A8B174271287C0927A9A5B3E47B7D3558C33182CD146C2C7E3073",
+      "adnlAddressHex": "6F07C2341DEA94BF16A5A4D86ED5AA4DCEB61370B8DFCA9B04C70F6BC655B7DB",
+      "weight": "1628673636680781",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 374,
+      "publicKeyHex": "3C5004BB99360AE20E1FCD28514915B6591FACEE04F8901421EF2CF18506858B",
+      "adnlAddressHex": "6DF20651F61604A8763882856EDC3484DF6B6513E992CDE84A71BC1D1C75A72B",
+      "weight": "1615280526917592",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 375,
+      "publicKeyHex": "50AC16D85F37E5168C719AA1B9B84A900DB36115434D3B282A290E58678B21F5",
+      "adnlAddressHex": "B3BACBAAA4E27738696027B8BBE5D0610546E3E811A5D72E3BB36D7085C973BE",
+      "weight": "1608337716254008",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 376,
+      "publicKeyHex": "1BF18CC19C43B3288E2272A5765A72D33F0CCAA7BB2888BF2984D2A5C7F25C72",
+      "adnlAddressHex": "FB13799DE4332155F1E3B9191CC0B06016E94C7244BA982AB066DB3371D9535C",
+      "weight": "1603440898600800",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 377,
+      "publicKeyHex": "D70136BF1709CA73EB0982809012F5EE2D3B0ADAD74EB070FC9E6472D6CA8A42",
+      "adnlAddressHex": "426A31E65582701F3A7C45CF793D5C51ED98376D32D77590D34350D213752E3C",
+      "weight": "1594069814890635",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 378,
+      "publicKeyHex": "184BBEEFC7CB1388EB273C04C242AE11258AD08988A342A61C977C311DBE6D96",
+      "adnlAddressHex": "84939EA90C5B3C2A98418D186BFFE219C2B8875D84C4155B304E4B349F57711D",
+      "weight": "1592634060162278",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 379,
+      "publicKeyHex": "B7A718B34E6ABE3D08BEBAF01ADC1107F2AA0000A3CCCFE817141F0E886718E1",
+      "adnlAddressHex": "3584648413D8EAACE59849FB2A6E44AE4BB026034AAD2E7731F16D3A6D7EBA43",
+      "weight": "1502256190796563",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 380,
+      "publicKeyHex": "E3A604D7AA7078A1B0DE0C38FA9E76D4C97D74DA579874AE3C651F40BB726C94",
+      "adnlAddressHex": "78808ABD4BB4E4FFE8540CE517F22BB4714EAAF62F22120EDB7A35AE44CC8E02",
+      "weight": "1443827312168593",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 381,
+      "publicKeyHex": "211F7A120C119875A913C07254CC7E001646A814F22B4D123EDEB4D49C2DB71C",
+      "adnlAddressHex": "2F61C82F79B9843E6BEA6768EB1749A496B77283B60CCF663F66575AE9D00313",
+      "weight": "1340977944700441",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    },
+    {
+      "index": 382,
+      "publicKeyHex": "5EB796D7AFAD4F46232CFA57CA339674E8749D24A21C3B246D453B7C3EE2AB8C",
+      "adnlAddressHex": "AEAAA7C47A9F3599A9C7CA11C55E5F88171A09C80D0C3783392686FE9B804BFA",
+      "weight": "1329031584004596",
+      "offChainEvidence": null,
+      "offChainStatus": "NO_EVIDENCE_NOT_COUNTED",
+      "onChainVoteStatus": "NOT_APPLICABLE_PROPOSAL_NOT_ACTIVE",
+      "countedSupportWeight": "0"
+    }
+  ],
+  "summary": {
+    "attributableEvidenceEntries": 0,
+    "verifiedOffChainSupportWeight": "0",
+    "actualOnChainVoteWeight": "0",
+    "thresholdReached": false,
+    "winningRoundsCovered": 0,
+    "readiness": "NO_GO"
+  }
+}

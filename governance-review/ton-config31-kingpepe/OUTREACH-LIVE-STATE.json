@@ -1,0 +1,77 @@
+{
+  "format": "kingpepe-ton-validator-outreach-live-state/v1",
+  "capturedAt": "2026-08-31T07:03:41.000Z",
+  "decodedAt": "2026-08-31T07:03:50.986Z",
+  "source": "PINNED_OFFICIAL_TON_LITE_CLIENT_RAW_CONFIG_ACCOUNT_DATA_BOC",
+  "officialConfigContract": "-1:5555555555555555555555555555555555555555555555555555555555555555",
+  "masterchainBlock": {
+    "workchain": -1,
+    "shard": "8000000000000000",
+    "seqno": 89651134,
+    "rootHash": "615ACD422179B8DAF77E40C63DF34ED9E949F58123696234CA4562DAFD195B13",
+    "fileHash": "C5CB81FEBDC61218AD6169CD1503D8FBBD314DB77A20230B51FDDEE62C2F4682"
+  },
+  "rawAccountData": {
+    "bytes": 82839,
+    "sha256": "9C258D07913F07538836AB9C4B60A1CA29307AA50D710F96A188F67DDA5406CC",
+    "cellHash": "3BCBABD9FACE10E8070BBC25A80793DA7D615840CEE5D840D7CD1295557D2F26"
+  },
+  "configContractSeqno": 42,
+  "proposalCount": 0,
+  "trackedProposal": null,
+  "historicalOccurrence": {
+    "proposalCellId": "E8131C85497C998C8FCFDEE823637C32EBB606DF73BE7CC9653F1BC11B7229E9",
+    "preservedTerminalState": "REJECTED",
+    "reclassified": false
+  },
+  "config11": {
+    "hash": "F88D65DDDE51ACD9C3EF1926EC5EFA1AAFCA63F30B6CEC48DBA7507A89111809",
+    "minTotalRounds": 2,
+    "maxTotalRounds": 6,
+    "minWins": 2,
+    "maxLosses": 5,
+    "minStoreSeconds": 1000000,
+    "maxStoreSeconds": 10000000,
+    "bitPriceNanoPerSecond": "1",
+    "cellPriceNanoPerSecond": "500"
+  },
+  "config31": {
+    "hash": "4E65911BAF281EC692281255642BE840A938D6DB2162DF266ADF7806337D3FBE",
+    "candidate": "-1:a6e0023cfde6efd21c8de273b9a5fd67b07fd2c513f312504b44d6ff7c906108",
+    "candidatePresent": false,
+    "entryCount": 9
+  },
+  "config34": {
+    "hash": "F1C18570823EF34633918E0D823EC0EF51D24F0ABCC48CA519C92DA8BAFC2FAA",
+    "utimeSince": 1788104456,
+    "utimeUntil": 1788169992,
+    "totalValidators": 383,
+    "mainValidators": 100,
+    "totalWeight": "1152921504606846801",
+    "thresholdFloor": "864691128455135100",
+    "requiredYesWeight": "864691128455135101",
+    "threshold": "STRICTLY_GREATER_THAN_75_PERCENT"
+  },
+  "config36": {
+    "present": false,
+    "futureRoundEvidence": "UNAVAILABLE_NOT_COUNTED"
+  },
+  "support": {
+    "attributableVerifiedEntries": 0,
+    "verifiedOffChainSupportWeight": "0",
+    "actualOnChainVoteWeight": "0",
+    "requiredRemainingWeight": "864691128455135101",
+    "winningRoundsCovered": 0,
+    "requiredWinningRounds": 2
+  },
+  "safetyState": {
+    "governanceState": "REJECTED",
+    "hardStop": true,
+    "specialGovernanceStatusVerified": false,
+    "submissionReadiness": "NO_GO",
+    "realWalletAccesses": 0,
+    "signatures": 0,
+    "broadcasts": 0,
+    "newProposalOccurrences": 0
+  }
+}

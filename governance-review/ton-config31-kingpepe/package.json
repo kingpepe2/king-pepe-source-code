@@ -1,0 +1,16 @@
+{
+  "name": "kingpepe-ton-config31-validator-review",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public-safe offline verifier for the KingPepe TON Config 31 validator review package",
+  "type": "module",
+  "scripts": {
+    "verify": "node PUBLIC-VERIFY.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@ton/core": "0.63.1"
+  }
+}
