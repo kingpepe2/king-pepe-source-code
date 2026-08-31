@@ -64,7 +64,7 @@ const before = oneRoot("config31-before.boc");
 const after = oneRoot("config31-after.boc");
 const proposalCell = oneRoot("proposal-cell.boc");
 const config11File = oneRoot("config11.boc");
-const config34File = oneRoot("current-validator-set-config34.boc");
+const config34File = oneRoot("outreach-current-validator-set-config34.boc");
 const accountDataBytes = readFileSync(resolve(directory, "config-account-data.boc"));
 const accountData = Cell.fromBoc(accountDataBytes);
 assert.equal(accountData.length, 1, "config-account-data.boc must contain exactly one BOC root");

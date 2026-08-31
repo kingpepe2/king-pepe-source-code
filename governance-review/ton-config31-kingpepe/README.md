@@ -33,7 +33,7 @@ npm install --ignore-scripts
 npm run verify
 ```
 
-The verifier independently decodes the proposal cell, Config 31 before/after cells, Config 11, Config 34, and the finalized raw Config contract account-data BOC. It rejects a changed candidate, removal, extra Config 31 entry, parameter other than 31, missing current-hash guard, mismatched proposal ID, active same-ID occurrence, mismatched validator identity/weight, counted unverifiable support, present Config 36 claim, or altered safety state.
+The verifier independently decodes the proposal cell, Config 31 before/after cells, Config 11, `outreach-current-validator-set-config34.boc`, and the finalized raw Config contract account-data BOC. The compatibility file `current-validator-set-config34.boc` contains the same current Config 34 cell. It rejects a changed candidate, removal, extra Config 31 entry, parameter other than 31, missing current-hash guard, mismatched proposal ID, active same-ID occurrence, mismatched validator identity/weight, counted unverifiable support, present Config 36 claim, or altered safety state.
 
 Verify file bytes independently:
 
@@ -68,12 +68,12 @@ Pinned official source:
 
 ## Current weighted threshold
 
-The raw finalized snapshot at Masterchain block `89651134` has:
+The raw finalized snapshot at Masterchain block `89690133` has:
 
-- Config 34 hash: `F1C18570823EF34633918E0D823EC0EF51D24F0ABCC48CA519C92DA8BAFC2FAA`
-- Set valid until: `2026-08-31T09:53:12.000Z`
-- Total validator weight: `1152921504606846801`
-- Strict required yes weight: `864691128455135101`
+- Config 34 hash: `651B36DB5847DC71123B8901EE04447D10DFA5CDE844B84655FA80FC6A712297`
+- Set valid until: `2026-09-01T04:05:28.000Z`
+- Total validator weight: `1152921504606846796`
+- Strict required yes weight: `864691128455135098`
 - Required winning rounds: `2`
 - Config 36: absent; future-round evidence is unavailable and not counted
 - Verified attributable off-chain support weight: `0`

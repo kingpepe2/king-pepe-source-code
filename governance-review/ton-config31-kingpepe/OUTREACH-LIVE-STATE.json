@@ -1,20 +1,20 @@
 {
   "format": "kingpepe-ton-validator-outreach-live-state/v1",
-  "capturedAt": "2026-08-31T07:03:41.000Z",
-  "decodedAt": "2026-08-31T07:03:50.986Z",
+  "capturedAt": "2026-08-31T11:28:03.000Z",
+  "decodedAt": "2026-08-31T11:33:00.668Z",
   "source": "PINNED_OFFICIAL_TON_LITE_CLIENT_RAW_CONFIG_ACCOUNT_DATA_BOC",
   "officialConfigContract": "-1:5555555555555555555555555555555555555555555555555555555555555555",
   "masterchainBlock": {
     "workchain": -1,
     "shard": "8000000000000000",
-    "seqno": 89651134,
-    "rootHash": "615ACD422179B8DAF77E40C63DF34ED9E949F58123696234CA4562DAFD195B13",
-    "fileHash": "C5CB81FEBDC61218AD6169CD1503D8FBBD314DB77A20230B51FDDEE62C2F4682"
+    "seqno": 89690133,
+    "rootHash": "1719E29C60B523CBE3D939D1D60F80493B0C6B0B7AEB62B8F12042C00DD4AC8C",
+    "fileHash": "1AD128A1AE6AC34862C988E0AEFD656A66ECB3FBE4B0623E6F6FC0ACA2E96DDA"
   },
   "rawAccountData": {
-    "bytes": 82839,
-    "sha256": "9C258D07913F07538836AB9C4B60A1CA29307AA50D710F96A188F67DDA5406CC",
-    "cellHash": "3BCBABD9FACE10E8070BBC25A80793DA7D615840CEE5D840D7CD1295557D2F26"
+    "bytes": 82752,
+    "sha256": "1E2E127E876D215B6C36D3E360E2AA86126832E339E2C39D52078BE8D7A1CD22",
+    "cellHash": "8DF424D76542DC2A0917A37C3C9861DADF12E228F46FB85B790EA5D27DE7C2F5"
   },
   "configContractSeqno": 42,
   "proposalCount": 0,
@@ -42,14 +42,14 @@
     "entryCount": 9
   },
   "config34": {
-    "hash": "F1C18570823EF34633918E0D823EC0EF51D24F0ABCC48CA519C92DA8BAFC2FAA",
-    "utimeSince": 1788104456,
-    "utimeUntil": 1788169992,
-    "totalValidators": 383,
+    "hash": "651B36DB5847DC71123B8901EE04447D10DFA5CDE844B84655FA80FC6A712297",
+    "utimeSince": 1788169992,
+    "utimeUntil": 1788235528,
+    "totalValidators": 393,
     "mainValidators": 100,
-    "totalWeight": "1152921504606846801",
-    "thresholdFloor": "864691128455135100",
-    "requiredYesWeight": "864691128455135101",
+    "totalWeight": "1152921504606846796",
+    "thresholdFloor": "864691128455135097",
+    "requiredYesWeight": "864691128455135098",
     "threshold": "STRICTLY_GREATER_THAN_75_PERCENT"
   },
   "config36": {
@@ -60,7 +60,7 @@
     "attributableVerifiedEntries": 0,
     "verifiedOffChainSupportWeight": "0",
     "actualOnChainVoteWeight": "0",
-    "requiredRemainingWeight": "864691128455135101",
+    "requiredRemainingWeight": "864691128455135098",
     "winningRoundsCovered": 0,
     "requiredWinningRounds": 2
   },

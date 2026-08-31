@@ -1,6 +1,6 @@
 # KingPepe TON Config 31 validator review package
 
-Generated: 2026-08-31T07:13:27.980Z
+Generated: 2026-08-31T11:34:14.009Z
 
 Status: **NO-GO / public technical review only / no transaction sent**. No query ID, expiration, final submission BOC, signature, vote, or broadcast was generated in this phase. Existing BOCs in this directory are review fixtures; the final registration envelope must be regenerated from live state only after genuine validator readiness and separate authorization.
 
@@ -41,9 +41,9 @@ Official source links:
 
 ## Fresh Config 11 and Config 34 requirements
 
-The raw finalized snapshot at Masterchain block 89651134 (2026-08-31T07:03:41.000Z) records Config 11 hash `F88D65DDDE51ACD9C3EF1926EC5EFA1AAFCA63F30B6CEC48DBA7507A89111809`. Normal proposals require 2..6 rounds, at least 2 wins, no more than 5 losses, and storage lifetime 1,000,000..10,000,000 seconds. Storage pricing is 1 nanoton per bit-second and 500 nanotons per cell-second.
+The raw finalized snapshot at Masterchain block 89690133 (2026-08-31T11:28:03.000Z) records Config 11 hash `F88D65DDDE51ACD9C3EF1926EC5EFA1AAFCA63F30B6CEC48DBA7507A89111809`. Normal proposals require 2..6 rounds, at least 2 wins, no more than 5 losses, and storage lifetime 1,000,000..10,000,000 seconds. Storage pricing is 1 nanoton per bit-second and 500 nanotons per cell-second.
 
-Freshly verified Config 34 hash: `F1C18570823EF34633918E0D823EC0EF51D24F0ABCC48CA519C92DA8BAFC2FAA`; valid until 2026-08-31T09:53:12.000Z; total weight `1152921504606846801`. Official contract code starts each round at `floor(3*total_weight/4)` and wins only on strict sign crossing. Required current yes weight is therefore `864691128455135101`, strictly greater than 75%. Validator count is not a substitute for validator weight.
+Freshly verified Config 34 hash: `651B36DB5847DC71123B8901EE04447D10DFA5CDE844B84655FA80FC6A712297`; valid until 2026-09-01T04:05:28.000Z; total weight `1152921504606846796`. Official contract code starts each round at `floor(3*total_weight/4)` and wins only on strict sign crossing. Required current yes weight is therefore `864691128455135098`, strictly greater than 75%. Validator count is not a substitute for validator weight.
 
 Config 11 requires two winning rounds. Config 36 was absent, so this package has no available next-set identity/weight evidence and counts no future-round support.
 

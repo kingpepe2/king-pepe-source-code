@@ -12,7 +12,7 @@
 >
 > Please reproduce the Config 31 cell diff and proposal-cell decode from the public-safe review package. The official persistent status layout is `rounds_remaining -> wins -> losses`. The deployed `get_proposal` getter returns the final two counters in swapped display order, so please use raw Config contract account-data BOCs for governance counters.
 >
-> At finalized Masterchain block 89651134, the current Config 34 set has total weight `1152921504606846801`; the strict >75% minimum is `864691128455135101` by validator weight, not validator count. Config 11 requires two winning rounds. Config 36 was absent, so future-round support is unavailable and not counted.
+> At finalized Masterchain block 89690133, the current Config 34 set has total weight `1152921504606846796`; the strict >75% minimum is `864691128455135098` by validator weight, not validator count. Config 11 requires two winning rounds. Config 36 was absent, so future-round support is unavailable and not counted.
 >
 > No new proposal occurrence is currently active on-chain, so no validator vote can yet be cast. We request independent verification and an attributable public indication of whether your validator expects to support the exact proposal if and when a fresh occurrence becomes active. An off-chain response is not an on-chain vote and does not guarantee acceptance.
 >
